@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/dnd_instant.html"
+    }
+  ]
+}
