@@ -291,6 +291,17 @@
         align-items: center;
       }
 
+      .hud-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .hud-actions .btn {
+        white-space: nowrap;
+      }
+
       .char-line {
         display: flex;
         flex-wrap: wrap;
@@ -717,6 +728,14 @@
           grid-template-columns: 1fr;
         }
 
+        .hud {
+          grid-template-columns: 1fr;
+        }
+
+        .hud-actions {
+          justify-content: flex-start;
+        }
+
         .composer {
           grid-template-columns: 1fr;
         }
@@ -1002,8 +1021,13 @@
             </div>
             <div id="abilityRow" class="ability-row"></div>
           </div>
-          <div>
+          <div class="hud-actions">
+            <button id="saveGameBtn" class="btn btn-ghost" type="button">שמור</button>
+            <button id="loadGameBtn" class="btn btn-ghost" type="button">טען</button>
+            <button id="exportGameBtn" class="btn btn-ghost" type="button">ייצוא</button>
+            <button id="importGameBtn" class="btn btn-ghost" type="button">ייבוא</button>
             <button id="drawerOpenBtn" class="btn btn-blue" type="button">ציוד ויכולות</button>
+            <input id="importGameFile" class="hidden" type="file" accept="application/json" />
           </div>
         </header>
 
@@ -1102,6 +1126,8 @@
       const CHEAP_MODE_MAX_OUTPUT_TOKENS = 320;
       const NORMAL_MODE_MAX_OUTPUT_TOKENS = 700;
       const ROLL_DICE_ALLOWED = new Set(["d20", "d12", "d10", "d8", "d6", "d4", "d100"]);
+      const SAVE_SCHEMA_VERSION = 1;
+      const SAVE_STORAGE_KEY = "dnd_instant_save_v1";
       const ABILITIES = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
       const ABILITY_LABELS_HE = {
         STR: "כוח",
@@ -1427,6 +1453,11 @@
         pbChip: document.getElementById("pbChip"),
         goldChip: document.getElementById("goldChip"),
         abilityRow: document.getElementById("abilityRow"),
+        saveGameBtn: document.getElementById("saveGameBtn"),
+        loadGameBtn: document.getElementById("loadGameBtn"),
+        exportGameBtn: document.getElementById("exportGameBtn"),
+        importGameBtn: document.getElementById("importGameBtn"),
+        importGameFile: document.getElementById("importGameFile"),
         drawer: document.getElementById("drawer"),
         drawerOverlay: document.getElementById("drawerOverlay"),
         drawerOpenBtn: document.getElementById("drawerOpenBtn"),
@@ -1471,6 +1502,7 @@
         lastImageDmIndex: -99,
         pendingRoll: null,
         pendingRollOutcome: null,
+        chatTranscript: [],
         busy: false,
         rolling: false,
         dice3d: {
@@ -1533,6 +1565,11 @@
         elements.drawerCloseBtn.addEventListener("click", closeDrawer);
         elements.drawerOverlay.addEventListener("click", closeDrawer);
         elements.rollNowBtn.addEventListener("click", onRollNow);
+        elements.saveGameBtn.addEventListener("click", onSaveGameClicked);
+        elements.loadGameBtn.addEventListener("click", onLoadGameClicked);
+        elements.exportGameBtn.addEventListener("click", onExportGameClicked);
+        elements.importGameBtn.addEventListener("click", onImportGameClicked);
+        elements.importGameFile.addEventListener("change", onImportGameFileChange);
 
         window.addEventListener("beforeunload", () => {
           state.apiKey = "";
@@ -1548,6 +1585,268 @@
         }
         if (name === "setup") elements.setupScreen.classList.remove("hidden");
         if (name === "game") elements.gameScreen.classList.remove("hidden");
+      }
+
+      function onSaveGameClicked() {
+        if (!state.campaign || !state.sheet) {
+          addMessage("system", "אין קמפיין פעיל לשמירה.");
+          return;
+        }
+        try {
+          localStorage.setItem(SAVE_STORAGE_KEY, JSON.stringify(buildSaveSnapshot()));
+          setStatus("נשמר מקומית");
+          addMessage("system", "הקמפיין נשמר באחסון המקומי של הדפדפן.");
+        } catch {
+          addMessage("system", "שמירה מקומית נכשלה. ייתכן שהאחסון מלא.");
+        }
+      }
+
+      async function onLoadGameClicked() {
+        const raw = localStorage.getItem(SAVE_STORAGE_KEY);
+        if (!raw) {
+          addMessage("system", "לא נמצאה שמירה מקומית.");
+          return;
+        }
+        try {
+          const parsed = JSON.parse(raw);
+          await restoreGameSnapshot(parsed, "אחסון מקומי");
+        } catch {
+          addMessage("system", "הטעינה נכשלה. השמירה המקומית פגומה.");
+        }
+      }
+
+      function onExportGameClicked() {
+        if (!state.campaign || !state.sheet) {
+          addMessage("system", "אין קמפיין פעיל לייצוא.");
+          return;
+        }
+        try {
+          const snapshot = buildSaveSnapshot();
+          const payload = JSON.stringify(snapshot, null, 2);
+          const blob = new Blob([payload], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const ts = new Date().toISOString().replace(/[:.]/g, "-");
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = `dnd-save-${ts}.json`;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          URL.revokeObjectURL(url);
+          addMessage("system", "קובץ שמירה יוצא בהצלחה.");
+        } catch {
+          addMessage("system", "ייצוא השמירה נכשל.");
+        }
+      }
+
+      function onImportGameClicked() {
+        elements.importGameFile.value = "";
+        elements.importGameFile.click();
+      }
+
+      async function onImportGameFileChange(event) {
+        const file = event?.target?.files?.[0];
+        if (!file) return;
+        try {
+          const text = await file.text();
+          const parsed = JSON.parse(text);
+          await restoreGameSnapshot(parsed, `קובץ: ${file.name}`);
+        } catch {
+          addMessage("system", "ייבוא קובץ השמירה נכשל. ודא שמדובר ב-JSON תקין.");
+        } finally {
+          elements.importGameFile.value = "";
+        }
+      }
+
+      function buildSaveSnapshot() {
+        return {
+          schema_version: SAVE_SCHEMA_VERSION,
+          saved_at: new Date().toISOString(),
+          game_session_id: state.gameSessionId,
+          campaign: cloneJson(state.campaign),
+          sheet: cloneJson(state.sheet),
+          model_history: normalizeModelHistory(state.modelHistory).slice(-220),
+          chat_transcript: normalizeChatTranscript(state.chatTranscript).slice(-320),
+          story_turn: clampInt(state.storyTurn, 0, 999, 0),
+          target_max_turns: clampInt(state.targetMaxTurns, 20, 200, 40),
+          active_model: MODEL_CANDIDATES.includes(state.activeModel) ? state.activeModel : MODEL_CANDIDATES[0],
+          active_image_model: IMAGE_MODEL_CANDIDATES.includes(state.activeImageModel)
+            ? state.activeImageModel
+            : IMAGE_MODEL_CANDIDATES[0],
+          ai: normalizeAiSettings(state.ai),
+          visual_identity: typeof state.visualIdentity === "string" ? state.visualIdentity : "",
+          pending_roll: state.pendingRoll ? cloneJson(state.pendingRoll) : null,
+          pending_roll_outcome: state.pendingRollOutcome ? cloneJson(state.pendingRollOutcome) : null,
+        };
+      }
+
+      async function restoreGameSnapshot(rawSnapshot, sourceLabel) {
+        const snapshot = normalizeSaveSnapshot(rawSnapshot);
+        if (!snapshot) {
+          throw new Error("invalid_snapshot");
+        }
+
+        state.campaign = snapshot.campaign;
+        state.sheet = snapshot.sheet;
+        state.modelHistory = snapshot.modelHistory;
+        state.storyTurn = snapshot.storyTurn;
+        state.targetMaxTurns = snapshot.targetMaxTurns;
+        state.activeModel = snapshot.activeModel;
+        state.activeImageModel = snapshot.activeImageModel;
+        state.ai = snapshot.ai;
+        state.gameSessionId = snapshot.gameSessionId;
+        state.visualIdentity = snapshot.visualIdentity || buildVisualIdentity(snapshot.campaign, snapshot.sheet);
+        state.imageQueue = Promise.resolve();
+        state.pendingRoll = snapshot.pendingRoll;
+        state.pendingRollOutcome = snapshot.pendingRollOutcome;
+        state.chatTranscript = snapshot.chatTranscript;
+
+        state.dmMessageCount = 0;
+        state.lastImageDmIndex = -99;
+        elements.chatLog.innerHTML = "";
+        showScreen("game");
+        renderSheet();
+        renderDrawer();
+        await replayChatTranscript(snapshot.chatTranscript);
+
+        if (state.pendingRoll) {
+          openRollModal();
+        } else {
+          closeRollModal();
+        }
+
+        setStatus("קמפיין נטען");
+        addMessage("system", `הקמפיין נטען בהצלחה (${sourceLabel}).`);
+        autoSaveGameSilently();
+      }
+
+      async function replayChatTranscript(transcript) {
+        const safeTranscript = normalizeChatTranscript(transcript);
+        for (const entry of safeTranscript) {
+          if (entry.type === "dm") {
+            await addDmMessage(entry.text, null, { skipTranscript: true, suppressImage: true });
+          } else {
+            addMessage(entry.type, entry.text, { skipTranscript: true });
+          }
+        }
+      }
+
+      function normalizeSaveSnapshot(rawSnapshot) {
+        if (!rawSnapshot || typeof rawSnapshot !== "object") return null;
+        const campaign =
+          rawSnapshot.campaign && typeof rawSnapshot.campaign === "object" ? cloneJson(rawSnapshot.campaign) : null;
+        const sheet = rawSnapshot.sheet && typeof rawSnapshot.sheet === "object" ? cloneJson(rawSnapshot.sheet) : null;
+        if (!campaign || !sheet) return null;
+
+        const ai = normalizeAiSettings(rawSnapshot.ai);
+        const activeModel = MODEL_CANDIDATES.includes(rawSnapshot.active_model)
+          ? rawSnapshot.active_model
+          : ai.modelPreference;
+        const activeImageModel = IMAGE_MODEL_CANDIDATES.includes(rawSnapshot.active_image_model)
+          ? rawSnapshot.active_image_model
+          : IMAGE_MODEL_CANDIDATES[0];
+        const storyTurn = clampInt(rawSnapshot.story_turn, 0, 999, 0);
+        const targetMaxTurns = clampInt(rawSnapshot.target_max_turns, 20, 200, 40);
+        const pendingRoll =
+          rawSnapshot.pending_roll && typeof rawSnapshot.pending_roll === "object"
+            ? normalizeRollSpec(rawSnapshot.pending_roll)
+            : null;
+
+        const rawOutcome = rawSnapshot.pending_roll_outcome;
+        const pendingRollOutcome =
+          rawOutcome &&
+          typeof rawOutcome === "object" &&
+          typeof rawOutcome.rollReport === "string" &&
+          Number.isFinite(Number.parseInt(rawOutcome.total, 10))
+            ? {
+                rollReport: rawOutcome.rollReport.slice(0, 1200),
+                label: typeof rawOutcome.label === "string" ? rawOutcome.label.slice(0, 120) : "",
+                total: Number.parseInt(rawOutcome.total, 10),
+                successText: typeof rawOutcome.successText === "string" ? rawOutcome.successText.slice(0, 48) : "",
+              }
+            : null;
+
+        return {
+          campaign,
+          sheet,
+          modelHistory: normalizeModelHistory(rawSnapshot.model_history),
+          chatTranscript: normalizeChatTranscript(rawSnapshot.chat_transcript),
+          storyTurn,
+          targetMaxTurns,
+          activeModel,
+          activeImageModel,
+          ai,
+          gameSessionId: clampInt(rawSnapshot.game_session_id, 0, 9999999, state.gameSessionId || 0),
+          visualIdentity:
+            typeof rawSnapshot.visual_identity === "string" ? rawSnapshot.visual_identity.slice(0, 600) : "",
+          pendingRoll,
+          pendingRollOutcome,
+        };
+      }
+
+      function normalizeChatTranscript(rawTranscript) {
+        if (!Array.isArray(rawTranscript)) return [];
+        const source = rawTranscript.slice(-360);
+        const out = [];
+        for (const entry of source) {
+          if (!entry || typeof entry !== "object") continue;
+          const type = entry.type === "user" || entry.type === "dm" || entry.type === "system" ? entry.type : null;
+          if (!type) continue;
+          const text = typeof entry.text === "string" ? entry.text.replace(/\r/g, "").trim() : "";
+          if (!text) continue;
+          out.push({ type, text: text.slice(0, 2400) });
+        }
+        if (out.length > 320) return out.slice(-320);
+        return out;
+      }
+
+      function normalizeModelHistory(rawHistory) {
+        if (!Array.isArray(rawHistory)) return [];
+        const source = rawHistory.slice(-280);
+        const out = [];
+        for (const entry of source) {
+          if (!entry || typeof entry !== "object") continue;
+          const role = entry.role === "assistant" ? "assistant" : entry.role === "user" ? "user" : null;
+          if (!role) continue;
+          const content = typeof entry.content === "string" ? entry.content.replace(/\r/g, "").trim() : "";
+          if (!content) continue;
+          out.push({ role, content: content.slice(0, 3200) });
+        }
+        if (out.length > 240) return out.slice(-240);
+        return out;
+      }
+
+      function normalizeAiSettings(rawAi) {
+        const base = {
+          modelPreference: MODEL_CANDIDATES[0],
+          cheapMode: true,
+          allowModelFallback: false,
+          imagesEnabled: false,
+          maxOutputTokens: CHEAP_MODE_MAX_OUTPUT_TOKENS,
+        };
+        if (!rawAi || typeof rawAi !== "object") return base;
+
+        if (MODEL_CANDIDATES.includes(rawAi.modelPreference)) {
+          base.modelPreference = rawAi.modelPreference;
+        }
+        base.cheapMode = Boolean(rawAi.cheapMode);
+        base.allowModelFallback = Boolean(rawAi.allowModelFallback);
+        base.imagesEnabled = Boolean(rawAi.imagesEnabled);
+        base.maxOutputTokens = clampInt(rawAi.maxOutputTokens, 120, 1200, base.maxOutputTokens);
+
+        if (base.cheapMode) {
+          base.allowModelFallback = false;
+          base.imagesEnabled = false;
+          base.maxOutputTokens = clampInt(base.maxOutputTokens, 120, 420, CHEAP_MODE_MAX_OUTPUT_TOKENS);
+        }
+        return base;
+      }
+
+      function autoSaveGameSilently() {
+        if (!state.campaign || !state.sheet) return;
+        try {
+          localStorage.setItem(SAVE_STORAGE_KEY, JSON.stringify(buildSaveSnapshot()));
+        } catch {}
       }
 
       function onApiEnter() {
@@ -1596,6 +1895,7 @@
         state.storyTurn = 0;
         state.pendingRoll = null;
         state.pendingRollOutcome = null;
+        state.chatTranscript = [];
         elements.chatLog.innerHTML = "";
         showScreen("game");
         renderSheet();
@@ -1607,6 +1907,7 @@
             state.ai.imagesEnabled ? "תמונות פעילות" : "ללא תמונות"
           }`
         );
+        autoSaveGameSilently();
 
         const openingUserTurn = buildOpeningTurn(campaign, state.sheet);
         await sendTurnToModel(openingUserTurn, false);
@@ -1745,6 +2046,7 @@
               setStatus("תורך");
             }
           }
+          autoSaveGameSilently();
         } catch (error) {
           const message = error instanceof Error ? error.message : "";
           addMessage("system", buildFriendlyModelError(message));
@@ -3398,10 +3700,14 @@
         state.speech.finalTranscript = "";
       }
 
-      function addMessage(type, text) {
+      function addMessage(type, text, options = {}) {
+        const skipTranscript = Boolean(options.skipTranscript);
         if (type === "dm") {
-          void addDmMessage(text, null);
+          void addDmMessage(text, null, options);
           return;
+        }
+        if (!skipTranscript) {
+          recordChatEntry(type, text);
         }
         const el = document.createElement("article");
         el.className = `msg ${type}`;
@@ -3410,11 +3716,16 @@
         elements.chatLog.scrollTop = elements.chatLog.scrollHeight;
       }
 
-      async function addDmMessage(text, sceneImageHint) {
+      async function addDmMessage(text, sceneImageHint, options = {}) {
+        const skipTranscript = Boolean(options.skipTranscript);
+        const suppressImage = Boolean(options.suppressImage);
         const paragraphs = splitDmParagraphs(text);
+        if (!skipTranscript) {
+          recordChatEntry("dm", text);
+        }
         state.dmMessageCount += 1;
         const messageIndex = state.dmMessageCount;
-        const shouldRenderImage = shouldGenerateSceneImage(text, sceneImageHint, messageIndex);
+        const shouldRenderImage = suppressImage ? false : shouldGenerateSceneImage(text, sceneImageHint, messageIndex);
         let imageSrc = null;
         let imageError = "";
 
@@ -3461,6 +3772,19 @@
 
         elements.chatLog.appendChild(article);
         elements.chatLog.scrollTop = elements.chatLog.scrollHeight;
+      }
+
+      function recordChatEntry(type, text) {
+        const safeType = type === "user" || type === "dm" || type === "system" ? type : "system";
+        const safeText = String(text || "").replace(/\r/g, "").trim();
+        if (!safeText) return;
+        state.chatTranscript.push({
+          type: safeType,
+          text: safeText.slice(0, 2400),
+        });
+        if (state.chatTranscript.length > 320) {
+          state.chatTranscript.splice(0, state.chatTranscript.length - 320);
+        }
       }
 
       function shouldGenerateSceneImage(text, sceneImageHint, messageIndex) {
@@ -3774,6 +4098,14 @@
           .replaceAll(">", "&gt;")
           .replaceAll('"', "&quot;")
           .replaceAll("'", "&#039;");
+      }
+
+      function cloneJson(value, fallback = null) {
+        try {
+          return JSON.parse(JSON.stringify(value));
+        } catch {
+          return fallback;
+        }
       }
 
       async function safeJson(response) {
