@@ -1101,6 +1101,7 @@
       const NORMAL_MODE_SUMMARY_LINES = 14;
       const CHEAP_MODE_MAX_OUTPUT_TOKENS = 320;
       const NORMAL_MODE_MAX_OUTPUT_TOKENS = 700;
+      const ROLL_DICE_ALLOWED = new Set(["d20", "d12", "d10", "d8", "d6", "d4", "d100"]);
       const ABILITIES = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
       const ABILITY_LABELS_HE = {
         STR: "כוח",
@@ -1709,6 +1710,9 @@
           const payload = await callOpenAI(state.apiKey, state.modelHistory);
           const rawText = extractAssistantText(payload) || "";
           const parsed = parseDmResponse(rawText);
+          if (parsed.warnings.length) {
+            console.warn("DM response normalized", parsed.warnings);
+          }
 
           state.modelHistory.push({ role: "assistant", content: parsed.narrative });
           await addDmMessage(parsed.narrative || "...", parsed.meta.scene_image);
@@ -1945,28 +1949,137 @@
       }
 
       function parseDmResponse(rawText) {
-        const narrativeMatch = rawText.match(/<NARRATIVE>([\s\S]*?)<\/NARRATIVE>/i);
-        const stateMatch = rawText.match(/<STATE>([\s\S]*?)<\/STATE>/i);
+        const raw = String(rawText || "").trim();
+        const warnings = [];
+        const narrativeTagContent = extractTaggedSection(raw, "NARRATIVE");
+        const stateTagContent = extractTaggedSection(raw, "STATE");
 
-        const baseNarrative = narrativeMatch ? narrativeMatch[1].trim() : rawText.trim();
-        const narrative = stripNumberedChoices(baseNarrative);
-        let meta = { pending_roll: null, sheet_patch: {}, scene_image: { needed: false, importance: "none", reason: "" } };
+        let metaSource = null;
+        if (stateTagContent) {
+          metaSource = tryParseJsonCandidate(stateTagContent);
+          if (!metaSource) warnings.push("state_json_invalid");
+        }
 
-        if (stateMatch) {
-          const jsonText = cleanJsonText(stateMatch[1]);
-          try {
-            const parsed = JSON.parse(jsonText);
-            meta = {
-              pending_roll: parsed && typeof parsed === "object" ? parsed.pending_roll || null : null,
-              sheet_patch: parsed && typeof parsed === "object" ? parsed.sheet_patch || {} : {},
-              scene_image: normalizeSceneImageHint(parsed && typeof parsed === "object" ? parsed.scene_image : null),
-            };
-          } catch {
-            meta = { pending_roll: null, sheet_patch: {}, scene_image: { needed: false, importance: "none", reason: "" } };
+        const rootObject = tryParseJsonCandidate(raw);
+        if (!metaSource && rootObject && typeof rootObject === "object") {
+          if (rootObject.state && typeof rootObject.state === "object") {
+            metaSource = rootObject.state;
+          } else if (
+            Object.prototype.hasOwnProperty.call(rootObject, "pending_roll") ||
+            Object.prototype.hasOwnProperty.call(rootObject, "sheet_patch") ||
+            Object.prototype.hasOwnProperty.call(rootObject, "scene_image")
+          ) {
+            metaSource = rootObject;
           }
         }
 
-        return { narrative, meta };
+        const narrativeCandidateFromJson =
+          rootObject && typeof rootObject === "object" && typeof rootObject.narrative === "string"
+            ? rootObject.narrative
+            : "";
+
+        let narrativeSource = narrativeTagContent || narrativeCandidateFromJson || stripTaggedSegments(raw);
+        let narrative = stripNumberedChoices(narrativeSource);
+
+        if (looksLikeJsonPayload(narrative)) {
+          narrative = "";
+          warnings.push("narrative_looked_like_json");
+        }
+
+        if (!narrative) {
+          narrative = "האוויר נעצר לרגע סביבך. תאר מה הדמות שלך עושה עכשיו, ואמשיך מיד.";
+          warnings.push("narrative_missing_fallback_used");
+        } else if (narrative.length > 1600) {
+          narrative = `${narrative.slice(0, 1600)}…`;
+          warnings.push("narrative_truncated");
+        }
+
+        const meta = normalizeDmMeta(metaSource, warnings);
+        return { narrative, meta, warnings };
+      }
+
+      function extractTaggedSection(text, tagName) {
+        const safeText = String(text || "");
+        const match = safeText.match(new RegExp(`<${tagName}>([\\s\\S]*?)<\\/${tagName}>`, "i"));
+        return match ? match[1].trim() : "";
+      }
+
+      function stripTaggedSegments(text) {
+        return String(text || "")
+          .replace(/<NARRATIVE>/gi, "")
+          .replace(/<\/NARRATIVE>/gi, "")
+          .replace(/<STATE>[\s\S]*?<\/STATE>/gi, "")
+          .trim();
+      }
+
+      function looksLikeJsonPayload(text) {
+        const compact = String(text || "").trim();
+        if (!compact) return false;
+        if (!compact.startsWith("{") && !compact.startsWith("[")) return false;
+        return /"\s*:\s*/.test(compact) || /pending_roll|sheet_patch|scene_image|narrative/i.test(compact);
+      }
+
+      function tryParseJsonCandidate(text) {
+        if (typeof text !== "string") return null;
+        const cleaned = cleanJsonText(text);
+        if (!cleaned) return null;
+        try {
+          return JSON.parse(cleaned);
+        } catch {}
+
+        const extracted = extractFirstBalancedJsonObject(cleaned);
+        if (!extracted) return null;
+        try {
+          return JSON.parse(extracted);
+        } catch {
+          return null;
+        }
+      }
+
+      function extractFirstBalancedJsonObject(text) {
+        const raw = String(text || "");
+        for (let start = 0; start < raw.length; start += 1) {
+          if (raw[start] !== "{") continue;
+          let depth = 0;
+          let inString = false;
+          let escaped = false;
+
+          for (let i = start; i < raw.length; i += 1) {
+            const ch = raw[i];
+            if (inString) {
+              if (escaped) {
+                escaped = false;
+                continue;
+              }
+              if (ch === "\\") {
+                escaped = true;
+                continue;
+              }
+              if (ch === '"') {
+                inString = false;
+              }
+              continue;
+            }
+            if (ch === '"') {
+              inString = true;
+              continue;
+            }
+            if (ch === "{") {
+              depth += 1;
+              continue;
+            }
+            if (ch === "}") {
+              depth -= 1;
+              if (depth === 0) {
+                return raw.slice(start, i + 1);
+              }
+              if (depth < 0) {
+                break;
+              }
+            }
+          }
+        }
+        return "";
       }
 
       function stripNumberedChoices(text) {
@@ -1996,37 +2109,147 @@
         return { needed, importance, reason };
       }
 
+      function normalizeDmMeta(rawMeta, warnings) {
+        const defaults = { pending_roll: null, sheet_patch: {}, scene_image: { needed: false, importance: "none", reason: "" } };
+        if (!rawMeta || typeof rawMeta !== "object") {
+          warnings.push("state_missing_default_used");
+          return defaults;
+        }
+
+        let pendingRoll = null;
+        if (rawMeta.pending_roll === null || rawMeta.pending_roll === undefined) {
+          pendingRoll = null;
+        } else if (typeof rawMeta.pending_roll === "object" && Object.keys(rawMeta.pending_roll).length > 0) {
+          pendingRoll = normalizeRollSpec(rawMeta.pending_roll);
+        } else {
+          warnings.push("pending_roll_invalid");
+        }
+
+        const sheetPatch =
+          rawMeta.sheet_patch === undefined
+            ? {}
+            : normalizeSheetPatch(rawMeta.sheet_patch, warnings);
+        const sceneImage = normalizeSceneImageHint(rawMeta.scene_image);
+
+        return {
+          pending_roll: pendingRoll,
+          sheet_patch: sheetPatch,
+          scene_image: sceneImage,
+        };
+      }
+
+      function normalizeSheetPatch(rawPatch, warnings) {
+        if (!rawPatch || typeof rawPatch !== "object") {
+          if (rawPatch !== undefined && warnings) warnings.push("sheet_patch_invalid");
+          return {};
+        }
+
+        const patch = {};
+
+        const hpCurrent = clampInt(rawPatch.hp_current, 0, 999, null);
+        if (hpCurrent !== null) patch.hp_current = hpCurrent;
+        const hpDelta = clampInt(rawPatch.hp_delta, -300, 300, null);
+        if (hpDelta !== null) patch.hp_delta = hpDelta;
+
+        const gold = clampInt(rawPatch.gold, -999999, 999999, null);
+        if (gold !== null) patch.gold = gold;
+        const goldDelta = clampInt(rawPatch.gold_delta, -99999, 99999, null);
+        if (goldDelta !== null) patch.gold_delta = goldDelta;
+
+        const xp = clampInt(rawPatch.xp, 0, 9999999, null);
+        if (xp !== null) patch.xp = xp;
+        const xpDelta = clampInt(rawPatch.xp_delta, -20000, 20000, null);
+        if (xpDelta !== null) patch.xp_delta = xpDelta;
+
+        const level = clampInt(rawPatch.level, 1, 20, null);
+        if (level !== null) patch.level = level;
+        const ac = clampInt(rawPatch.ac, 1, 40, null);
+        if (ac !== null) patch.ac = ac;
+
+        if (typeof rawPatch.location === "string" && rawPatch.location.trim()) {
+          patch.location = rawPatch.location.trim().slice(0, 120);
+        }
+
+        if (rawPatch.ability_scores && typeof rawPatch.ability_scores === "object") {
+          const abilityScores = {};
+          for (const ability of ABILITIES) {
+            const value = clampInt(rawPatch.ability_scores[ability], 1, 30, null);
+            if (value !== null) {
+              abilityScores[ability] = value;
+            }
+          }
+          if (Object.keys(abilityScores).length > 0) {
+            patch.ability_scores = abilityScores;
+          }
+        }
+
+        const inventoryAdd = normalizeStringList(rawPatch.inventory_add, 20, 80);
+        if (inventoryAdd.length) patch.inventory_add = inventoryAdd;
+        const inventoryRemove = normalizeStringList(rawPatch.inventory_remove, 20, 80);
+        if (inventoryRemove.length) patch.inventory_remove = inventoryRemove;
+
+        const featuresAdd = normalizeStringList(rawPatch.features_add, 20, 90);
+        if (featuresAdd.length) patch.features_add = featuresAdd;
+        const featuresRemove = normalizeStringList(rawPatch.features_remove, 20, 90);
+        if (featuresRemove.length) patch.features_remove = featuresRemove;
+
+        const conditionsAdd = normalizeStringList(rawPatch.conditions_add, 12, 48);
+        if (conditionsAdd.length) patch.conditions_add = conditionsAdd;
+        const conditionsRemove = normalizeStringList(rawPatch.conditions_remove, 12, 48);
+        if (conditionsRemove.length) patch.conditions_remove = conditionsRemove;
+
+        return patch;
+      }
+
+      function normalizeStringList(list, maxItems, maxItemLength) {
+        if (!Array.isArray(list)) return [];
+        const out = [];
+        for (const item of list) {
+          if (typeof item !== "string") continue;
+          const trimmed = item.replace(/\s+/g, " ").trim();
+          if (!trimmed) continue;
+          const normalizedItem = trimmed.slice(0, maxItemLength);
+          if (!out.includes(normalizedItem)) {
+            out.push(normalizedItem);
+            if (out.length >= maxItems) break;
+          }
+        }
+        return out;
+      }
+
       function applySheetPatch(patch) {
-        if (!patch || typeof patch !== "object" || !state.sheet) return;
+        if (!state.sheet) return;
+        const p = normalizeSheetPatch(patch);
+        if (!p || typeof p !== "object" || Object.keys(p).length === 0) return;
         const s = state.sheet;
 
-        if (Number.isFinite(patch.hp_current)) s.hp_current = clampInt(patch.hp_current, 0, 999, s.hp_current);
-        if (Number.isFinite(patch.hp_delta)) s.hp_current = clampInt(s.hp_current + patch.hp_delta, 0, 999, s.hp_current);
+        if (Number.isFinite(p.hp_current)) s.hp_current = clampInt(p.hp_current, 0, 999, s.hp_current);
+        if (Number.isFinite(p.hp_delta)) s.hp_current = clampInt(s.hp_current + p.hp_delta, 0, 999, s.hp_current);
 
-        if (Number.isFinite(patch.gold)) s.gold = patch.gold;
-        if (Number.isFinite(patch.gold_delta)) s.gold += patch.gold_delta;
+        if (Number.isFinite(p.gold)) s.gold = p.gold;
+        if (Number.isFinite(p.gold_delta)) s.gold += p.gold_delta;
 
-        if (Number.isFinite(patch.xp)) s.xp = patch.xp;
-        if (Number.isFinite(patch.xp_delta)) s.xp += patch.xp_delta;
+        if (Number.isFinite(p.xp)) s.xp = p.xp;
+        if (Number.isFinite(p.xp_delta)) s.xp += p.xp_delta;
 
-        if (Number.isFinite(patch.level)) s.level = clampInt(patch.level, 1, 20, s.level);
+        if (Number.isFinite(p.level)) s.level = clampInt(p.level, 1, 20, s.level);
         s.proficiency_bonus = proficiencyBonusByLevel(s.level);
 
-        if (Number.isFinite(patch.ac)) s.ac = patch.ac;
-        if (typeof patch.location === "string" && patch.location.trim()) s.location = patch.location.trim();
+        if (Number.isFinite(p.ac)) s.ac = p.ac;
+        if (typeof p.location === "string" && p.location.trim()) s.location = p.location.trim();
 
-        if (patch.ability_scores && typeof patch.ability_scores === "object") {
+        if (p.ability_scores && typeof p.ability_scores === "object") {
           for (const ability of ABILITIES) {
-            if (Number.isFinite(patch.ability_scores[ability])) {
-              s.ability_scores[ability] = clampInt(patch.ability_scores[ability], 1, 30, s.ability_scores[ability]);
+            if (Number.isFinite(p.ability_scores[ability])) {
+              s.ability_scores[ability] = clampInt(p.ability_scores[ability], 1, 30, s.ability_scores[ability]);
             }
           }
           s.ability_mods = buildAbilityMods(s.ability_scores);
         }
 
-        s.inventory = patchList(s.inventory, patch.inventory_add, patch.inventory_remove);
-        s.features = patchList(s.features, patch.features_add, patch.features_remove);
-        s.conditions = patchList(s.conditions, patch.conditions_add, patch.conditions_remove);
+        s.inventory = patchList(s.inventory, p.inventory_add, p.inventory_remove);
+        s.features = patchList(s.features, p.features_add, p.features_remove);
+        s.conditions = patchList(s.conditions, p.conditions_add, p.conditions_remove);
 
         s.hp_current = Math.min(s.hp_current, s.hp_max);
       }
@@ -2051,20 +2274,37 @@
       }
 
       function normalizeRollSpec(spec) {
+        if (!spec || typeof spec !== "object") {
+          return {
+            die: "d20",
+            ability: "",
+            skill: "",
+            reason: "בדיקה מכאנית",
+            dc: null,
+            advantage: "normal",
+            proficiency: false,
+            extra_modifier: 0,
+          };
+        }
+
         const dieCandidate = typeof spec.die === "string" ? spec.die.toLowerCase().trim() : "d20";
-        const die = /^d\d+$/.test(dieCandidate) ? dieCandidate : "d20";
+        const die = ROLL_DICE_ALLOWED.has(dieCandidate) ? dieCandidate : "d20";
         let ability = normalizeAbility(spec.ability);
-        const skill = typeof spec.skill === "string" ? spec.skill : "";
+        const skill = normalizeSkillCode(spec.skill);
         if (!ability && skill && SKILL_TO_ABILITY[skill]) {
           ability = SKILL_TO_ABILITY[skill];
         }
-        const reason = typeof spec.reason === "string" && spec.reason.trim() ? spec.reason.trim() : "בדיקה מכאנית";
+        const reason =
+          typeof spec.reason === "string" && spec.reason.trim()
+            ? spec.reason.trim().replace(/\s+/g, " ").slice(0, 180)
+            : "בדיקה מכאנית";
         const dcValue = Number.parseInt(spec.dc, 10);
         const dc = Number.isFinite(dcValue) ? clampInt(dcValue, 1, 40, null) : null;
         const advantage =
           spec.advantage === "advantage" || spec.advantage === "disadvantage" ? spec.advantage : "normal";
         const proficiency = Boolean(spec.proficiency);
-        const extra_modifier = Number.isFinite(Number(spec.extra_modifier)) ? Number(spec.extra_modifier) : 0;
+        const extraRaw = Number.parseInt(spec.extra_modifier, 10);
+        const extra_modifier = Number.isFinite(extraRaw) ? clampInt(extraRaw, -30, 30, 0) : 0;
 
         return { die, ability, skill, reason, dc, advantage, proficiency, extra_modifier };
       }
@@ -2073,6 +2313,29 @@
         if (typeof value !== "string") return "";
         const upper = value.toUpperCase();
         return ABILITIES.includes(upper) ? upper : "";
+      }
+
+      function normalizeSkillCode(value) {
+        if (typeof value !== "string") return "";
+        const raw = value.trim();
+        if (!raw) return "";
+        const direct = raw.toLowerCase().replace(/-/g, "_");
+        if (Object.prototype.hasOwnProperty.call(SKILL_TO_ABILITY, direct)) {
+          return direct;
+        }
+
+        const normalized = normalizeQuery(raw).replace(/-/g, "_").replace(/\s+/g, "_");
+        if (Object.prototype.hasOwnProperty.call(SKILL_TO_ABILITY, normalized)) {
+          return normalized;
+        }
+
+        const skillCodes = Object.keys(SKILL_LABELS_HE);
+        for (const code of skillCodes) {
+          if (normalizeQuery(SKILL_LABELS_HE[code]) === normalizeQuery(raw)) {
+            return code;
+          }
+        }
+        return "";
       }
 
       function deriveFallbackRollFromAction(actionText) {
