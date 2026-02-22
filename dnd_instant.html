@@ -533,6 +533,53 @@
         color: var(--text-soft);
       }
 
+      .combat-panel {
+        margin: 0 0 14px;
+        padding: 10px;
+        border: 1px solid rgba(228, 190, 118, 0.2);
+        border-radius: 10px;
+        background: rgba(4, 8, 14, 0.62);
+      }
+
+      .combat-summary {
+        margin: 0 0 8px;
+        color: var(--text-soft);
+        font-size: 0.84rem;
+      }
+
+      .combat-order {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 6px;
+      }
+
+      .combat-row {
+        border: 1px solid rgba(228, 190, 118, 0.2);
+        border-radius: 8px;
+        padding: 6px 8px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .combat-row.active {
+        border-color: rgba(228, 190, 118, 0.62);
+        box-shadow: 0 0 0 1px rgba(228, 190, 118, 0.24) inset;
+      }
+
+      .combat-row .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 0.84rem;
+      }
+
+      .combat-row .meta {
+        margin-top: 3px;
+        font-size: 0.78rem;
+        color: var(--text-soft);
+      }
+
       .overlay {
         position: fixed;
         inset: 0;
@@ -1012,6 +1059,7 @@
               <span id="metaChip" class="chip">גזע/מקצוע: -</span>
               <span id="locChip" class="chip">מיקום: -</span>
               <span id="statusChip" class="chip">ממתין</span>
+              <span id="combatChip" class="chip">קרב: לא פעיל</span>
             </div>
             <div class="char-line" style="margin-top: 8px">
               <span id="hpChip" class="chip">חיים: -</span>
@@ -1026,6 +1074,7 @@
             <button id="loadGameBtn" class="btn btn-ghost" type="button">טען</button>
             <button id="exportGameBtn" class="btn btn-ghost" type="button">ייצוא</button>
             <button id="importGameBtn" class="btn btn-ghost" type="button">ייבוא</button>
+            <button id="endCombatBtn" class="btn btn-ghost" type="button">סיום קרב</button>
             <button id="drawerOpenBtn" class="btn btn-blue" type="button">ציוד ויכולות</button>
             <input id="importGameFile" class="hidden" type="file" accept="application/json" />
           </div>
@@ -1078,6 +1127,12 @@
 
         <h3>מצבים פעילים</h3>
         <ul id="conditionsList" class="list"></ul>
+
+        <h3>מעקב קרב</h3>
+        <div id="combatPanel" class="combat-panel">
+          <p id="combatSummary" class="combat-summary">אין קרב פעיל כרגע.</p>
+          <ul id="combatOrderList" class="combat-order"></ul>
+        </div>
       </div>
     </aside>
     <div id="drawerOverlay" class="overlay hidden"></div>
@@ -1128,6 +1183,19 @@
       const ROLL_DICE_ALLOWED = new Set(["d20", "d12", "d10", "d8", "d6", "d4", "d100"]);
       const SAVE_SCHEMA_VERSION = 1;
       const SAVE_STORAGE_KEY = "dnd_instant_save_v1";
+      const COMBAT_SIDE_ALLOWED = new Set(["ally", "enemy", "neutral"]);
+      const COMBAT_START_HINTS = [
+        "קרב",
+        "יוזמה",
+        "אויב",
+        "מפלצת",
+        "תוקף",
+        "התקפה",
+        "מכה",
+        "יורה",
+        "דוקר",
+      ];
+      const COMBAT_END_HINTS = ["הקרב הסתיים", "ניצחת", "האויב הובס", "אין אויבים", "שקט חוזר", "נגמר הקרב"];
       const ABILITIES = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
       const ABILITY_LABELS_HE = {
         STR: "כוח",
@@ -1364,7 +1432,7 @@
 ...טקסט לשחקן...
 </NARRATIVE>
 <STATE>
-{"pending_roll":null,"sheet_patch":{},"scene_image":{"needed":false,"importance":"none","reason":""}}
+{"pending_roll":null,"sheet_patch":{},"scene_image":{"needed":false,"importance":"none","reason":""},"combat_patch":{}}
 </STATE>
 11) pending_roll יכול להיות null או אובייקט:
 {
@@ -1410,6 +1478,19 @@
   "reason": "למה הסצנה דורשת המחשה"
 }
 21) הגדרת scene_image: true רק בסצנת פתיחה או ברגע שיא/דרמה/אקשן/טוויסט משמעותי. ברירת מחדל false.
+22) combat_patch (אובייקט חלקי) לניהול קרב:
+{
+  "active": true|false,
+  "encounter_name":"string",
+  "round":1,
+  "turn_index":0,
+  "participants":[
+    {"id":"player","name":"שם","side":"ally|enemy","initiative":15,"hp_current":12,"hp_max":18,"ac":14,"status":["מורעל"],"is_player":true}
+  ],
+  "note":"סיכום קצר של מצב הקרב"
+}
+23) כשקרב פעיל חובה להחזיר combat_patch בכל תגובה ולעדכן לפי מה שקרה (HP, תורות, אויבים שנפלו, סיבוב).
+24) כשהקרב מסתיים החזר combat_patch עם active:false ו-participants ריק.
 `;
 
       const elements = {
@@ -1445,6 +1526,7 @@
         ),
         sendBtn: document.getElementById("sendBtn"),
         statusChip: document.getElementById("statusChip"),
+        combatChip: document.getElementById("combatChip"),
         nameChip: document.getElementById("nameChip"),
         metaChip: document.getElementById("metaChip"),
         locChip: document.getElementById("locChip"),
@@ -1458,6 +1540,7 @@
         exportGameBtn: document.getElementById("exportGameBtn"),
         importGameBtn: document.getElementById("importGameBtn"),
         importGameFile: document.getElementById("importGameFile"),
+        endCombatBtn: document.getElementById("endCombatBtn"),
         drawer: document.getElementById("drawer"),
         drawerOverlay: document.getElementById("drawerOverlay"),
         drawerOpenBtn: document.getElementById("drawerOpenBtn"),
@@ -1466,6 +1549,9 @@
         featuresList: document.getElementById("featuresList"),
         skillsList: document.getElementById("skillsList"),
         conditionsList: document.getElementById("conditionsList"),
+        combatPanel: document.getElementById("combatPanel"),
+        combatSummary: document.getElementById("combatSummary"),
+        combatOrderList: document.getElementById("combatOrderList"),
         rollModal: document.getElementById("rollModal"),
         rollReason: document.getElementById("rollReason"),
         rollFormula: document.getElementById("rollFormula"),
@@ -1502,6 +1588,14 @@
         lastImageDmIndex: -99,
         pendingRoll: null,
         pendingRollOutcome: null,
+        combat: {
+          active: false,
+          encounterName: "",
+          round: 0,
+          turnIndex: 0,
+          participants: [],
+          note: "",
+        },
         chatTranscript: [],
         busy: false,
         rolling: false,
@@ -1540,6 +1634,7 @@
         initSpeechRecognition();
         setDiceFallbackMode(true);
         syncApiControlsFromMode();
+        renderCombatTracker();
         showScreen("api");
         setStatus("ממתין למפתח גישה");
       }
@@ -1570,6 +1665,7 @@
         elements.exportGameBtn.addEventListener("click", onExportGameClicked);
         elements.importGameBtn.addEventListener("click", onImportGameClicked);
         elements.importGameFile.addEventListener("change", onImportGameFileChange);
+        elements.endCombatBtn.addEventListener("click", onEndCombatClicked);
 
         window.addEventListener("beforeunload", () => {
           state.apiKey = "";
@@ -1674,6 +1770,7 @@
             ? state.activeImageModel
             : IMAGE_MODEL_CANDIDATES[0],
           ai: normalizeAiSettings(state.ai),
+          combat: normalizeCombatStateForSave(state.combat),
           visual_identity: typeof state.visualIdentity === "string" ? state.visualIdentity : "",
           pending_roll: state.pendingRoll ? cloneJson(state.pendingRoll) : null,
           pending_roll_outcome: state.pendingRollOutcome ? cloneJson(state.pendingRollOutcome) : null,
@@ -1699,6 +1796,7 @@
         state.imageQueue = Promise.resolve();
         state.pendingRoll = snapshot.pendingRoll;
         state.pendingRollOutcome = snapshot.pendingRollOutcome;
+        state.combat = snapshot.combat;
         state.chatTranscript = snapshot.chatTranscript;
 
         state.dmMessageCount = 0;
@@ -1707,6 +1805,7 @@
         showScreen("game");
         renderSheet();
         renderDrawer();
+        renderCombatTracker();
         await replayChatTranscript(snapshot.chatTranscript);
 
         if (state.pendingRoll) {
@@ -1715,7 +1814,7 @@
           closeRollModal();
         }
 
-        setStatus("קמפיין נטען");
+        updateMainStatus();
         addMessage("system", `הקמפיין נטען בהצלחה (${sourceLabel}).`);
         autoSaveGameSilently();
       }
@@ -1747,6 +1846,7 @@
           : IMAGE_MODEL_CANDIDATES[0];
         const storyTurn = clampInt(rawSnapshot.story_turn, 0, 999, 0);
         const targetMaxTurns = clampInt(rawSnapshot.target_max_turns, 20, 200, 40);
+        const combat = normalizeCombatStateFromSave(rawSnapshot.combat);
         const pendingRoll =
           rawSnapshot.pending_roll && typeof rawSnapshot.pending_roll === "object"
             ? normalizeRollSpec(rawSnapshot.pending_roll)
@@ -1776,6 +1876,7 @@
           activeModel,
           activeImageModel,
           ai,
+          combat,
           gameSessionId: clampInt(rawSnapshot.game_session_id, 0, 9999999, state.gameSessionId || 0),
           visualIdentity:
             typeof rawSnapshot.visual_identity === "string" ? rawSnapshot.visual_identity.slice(0, 600) : "",
@@ -1842,6 +1943,41 @@
         return base;
       }
 
+      function normalizeCombatStateForSave(rawCombat) {
+        const combat = createDefaultCombatState();
+        if (!rawCombat || typeof rawCombat !== "object") {
+          return combat;
+        }
+
+        combat.active = Boolean(rawCombat.active);
+        combat.encounterName =
+          typeof rawCombat.encounterName === "string"
+            ? rawCombat.encounterName.slice(0, 120)
+            : typeof rawCombat.encounter_name === "string"
+              ? rawCombat.encounter_name.slice(0, 120)
+              : "";
+        combat.round = clampInt(rawCombat.round, 0, 99, 0);
+        combat.turnIndex = clampInt(rawCombat.turnIndex ?? rawCombat.turn_index, 0, 80, 0);
+        combat.note = typeof rawCombat.note === "string" ? rawCombat.note.slice(0, 220) : "";
+        combat.participants = normalizeCombatParticipants(rawCombat.participants);
+
+        if (!combat.active) {
+          combat.round = 0;
+          combat.turnIndex = 0;
+          combat.participants = [];
+        } else {
+          if (combat.round < 1) combat.round = 1;
+          if (combat.turnIndex >= combat.participants.length) {
+            combat.turnIndex = combat.participants.length ? 0 : 0;
+          }
+        }
+        return combat;
+      }
+
+      function normalizeCombatStateFromSave(rawCombat) {
+        return normalizeCombatStateForSave(rawCombat);
+      }
+
       function autoSaveGameSilently() {
         if (!state.campaign || !state.sheet) return;
         try {
@@ -1895,11 +2031,13 @@
         state.storyTurn = 0;
         state.pendingRoll = null;
         state.pendingRollOutcome = null;
+        state.combat = createDefaultCombatState();
         state.chatTranscript = [];
         elements.chatLog.innerHTML = "";
         showScreen("game");
         renderSheet();
         renderDrawer();
+        renderCombatTracker();
         addMessage("system", "קמפיין חדש נוצר. המנחה פותח את הסצנה הראשונה...");
         addMessage(
           "system",
@@ -1950,6 +2088,7 @@
           state.ai.cheapMode
             ? "מצב_בדיקות_זול: כן. שמור תשובה קצרה ותכליתית, לא יותר מפסקה או שתיים."
             : "מצב_בדיקות_זול: לא.",
+          "מעקב_קרב: כשקרב מתחיל או מתעדכן חובה לשלוח combat_patch מלא או חלקי ב-STATE.",
           "דף_דמות_JSON:",
           JSON.stringify(sheet),
           "הנחיה: פתח סצנת פתיחה עשירה וקצרה, והמשך משם לשיחה חופשית ללא אפשרויות ממוספרות.",
@@ -2019,8 +2158,13 @@
           await addDmMessage(parsed.narrative || "...", parsed.meta.scene_image);
 
           applySheetPatch(parsed.meta.sheet_patch);
+          applyCombatPatch(parsed.meta.combat_patch, {
+            source: "model",
+            fallback: deriveFallbackCombatPatch(parsed, playerText, showUserBubble),
+          });
           renderSheet();
           renderDrawer();
+          renderCombatTracker();
 
           if (parsed.meta.pending_roll) {
             state.pendingRoll = normalizeRollSpec(parsed.meta.pending_roll);
@@ -2036,16 +2180,7 @@
             }
           }
 
-          if (state.pendingRoll) {
-            setStatus("גלגול נדרש");
-          } else {
-            const turnsLeft = storyTurnsLeft();
-            if (turnsLeft <= 10) {
-              setStatus(`תורך | לקראת סיום (${turnsLeft} תורות)`);
-            } else {
-              setStatus("תורך");
-            }
-          }
+          updateMainStatus();
           autoSaveGameSilently();
         } catch (error) {
           const message = error instanceof Error ? error.message : "";
@@ -2089,6 +2224,7 @@
           location: sheet.location,
           inventory: sheet.inventory,
           features: sheet.features,
+          combat: buildCombatContextForModel(),
           narrative_pacing: pacing,
           budget_mode: state.ai.cheapMode ? "cheap_test" : "standard",
           response_token_target: budget.maxOutputTokens,
@@ -2100,6 +2236,392 @@
           "הקשר_דף_דמות_JSON",
           JSON.stringify(context),
         ].join("\n");
+      }
+
+      function buildCombatContextForModel() {
+        const combat = state.combat || {};
+        if (!combat.active) {
+          return { active: false };
+        }
+        const participants = Array.isArray(combat.participants) ? combat.participants : [];
+        return {
+          active: true,
+          encounter_name: combat.encounterName || "",
+          round: clampInt(combat.round, 1, 99, 1),
+          turn_index: clampInt(combat.turnIndex, 0, 80, 0),
+          current_actor_id: participants[combat.turnIndex]?.id || "",
+          participants: participants.map((p) => ({
+            id: p.id,
+            name: p.name,
+            side: p.side,
+            initiative: Number.isFinite(p.initiative) ? p.initiative : null,
+            hp_current: Number.isFinite(p.hpCurrent) ? p.hpCurrent : null,
+            hp_max: Number.isFinite(p.hpMax) ? p.hpMax : null,
+            ac: Number.isFinite(p.ac) ? p.ac : null,
+            status: Array.isArray(p.status) ? p.status : [],
+            is_player: Boolean(p.isPlayer),
+          })),
+          note: combat.note || "",
+        };
+      }
+
+      function updateMainStatus() {
+        if (state.pendingRoll) {
+          setStatus("גלגול נדרש");
+          return;
+        }
+
+        if (state.combat.active) {
+          const actor = getCurrentCombatActor();
+          if (actor) {
+            setStatus(`קרב פעיל | סיבוב ${state.combat.round || 1} | תור: ${actor.name}`);
+          } else {
+            setStatus("קרב פעיל");
+          }
+          return;
+        }
+
+        const turnsLeft = storyTurnsLeft();
+        if (turnsLeft <= 10) {
+          setStatus(`תורך | לקראת סיום (${turnsLeft} תורות)`);
+        } else {
+          setStatus("תורך");
+        }
+      }
+
+      function createDefaultCombatState() {
+        return {
+          active: false,
+          encounterName: "",
+          round: 0,
+          turnIndex: 0,
+          participants: [],
+          note: "",
+        };
+      }
+
+      function getCurrentCombatActor() {
+        if (!state.combat.active || !Array.isArray(state.combat.participants) || !state.combat.participants.length) {
+          return null;
+        }
+        const idx = clampInt(state.combat.turnIndex, 0, state.combat.participants.length - 1, 0);
+        return state.combat.participants[idx] || null;
+      }
+
+      function onEndCombatClicked() {
+        if (!state.combat.active) {
+          addMessage("system", "אין קרב פעיל לסיים.");
+          return;
+        }
+        applyCombatPatch({ active: false, participants: [], note: "הקרב נסגר ידנית." }, { source: "manual" });
+        renderCombatTracker();
+        updateMainStatus();
+        addMessage("system", "מעקב הקרב נסגר ידנית.");
+        autoSaveGameSilently();
+      }
+
+      function applyCombatPatch(rawPatch, options = {}) {
+        const warnings = [];
+        let patch = normalizeCombatPatch(rawPatch, warnings);
+        if (!patch && options.fallback) {
+          patch = normalizeCombatPatch(options.fallback, warnings);
+        }
+        if (!patch) return false;
+
+        if (!state.combat || typeof state.combat !== "object") {
+          state.combat = createDefaultCombatState();
+        }
+        if (patch.reset) {
+          state.combat = createDefaultCombatState();
+        }
+
+        const combat = state.combat;
+        if (typeof patch.active === "boolean") combat.active = patch.active;
+        if (typeof patch.encounterName === "string") combat.encounterName = patch.encounterName;
+        if (Number.isFinite(patch.round)) combat.round = patch.round;
+        if (Number.isFinite(patch.roundDelta)) combat.round += patch.roundDelta;
+        if (typeof patch.note === "string") combat.note = patch.note;
+
+        if (Array.isArray(patch.participants)) {
+          combat.participants = patch.participants;
+        }
+        if (Array.isArray(patch.participantsUpsert) && patch.participantsUpsert.length) {
+          const current = Array.isArray(combat.participants) ? [...combat.participants] : [];
+          const byId = new Map(current.map((p) => [p.id, p]));
+          for (const entry of patch.participantsUpsert) {
+            const prev = byId.get(entry.id);
+            byId.set(entry.id, prev ? { ...prev, ...entry } : entry);
+          }
+          combat.participants = Array.from(byId.values());
+        }
+        if (Array.isArray(patch.participantsRemove) && patch.participantsRemove.length) {
+          const removeSet = new Set(patch.participantsRemove);
+          combat.participants = (combat.participants || []).filter((p) => !removeSet.has(p.id));
+        }
+
+        combat.participants = normalizeCombatParticipants(combat.participants);
+        syncCombatPlayerParticipant();
+
+        if (Number.isFinite(patch.turnIndex)) combat.turnIndex = patch.turnIndex;
+        if (typeof patch.nextTurnId === "string" && patch.nextTurnId) {
+          const idx = combat.participants.findIndex((p) => p.id === patch.nextTurnId);
+          if (idx >= 0) combat.turnIndex = idx;
+        }
+        if (Number.isFinite(patch.turnStep) && combat.participants.length) {
+          const size = combat.participants.length;
+          const next = ((combat.turnIndex + patch.turnStep) % size + size) % size;
+          combat.turnIndex = next;
+        }
+
+        if (!combat.active) {
+          combat.round = 0;
+          combat.turnIndex = 0;
+          combat.participants = [];
+        } else {
+          const enemies = combat.participants.filter((p) => p.side === "enemy");
+          if (
+            enemies.length > 0 &&
+            enemies.every((enemy) => Number.isFinite(enemy.hpCurrent) && enemy.hpCurrent <= 0)
+          ) {
+            combat.active = false;
+            combat.note = combat.note || "כל האויבים הובסו.";
+            combat.round = 0;
+            combat.turnIndex = 0;
+            combat.participants = [];
+            return true;
+          }
+          if (combat.round < 1) combat.round = 1;
+          if (!combat.participants.length) {
+            const playerParticipant = buildPlayerCombatParticipant();
+            if (playerParticipant) {
+              combat.participants = [playerParticipant];
+            }
+          }
+          if (combat.turnIndex < 0 || combat.turnIndex >= combat.participants.length) {
+            combat.turnIndex = 0;
+          }
+        }
+
+        if (warnings.length) {
+          console.warn("combat_patch normalized", warnings, options?.source || "unknown");
+        }
+        return true;
+      }
+
+      function normalizeCombatPatch(rawPatch, warnings) {
+        if (!rawPatch || typeof rawPatch !== "object") return null;
+        const patch = {};
+
+        if (typeof rawPatch.active === "boolean") patch.active = rawPatch.active;
+        if (typeof rawPatch.reset === "boolean") patch.reset = rawPatch.reset;
+
+        const encounterRaw =
+          typeof rawPatch.encounter_name === "string"
+            ? rawPatch.encounter_name
+            : typeof rawPatch.encounterName === "string"
+              ? rawPatch.encounterName
+              : "";
+        if (encounterRaw.trim()) patch.encounterName = encounterRaw.trim().slice(0, 120);
+
+        const round = clampInt(rawPatch.round, 1, 99, null);
+        if (round !== null) patch.round = round;
+        const roundDelta = clampInt(rawPatch.round_delta ?? rawPatch.roundDelta, -5, 5, null);
+        if (roundDelta !== null) patch.roundDelta = roundDelta;
+
+        const turnIndex = clampInt(rawPatch.turn_index ?? rawPatch.turnIndex, 0, 80, null);
+        if (turnIndex !== null) patch.turnIndex = turnIndex;
+        const turnStep = clampInt(rawPatch.turn_step ?? rawPatch.turnStep, -10, 10, null);
+        if (turnStep !== null) patch.turnStep = turnStep;
+        const nextTurnIdRaw =
+          typeof rawPatch.next_turn_id === "string"
+            ? rawPatch.next_turn_id
+            : typeof rawPatch.nextTurnId === "string"
+              ? rawPatch.nextTurnId
+              : "";
+        if (nextTurnIdRaw.trim()) {
+          patch.nextTurnId = nextTurnIdRaw.trim().slice(0, 80);
+        }
+
+        if (Array.isArray(rawPatch.participants)) {
+          patch.participants = normalizeCombatParticipants(rawPatch.participants, warnings);
+        }
+        if (Array.isArray(rawPatch.participants_upsert) || Array.isArray(rawPatch.participantsUpsert)) {
+          patch.participantsUpsert = normalizeCombatParticipants(
+            Array.isArray(rawPatch.participants_upsert) ? rawPatch.participants_upsert : rawPatch.participantsUpsert,
+            warnings
+          );
+        }
+        if (Array.isArray(rawPatch.participants_remove) || Array.isArray(rawPatch.participantsRemove)) {
+          const removeSource = Array.isArray(rawPatch.participants_remove)
+            ? rawPatch.participants_remove
+            : rawPatch.participantsRemove;
+          patch.participantsRemove = normalizeStringList(removeSource, 30, 80).map((id) => id.replace(/\s+/g, "_"));
+        }
+
+        if (typeof rawPatch.note === "string" && rawPatch.note.trim()) {
+          patch.note = rawPatch.note.trim().slice(0, 220);
+        }
+
+        if (!Object.keys(patch).length) {
+          return null;
+        }
+        return patch;
+      }
+
+      function normalizeCombatParticipants(rawParticipants, warnings) {
+        if (!Array.isArray(rawParticipants)) return [];
+        const out = [];
+        const seen = new Set();
+        for (let i = 0; i < rawParticipants.length; i += 1) {
+          const p = normalizeCombatParticipant(rawParticipants[i], i);
+          if (!p) {
+            if (warnings) warnings.push("combat_participant_invalid");
+            continue;
+          }
+          if (seen.has(p.id)) continue;
+          seen.add(p.id);
+          out.push(p);
+          if (out.length >= 30) break;
+        }
+        return out;
+      }
+
+      function normalizeCombatParticipant(rawParticipant, index = 0) {
+        if (!rawParticipant || typeof rawParticipant !== "object") return null;
+        const nameRaw = typeof rawParticipant.name === "string" ? rawParticipant.name.trim() : "";
+        const fallbackName = nameRaw || `יצור ${index + 1}`;
+        const idRaw = typeof rawParticipant.id === "string" && rawParticipant.id.trim() ? rawParticipant.id : fallbackName;
+        const id = idRaw
+          .trim()
+          .toLowerCase()
+          .replace(/\s+/g, "_")
+          .slice(0, 80);
+        if (!id) return null;
+
+        const sideRaw =
+          typeof rawParticipant.side === "string"
+            ? rawParticipant.side.toLowerCase().trim()
+            : typeof rawParticipant.team === "string"
+              ? rawParticipant.team.toLowerCase().trim()
+              : "enemy";
+        const side = COMBAT_SIDE_ALLOWED.has(sideRaw) ? sideRaw : "enemy";
+        const initiative = clampInt(rawParticipant.initiative, -5, 40, null);
+        const hpCurrent = clampInt(rawParticipant.hp_current ?? rawParticipant.hpCurrent, 0, 999, null);
+        const hpMax = clampInt(rawParticipant.hp_max ?? rawParticipant.hpMax, 1, 999, null);
+        const ac = clampInt(rawParticipant.ac, 1, 40, null);
+        const status = normalizeStringList(rawParticipant.status, 8, 40);
+        const isPlayer = Boolean(rawParticipant.is_player || rawParticipant.isPlayer) || id === "player";
+
+        return {
+          id,
+          name: fallbackName.slice(0, 80),
+          side: isPlayer ? "ally" : side,
+          initiative,
+          hpCurrent,
+          hpMax: hpMax || (hpCurrent !== null ? Math.max(1, hpCurrent) : null),
+          ac,
+          status,
+          isPlayer,
+        };
+      }
+
+      function syncCombatPlayerParticipant() {
+        if (!state.combat.active || !state.sheet) return;
+        const participants = Array.isArray(state.combat.participants) ? state.combat.participants : [];
+        const idx = participants.findIndex((p) => p.isPlayer || p.id === "player");
+        const playerCombat = buildPlayerCombatParticipant();
+        if (!playerCombat) return;
+        if (idx < 0) {
+          participants.unshift(playerCombat);
+          state.combat.participants = participants;
+          if (state.combat.turnIndex > 0) {
+            state.combat.turnIndex += 1;
+          }
+          return;
+        }
+        const prev = participants[idx];
+        participants[idx] = {
+          ...prev,
+          ...playerCombat,
+          initiative: prev.initiative !== null ? prev.initiative : playerCombat.initiative,
+          status: prev.status && prev.status.length ? prev.status : playerCombat.status,
+        };
+      }
+
+      function buildPlayerCombatParticipant() {
+        if (!state.sheet) return null;
+        return {
+          id: "player",
+          name: state.sheet.name || "הדמות",
+          side: "ally",
+          initiative: null,
+          hpCurrent: clampInt(state.sheet.hp_current, 0, 999, null),
+          hpMax: clampInt(state.sheet.hp_max, 1, 999, null),
+          ac: clampInt(state.sheet.ac, 1, 40, null),
+          status: normalizeStringList(state.sheet.conditions, 8, 40),
+          isPlayer: true,
+        };
+      }
+
+      function deriveFallbackCombatPatch(parsed, playerText, showUserBubble) {
+        const narrative = normalizeQuery(parsed?.narrative || "");
+        const action = normalizeQuery(playerText || "");
+        const hasCombatStartHint =
+          containsAny(`${narrative} ${action}`.trim(), COMBAT_START_HINTS) ||
+          /התקפה|בדיקת התקפה|קרב/.test(parsed?.meta?.pending_roll?.reason || "");
+        const hasCombatEndHint = containsAny(narrative, COMBAT_END_HINTS);
+
+        if (!state.combat.active && hasCombatStartHint && showUserBubble) {
+          const player = buildPlayerCombatParticipant();
+          return {
+            active: true,
+            encounter_name: "עימות פתאומי",
+            round: 1,
+            turn_index: 0,
+            participants: [
+              player || {
+                id: "player",
+                name: "הדמות",
+                side: "ally",
+                initiative: null,
+                hp_current: null,
+                hp_max: null,
+                ac: null,
+                status: [],
+                is_player: true,
+              },
+              {
+                id: `enemy_${Math.max(1, state.storyTurn)}`,
+                name: "אויב לא מזוהה",
+                side: "enemy",
+                initiative: 10,
+                hp_current: 12,
+                hp_max: 12,
+                ac: 12,
+                status: [],
+                is_player: false,
+              },
+            ],
+            note: "זוהה קרב באופן אוטומטי (גיבוי).",
+          };
+        }
+
+        if (state.combat.active && hasCombatEndHint) {
+          return {
+            active: false,
+            participants: [],
+            note: "זוהה סיום קרב באופן אוטומטי.",
+          };
+        }
+
+        if (state.combat.active) {
+          return {
+            active: true,
+            participants_upsert: [buildPlayerCombatParticipant()],
+          };
+        }
+
+        return null;
       }
 
       async function callOpenAI(apiKey, modelHistory) {
@@ -2269,7 +2791,8 @@
           } else if (
             Object.prototype.hasOwnProperty.call(rootObject, "pending_roll") ||
             Object.prototype.hasOwnProperty.call(rootObject, "sheet_patch") ||
-            Object.prototype.hasOwnProperty.call(rootObject, "scene_image")
+            Object.prototype.hasOwnProperty.call(rootObject, "scene_image") ||
+            Object.prototype.hasOwnProperty.call(rootObject, "combat_patch")
           ) {
             metaSource = rootObject;
           }
@@ -2318,7 +2841,7 @@
         const compact = String(text || "").trim();
         if (!compact) return false;
         if (!compact.startsWith("{") && !compact.startsWith("[")) return false;
-        return /"\s*:\s*/.test(compact) || /pending_roll|sheet_patch|scene_image|narrative/i.test(compact);
+        return /"\s*:\s*/.test(compact) || /pending_roll|sheet_patch|scene_image|combat_patch|narrative/i.test(compact);
       }
 
       function tryParseJsonCandidate(text) {
@@ -2412,7 +2935,12 @@
       }
 
       function normalizeDmMeta(rawMeta, warnings) {
-        const defaults = { pending_roll: null, sheet_patch: {}, scene_image: { needed: false, importance: "none", reason: "" } };
+        const defaults = {
+          pending_roll: null,
+          sheet_patch: {},
+          scene_image: { needed: false, importance: "none", reason: "" },
+          combat_patch: null,
+        };
         if (!rawMeta || typeof rawMeta !== "object") {
           warnings.push("state_missing_default_used");
           return defaults;
@@ -2432,11 +2960,16 @@
             ? {}
             : normalizeSheetPatch(rawMeta.sheet_patch, warnings);
         const sceneImage = normalizeSceneImageHint(rawMeta.scene_image);
+        const combatPatch =
+          rawMeta.combat_patch === undefined
+            ? null
+            : normalizeCombatPatch(rawMeta.combat_patch, warnings);
 
         return {
           pending_roll: pendingRoll,
           sheet_patch: sheetPatch,
           scene_image: sceneImage,
+          combat_patch: combatPatch,
         };
       }
 
@@ -3504,6 +4037,69 @@
         );
         setList(elements.skillsList, prettySkills, "אין מיומנויות מסומנות כרגע.");
         setList(elements.conditionsList, state.sheet.conditions, "אין מצבים פעילים.");
+      }
+
+      function renderCombatTracker() {
+        if (!elements.combatSummary || !elements.combatOrderList || !elements.combatChip || !elements.endCombatBtn) {
+          return;
+        }
+        const combat = state.combat || createDefaultCombatState();
+        if (!combat.active) {
+          elements.combatChip.textContent = "קרב: לא פעיל";
+          elements.endCombatBtn.disabled = true;
+          elements.combatSummary.textContent = "אין קרב פעיל כרגע.";
+          elements.combatOrderList.innerHTML = "";
+          return;
+        }
+
+        syncCombatPlayerParticipant();
+        combat.participants = normalizeCombatParticipants(combat.participants);
+        if (combat.round < 1) combat.round = 1;
+        if (combat.turnIndex < 0 || combat.turnIndex >= combat.participants.length) {
+          combat.turnIndex = 0;
+        }
+
+        const current = getCurrentCombatActor();
+        const encounterName = combat.encounterName || "עימות פעיל";
+        const note = combat.note ? ` | ${combat.note}` : "";
+        elements.combatChip.textContent = current
+          ? `קרב: סיבוב ${combat.round} | ${current.name}`
+          : `קרב: סיבוב ${combat.round}`;
+        elements.endCombatBtn.disabled = false;
+        elements.combatSummary.textContent = current
+          ? `${encounterName} | סיבוב ${combat.round} | בתור: ${current.name}${note}`
+          : `${encounterName} | סיבוב ${combat.round}${note}`;
+
+        elements.combatOrderList.innerHTML = "";
+        for (let i = 0; i < combat.participants.length; i += 1) {
+          const p = combat.participants[i];
+          const li = document.createElement("li");
+          li.className = `combat-row${i === combat.turnIndex ? " active" : ""}`;
+
+          const hpText =
+            Number.isFinite(p.hpCurrent) && Number.isFinite(p.hpMax)
+              ? `${p.hpCurrent}/${p.hpMax}`
+              : Number.isFinite(p.hpCurrent)
+                ? String(p.hpCurrent)
+                : "-";
+          const initText = Number.isFinite(p.initiative) ? formatSigned(p.initiative) : "-";
+          const acText = Number.isFinite(p.ac) ? String(p.ac) : "-";
+          const statusText = Array.isArray(p.status) && p.status.length ? p.status.join(", ") : "ללא";
+
+          li.innerHTML =
+            `<div class="top"><strong>${escapeHtml(p.name)}</strong><span>${escapeHtml(combatSideLabel(p))}</span></div>` +
+            `<div class="meta">יוזמה: ${initText} | חיים: ${hpText} | שריון: ${acText}</div>` +
+            `<div class="meta">מצב: ${escapeHtml(statusText)}</div>`;
+          elements.combatOrderList.appendChild(li);
+        }
+      }
+
+      function combatSideLabel(participant) {
+        if (!participant) return "לא ידוע";
+        if (participant.isPlayer) return "שחקן";
+        if (participant.side === "ally") return "בן ברית";
+        if (participant.side === "enemy") return "אויב";
+        return "נייטרלי";
       }
 
       function setList(container, items, fallback) {
