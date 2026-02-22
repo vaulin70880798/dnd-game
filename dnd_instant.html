@@ -224,6 +224,35 @@
         color: rgba(241, 227, 194, 0.76);
       }
 
+      .api-config-grid {
+        margin-top: 12px;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .api-config-grid .full {
+        grid-column: 1 / -1;
+      }
+
+      .toggle-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(228, 190, 118, 0.24);
+        background: rgba(5, 10, 17, 0.72);
+        font-size: 0.9rem;
+      }
+
+      .toggle-row input[type="checkbox"] {
+        width: 17px;
+        height: 17px;
+        accent-color: var(--gold-soft);
+        margin: 0;
+      }
+
       .setup-screen {
         display: grid;
         place-items: center;
@@ -680,6 +709,10 @@
           margin: 0.5dvh auto;
         }
 
+        .api-config-grid {
+          grid-template-columns: 1fr;
+        }
+
         .setup-grid {
           grid-template-columns: 1fr;
         }
@@ -701,10 +734,44 @@
           </p>
           <label class="label" for="apiInput">מפתח גישה של OpenAI</label>
           <input id="apiInput" class="input" type="password" placeholder="sk-..." autocomplete="off" />
+          <div class="api-config-grid">
+            <div>
+              <label class="label" for="modelSelect">מודל DM</label>
+              <select id="modelSelect" class="select">
+                <option value="gpt-4o-mini" selected>gpt-4o-mini (זול לבדיקות)</option>
+                <option value="gpt-4.1">gpt-4.1 (יקר יותר)</option>
+              </select>
+            </div>
+            <div>
+              <label class="label" for="maxOutputTokensInput">מקסימום טוקנים לתשובת DM</label>
+              <input
+                id="maxOutputTokensInput"
+                class="input"
+                type="number"
+                min="120"
+                max="1200"
+                step="10"
+                value="320"
+              />
+            </div>
+            <label class="toggle-row full" for="cheapModeInput">
+              <input id="cheapModeInput" type="checkbox" checked />
+              מצב בדיקות זול (ברירת מחדל: קונטקסט קצר, תשובות קצרות, בלי תמונות)
+            </label>
+            <label class="toggle-row full" for="allowModelFallbackInput">
+              <input id="allowModelFallbackInput" type="checkbox" />
+              אפשר גיבוי אוטומטי למודל אחר אם הראשי נכשל (עשוי לייקר)
+            </label>
+            <label class="toggle-row full" for="imagesEnabledInput">
+              <input id="imagesEnabledInput" type="checkbox" />
+              הפעל יצירת תמונות סצנה (יקר משמעותית)
+            </label>
+          </div>
           <div class="actions">
             <button id="enterWithApiBtn" class="btn btn-primary" type="button">כניסה למשחק</button>
           </div>
           <p id="apiError" class="hint" style="color: var(--danger)"></p>
+          <p id="budgetHint" class="hint"></p>
           <p class="hint">המפתח לא נשמר קבוע. בסגירת הדף תתבקש להזין שוב.</p>
         </div>
       </section>
@@ -1028,6 +1095,12 @@
       const DICE_ENGINE_IMPORT_TIMEOUT_MS = 3500;
       const DICE_ENGINE_INIT_TIMEOUT_MS = 4500;
       const DICE_ENGINE_ROLL_TIMEOUT_MS = 7000;
+      const CHEAP_MODE_HISTORY_WINDOW = 8;
+      const NORMAL_MODE_HISTORY_WINDOW = 18;
+      const CHEAP_MODE_SUMMARY_LINES = 8;
+      const NORMAL_MODE_SUMMARY_LINES = 14;
+      const CHEAP_MODE_MAX_OUTPUT_TOKENS = 320;
+      const NORMAL_MODE_MAX_OUTPUT_TOKENS = 700;
       const ABILITIES = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
       const ABILITY_LABELS_HE = {
         STR: "כוח",
@@ -1317,6 +1390,12 @@
         setupScreen: document.getElementById("setupScreen"),
         gameScreen: document.getElementById("gameScreen"),
         apiInput: document.getElementById("apiInput"),
+        modelSelect: document.getElementById("modelSelect"),
+        maxOutputTokensInput: document.getElementById("maxOutputTokensInput"),
+        cheapModeInput: document.getElementById("cheapModeInput"),
+        allowModelFallbackInput: document.getElementById("allowModelFallbackInput"),
+        imagesEnabledInput: document.getElementById("imagesEnabledInput"),
+        budgetHint: document.getElementById("budgetHint"),
         apiError: document.getElementById("apiError"),
         enterWithApiBtn: document.getElementById("enterWithApiBtn"),
         playerNameInput: document.getElementById("playerNameInput"),
@@ -1377,6 +1456,13 @@
         targetMaxTurns: 40,
         activeModel: MODEL_CANDIDATES[0],
         activeImageModel: IMAGE_MODEL_CANDIDATES[0],
+        ai: {
+          modelPreference: MODEL_CANDIDATES[0],
+          cheapMode: true,
+          allowModelFallback: false,
+          imagesEnabled: false,
+          maxOutputTokens: CHEAP_MODE_MAX_OUTPUT_TOKENS,
+        },
         gameSessionId: 0,
         visualIdentity: "",
         imageQueue: Promise.resolve(),
@@ -1420,12 +1506,18 @@
         bindEvents();
         initSpeechRecognition();
         setDiceFallbackMode(true);
+        syncApiControlsFromMode();
         showScreen("api");
         setStatus("ממתין למפתח גישה");
       }
 
       function bindEvents() {
         elements.enterWithApiBtn.addEventListener("click", onApiEnter);
+        elements.modelSelect.addEventListener("change", syncApiControlsFromMode);
+        elements.maxOutputTokensInput.addEventListener("input", syncApiControlsFromMode);
+        elements.cheapModeInput.addEventListener("change", syncApiControlsFromMode);
+        elements.allowModelFallbackInput.addEventListener("change", syncApiControlsFromMode);
+        elements.imagesEnabledInput.addEventListener("change", syncApiControlsFromMode);
         elements.backToApiBtn.addEventListener("click", () => {
           elements.setupError.textContent = "";
           showScreen("api");
@@ -1464,12 +1556,13 @@
           elements.apiError.textContent = "נדרש מפתח גישה תקין של OpenAI כדי להיכנס.";
           return;
         }
+        applyAiSettingsFromApiGate();
         state.apiKey = key;
-        state.activeModel = MODEL_CANDIDATES[0];
+        state.activeModel = state.ai.modelPreference;
         state.activeImageModel = IMAGE_MODEL_CANDIDATES[0];
         elements.apiInput.value = "";
         showScreen("setup");
-        setStatus("ממתין לפרטי קמפיין");
+        setStatus(`ממתין לפרטי קמפיין | ${state.ai.cheapMode ? "מצב בדיקות זול" : "מצב רגיל"}`);
       }
 
       async function onStartCampaign() {
@@ -1507,6 +1600,12 @@
         renderSheet();
         renderDrawer();
         addMessage("system", "קמפיין חדש נוצר. המנחה פותח את הסצנה הראשונה...");
+        addMessage(
+          "system",
+          `הגדרות מנוע: ${state.activeModel} | ${state.ai.cheapMode ? "מצב בדיקות זול" : "מצב רגיל"} | ${
+            state.ai.imagesEnabled ? "תמונות פעילות" : "ללא תמונות"
+          }`
+        );
 
         const openingUserTurn = buildOpeningTurn(campaign, state.sheet);
         await sendTurnToModel(openingUserTurn, false);
@@ -1546,6 +1645,9 @@
           campaign.backstory ? `רקע: ${campaign.backstory}` : "רקע: -",
           `יעד_אורך_קמפיין_בתורות: עד ${state.targetMaxTurns} תורות שחקן`,
           "הנחיית_קצב: סביב תור 30 להתחיל להוביל לשיא ולסיום.",
+          state.ai.cheapMode
+            ? "מצב_בדיקות_זול: כן. שמור תשובה קצרה ותכליתית, לא יותר מפסקה או שתיים."
+            : "מצב_בדיקות_זול: לא.",
           "דף_דמות_JSON:",
           JSON.stringify(sheet),
           "הנחיה: פתח סצנת פתיחה עשירה וקצרה, והמשך משם לשיחה חופשית ללא אפשרויות ממוספרות.",
@@ -1651,6 +1753,7 @@
 
       function buildModelUserMessage(playerText) {
         const sheet = state.sheet || {};
+        const budget = getAiBudgetSettings();
         const pacing = {
           player_turn_index: state.storyTurn,
           target_end_turn: state.targetMaxTurns,
@@ -1681,6 +1784,8 @@
           inventory: sheet.inventory,
           features: sheet.features,
           narrative_pacing: pacing,
+          budget_mode: state.ai.cheapMode ? "cheap_test" : "standard",
+          response_token_target: budget.maxOutputTokens,
         };
 
         return [
@@ -1692,7 +1797,11 @@
       }
 
       async function callOpenAI(apiKey, modelHistory) {
-        const tryModels = [state.activeModel, ...MODEL_CANDIDATES.filter((m) => m !== state.activeModel)];
+        const budget = getAiBudgetSettings();
+        const compactInput = buildModelInputWindow(modelHistory, budget);
+        const tryModels = state.ai.allowModelFallback
+          ? [state.activeModel, ...MODEL_CANDIDATES.filter((m) => m !== state.activeModel)]
+          : [state.activeModel];
         let lastError = null;
 
         for (let i = 0; i < tryModels.length; i += 1) {
@@ -1706,7 +1815,8 @@
             body: JSON.stringify({
               model: modelName,
               instructions: SYSTEM_PROMPT,
-              input: modelHistory,
+              input: compactInput,
+              max_output_tokens: budget.maxOutputTokens,
             }),
           });
 
@@ -1727,6 +1837,111 @@
         }
 
         throw new Error(lastError || "כשל בבחירת מודל");
+      }
+
+      function getAiBudgetSettings() {
+        const cheapMode = Boolean(state.ai.cheapMode);
+        const defaultTokens = cheapMode ? CHEAP_MODE_MAX_OUTPUT_TOKENS : NORMAL_MODE_MAX_OUTPUT_TOKENS;
+        const maxOutputTokens = clampInt(state.ai.maxOutputTokens, 120, 1200, defaultTokens);
+        return {
+          cheapMode,
+          maxOutputTokens,
+          historyWindow: cheapMode ? CHEAP_MODE_HISTORY_WINDOW : NORMAL_MODE_HISTORY_WINDOW,
+          summaryLineLimit: cheapMode ? CHEAP_MODE_SUMMARY_LINES : NORMAL_MODE_SUMMARY_LINES,
+          entryMaxChars: cheapMode ? 150 : 260,
+        };
+      }
+
+      function buildModelInputWindow(modelHistory, budget) {
+        const history = Array.isArray(modelHistory) ? modelHistory : [];
+        if (!history.length) return [];
+
+        const keepOpening = Math.min(2, history.length);
+        const historyWindow = Math.max(4, Number(budget?.historyWindow) || CHEAP_MODE_HISTORY_WINDOW);
+        if (history.length <= keepOpening + historyWindow) {
+          return history.map((entry, index) =>
+            normalizeHistoryEntry(entry, {
+              stripEmbeddedContext: index !== history.length - 1,
+              maxChars: (budget?.entryMaxChars || 180) * 4,
+            })
+          );
+        }
+
+        const opening = history.slice(0, keepOpening).map((entry) =>
+          normalizeHistoryEntry(entry, {
+            stripEmbeddedContext: true,
+            maxChars: (budget?.entryMaxChars || 180) * 4,
+          })
+        );
+        const recentRaw = history.slice(-historyWindow);
+        const recent = recentRaw.map((entry, index) =>
+          normalizeHistoryEntry(entry, {
+            stripEmbeddedContext: index !== recentRaw.length - 1,
+            maxChars: (budget?.entryMaxChars || 180) * 4,
+          })
+        );
+        const mid = history.slice(keepOpening, -historyWindow);
+        const digest = buildHistoryDigest(mid, budget?.summaryLineLimit || 8, budget?.entryMaxChars || 180);
+
+        const compact = [...opening];
+        if (digest) {
+          compact.push({
+            role: "user",
+            content: `תקציר_אירועים_קודמים:\n${digest}`,
+          });
+        }
+        compact.push(...recent);
+        return compact;
+      }
+
+      function normalizeHistoryEntry(entry, options = {}) {
+        const role = entry && entry.role === "assistant" ? "assistant" : "user";
+        const maxChars = Number.isFinite(options.maxChars) ? options.maxChars : 800;
+        const stripEmbeddedContext = Boolean(options.stripEmbeddedContext);
+        let content = typeof entry?.content === "string" ? entry.content : "";
+        content = content.replace(/\r/g, "").trim();
+        if (stripEmbeddedContext && role === "user") {
+          content = stripEmbeddedSheetContext(content);
+        }
+        if (content.length > maxChars) {
+          content = `${content.slice(0, maxChars)}…`;
+        }
+        return { role, content };
+      }
+
+      function stripEmbeddedSheetContext(text) {
+        const normalized = String(text || "");
+        const markers = ["\nהקשר_דף_דמות_JSON", "\nדף_דמות_JSON:"];
+        let cutAt = -1;
+        for (const marker of markers) {
+          const index = normalized.indexOf(marker);
+          if (index >= 0 && (cutAt < 0 || index < cutAt)) {
+            cutAt = index;
+          }
+        }
+        if (cutAt < 0) return normalized;
+        const compact = normalized.slice(0, cutAt).trim();
+        if (!compact) return normalized;
+        return `${compact}\n[הקשר מכאני מפורט הושמט לחיסכון בעלות.]`;
+      }
+
+      function buildHistoryDigest(entries, lineLimit, entryMaxChars) {
+        if (!Array.isArray(entries) || !entries.length) return "";
+        const limit = Math.max(2, lineLimit || 8);
+        const maxChars = Math.max(80, entryMaxChars || 180);
+        const chosen = entries.slice(-limit);
+        const lines = [];
+        for (const entry of chosen) {
+          const role = entry && entry.role === "assistant" ? "מנחה" : "שחקן";
+          let content = typeof entry?.content === "string" ? entry.content : "";
+          content = stripEmbeddedSheetContext(content).replace(/\s+/g, " ").trim();
+          if (!content) continue;
+          if (content.length > maxChars) {
+            content = `${content.slice(0, maxChars)}…`;
+          }
+          lines.push(`- ${role}: ${content}`);
+        }
+        return lines.join("\n");
       }
 
       function parseDmResponse(rawText) {
@@ -2986,6 +3201,7 @@
       }
 
       function shouldGenerateSceneImage(text, sceneImageHint, messageIndex) {
+        if (!state.ai.imagesEnabled) return false;
         if (messageIndex <= 1) return true;
         if (messageIndex - state.lastImageDmIndex < 2) return false;
 
@@ -3156,6 +3372,54 @@
 
       function setStatus(text) {
         elements.statusChip.textContent = text;
+      }
+
+      function applyAiSettingsFromApiGate() {
+        const selectedModel = MODEL_CANDIDATES.includes(elements.modelSelect.value)
+          ? elements.modelSelect.value
+          : MODEL_CANDIDATES[0];
+        const cheapMode = Boolean(elements.cheapModeInput.checked);
+        const allowModelFallback = cheapMode ? false : Boolean(elements.allowModelFallbackInput.checked);
+        const imagesEnabled = cheapMode ? false : Boolean(elements.imagesEnabledInput.checked);
+        const defaultTokens = cheapMode ? CHEAP_MODE_MAX_OUTPUT_TOKENS : NORMAL_MODE_MAX_OUTPUT_TOKENS;
+        const maxOutputTokens = cheapMode
+          ? clampInt(elements.maxOutputTokensInput.value, 120, 420, defaultTokens)
+          : clampInt(elements.maxOutputTokensInput.value, 120, 1200, defaultTokens);
+
+        state.ai = {
+          modelPreference: selectedModel,
+          cheapMode,
+          allowModelFallback,
+          imagesEnabled,
+          maxOutputTokens,
+        };
+      }
+
+      function syncApiControlsFromMode() {
+        const cheapMode = Boolean(elements.cheapModeInput.checked);
+        if (cheapMode) {
+          elements.allowModelFallbackInput.checked = false;
+          elements.imagesEnabledInput.checked = false;
+        }
+        elements.allowModelFallbackInput.disabled = cheapMode;
+        elements.imagesEnabledInput.disabled = cheapMode;
+
+        const fallbackTokens = cheapMode ? CHEAP_MODE_MAX_OUTPUT_TOKENS : NORMAL_MODE_MAX_OUTPUT_TOKENS;
+        const maxAllowedTokens = cheapMode ? 420 : 1200;
+        const normalizedTokens = clampInt(elements.maxOutputTokensInput.value, 120, maxAllowedTokens, fallbackTokens);
+        elements.maxOutputTokensInput.max = String(maxAllowedTokens);
+        elements.maxOutputTokensInput.value = String(normalizedTokens);
+
+        const modelLabel = MODEL_CANDIDATES.includes(elements.modelSelect.value)
+          ? elements.modelSelect.value
+          : MODEL_CANDIDATES[0];
+        if (elements.budgetHint) {
+          elements.budgetHint.textContent = cheapMode
+            ? `מצב בדיקות זול פעיל: ${modelLabel}, עד ${normalizedTokens} טוקנים לתגובה, קונטקסט מצומצם וללא תמונות.`
+            : `מצב רגיל: ${modelLabel}, עד ${normalizedTokens} טוקנים לתגובה${
+                elements.allowModelFallbackInput.checked ? ", עם גיבוי מודל" : ""
+              }${elements.imagesEnabledInput.checked ? ", עם תמונות" : ", ללא תמונות"}.`;
+        }
       }
 
       function storyTurnsLeft() {
