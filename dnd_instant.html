@@ -1568,6 +1568,7 @@
 }
 23) כשקרב פעיל חובה להחזיר combat_patch בכל תגובה ולעדכן לפי מה שקרה (HP, תורות, אויבים שנפלו, סיבוב).
 24) כשהקרב מסתיים החזר combat_patch עם active:false ו-participants ריק.
+25) אם מגיע ROLL_RESULT עם LOCAL_COMBAT_RESOLUTION_HINT, התייחס אליו כבסיס מכאני לגיבוי ועדכן combat_patch בהתאם, אלא אם יש סתירה ברורה לנתונים.
 `;
 
       const elements = {
@@ -1682,6 +1683,7 @@
           participants: [],
           note: "",
         },
+        combatIntent: null,
         chatTranscript: [],
         busy: false,
         rolling: false,
@@ -1861,6 +1863,7 @@
             : IMAGE_MODEL_CANDIDATES[0],
           ai: normalizeAiSettings(state.ai),
           combat: normalizeCombatStateForSave(state.combat),
+          combat_intent: normalizeCombatIntent(state.combatIntent),
           visual_identity: typeof state.visualIdentity === "string" ? state.visualIdentity : "",
           pending_roll: state.pendingRoll ? cloneJson(state.pendingRoll) : null,
           pending_roll_outcome: state.pendingRollOutcome ? cloneJson(state.pendingRollOutcome) : null,
@@ -1887,6 +1890,7 @@
         state.pendingRoll = snapshot.pendingRoll;
         state.pendingRollOutcome = snapshot.pendingRollOutcome;
         state.combat = snapshot.combat;
+        state.combatIntent = snapshot.combatIntent;
         state.chatTranscript = snapshot.chatTranscript;
 
         state.dmMessageCount = 0;
@@ -1937,6 +1941,7 @@
         const storyTurn = clampInt(rawSnapshot.story_turn, 0, 999, 0);
         const targetMaxTurns = clampInt(rawSnapshot.target_max_turns, 20, 200, 40);
         const combat = normalizeCombatStateFromSave(rawSnapshot.combat);
+        const combatIntent = normalizeCombatIntent(rawSnapshot.combat_intent);
         const pendingRoll =
           rawSnapshot.pending_roll && typeof rawSnapshot.pending_roll === "object"
             ? normalizeRollSpec(rawSnapshot.pending_roll)
@@ -1967,6 +1972,7 @@
           activeImageModel,
           ai,
           combat,
+          combatIntent,
           gameSessionId: clampInt(rawSnapshot.game_session_id, 0, 9999999, state.gameSessionId || 0),
           visualIdentity:
             typeof rawSnapshot.visual_identity === "string" ? rawSnapshot.visual_identity.slice(0, 600) : "",
@@ -2068,6 +2074,38 @@
         return normalizeCombatStateForSave(rawCombat);
       }
 
+      function normalizeCombatIntent(rawIntent) {
+        if (!rawIntent || typeof rawIntent !== "object") return null;
+        const actionRaw = typeof rawIntent.actionKey === "string" ? rawIntent.actionKey.trim() : "";
+        const actionKey = ["attack", "spell", "defend", "retreat", "end_turn"].includes(actionRaw) ? actionRaw : "";
+        if (!actionKey) return null;
+
+        const targetId =
+          typeof rawIntent.targetId === "string" && rawIntent.targetId.trim()
+            ? rawIntent.targetId.trim().toLowerCase().replace(/\s+/g, "_").slice(0, 80)
+            : "";
+        const targetName =
+          typeof rawIntent.targetName === "string" && rawIntent.targetName.trim()
+            ? rawIntent.targetName.trim().slice(0, 80)
+            : "";
+        const source =
+          typeof rawIntent.source === "string" && rawIntent.source.trim() ? rawIntent.source.trim().slice(0, 32) : "manual";
+        const sourceText =
+          typeof rawIntent.sourceText === "string" && rawIntent.sourceText.trim()
+            ? rawIntent.sourceText.trim().slice(0, 260)
+            : "";
+        const createdAt = Number.isFinite(rawIntent.createdAt) ? rawIntent.createdAt : Date.now();
+
+        return {
+          actionKey,
+          targetId,
+          targetName,
+          source,
+          sourceText,
+          createdAt,
+        };
+      }
+
       function autoSaveGameSilently() {
         if (!state.campaign || !state.sheet) return;
         try {
@@ -2122,6 +2160,7 @@
         state.pendingRoll = null;
         state.pendingRollOutcome = null;
         state.combat = createDefaultCombatState();
+        state.combatIntent = null;
         state.chatTranscript = [];
         elements.chatLog.innerHTML = "";
         showScreen("game");
@@ -2213,6 +2252,14 @@
           addMessage("system", "יש גלגול ממתין. קודם גלגל קוביה בחלון שנפתח.");
           return;
         }
+        if (state.combat.active) {
+          const inferredIntent = inferCombatIntentFromText(text);
+          if (inferredIntent) {
+            state.combatIntent = inferredIntent;
+          }
+        } else {
+          state.combatIntent = null;
+        }
         clearComposerAfterSend();
         await sendTurnToModel(text, true);
       }
@@ -2269,6 +2316,9 @@
               closeRollModal();
             }
           }
+          if (showUserBubble && !state.pendingRoll && state.combat.active) {
+            state.combatIntent = null;
+          }
 
           updateMainStatus();
           autoSaveGameSilently();
@@ -2315,6 +2365,7 @@
           inventory: sheet.inventory,
           features: sheet.features,
           combat: buildCombatContextForModel(),
+          combat_intent: buildCombatIntentForModel(),
           narrative_pacing: pacing,
           budget_mode: state.ai.cheapMode ? "cheap_test" : "standard",
           response_token_target: budget.maxOutputTokens,
@@ -2352,6 +2403,18 @@
             is_player: Boolean(p.isPlayer),
           })),
           note: combat.note || "",
+        };
+      }
+
+      function buildCombatIntentForModel() {
+        const intent = normalizeCombatIntent(state.combatIntent);
+        if (!intent) return null;
+        return {
+          action_key: intent.actionKey,
+          target_id: intent.targetId || "",
+          target_name: intent.targetName || "",
+          source: intent.source || "manual",
+          source_text: intent.sourceText || "",
         };
       }
 
@@ -2403,6 +2466,7 @@
           addMessage("system", "אין קרב פעיל לסיים.");
           return;
         }
+        state.combatIntent = null;
         applyCombatPatch({ active: false, participants: [], note: "הקרב נסגר ידנית." }, { source: "manual" });
         renderCombatTracker();
         updateMainStatus();
@@ -2437,6 +2501,7 @@
         const targetName = getSelectedCombatTargetName();
         const actionText = buildQuickCombatActionText(actionKey, targetName);
         if (!actionText) return;
+        setCombatIntent(actionKey, elements.combatTargetSelect?.value || "", targetName, "quick", actionText);
 
         elements.chatInput.value = actionText;
         if (typeof elements.chatForm.requestSubmit === "function") {
@@ -2464,6 +2529,51 @@
           return "אני מסיים את התור שלי ומעביר תור.";
         }
         return "";
+      }
+
+      function setCombatIntent(actionKey, targetId, targetName, source, sourceText) {
+        const normalized = normalizeCombatIntent({
+          actionKey,
+          targetId,
+          targetName,
+          source,
+          sourceText,
+          createdAt: Date.now(),
+        });
+        state.combatIntent = normalized;
+      }
+
+      function inferCombatIntentFromText(text) {
+        if (!state.combat.active) return null;
+        const normalized = normalizeQuery(text);
+        if (!normalized) return null;
+
+        let actionKey = "";
+        if (containsAny(normalized, ["תוקף", "התקפה", "מכה", "דוקר", "יורה"])) {
+          actionKey = "attack";
+        } else if (containsAny(normalized, ["לחש", "מטיל", "כישוף", "קסם"])) {
+          actionKey = "spell";
+        } else if (containsAny(normalized, ["מתגונן", "התגוננות", "חוסם", "מגן"])) {
+          actionKey = "defend";
+        } else if (containsAny(normalized, ["נסוג", "בורח", "סגת", "נסיגה"])) {
+          actionKey = "retreat";
+        } else if (containsAny(normalized, ["סיום תור", "מסיים תור", "מעביר תור"])) {
+          actionKey = "end_turn";
+        }
+        if (!actionKey) return null;
+
+        const target = getAvailableCombatTargets().find((candidate) =>
+          normalized.includes(normalizeQuery(candidate.name))
+        );
+        const fallbackTarget = getSelectedCombatTargetName();
+        return normalizeCombatIntent({
+          actionKey,
+          targetId: target?.id || elements.combatTargetSelect?.value || "",
+          targetName: target?.name || fallbackTarget || "",
+          source: "manual",
+          sourceText: String(text || "").slice(0, 260),
+          createdAt: Date.now(),
+        });
       }
 
       function getAvailableCombatTargets() {
@@ -2585,6 +2695,7 @@
           combat.round = 0;
           combat.turnIndex = 0;
           combat.participants = [];
+          state.combatIntent = null;
         } else {
           const enemies = combat.participants.filter((p) => p.side === "enemy");
           if (
@@ -2596,6 +2707,7 @@
             combat.round = 0;
             combat.turnIndex = 0;
             combat.participants = [];
+            state.combatIntent = null;
             return true;
           }
           if (combat.round < 1) combat.round = 1;
@@ -2830,6 +2942,182 @@
         }
 
         return null;
+      }
+
+      function resolveSemiRigidCombatPatchFromRoll(oldRoll, outcome) {
+        if (!state.combat.active || !state.sheet) return null;
+        const intent = normalizeCombatIntent(state.combatIntent);
+        if (!intent) return null;
+        if (Date.now() - intent.createdAt > 12 * 60 * 1000) return null;
+
+        const currentActor = getCurrentCombatActor();
+        if (currentActor && !(currentActor.isPlayer || currentActor.id === "player")) {
+          return null;
+        }
+
+        const success = outcome?.successText === "הצלחה" || outcome?.successText === "ללא קושי מוגדר";
+        if (intent.actionKey === "attack" || intent.actionKey === "spell") {
+          const target = resolveCombatIntentTarget(intent);
+          if (!target) {
+            return {
+              active: true,
+              note: "לא נמצא יעד ברור לפתרון נזק אוטומטי.",
+            };
+          }
+
+          if (!success) {
+            return {
+              active: true,
+              note: `${state.sheet.name || "הדמות"} החטיא/ה את ${target.name}.`,
+            };
+          }
+
+          const damage = computeSemiRigidDamageValue(intent.actionKey, oldRoll, outcome);
+          const currentHp = Number.isFinite(target.hpCurrent)
+            ? target.hpCurrent
+            : Number.isFinite(target.hpMax)
+              ? target.hpMax
+              : 12;
+          const nextHp = Math.max(0, currentHp - damage);
+          const status = normalizeStringList(
+            [...(Array.isArray(target.status) ? target.status : []), ...(nextHp <= 0 ? ["מנוטרל"] : [])],
+            8,
+            40
+          );
+          return {
+            active: true,
+            participants_upsert: [
+              {
+                id: target.id,
+                name: target.name,
+                side: target.side,
+                initiative: target.initiative,
+                hp_current: nextHp,
+                hp_max: Number.isFinite(target.hpMax) ? target.hpMax : Math.max(1, currentHp),
+                ac: Number.isFinite(target.ac) ? target.ac : null,
+                status,
+                is_player: Boolean(target.isPlayer),
+              },
+            ],
+            note: `${state.sheet.name || "הדמות"} גרם/ה ${damage} נזק ל-${target.name} (גיבוי אוטומטי).`,
+          };
+        }
+
+        if (intent.actionKey === "defend") {
+          if (!success) {
+            return {
+              active: true,
+              note: "ניסיון התגוננות בוצע חלקית בלבד.",
+            };
+          }
+          const player = buildPlayerCombatParticipant();
+          if (!player) return null;
+          const current = (state.combat.participants || []).find((p) => p.id === "player" || p.isPlayer);
+          const status = normalizeStringList([...(current?.status || []), "מתגונן"], 8, 40);
+          return {
+            active: true,
+            participants_upsert: [
+              {
+                id: "player",
+                name: player.name,
+                side: "ally",
+                initiative: current?.initiative ?? player.initiative,
+                hp_current: player.hpCurrent,
+                hp_max: player.hpMax,
+                ac: player.ac,
+                status,
+                is_player: true,
+              },
+            ],
+            note: "הדמות נכנסה למצב הגנתי (גיבוי אוטומטי).",
+          };
+        }
+
+        if (intent.actionKey === "retreat") {
+          return {
+            active: true,
+            turn_step: 1,
+            note: success
+              ? "הדמות נסוגה לעמדה בטוחה יותר (גיבוי אוטומטי)."
+              : "הנסיגה נכשלה והדמות נותרה בעימות.",
+          };
+        }
+
+        if (intent.actionKey === "end_turn") {
+          return {
+            active: true,
+            turn_step: 1,
+            note: "התור הועבר לשחקן הבא (גיבוי אוטומטי).",
+          };
+        }
+
+        return null;
+      }
+
+      function resolveCombatIntentTarget(intent) {
+        const enemies = getAvailableCombatTargets();
+        if (!enemies.length) return null;
+        if (intent?.targetId) {
+          const byId = enemies.find((enemy) => enemy.id === intent.targetId);
+          if (byId) return byId;
+        }
+        if (intent?.targetName) {
+          const normalizedName = normalizeQuery(intent.targetName);
+          const byName = enemies.find((enemy) => normalizeQuery(enemy.name) === normalizedName);
+          if (byName) return byName;
+        }
+        return enemies[0];
+      }
+
+      function computeSemiRigidDamageValue(actionKey, oldRoll, outcome) {
+        const die = actionKey === "spell" ? 10 : 8;
+        const abilityMod = oldRoll?.ability ? state.sheet.ability_mods?.[oldRoll.ability] || 0 : 0;
+        const pb = oldRoll?.proficiency ? state.sheet.proficiency_bonus || 0 : 0;
+        const extra = Number.isFinite(oldRoll?.extra_modifier) ? oldRoll.extra_modifier : 0;
+        let damage = rollDie(die);
+        damage += Math.max(0, abilityMod);
+        damage += Math.max(0, Math.floor((pb + extra) / 2));
+        if (isLikelyCriticalRoll(oldRoll, outcome)) {
+          damage += rollDie(die);
+        }
+        return clampInt(Math.round(damage), 1, 80, 1);
+      }
+
+      function isLikelyCriticalRoll(oldRoll, outcome) {
+        if (!oldRoll || oldRoll.die !== "d20") return false;
+        const label = String(outcome?.label || "");
+        return /=>\s*20\b/.test(label) || /d20\s*=\s*20\b/.test(label);
+      }
+
+      function buildRollReportWithCombatHint(baseRollReport, localCombatPatch) {
+        const lines = [String(baseRollReport || "").trim()];
+        const intent = buildCombatIntentForModel();
+        if (intent) {
+          lines.push("COMBAT_INTENT");
+          lines.push(JSON.stringify(intent));
+        }
+        if (localCombatPatch) {
+          lines.push("LOCAL_COMBAT_RESOLUTION_HINT");
+          lines.push(JSON.stringify(compactCombatPatchForRollHint(localCombatPatch)));
+        }
+        return lines.join("\n");
+      }
+
+      function compactCombatPatchForRollHint(patch) {
+        if (!patch || typeof patch !== "object") return {};
+        const compact = {};
+        if (typeof patch.active === "boolean") compact.active = patch.active;
+        if (typeof patch.turn_step === "number") compact.turn_step = patch.turn_step;
+        if (typeof patch.note === "string" && patch.note.trim()) compact.note = patch.note.trim().slice(0, 180);
+        if (Array.isArray(patch.participants_upsert)) {
+          compact.participants_upsert = patch.participants_upsert.map((p) => ({
+            id: p.id,
+            hp_current: p.hp_current,
+            hp_max: p.hp_max,
+            status: Array.isArray(p.status) ? p.status : [],
+          }));
+        }
+        return compact;
       }
 
       async function callOpenAI(apiKey, modelHistory) {
@@ -3599,15 +3887,22 @@
           );
 
           const oldRoll = state.pendingRoll;
-          const rollReport = outcome.rollReport;
+          const localCombatPatch = resolveSemiRigidCombatPatchFromRoll(oldRoll, outcome);
+          if (localCombatPatch) {
+            applyCombatPatch(localCombatPatch, { source: "local_roll_engine" });
+            renderCombatTracker();
+            addMessage("system", "בוצע עדכון קרב אוטומטי (גיבוי) לפי תוצאת הגלגול.");
+          }
+          const rollReport = buildRollReportWithCombatHint(outcome.rollReport, localCombatPatch);
           state.pendingRoll = null;
           state.pendingRollOutcome = null;
           closeRollModal();
 
           await sendTurnToModel(rollReport, false);
-          if (oldRoll && oldRoll.reason) {
-            setStatus("הסיפור ממשיך");
+          if (!state.pendingRoll) {
+            state.combatIntent = null;
           }
+          updateMainStatus();
         } finally {
           state.rolling = false;
           elements.rollNowBtn.textContent = "גלגל";
