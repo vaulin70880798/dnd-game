@@ -2,10 +2,10 @@ import Foundation
 import SwiftData
 
 enum CodexKind: String, CaseIterable, Codable {
-    case npc = "NPC"
-    case item = "Item"
-    case location = "Location"
-    case faction = "Faction"
+    case npc = "דמות"
+    case item = "חפץ"
+    case location = "מיקום"
+    case faction = "סיעה"
 }
 
 @Model

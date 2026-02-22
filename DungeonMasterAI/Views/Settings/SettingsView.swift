@@ -13,16 +13,16 @@ struct SettingsView: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Settings")
+                    Text("הגדרות")
                         .font(.dmUI(36, weight: .bold))
                         .foregroundStyle(theme.colors.textPrimary)
 
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("OpenAI API Key")
+                        Text("מפתח OpenAI")
                             .font(.dmUI(21, weight: .semibold))
                             .foregroundStyle(theme.colors.textPrimary)
 
-                        Text("Dungeon Master AI is locked until a valid OpenAI key is configured here.")
+                        Text("שליט המבוך AI נעול עד להגדרת מפתח תקין במסך זה.")
                             .font(.dmUI(14))
                             .foregroundStyle(theme.colors.textSecondary)
 
@@ -55,27 +55,27 @@ struct SettingsView: View {
                         }
 
                         if keyStore.hasAPIKey, !keyStore.maskedPreview.isEmpty {
-                            Text("Stored key: \(keyStore.maskedPreview)")
+                            Text("מפתח שמור: \(keyStore.maskedPreview)")
                                 .font(.dmUI(13))
                                 .foregroundStyle(theme.colors.textSecondary)
                         }
 
                         HStack(spacing: 10) {
-                            Button("Save Key") {
+                            Button("שמור מפתח") {
                                 keyStore.save(apiKeyInput)
                                 if keyStore.errorMessage == nil {
                                     apiKeyInput = ""
-                                    localMessage = "API key saved to Keychain."
+                                    localMessage = "המפתח נשמר ב‑Keychain."
                                 } else {
                                     localMessage = keyStore.errorMessage
                                 }
                             }
                             .buttonStyle(EmberPrimaryButtonStyle())
 
-                            Button("Clear") {
+                            Button("נקה") {
                                 keyStore.clear()
                                 apiKeyInput = ""
-                                localMessage = keyStore.errorMessage ?? "Saved key removed."
+                                localMessage = keyStore.errorMessage ?? "המפתח השמור הוסר."
                             }
                             .buttonStyle(EmberSecondaryButtonStyle())
                             .frame(width: 110)
@@ -84,11 +84,11 @@ struct SettingsView: View {
                     .emberCardStyle()
 
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Temporary Demo Mode")
+                        Text("מצב דמו זמני")
                             .font(.dmUI(18, weight: .semibold))
                             .foregroundStyle(theme.colors.textPrimary)
 
-                        Text("For temporary UI testing only: allows gameplay flows without a real OpenAI key.")
+                        Text("לבדיקות זמניות בלבד: מאפשר זרימת משחק גם ללא מפתח OpenAI אמיתי.")
                             .font(.dmUI(14))
                             .foregroundStyle(theme.colors.textSecondary)
 
@@ -96,26 +96,26 @@ struct SettingsView: View {
                             get: { keyStore.demoModeEnabled },
                             set: { keyStore.setDemoMode($0) }
                         )) {
-                            Text("Enable temporary Demo Mode")
+                            Text("הפעל מצב דמו זמני")
                                 .font(.dmUI(15, weight: .medium))
                                 .foregroundStyle(theme.colors.textPrimary)
                         }
                         .tint(theme.colors.accent)
 
-                        Button("Enable Demo Quickly") {
+                        Button("הפעל דמו במהירות") {
                             keyStore.enableDemoModeQuickly()
-                            localMessage = "Temporary Demo Mode enabled."
+                            localMessage = "מצב דמו זמני הופעל."
                         }
                         .buttonStyle(EmberSecondaryButtonStyle())
                     }
                     .emberCardStyle()
 
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Design Notes")
+                        Text("הערות עיצוב")
                             .font(.dmUI(18, weight: .semibold))
                             .foregroundStyle(theme.colors.textPrimary)
 
-                        Text("Theme is locked to Ember-Gold on Charcoal. AI narration uses serif typography for story readability.")
+                        Text("התמה קבועה: Ember‑Gold על Charcoal. קריינות AI מוצגת בפונט סריפי לקריאות גבוהה.")
                             .font(.dmUI(14))
                             .foregroundStyle(theme.colors.textSecondary)
                     }

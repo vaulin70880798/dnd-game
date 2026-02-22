@@ -13,28 +13,28 @@ struct SetupWizardView: View {
 
     @State private var step = 0
     @State private var heroName = ""
-    @State private var classBackground = "Ranger / Outlander"
-    @State private var style = "Gritty"
-    @State private var genre = "Gothic Horror"
+    @State private var classBackground = "סייר / נווד"
+    @State private var style = "קשוח"
+    @State private var genre = "אימה גותית"
     @State private var title = ""
     @State private var isGenerating = false
     @State private var localMessage: String?
 
     private let classOptions = [
-        "Ranger / Outlander",
-        "Paladin / Oathbound",
-        "Mage / Scholar",
-        "Rogue / Spy",
-        "Cleric / Pilgrim"
+        "סייר / נווד",
+        "פלדין / נודר-שבועה",
+        "קוסם / מלומד",
+        "גנב / מרגל",
+        "כוהן / צליין"
     ]
-    private let genres = ["Gothic Horror", "High Fantasy", "Cyberpunk", "Mythic Seas"]
-    private let styleOptions = ["Gritty", "Heroic", "Chaotic"]
+    private let genres = ["אימה גותית", "פנטזיה גבוהה", "סייבר-פאנק מאגי", "ימים מיתיים"]
+    private let styleOptions = ["קשוח", "הרואי", "כאוטי"]
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
-                    Text("Create Your Hero")
+                    Text("יצירת הגיבור שלך")
                         .font(.dmUI(38, weight: .bold))
                         .foregroundStyle(theme.colors.textPrimary)
 
@@ -96,17 +96,17 @@ struct SetupWizardView: View {
 
     private var heroStep: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("Step 1 • Identity")
+            Text("שלב 1 • זהות")
                 .font(.dmUI(18, weight: .semibold))
                 .foregroundStyle(theme.colors.textPrimary)
 
             VStack(alignment: .leading, spacing: 8) {
-                Text("Character Name")
+                Text("שם דמות")
                     .font(.dmUI(14))
                     .foregroundStyle(theme.colors.textSecondary)
 
                 HStack(spacing: 8) {
-                    TextField("e.g. Elara Vance", text: $heroName)
+                    TextField("לדוגמה: אלארה ואנס", text: $heroName)
                         .font(.dmUI(16))
                         .foregroundStyle(theme.colors.textPrimary)
                         .padding(12)
@@ -140,12 +140,12 @@ struct SetupWizardView: View {
 
     private var classStep: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("Step 2 • Origins")
+            Text("שלב 2 • מוצא")
                 .font(.dmUI(18, weight: .semibold))
                 .foregroundStyle(theme.colors.textPrimary)
 
             VStack(alignment: .leading, spacing: 8) {
-                Text("Class & Background")
+                Text("מקצוע ורקע")
                     .font(.dmUI(14))
                     .foregroundStyle(theme.colors.textSecondary)
 
@@ -159,7 +159,7 @@ struct SetupWizardView: View {
             }
 
             VStack(alignment: .leading, spacing: 8) {
-                Text("Realm Genre")
+                Text("סוג ממלכה")
                     .font(.dmUI(14))
                     .foregroundStyle(theme.colors.textSecondary)
 
@@ -176,11 +176,11 @@ struct SetupWizardView: View {
 
     private var styleStep: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("Step 3 • Tone")
+            Text("שלב 3 • טון")
                 .font(.dmUI(18, weight: .semibold))
                 .foregroundStyle(theme.colors.textPrimary)
 
-            Text("Choose Your Style")
+            Text("בחירת סגנון")
                 .font(.dmUI(26, weight: .semibold))
                 .foregroundStyle(theme.colors.textPrimary)
 
@@ -234,7 +234,7 @@ struct SetupWizardView: View {
         VStack(spacing: 12) {
             HStack(spacing: 10) {
                 if step > 0 {
-                    Button("Back") {
+                    Button("חזרה") {
                         withAnimation(.easeInOut(duration: 0.25)) {
                             step -= 1
                         }
@@ -243,14 +243,14 @@ struct SetupWizardView: View {
                 }
 
                 if step < 2 {
-                    Button("Continue") {
+                    Button("המשך") {
                         withAnimation(.easeInOut(duration: 0.25)) {
                             step += 1
                         }
                     }
                         .buttonStyle(EmberSecondaryButtonStyle())
                 } else {
-                    Button("Begin Adventure") {
+                    Button("התחלת הרפתקה") {
                         beginAdventure()
                     }
                     .buttonStyle(EmberPrimaryButtonStyle())
@@ -259,7 +259,7 @@ struct SetupWizardView: View {
             }
 
             if !keyStore.isUnlocked {
-                Text("OpenAI key is required before starting, unless temporary Demo Mode is enabled in Settings.")
+                Text("נדרש מפתח OpenAI לפני ההתחלה, אלא אם מצב דמו זמני פעיל בהגדרות.")
                     .font(.dmUI(13))
                     .foregroundStyle(theme.colors.textSecondary)
             }
@@ -291,9 +291,9 @@ struct SetupWizardView: View {
 
     private func optionSymbol(for option: String) -> String {
         switch option {
-        case "Heroic":
+        case "הרואי":
             return "shield.lefthalf.filled"
-        case "Chaotic":
+        case "כאוטי":
             return "moon.stars.fill"
         default:
             return "figure.sword"
@@ -303,7 +303,7 @@ struct SetupWizardView: View {
     private func beginAdventure() {
         appState.requireAPIKey(using: keyStore) {
             let resolvedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-                ? "\(genre) - Session 1"
+                ? "\(genre) - סשן 1"
                 : title
 
             let campaign = Campaign(
@@ -313,12 +313,12 @@ struct SetupWizardView: View {
                 classBackground: classBackground,
                 narrativeStyle: style,
                 chapter: 1,
-                summary: "Your journey begins in the embers of a forgotten realm."
+                summary: "המסע שלך מתחיל בגחלים של ממלכה נשכחת."
             )
 
             let intro = CampaignMessage(
                 role: .assistant,
-                text: "The night descends as \(heroName) steps into a realm of ash and prophecy. What do you do first?",
+                text: "הלילה יורד כאשר \(heroName) צועד/ת אל ממלכה של אפר ונבואה. מה הפעולה הראשונה שלך?",
                 campaign: campaign
             )
             campaign.messages.append(intro)
@@ -329,7 +329,7 @@ struct SetupWizardView: View {
                 onCampaignReady(campaign)
                 dismiss()
             } catch {
-                localMessage = "Failed to create campaign. Try again."
+                localMessage = "יצירת הקמפיין נכשלה. נסה שוב."
             }
         }
     }
@@ -339,17 +339,17 @@ struct SetupWizardView: View {
         defer { isGenerating = false }
 
         if keyStore.demoModeEnabled, (keyStore.rawKey?.isEmpty ?? true) {
-            let names = ["Elara Vance", "Kael Draven", "Nyra Hollow", "Thorn Vale", "Seren Ash"]
-            heroName = names.randomElement() ?? "Elara Vance"
+            let names = ["אלארה ואנס", "קאל דרייבן", "נירה הולו", "תורן וייל", "סרן אש"]
+            heroName = names.randomElement() ?? "אלארה ואנס"
             classBackground = classOptions.randomElement() ?? classBackground
             style = styleOptions.randomElement() ?? style
-            title = "\(genre) - Session 1"
-            localMessage = "Character draft generated from temporary Demo Mode."
+            title = "\(genre) - סשן 1"
+            localMessage = "נוצרה טיוטת דמות ממצב דמו זמני."
             return
         }
 
         guard let key = keyStore.rawKey else {
-            localMessage = "OpenAI API key is missing."
+            localMessage = "מפתח OpenAI חסר."
             return
         }
 
@@ -359,9 +359,9 @@ struct SetupWizardView: View {
             classBackground = draft.classBackground
             style = styleOptions.contains(draft.style) ? draft.style : style
             title = draft.campaignTitle
-            localMessage = "Character draft generated."
+            localMessage = "טיוטת דמות נוצרה."
         } catch {
-            localMessage = "Auto-fill failed. Try again."
+            localMessage = "מילוי אוטומטי נכשל. נסה שוב."
         }
     }
 }

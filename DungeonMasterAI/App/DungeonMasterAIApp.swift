@@ -27,6 +27,7 @@ struct DungeonMasterAIApp: App {
                 .environmentObject(theme)
                 .environmentObject(appState)
                 .environmentObject(keyStore)
+                .environment(\.layoutDirection, .rightToLeft)
                 .preferredColorScheme(.dark)
         }
         .modelContainer(modelContainer)

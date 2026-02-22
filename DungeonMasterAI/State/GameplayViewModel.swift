@@ -2,8 +2,8 @@ import Foundation
 import SwiftData
 
 enum GameplaySegment: String, CaseIterable, Identifiable {
-    case adventure = "Adventure"
-    case gameplay = "Gameplay"
+    case adventure = "הרפתקה"
+    case gameplay = "משחקיות"
 
     var id: String { rawValue }
 }
@@ -52,17 +52,17 @@ final class GameplayViewModel: ObservableObject {
     func sendRollResult() {
         HapticsManager.diceRoll()
         let roll = Int.random(in: 1...20)
-        let text = "Roll result (D20): \(roll)"
+        let text = "תוצאת גלגול (D20): \(roll)"
         Task { await submitUserAction(text) }
     }
 
     func applyEngineSettings() {
-        statusMessage = "AI settings applied to the next response."
+        statusMessage = "הגדרות המנוע הוחלו על התגובה הבאה."
     }
 
     func resetEngineSettings() {
         engineSettings = .default
-        statusMessage = "Engine settings reset."
+        statusMessage = "הגדרות המנוע אופסו."
     }
 
     private func submitUserAction(_ text: String) async {
@@ -85,7 +85,7 @@ final class GameplayViewModel: ObservableObject {
         }
 
         guard let key = keyStore.rawKey, !key.isEmpty else {
-            statusMessage = "OpenAI API key missing. Add it in Settings or use temporary Demo Mode."
+            statusMessage = "מפתח OpenAI חסר. הוסף בהגדרות או הפעל מצב דמו זמני."
             isSending = false
             return
         }
@@ -113,7 +113,7 @@ final class GameplayViewModel: ObservableObject {
                 campaign.summary = makeSummaryFallback()
                 try? modelContext.save()
             } else {
-                statusMessage = "The narration failed to load. Check your API key/network."
+                statusMessage = "טעינת הקריינות נכשלה. בדוק מפתח/רשת."
             }
         }
 
@@ -128,20 +128,20 @@ final class GameplayViewModel: ObservableObject {
         do {
             try modelContext.save()
         } catch {
-            statusMessage = "Failed to save campaign state locally."
+            statusMessage = "שמירת מצב הקמפיין נכשלה."
         }
     }
 
     private func buildPromptHistory(newInput: String) -> [OpenAIChatMessage] {
         let setup = """
-        You are the Dungeon Master AI narrator.
-        Tone: cinematic, dark fantasy, evocative.
-        Keep continuity with prior events.
-        Campaign context:
-        - Hero: \(campaign.heroName)
-        - Class/Background: \(campaign.classBackground)
-        - Style: \(campaign.narrativeStyle)
-        - Chapter: \(campaign.chapter)
+        אתה שליט המבוך AI.
+        כתוב בעברית בלבד, בסגנון קולנועי של פנטזיה אפלה.
+        שמור רצף עלילתי מול האירועים הקודמים.
+        הקשר קמפיין:
+        - גיבור: \(campaign.heroName)
+        - מקצוע/רקע: \(campaign.classBackground)
+        - סגנון: \(campaign.narrativeStyle)
+        - פרק: \(campaign.chapter)
         """
 
         let recent = orderedMessages.suffix(14).map { message in
@@ -165,13 +165,13 @@ final class GameplayViewModel: ObservableObject {
 
     private func demoNarration(for input: String) -> String {
         let options = [
-            "A distant horn answers your move, and torchlight reveals a hidden stairway beneath the chapel.",
-            "Your choice echoes through wet stone halls. Dust falls as an ancient sigil wakes in ember light.",
-            "Steel sings in the dark and the shadows recoil. A sealed archway grinds open with a low prayer.",
-            "From the fog, a cloaked watcher speaks your name and offers a bargain under the blood moon."
+            "קרן רחוקה עונה למהלך שלך, ואור לפידים חושף גרם מדרגות נסתר מתחת לקפלה.",
+            "הבחירה שלך מהדהדת באולמות האבן הלחים. אבק נושר וסמל עתיק מתעורר באור גחלים.",
+            "פלדה שרה בחושך והצללים נסוגים. קשת אטומה נפתחת בחריקה של תפילה נשכחת.",
+            "מתוך הערפל מופיע צופה עטוי גלימה וקורא בשמך תחת ירח דם."
         ]
 
         let selected = options.randomElement() ?? options[0]
-        return "\(selected)\n\n(Temporary Demo Mode response for: \"\(input)\")"
+        return "\(selected)\n\n(תגובה זמנית ממצב דמו עבור: \"\(input)\")"
     }
 }

@@ -52,7 +52,7 @@ struct GameplayView: View {
                     Text(viewModel.campaign.heroName)
                         .font(.dmUI(14, weight: .medium))
                         .foregroundStyle(theme.colors.textSecondary)
-                    Text("Chapter \(viewModel.campaign.chapter)")
+                    Text("פרק \(viewModel.campaign.chapter)")
                         .font(.dmUI(12))
                         .foregroundStyle(theme.colors.textSecondary.opacity(0.82))
                 }
@@ -84,14 +84,14 @@ struct GameplayView: View {
     private var composerBar: some View {
         VStack(spacing: 8) {
             if !keyStore.isUnlocked {
-                Text("OpenAI API key is required. Configure it in Settings or enable temporary Demo Mode.")
+                Text("נדרש מפתח OpenAI. אפשר להגדיר בהגדרות או להפעיל מצב דמו זמני.")
                     .font(.dmUI(13))
                     .foregroundStyle(theme.colors.textSecondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
 
             HStack(spacing: 8) {
-                TextField("Type your action...", text: $viewModel.composerText, axis: .vertical)
+                TextField("כתוב פעולה...", text: $viewModel.composerText, axis: .vertical)
                     .lineLimit(1...3)
                     .font(.dmUI(16, weight: .medium))
                     .disabled(!viewModel.isInteractionEnabled)
@@ -151,49 +151,49 @@ private struct EngineTuningPanel: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
-                Text("AI Fine-Tuning")
+                Text("כיוונון AI")
                     .font(.dmUI(36, weight: .bold))
                     .foregroundStyle(theme.colors.textPrimary)
 
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("AI Engine Settings")
+                    Text("הגדרות מנוע")
                         .font(.dmUI(23, weight: .semibold))
                         .foregroundStyle(theme.colors.textPrimary)
 
                     sliderRow(
-                        title: "Temperature (Creativity)",
+                        title: "טמפרטורה (יצירתיות)",
                         value: viewModel.engineSettings.temperature,
                         range: 0...1.4,
                         step: 0.1
                     ) { viewModel.engineSettings.temperature = $0 }
 
                     sliderRow(
-                        title: "Response Length",
+                        title: "אורך תגובה",
                         value: viewModel.engineSettings.maxCharacters,
                         range: 80...650,
                         step: 10
                     ) { viewModel.engineSettings.maxCharacters = $0 }
 
                     sliderRow(
-                        title: "Top P (Nucleus)",
+                        title: "דגימת גרעין",
                         value: viewModel.engineSettings.topP,
                         range: 0.1...1.0,
                         step: 0.05
                     ) { viewModel.engineSettings.topP = $0 }
 
                     sliderRow(
-                        title: "Top K",
+                        title: "מגבלת דגימה",
                         value: viewModel.engineSettings.topK,
                         range: 1...80,
                         step: 1
                     ) { viewModel.engineSettings.topK = $0 }
 
-                    Button("Apply Changes") {
+                    Button("החל שינויים") {
                         viewModel.applyEngineSettings()
                     }
                     .buttonStyle(EmberPrimaryButtonStyle())
 
-                    Button("Reset to Defaults") {
+                    Button("איפוס לברירת מחדל") {
                         viewModel.resetEngineSettings()
                     }
                     .buttonStyle(EmberSecondaryButtonStyle())
@@ -220,8 +220,8 @@ private struct EngineTuningPanel: View {
                     .font(.dmUI(15))
                     .foregroundStyle(theme.colors.textPrimary)
                 Spacer()
-                if title == "Response Length" {
-                    Text("\(Int(value)) chars")
+                if title == "אורך תגובה" {
+                    Text("\(Int(value)) תווים")
                         .font(.dmUI(14, weight: .semibold))
                         .foregroundStyle(theme.colors.accent)
                 } else {

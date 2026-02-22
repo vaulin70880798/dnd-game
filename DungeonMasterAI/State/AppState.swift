@@ -16,7 +16,7 @@ final class AppState: ObservableObject {
 
     func requireAPIKey(using keyStore: APIKeyStore, onSuccess: () -> Void) {
         guard keyStore.isUnlocked else {
-            toastMessage = "OpenAI API key is required. Configure it in Settings or enable temporary Demo Mode."
+            toastMessage = "נדרש מפתח OpenAI. הגדר בהגדרות או הפעל מצב דמו זמני."
             selectedTab = .settings
             return
         }

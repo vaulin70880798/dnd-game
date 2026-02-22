@@ -15,7 +15,7 @@ struct CodexView: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Codex")
+                    Text("קודקס")
                         .font(.dmUI(36, weight: .bold))
                         .foregroundStyle(theme.colors.textPrimary)
                         .padding(.bottom, 8)
@@ -171,9 +171,8 @@ private struct CodexDetailSheet: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 12) {
                     Text(card.title)
-                        .font(.dmUI(30, weight: .bold))
+                        .font(.dmUI(36, weight: .bold))
                         .foregroundStyle(theme.colors.textPrimary)
-
                     Text(card.typedKind.rawValue)
                         .font(.dmUI(15, weight: .semibold))
                         .foregroundStyle(theme.colors.accent)
@@ -188,7 +187,7 @@ private struct CodexDetailSheet: View {
             .background(theme.colors.background.ignoresSafeArea())
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { dismiss() }
+                    Button("סיום") { dismiss() }
                         .tint(theme.colors.accent)
                 }
             }
@@ -208,24 +207,24 @@ private struct AddCodexCardSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Title", text: $title)
-                Picker("Type", selection: $kind) {
+                TextField("כותרת", text: $title)
+                Picker("סוג", selection: $kind) {
                     ForEach(CodexKind.allCases, id: \.self) {
                         Text($0.rawValue).tag($0)
                     }
                 }
-                TextField("Lore", text: $lore, axis: .vertical)
+                TextField("לור/רקע", text: $lore, axis: .vertical)
                     .lineLimit(6...)
             }
             .scrollContentBackground(.hidden)
             .background(theme.colors.background)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancel") { dismiss() }
+                    Button("ביטול") { dismiss() }
                         .tint(theme.colors.textSecondary)
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Add") {
+                    Button("הוספה") {
                         onSave(title, lore, kind)
                         dismiss()
                     }

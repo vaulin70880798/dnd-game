@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="he" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Dungeon Master AI - HTML Preview</title>
+    <title>שליט המבוך AI - תצוגת HTML</title>
     <style>
       :root {
         --bg: #0a0a0a;
@@ -19,6 +19,7 @@
         --glass: rgba(255, 255, 255, 0.04);
         --ok: #6dcb9a;
         --warn: #ffbf5a;
+        --icon-bank-url: url("./master-icon-bank-hebrew-ui.png");
       }
 
       * {
@@ -30,6 +31,7 @@
         margin: 0;
         width: 100%;
         min-height: 100%;
+        direction: rtl;
         font-family:
           -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", sans-serif;
         color: var(--text);
@@ -107,14 +109,14 @@
 
       .title-lg {
         margin: 0 0 14px;
-        font-size: clamp(30px, 6.2vw, 42px);
+        font-size: clamp(27px, 5.8vw, 36px);
         line-height: 1.05;
         letter-spacing: -0.02em;
       }
 
       .title-md {
         margin: 0;
-        font-size: clamp(22px, 5.3vw, 30px);
+        font-size: clamp(19px, 4.8vw, 26px);
         letter-spacing: -0.02em;
       }
 
@@ -165,14 +167,16 @@
         font-weight: 700;
         background: linear-gradient(130deg, var(--accent-2), var(--accent));
         box-shadow: 0 0 18px rgba(255, 159, 10, 0.4);
-        padding: 12px 14px;
+        padding: 10px 12px;
+        font-size: 14px;
       }
 
       .btn-soft {
         color: var(--text);
         border: 0.5px solid var(--line-soft);
         background: rgba(255, 255, 255, 0.04);
-        padding: 10px 12px;
+        padding: 8px 10px;
+        font-size: 13px;
       }
 
       .chip {
@@ -270,8 +274,8 @@
         position: absolute;
         right: 18px;
         bottom: 94px;
-        width: 58px;
-        height: 58px;
+        width: 52px;
+        height: 52px;
         border-radius: 50%;
         border: 0;
         background: linear-gradient(135deg, var(--accent-2), var(--accent));
@@ -284,8 +288,8 @@
       }
 
       .fab svg {
-        width: 23px;
-        height: 23px;
+        width: 20px;
+        height: 20px;
       }
 
       .tab-bar {
@@ -359,7 +363,7 @@
 
       .campaign-item h4 {
         margin: 0;
-        font-size: 29px;
+        font-size: 23px;
         line-height: 1.1;
       }
 
@@ -429,7 +433,7 @@
       }
 
       .settings-box {
-        padding: 12px;
+        padding: 11px;
         margin-bottom: 12px;
       }
 
@@ -450,6 +454,8 @@
         border: 0.5px solid rgba(255, 159, 10, 0.34);
         border-radius: 11px;
         padding: 11px 12px;
+        direction: rtl;
+        text-align: right;
       }
 
       .textarea {
@@ -599,7 +605,7 @@
       .sheet-body {
         max-height: calc(92dvh - 24px);
         overflow-y: auto;
-        padding: 16px;
+        padding: 14px;
       }
 
       .step-header {
@@ -692,9 +698,9 @@
       }
 
       .icon-btn {
-        width: 42px;
-        height: 42px;
-        border-radius: 11px;
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
         border: 0.5px solid var(--line-soft);
         background: rgba(255, 255, 255, 0.04);
         color: var(--text);
@@ -702,8 +708,8 @@
       }
 
       .icon-btn svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         stroke: currentColor;
         fill: none;
         stroke-width: 2;
@@ -767,6 +773,7 @@
         padding: 12px 10px 10px;
         display: grid;
         gap: 10px;
+        direction: ltr;
       }
 
       .msg {
@@ -777,18 +784,20 @@
         padding: 10px 12px;
         white-space: pre-wrap;
         animation: msgIn 220ms ease;
+        direction: rtl;
+        text-align: right;
       }
 
       .msg.assistant {
         justify-self: start;
         font-family: "New York", Georgia, "Times New Roman", serif;
         line-height: 1.38;
-        font-size: 22px;
+        font-size: 18px;
       }
 
       .msg.user {
         justify-self: end;
-        font-size: 30px;
+        font-size: 20px;
         font-weight: 700;
       }
 
@@ -848,9 +857,9 @@
       }
 
       .d20-btn {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
         border: 0.5px solid var(--line);
         background: rgba(255, 159, 10, 0.1);
         color: var(--accent);
@@ -858,15 +867,15 @@
       }
 
       .d20-btn svg {
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
         stroke: currentColor;
         fill: none;
       }
 
       .send-btn {
-        width: 48px;
-        height: 48px;
+        width: 44px;
+        height: 44px;
       }
 
       .top-note {
@@ -929,6 +938,16 @@
         background: radial-gradient(circle, rgba(255, 214, 115, 0.24), rgba(255, 159, 10, 0.02));
         animation: pulse 1.25s ease-in-out infinite;
         box-shadow: 0 0 28px rgba(255, 159, 10, 0.26);
+        cursor: grab;
+        touch-action: none;
+        user-select: none;
+        will-change: transform;
+        transform: translate3d(var(--drag-x, 0px), var(--drag-y, 0px), 0);
+      }
+
+      .logo-ring.dragging {
+        cursor: grabbing;
+        animation-play-state: paused;
       }
 
       .logo-ring svg {
@@ -946,11 +965,11 @@
       @keyframes pulse {
         0%,
         100% {
-          transform: scale(0.95);
+          transform: translate3d(var(--drag-x, 0px), var(--drag-y, 0px), 0) scale(0.95);
           opacity: 0.85;
         }
         50% {
-          transform: scale(1.02);
+          transform: translate3d(var(--drag-x, 0px), var(--drag-y, 0px), 0) scale(1.02);
           opacity: 1;
         }
       }
@@ -969,6 +988,26 @@
         fill: none;
         stroke-width: 2;
       }
+
+      .icon-bank {
+        width: 22px;
+        height: 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        background-image: var(--icon-bank-url);
+        background-repeat: no-repeat;
+        background-size: 1024px 576px;
+      }
+
+      .icon-bank.fallback svg {
+        width: 22px;
+        height: 22px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.9;
+      }
     </style>
   </head>
   <body>
@@ -981,7 +1020,7 @@
           <section id="screen-settings" class="screen"></section>
         </div>
 
-        <button id="fabNew" class="fab" data-action="open-setup" aria-label="New Realm"></button>
+        <button id="fabNew" class="fab" data-action="open-setup" aria-label="ממלכה חדשה"></button>
 
         <nav id="tabBar" class="tab-bar"></nav>
 
@@ -989,7 +1028,7 @@
 
         <div id="splash" class="splash">
           <div class="logo-wrap">
-            <div class="logo-ring">
+            <div class="logo-ring" id="splashLogoRing">
               <svg viewBox="0 0 128 128" aria-hidden="true">
                 <defs>
                   <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1002,7 +1041,7 @@
                 ></path>
               </svg>
             </div>
-            <h1>DUNGEON MASTER AI</h1>
+            <h1>שליט המבוך AI</h1>
           </div>
         </div>
       </div>
@@ -1020,42 +1059,42 @@
 
       const REALMS = [
         {
-          title: "Gothic Horror",
-          subtitle: "Haunted keeps and forbidden oaths.",
-          prompt: "dark gothic castle in storm cinematic fantasy",
+          title: "אימה גותית",
+          subtitle: "מצודות מקוללות ונדרים אסורים.",
+          prompt: "dark gothic castle in storm cinematic fantasy hebrew rpg",
         },
         {
-          title: "High Fantasy",
-          subtitle: "Radiant cities and ancient relics.",
-          prompt: "epic high fantasy city at sunset matte painting",
+          title: "פנטזיה גבוהה",
+          subtitle: "ממלכות עתיקות ושרידי עוצמה אגדיים.",
+          prompt: "epic high fantasy city at sunset matte painting hebrew rpg",
         },
         {
-          title: "Cyberpunk",
-          subtitle: "Neon rain and synthetic prophecy.",
-          prompt: "dark cyberpunk alley neon rain cinematic",
+          title: "סייבר-פאנק מאגי",
+          subtitle: "גשם ניאון ונבואה מלאכותית.",
+          prompt: "dark cyberpunk alley neon rain cinematic fantasy",
         },
         {
-          title: "Mythic Seas",
-          subtitle: "Leviathans and storm temples.",
-          prompt: "mythic ocean temple lightning waves concept art",
+          title: "ימים מיתיים",
+          subtitle: "לווייתנים קמאיים ומקדשי סערה.",
+          prompt: "mythic ocean temple lightning waves concept art dark fantasy",
         },
       ];
 
       const STYLE_PROMPTS = {
-        Gritty: "grim dark knight in ash battlefield, muted palette",
-        Heroic: "heroic paladin in golden light cinematic",
-        Chaotic: "shadow rogue with arcane aura, mysterious fantasy",
+        קשוח: "grim dark knight in ash battlefield, muted palette",
+        הרואי: "heroic paladin in golden light cinematic",
+        כאוטי: "shadow rogue with arcane aura, mysterious fantasy",
       };
 
       const CLASS_OPTIONS = [
-        "Ranger / Outlander",
-        "Paladin / Oathbound",
-        "Mage / Scholar",
-        "Rogue / Spy",
-        "Cleric / Pilgrim",
+        "סייר / נווד",
+        "פלדין / נודר-שבועה",
+        "קוסם / מלומד",
+        "גנב / מרגל",
+        "כוהן / צליין",
       ];
 
-      const KINDS = ["NPC", "Item", "Location", "Faction"];
+      const KINDS = ["דמות", "חפץ", "מיקום", "סיעה"];
 
       function uid() {
         return Math.random().toString(36).slice(2) + Date.now().toString(36);
@@ -1065,56 +1104,56 @@
         return [
           {
             id: uid(),
-            title: "The Obsidian Keep - Chapter 3",
-            genre: "Gothic Horror",
+            title: "מצודת האובסידיאן - פרק 3",
+            genre: "אימה גותית",
             chapter: 3,
-            heroName: "Elara Vance",
-            classBackground: "Ranger / Exiled Noble",
-            style: "Gritty",
+            heroName: "אלארה ואנס",
+            classBackground: "סייר / אצילה גולה",
+            style: "קשוח",
             imagePrompt: "obsidian castle under thunderstorm, dark fantasy",
             totalPlayedMinutes: 270,
             lastPlayedAt: Date.now() - 1000 * 60 * 90,
             finished: false,
             summary:
-              "Elara crossed the broken gate and uncovered runes beneath the chapel where chains still tremble.",
+              "אלארה חצתה את השער השבור וחשפה רונות מתחת לקפלה, במקום שבו השרשראות עדיין רועדות.",
             messages: [
               {
                 id: uid(),
                 role: "assistant",
-                text: "Rain needles through shattered battlements as torchlight reveals blood-old sigils on the stone floor.",
+                text: "מחטי גשם ננעצות בחומות הסדוקות, ואור הלפידים חושף סמלים עתיקים ספוגי דם על רצפת האבן.",
                 ts: Date.now() - 1000 * 60 * 60,
               },
             ],
           },
           {
             id: uid(),
-            title: "Curse of Strahd - Session 1",
-            genre: "Gothic Horror",
+            title: "קללת סטראהד - סשן 1",
+            genre: "אימה גותית",
             chapter: 1,
-            heroName: "Thorn Vale",
-            classBackground: "Cleric / Pilgrim",
-            style: "Heroic",
+            heroName: "תורן וייל",
+            classBackground: "כוהן / צליין",
+            style: "הרואי",
             imagePrompt: "misty haunted village and looming castle gothic",
             totalPlayedMinutes: 75,
             lastPlayedAt: Date.now() - 1000 * 60 * 60 * 14,
             finished: false,
-            summary: "A distant bell tolled as Thorn stepped into the mist-choked valley.",
+            summary: "פעמון רחוק צלצל כאשר תורן צעד אל העמק החנוק בערפל.",
             messages: [],
           },
           {
             id: uid(),
-            title: "Lost Mine of Phandelver - Finished",
-            genre: "High Fantasy",
+            title: "המכרה האבוד של פננדלבר - הושלם",
+            genre: "פנטזיה גבוהה",
             chapter: 5,
-            heroName: "Aric Stone",
-            classBackground: "Paladin / Oathbound",
-            style: "Heroic",
+            heroName: "אריק סטון",
+            classBackground: "פלדין / נודר-שבועה",
+            style: "הרואי",
             imagePrompt: "ancient dwarven mine entrance with glowing runes",
             totalPlayedMinutes: 420,
             lastPlayedAt: Date.now() - 1000 * 60 * 60 * 40,
             finished: true,
             summary:
-              "The forge-heart was rekindled, the black spider defeated, and the mine reclaimed by the people of Phandalin.",
+              "לב הכבשן הוצת מחדש, העכביש השחור הובס, והמכרה הושב לתושבי פנדלין.",
             messages: [],
           },
         ];
@@ -1124,37 +1163,37 @@
         return [
           {
             id: uid(),
-            title: "The Valorous Knights",
-            kind: "Faction",
-            lore: "An ancient order sworn to guard ember shrines from shadowborn incursions.",
+            title: "אבירי הגבורה",
+            kind: "סיעה",
+            lore: "מסדר עתיק שנשבע להגן על מקדשי הגחלת מפני פלישות ילידי-צל.",
             imagePrompt: "fantasy order banner and ancient tome",
           },
           {
             id: uid(),
-            title: "Mysterious Character",
-            kind: "NPC",
-            lore: "A hooded wanderer who appears where moonlight touches ruined altars.",
+            title: "דמות מסתורית",
+            kind: "דמות",
+            lore: "נווד עטוי ברדס שמופיע בכל מקום שבו אור הירח נוגע במזבחות חרבים.",
             imagePrompt: "hooded character in dark alley fantasy",
           },
           {
             id: uid(),
-            title: "Ancient Dragon",
-            kind: "NPC",
-            lore: "A dormant wyrm beneath basalt ridges, waiting for the final omen.",
+            title: "דרקון קדום",
+            kind: "דמות",
+            lore: "תנין-אש רדום מתחת לרכסי בזלת, הממתין לאות האחרון.",
             imagePrompt: "ancient dragon on mountain cliff cinematic",
           },
           {
             id: uid(),
-            title: "Glowing Artifact",
-            kind: "Item",
-            lore: "A fractured relic pulsing whenever danger nears.",
+            title: "שריד זוהר",
+            kind: "חפץ",
+            lore: "שריד שבור הפועם בכל פעם שסכנה מתקרבת.",
             imagePrompt: "glowing magical artifact in dark chamber",
           },
           {
             id: uid(),
-            title: "Ancient Tome",
-            kind: "Item",
-            lore: "A leatherbound codex with pages that rewrite themselves at midnight.",
+            title: "טום עתיק",
+            kind: "חפץ",
+            lore: "קודקס כרוך עור שדפיו נכתבים מחדש בכל חצות.",
             imagePrompt: "old magical book on table candle light",
           },
         ];
@@ -1168,7 +1207,7 @@
           setup: {
             heroName: "",
             classBackground: CLASS_OPTIONS[0],
-            style: "Gritty",
+            style: "קשוח",
             genre: REALMS[0].title,
             campaignTitle: "",
           },
@@ -1181,7 +1220,7 @@
           codexAddOpen: false,
           addCodex: {
             title: "",
-            kind: "NPC",
+            kind: "דמות",
             lore: "",
           },
           engine: {
@@ -1259,18 +1298,18 @@
       function relTime(ms) {
         const diff = Date.now() - ms;
         const min = Math.floor(diff / 60000);
-        if (min < 60) return `${min}m ago`;
+        if (min < 60) return `לפני ${min} ד׳`;
         const hr = Math.floor(min / 60);
-        if (hr < 24) return `${hr}h ago`;
+        if (hr < 24) return `לפני ${hr} ש׳`;
         const d = Math.floor(hr / 24);
-        return `${d}d ago`;
+        return `לפני ${d} ימים`;
       }
 
       function playedText(minutes) {
         const h = Math.floor(minutes / 60);
         const m = minutes % 60;
-        if (h > 0) return `${h}h ${m}m Played`;
-        return `${m}m Played`;
+        if (h > 0) return `${h}ש׳ ${m}ד׳ משחק`;
+        return `${m}ד׳ משחק`;
       }
 
       function icon(name) {
@@ -1278,6 +1317,7 @@
           plus: `<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>`,
           home: `<svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>`,
           book: `<svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h5a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H6a2 2 0 0 0-2 2z"/><path d="M20 5a2 2 0 0 0-2-2h-5a3 3 0 0 0-3 3v15a3 3 0 0 1 3-3h5a2 2 0 0 1 2 2z"/></svg>`,
+          codex: `<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="m9 8 3-2 3 2-3 2z"/><path d="M12 10v7"/></svg>`,
           shield: `<svg viewBox="0 0 24 24"><path d="M12 3 20 6v6c0 5-3.5 8.7-8 10-4.5-1.3-8-5-8-10V6z"/><path d="M10 11a4 4 0 0 1 6 0"/></svg>`,
           gear: `<svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/><path d="M3 12h2m14 0h2M12 3v2m0 14v2M5.5 5.5l1.4 1.4m10.2 10.2 1.4 1.4m0-12.9-1.4 1.4M6.9 17.1l-1.4 1.4"/></svg>`,
           wand: `<svg viewBox="0 0 24 24"><path d="m3 21 10-10"/><path d="m14 4 1-3m2 4 3-1m-1 5 3 1m-5 2 1 3M6 8l2-2m0 0 2 2m-2-2V3m0 3H5"/></svg>`,
@@ -1289,6 +1329,48 @@
         return map[name] || "";
       }
 
+      const ICON_BANK_COORDS = {
+        home: { off: [-572, -78], on: [-572, -136] },
+        book: { off: [-630, -78], on: [-630, -136] },
+        codex: { off: [-688, -78], on: [-688, -136] },
+        shield: { off: [-744, -78], on: [-744, -136] },
+        gear: { off: [-806, -78], on: [-806, -136] },
+        back: { off: [-574, -194], on: [-574, -252] },
+        wand: { off: [-630, -194], on: [-630, -252] },
+        plus: { off: [-689, -194], on: [-744, -252] },
+        send: { off: [-803, -194], on: [-803, -252] },
+        eye: { off: [-688, -194], on: [-688, -252] },
+        "eye-off": { off: [-744, -194], on: [-744, -252] },
+        dice: { off: [-575, -311], on: [-633, -311] },
+        lock: { off: [-860, -311], on: [-860, -311] },
+      };
+
+      let iconBankReady = false;
+
+      function iconFromBank(name, active = false) {
+        if (!iconBankReady) {
+          return `<span class="icon-bank fallback">${icon(name)}</span>`;
+        }
+        const coords = ICON_BANK_COORDS[name];
+        if (!coords) {
+          return `<span class="icon-bank fallback">${icon(name)}</span>`;
+        }
+        const [x, y] = active ? coords.on : coords.off;
+        return `<span class="icon-bank" style="background-position:${x}px ${y}px;${active ? "filter:drop-shadow(0 0 8px rgba(255,159,10,.62));" : ""}"></span>`;
+      }
+
+      function preloadIconBank() {
+        const img = new Image();
+        img.onload = () => {
+          iconBankReady = true;
+          renderScreens();
+        };
+        img.onerror = () => {
+          iconBankReady = false;
+        };
+        img.src = "./master-icon-bank-hebrew-ui.png";
+      }
+
       function imgOrFallback(prompt, cls = "image", seed = 1) {
         const src = getImageUrl(prompt, seed);
         if (!src) return `<div class="${cls} image-fallback"></div>`;
@@ -1297,16 +1379,16 @@
 
       function renderTabBar() {
         const tabs = [
-          { key: "home", label: "Home", icon: "home" },
-          { key: "campaigns", label: "Campaigns", icon: "shield" },
-          { key: "codex", label: "Codex", icon: "book" },
-          { key: "settings", label: "Settings", icon: "gear" },
+          { key: "home", label: "בית", icon: "home" },
+          { key: "campaigns", label: "קמפיינים", icon: "shield" },
+          { key: "codex", label: "קודקס", icon: "codex" },
+          { key: "settings", label: "הגדרות", icon: "gear" },
         ];
         document.getElementById("tabBar").innerHTML = tabs
           .map(
             (tab) => `
               <button class="tab-btn ${state.tab === tab.key ? "active" : ""}" data-action="set-tab" data-tab="${tab.key}">
-                ${icon(tab.icon)}
+                ${iconFromBank(tab.icon, state.tab === tab.key)}
                 <span>${tab.label}</span>
               </button>
             `
@@ -1320,7 +1402,7 @@
           .slice(0, 6);
 
         document.getElementById("screen-home").innerHTML = `
-          <h2 class="title-lg">Your Chronicles</h2>
+          <h2 class="title-lg">הכרוניקות שלך</h2>
           <div class="h-scroll">
             ${topCampaigns
               .map(
@@ -1330,9 +1412,9 @@
                       ${imgOrFallback(campaign.imagePrompt, "image", index + 1)}
                     </div>
                     <h3>${escapeHTML(campaign.title)}</h3>
-                    <p>${escapeHTML(campaign.summary || "A dark omen echoes through the realm.")}</p>
+                    <p>${escapeHTML(campaign.summary || "אות אפל מהדהד ברחבי הממלכה.")}</p>
                     <button class="btn btn-soft" data-action="resume-campaign" data-id="${campaign.id}">
-                      Resume
+                      המשך
                     </button>
                   </article>
                 `
@@ -1340,7 +1422,7 @@
               .join("")}
           </div>
 
-          <h3 class="title-md" style="margin: 10px 0 10px">Explore New Realms</h3>
+          <h3 class="title-md" style="margin: 10px 0 10px">חקירת ממלכות חדשות</h3>
           <div class="h-scroll">
             ${REALMS.map(
               (realm, index) => `
@@ -1360,7 +1442,7 @@
       function renderCampaigns() {
         const campaigns = [...state.campaigns].sort((a, b) => b.lastPlayedAt - a.lastPlayedAt);
         document.getElementById("screen-campaigns").innerHTML = `
-          <h2 class="title-lg">My Campaigns</h2>
+          <h2 class="title-lg">הקמפיינים שלי</h2>
           ${campaigns
             .map((campaign, index) => {
               const progress = Math.min(100, Math.round((campaign.totalPlayedMinutes / 420) * 100));
@@ -1378,12 +1460,12 @@
                   </div>
                   <div class="campaign-bottom">
                     <small class="muted">${
-                      campaign.finished ? "Finished" : `Last played: ${relTime(campaign.lastPlayedAt)}`
+                      campaign.finished ? "הסתיים" : `שוחק לאחרונה: ${relTime(campaign.lastPlayedAt)}`
                     }</small>
                     ${
                       campaign.finished
-                        ? `<button class="btn btn-primary" data-action="view-summary" data-id="${campaign.id}">View Summary</button>`
-                        : `<button class="btn btn-primary" data-action="resume-campaign" data-id="${campaign.id}">Resume</button>`
+                        ? `<button class="btn btn-primary" data-action="view-summary" data-id="${campaign.id}">צפה בתקציר</button>`
+                        : `<button class="btn btn-primary" data-action="resume-campaign" data-id="${campaign.id}">המשך</button>`
                     }
                   </div>
                 </article>
@@ -1397,7 +1479,7 @@
         const primary = state.codex.slice(0, 3);
         const grid = state.codex.slice(3);
         document.getElementById("screen-codex").innerHTML = `
-          <h2 class="title-lg">Codex</h2>
+          <h2 class="title-lg">קודקס</h2>
           ${primary
             .map(
               (card, idx) => `
@@ -1435,50 +1517,50 @@
       function renderSettings() {
         const hasKey = Boolean(state.settings.apiKey);
         document.getElementById("screen-settings").innerHTML = `
-          <h2 class="title-lg">Settings</h2>
+          <h2 class="title-lg">הגדרות</h2>
           <section class="card settings-box stack-sm">
             <div>
-              <label class="field-label" for="apiKeyInput">OpenAI API Key</label>
+              <label class="field-label" for="apiKeyInput">מפתח OpenAI</label>
               <input id="apiKeyInput" class="input" data-bind="apiKeyInput" type="password" placeholder="sk-..." value="${escapeAttr(
                 state.settings.apiKey
               )}" />
               ${
                 hasKey
-                  ? `<small class="muted">Stored key: ${maskedKey(state.settings.apiKey)}</small>`
-                  : `<small class="muted">App is locked until key is set, unless temporary Demo Mode is enabled.</small>`
+                  ? `<small class="muted">מפתח שמור: ${maskedKey(state.settings.apiKey)}</small>`
+                  : `<small class="muted">האפליקציה נעולה עד להגדרת מפתח, אלא אם מצב דמו זמני פעיל.</small>`
               }
             </div>
             <div class="actions">
-              <button class="btn btn-primary" data-action="save-api-key">Save Key</button>
-              <button class="btn btn-soft" data-action="clear-api-key">Clear</button>
+              <button class="btn btn-primary" data-action="save-api-key">שמור מפתח</button>
+              <button class="btn btn-soft" data-action="clear-api-key">נקה</button>
             </div>
           </section>
 
           <section class="card settings-box stack-sm">
             <div class="toggle">
               <div>
-                <strong>Temporary Demo Mode</strong>
-                <small>Use local mock AI without real key (for testing UI flow only).</small>
+                <strong>מצב דמו זמני</strong>
+                <small>להפעלת בדיקות UI עם AI מקומי ללא מפתח אמיתי.</small>
               </div>
               <button class="switch ${state.settings.demoMode ? "active" : ""}" data-action="toggle-demo"></button>
             </div>
-            <button class="btn btn-soft" data-action="use-demo-fast">Enable Demo Quickly</button>
+            <button class="btn btn-soft" data-action="use-demo-fast">הפעל דמו במהירות</button>
           </section>
 
           <section class="card settings-box stack-sm">
             <div class="toggle">
               <div>
-                <strong>Free Image API (no key)</strong>
-                <small>Uses Pollinations for temporary generated fantasy visuals.</small>
+                <strong>API חינמי לתמונות (ללא מפתח)</strong>
+                <small>משתמש ב‑Pollinations לויזואליה זמנית בפיתוח.</small>
               </div>
               <button class="switch ${state.settings.freeImageMode ? "active" : ""}" data-action="toggle-free-images"></button>
             </div>
-            <button class="btn btn-soft" data-action="regenerate-images">Refresh Image Seeds</button>
+            <button class="btn btn-soft" data-action="regenerate-images">רענן זרעי תמונות</button>
           </section>
 
           <section class="card settings-box">
             <small class="muted">
-              Production note: disable Demo Mode and use a real OpenAI key to validate end-to-end AI behavior.
+              לפרודקשן: מומלץ לכבות מצב דמו ולהשתמש במפתח OpenAI אמיתי.
             </small>
           </section>
         `;
@@ -1491,9 +1573,9 @@
         overlay.innerHTML = shouldLock
           ? `
             <div class="card lock-card glass">
-              <h3>${icon("lock")} OpenAI key required</h3>
-              <p>Set your API key in Settings. For temporary UI testing, enable Demo Mode in Settings.</p>
-              <button class="btn btn-primary" data-action="open-settings">Open Settings</button>
+              <h3 style="display:flex;align-items:center;gap:8px">${iconFromBank("lock", true)} נדרש מפתח OpenAI</h3>
+              <p>יש להגדיר מפתח בהגדרות. לבדיקה זמנית אפשר להפעיל מצב דמו.</p>
+              <button class="btn btn-primary" data-action="open-settings">מעבר להגדרות</button>
             </div>
           `
           : "";
@@ -1513,7 +1595,7 @@
         modal.innerHTML = `
           <div class="sheet">
             <div class="sheet-body">
-              <h3 class="title-md" style="margin-bottom:10px">Create Your Hero</h3>
+              <h3 class="title-md" style="margin-bottom:10px">יצירת הגיבור שלך</h3>
               <div class="step-header">
                 <span class="step-dot ${step >= 0 ? "active" : ""}"></span>
                 <span class="step-dot ${step >= 1 ? "active" : ""}"></span>
@@ -1522,10 +1604,10 @@
               ${
                 step === 0
                   ? `
-                    <label class="field-label">Character Name</label>
+                    <label class="field-label">שם דמות</label>
                     <div style="display:grid;grid-template-columns:1fr auto;gap:8px">
-                      <input class="input" data-bind="setup.heroName" placeholder="e.g., Elara Vance" value="${escapeAttr(s.heroName)}" />
-                      <button class="btn btn-soft" data-action="wand-autofill" aria-label="Magic Wand">${icon("wand")}</button>
+                      <input class="input" data-bind="setup.heroName" placeholder="לדוגמה: אלארה ואנס" value="${escapeAttr(s.heroName)}" />
+                      <button class="btn btn-soft" data-action="wand-autofill" aria-label="מילוי אוטומטי">${iconFromBank("wand", true)}</button>
                     </div>
                   `
                   : ""
@@ -1533,14 +1615,14 @@
               ${
                 step === 1
                   ? `
-                    <label class="field-label">Class & Background</label>
+                    <label class="field-label">מקצוע ורקע</label>
                     <select class="select" data-bind="setup.classBackground">
                       ${CLASS_OPTIONS.map(
                         (opt) => `<option value="${escapeAttr(opt)}" ${opt === s.classBackground ? "selected" : ""}>${escapeHTML(opt)}</option>`
                       ).join("")}
                     </select>
 
-                    <label class="field-label" style="margin-top:12px">Realm Genre</label>
+                    <label class="field-label" style="margin-top:12px">סוג ממלכה</label>
                     <select class="select" data-bind="setup.genre">
                       ${REALMS.map(
                         (realm) =>
@@ -1553,9 +1635,9 @@
               ${
                 step === 2
                   ? `
-                    <label class="field-label">Choose Your Style</label>
+                    <label class="field-label">בחירת סגנון משחק</label>
                     <div class="styles-grid">
-                      ${["Gritty", "Heroic", "Chaotic"]
+                      ${["קשוח", "הרואי", "כאוטי"]
                         .map(
                           (name, idx) => `
                             <article class="style-card ${s.style === name ? "active" : ""}" data-action="pick-style" data-style="${name}">
@@ -1569,8 +1651,8 @@
                         .join("")}
                     </div>
 
-                    <label class="field-label" style="margin-top:12px">Campaign Title (optional)</label>
-                    <input class="input" data-bind="setup.campaignTitle" placeholder="e.g., The Sunless Citadel - Session 1" value="${escapeAttr(
+                    <label class="field-label" style="margin-top:12px">כותרת קמפיין (אופציונלי)</label>
+                    <input class="input" data-bind="setup.campaignTitle" placeholder="לדוגמה: מצודת החשכה - סשן 1" value="${escapeAttr(
                       s.campaignTitle
                     )}" />
                   `
@@ -1579,13 +1661,13 @@
               <div class="wizard-actions">
                 ${
                   step > 0
-                    ? `<button class="btn btn-soft" data-action="setup-prev">Back</button>`
-                    : `<button class="btn btn-soft" data-action="close-setup">Cancel</button>`
+                    ? `<button class="btn btn-soft" data-action="setup-prev">חזרה</button>`
+                    : `<button class="btn btn-soft" data-action="close-setup">ביטול</button>`
                 }
                 ${
                   step < 2
-                    ? `<button class="btn btn-soft" data-action="setup-next">Continue</button>`
-                    : `<button class="btn btn-primary" data-action="begin-adventure">Begin Adventure</button>`
+                    ? `<button class="btn btn-soft" data-action="setup-next">המשך</button>`
+                    : `<button class="btn btn-primary" data-action="begin-adventure">התחלת הרפתקה</button>`
                 }
               </div>
             </div>
@@ -1611,11 +1693,11 @@
           <div class="sheet">
             <div class="sheet-body">
               <h3 class="title-md">${escapeHTML(campaign.title)}</h3>
-              <p class="muted" style="margin-top:8px">Story So Far</p>
+              <p class="muted" style="margin-top:8px">הסיפור עד כה</p>
               <p style="font-family:'New York',Georgia,serif;font-size:21px;line-height:1.42;margin-top:6px">
-                ${escapeHTML(campaign.summary || "No summary available yet.")}
+                ${escapeHTML(campaign.summary || "עדיין אין תקציר זמין לקמפיין הזה.")}
               </p>
-              <button class="btn btn-primary" style="width:100%;margin-top:8px" data-action="close-summary">Done</button>
+              <button class="btn btn-primary" style="width:100%;margin-top:8px" data-action="close-summary">סגירה</button>
             </div>
           </div>
         `;
@@ -1644,7 +1726,7 @@
                 ${imgOrFallback(card.imagePrompt, "image", 170)}
               </div>
               <p style="font-family:'New York',Georgia,serif;font-size:21px;line-height:1.4">${escapeHTML(card.lore)}</p>
-              <button class="btn btn-primary" style="width:100%" data-action="close-codex-detail">Done</button>
+              <button class="btn btn-primary" style="width:100%" data-action="close-codex-detail">סגירה</button>
             </div>
           </div>
         `;
@@ -1662,23 +1744,23 @@
         modal.innerHTML = `
           <div class="sheet">
             <div class="sheet-body">
-              <h3 class="title-md">Add Story Card</h3>
-              <label class="field-label" style="margin-top:10px">Title</label>
+              <h3 class="title-md">הוספת כרטיס סיפור</h3>
+              <label class="field-label" style="margin-top:10px">כותרת</label>
               <input class="input" data-bind="addCodex.title" value="${escapeAttr(draft.title)}" />
 
-              <label class="field-label" style="margin-top:10px">Type</label>
+              <label class="field-label" style="margin-top:10px">סוג</label>
               <select class="select" data-bind="addCodex.kind">
                 ${KINDS.map(
                   (k) => `<option value="${escapeAttr(k)}" ${draft.kind === k ? "selected" : ""}>${k}</option>`
                 ).join("")}
               </select>
 
-              <label class="field-label" style="margin-top:10px">Lore</label>
+              <label class="field-label" style="margin-top:10px">לור/רקע</label>
               <textarea class="textarea" data-bind="addCodex.lore">${escapeHTML(draft.lore)}</textarea>
 
               <div class="wizard-actions">
-                <button class="btn btn-soft" data-action="close-add-codex">Cancel</button>
-                <button class="btn btn-primary" data-action="save-add-codex">Add Card</button>
+                <button class="btn btn-soft" data-action="close-add-codex">ביטול</button>
+                <button class="btn btn-primary" data-action="save-add-codex">הוספה</button>
               </div>
             </div>
           </div>
@@ -1700,13 +1782,13 @@
         overlay.innerHTML = `
           <div class="gp-top">
             <div class="gp-headline">
-              <button class="icon-btn" data-action="close-gameplay">${icon("back")}</button>
-              <h3>${escapeHTML(campaign.heroName)} • Chapter ${campaign.chapter}</h3>
+              <button class="icon-btn" data-action="close-gameplay">${iconFromBank("back", true)}</button>
+              <h3>${escapeHTML(campaign.heroName)} • פרק ${campaign.chapter}</h3>
               <span class="chip">${escapeHTML(campaign.genre)}</span>
             </div>
             <div class="segment">
-              <button class="${showAdventure ? "active" : ""}" data-action="set-gp-segment" data-segment="adventure">Adventure</button>
-              <button class="${!showAdventure ? "active" : ""}" data-action="set-gp-segment" data-segment="gameplay">Gameplay</button>
+              <button class="${showAdventure ? "active" : ""}" data-action="set-gp-segment" data-segment="adventure">הרפתקה</button>
+              <button class="${!showAdventure ? "active" : ""}" data-action="set-gp-segment" data-segment="gameplay">משחקיות</button>
             </div>
           </div>
 
@@ -1730,7 +1812,7 @@
                         .join("")}
                       ${
                         state.loadingAI
-                          ? `<article class="msg system">Dungeon Master is forging the next scene...</article>`
+                          ? `<article class="msg system">שליט המבוך מגבש את הסצנה הבאה...</article>`
                           : ""
                       }
                     </div>
@@ -1738,15 +1820,15 @@
                 `
                 : `
                   <div class="gp-settings">
-                    <h2 class="title-md" style="margin:0 0 12px">AI Fine-Tuning</h2>
+                    <h2 class="title-md" style="margin:0 0 12px">כיוונון AI</h2>
                     <article class="card" style="padding:12px">
-                      <h3 style="margin:0 0 10px;font-size:25px">AI Engine Settings</h3>
-                      ${sliderTemplate("Temperature (Creativity)", "temperature", state.engine.temperature, 0, 1.4, 0.1, state.engine.temperature.toFixed(1))}
-                      ${sliderTemplate("Response Length", "maxChars", state.engine.maxChars, 80, 650, 10, `${Math.round(state.engine.maxChars)} chars`)}
-                      ${sliderTemplate("Top P (Nucleus)", "topP", state.engine.topP, 0.1, 1, 0.05, state.engine.topP.toFixed(2))}
-                      ${sliderTemplate("Top K", "topK", state.engine.topK, 1, 80, 1, Math.round(state.engine.topK))}
-                      <button class="btn btn-primary" style="width:100%;margin-top:8px" data-action="apply-engine">Apply Changes</button>
-                      <button class="btn btn-soft" style="width:100%;margin-top:8px" data-action="reset-engine">Reset to Defaults</button>
+                      <h3 style="margin:0 0 10px;font-size:21px">הגדרות מנוע</h3>
+                      ${sliderTemplate("טמפרטורה (יצירתיות)", "temperature", state.engine.temperature, 0, 1.4, 0.1, state.engine.temperature.toFixed(1))}
+                      ${sliderTemplate("אורך תגובה", "maxChars", state.engine.maxChars, 80, 650, 10, `${Math.round(state.engine.maxChars)} תווים`)}
+                      ${sliderTemplate("דגימת גרעין", "topP", state.engine.topP, 0.1, 1, 0.05, state.engine.topP.toFixed(2))}
+                      ${sliderTemplate("מגבלת דגימה", "topK", state.engine.topK, 1, 80, 1, Math.round(state.engine.topK))}
+                      <button class="btn btn-primary" style="width:100%;margin-top:8px" data-action="apply-engine">החל שינויים</button>
+                      <button class="btn btn-soft" style="width:100%;margin-top:8px" data-action="reset-engine">איפוס לברירת מחדל</button>
                     </article>
                   </div>
                 `
@@ -1756,18 +1838,18 @@
           <div class="gp-compose">
             ${
               !isUnlocked()
-                ? `<p class="top-note">Add API key in Settings or enable temporary Demo Mode first.</p>`
+                ? `<p class="top-note">יש להוסיף מפתח בהגדרות או להפעיל מצב דמו זמני.</p>`
                 : ""
             }
             <div class="compose-row">
               <input id="composerInput" class="input" data-bind="gameplayInput" value="${escapeAttr(
                 state.gameplayInput
-              )}" placeholder="Type your action..." ${state.loadingAI || !isUnlocked() ? "disabled" : ""} />
+              )}" placeholder="כתוב פעולה..." ${state.loadingAI || !isUnlocked() ? "disabled" : ""} />
               <button class="icon-btn d20-btn" data-action="roll-d20" ${state.loadingAI || !isUnlocked() ? "disabled" : ""}>
-                ${icon("dice")}
+                ${iconFromBank("dice", true)}
               </button>
               <button class="icon-btn send-btn" data-action="send-action" ${state.loadingAI || !isUnlocked() ? "disabled" : ""}>
-                ${icon("send")}
+                ${iconFromBank("send", true)}
               </button>
             </div>
           </div>
@@ -1811,7 +1893,7 @@
         const showFab = state.tab === "home" || state.tab === "codex";
         const fab = document.getElementById("fabNew");
         fab.style.display = showFab ? "grid" : "none";
-        fab.innerHTML = state.tab === "codex" ? icon("plus") : icon("plus");
+        fab.innerHTML = iconFromBank("plus", true);
         fab.dataset.action = state.tab === "codex" ? "open-add-codex" : "open-setup";
 
         renderLockOverlay();
@@ -1825,7 +1907,7 @@
 
       function openSetup(genre) {
         if (!isUnlocked()) {
-          toast("Open Settings to add key or enable temporary Demo Mode.");
+          toast("פתח הגדרות כדי להוסיף מפתח או להפעיל מצב דמו זמני.");
           state.tab = "settings";
           renderScreens();
           return;
@@ -1849,12 +1931,12 @@
             const messages = [
               {
                 role: "system",
-                content: "Return JSON only.",
+                content: "ענה בעברית בלבד וב‑JSON בלבד.",
               },
               {
                 role: "user",
                 content:
-                  'Generate a dark fantasy character setup JSON with keys: heroName, classBackground, style, campaignTitle. style must be Gritty/Heroic/Chaotic.',
+                  'צור JSON בעברית לדמות פנטזיה אפלה עם המפתחות: heroName, classBackground, style, campaignTitle. style חייב להיות אחד מתוך: קשוח, הרואי, כאוטי.',
               },
             ];
             const text = await callOpenAI(messages, 0.9, 180);
@@ -1863,19 +1945,19 @@
             const json = JSON.parse(start >= 0 ? text.slice(start, end + 1) : text);
             state.setup.heroName = json.heroName || state.setup.heroName;
             state.setup.classBackground = json.classBackground || state.setup.classBackground;
-            if (["Gritty", "Heroic", "Chaotic"].includes(json.style)) state.setup.style = json.style;
+            if (["קשוח", "הרואי", "כאוטי"].includes(json.style)) state.setup.style = json.style;
             state.setup.campaignTitle = json.campaignTitle || state.setup.campaignTitle;
           } else {
-            const names = ["Elara Vance", "Kael Draven", "Nyra Hollow", "Thorn Vale", "Seren Ash"];
+            const names = ["אלארה ואנס", "קאל דרייבן", "נירה הולו", "תורן וייל", "סרן אש"];
             state.setup.heroName = names[Math.floor(Math.random() * names.length)];
             state.setup.classBackground = CLASS_OPTIONS[Math.floor(Math.random() * CLASS_OPTIONS.length)];
-            const styles = ["Gritty", "Heroic", "Chaotic"];
+            const styles = ["קשוח", "הרואי", "כאוטי"];
             state.setup.style = styles[Math.floor(Math.random() * styles.length)];
-            state.setup.campaignTitle = `${state.setup.genre} - Session 1`;
+            state.setup.campaignTitle = `${state.setup.genre} - סשן 1`;
           }
-          toast("Auto-filled hero draft.");
+          toast("טיוטת גיבור מולאה אוטומטית.");
         } catch {
-          toast("Auto-fill failed. Try again.");
+          toast("מילוי אוטומטי נכשל. נסה שוב.");
         }
         if (waiting) waiting.disabled = false;
         renderSetupModal();
@@ -1883,18 +1965,18 @@
 
       function beginAdventure() {
         if (!state.setup.heroName.trim()) {
-          toast("Hero name is required.");
+          toast("יש להזין שם דמות.");
           return;
         }
         if (!isUnlocked()) {
-          toast("OpenAI key or temporary Demo Mode is required.");
+          toast("נדרש מפתח OpenAI או מצב דמו זמני.");
           state.tab = "settings";
           renderScreens();
           return;
         }
 
         const title =
-          state.setup.campaignTitle.trim() || `${state.setup.genre} - Session ${Math.floor(Math.random() * 2) + 1}`;
+          state.setup.campaignTitle.trim() || `${state.setup.genre} - סשן ${Math.floor(Math.random() * 2) + 1}`;
         const campaign = {
           id: uid(),
           title,
@@ -1907,12 +1989,12 @@
           totalPlayedMinutes: 0,
           lastPlayedAt: Date.now(),
           finished: false,
-          summary: "The journey has begun beneath a sky of embers.",
+          summary: "המסע החל תחת שמיים של גחלים לוחשות.",
           messages: [
             {
               id: uid(),
               role: "assistant",
-              text: `${state.setup.heroName.trim()} enters a realm of ash and prophecy. A cold wind carries the scent of iron and old fire. What do you do?`,
+              text: `${state.setup.heroName.trim()} נכנס/ת לממלכה של אפר ונבואה. רוח קרה נושאת ריח ברזל ואש ישנה. מה הפעולה הראשונה שלך?`,
               ts: Date.now(),
             },
           ],
@@ -1928,13 +2010,13 @@
 
       function localNarration(input, campaign) {
         const options = [
-          `A distant horn answers your action. In the ruins ahead, torchlight reveals a hidden stair descending into black stone.`,
-          `The air tightens as your choice echoes through the chamber. Dust falls from the archway, exposing a sigil of the old crown.`,
-          `Your words carry weight. From the fog emerges a cloaked figure who whispers: "You are late, ${campaign.heroName}."`,
-          `Steel sings in the dark. The shadows recoil, and an ancient door grinds open, breathing out frost and forgotten prayers.`,
+          `קרן רחוקה עונה לפעולתך. בין ההריסות שלפנים אור לפידים חושף גרם מדרגות נסתר היורד אל אבן שחורה.`,
+          `האוויר מתכווץ כשהבחירה שלך מהדהדת בחדר. אבק נושר מקשת האבן וחושף סמל נשכח של הכתר הישן.`,
+          `למילים שלך יש משקל. מתוך הערפל מופיעה דמות עטוית גלימה ולוחשת: "איחרת, ${campaign.heroName}."`,
+          `פלדה שרה בחשכה. הצללים נסוגים, ושער עתיק נפתח בחריקה ונושף כפור ותפילות נשכחות.`,
         ];
         const picked = options[Math.floor(Math.random() * options.length)];
-        return `${picked}\n\n(${campaign.style} tone, ${campaign.genre})`;
+        return `${picked}\n\n(סגנון: ${campaign.style} | עולם: ${campaign.genre})`;
       }
 
       function updateSummary(campaign) {
@@ -1950,7 +2032,7 @@
         const clean = text.trim();
         if (!clean) return;
         if (!isUnlocked()) {
-          toast("OpenAI key or Demo Mode required.");
+          toast("נדרש מפתח OpenAI או מצב דמו.");
           return;
         }
 
@@ -1968,7 +2050,7 @@
             const history = [
               {
                 role: "system",
-                content: `You are Dungeon Master AI. Style: cinematic dark fantasy. Keep continuity. Hero: ${campaign.heroName}. Class: ${campaign.classBackground}. Tone: ${campaign.style}.`,
+                content: `אתה שליט המבוך AI. כתוב בעברית בלבד בסגנון קולנועי של פנטזיה אפלה. שמור רצף עלילתי. גיבור: ${campaign.heroName}. מקצוע/רקע: ${campaign.classBackground}. טון: ${campaign.style}.`,
               },
               ...(campaign.messages || []).slice(-16).map((m) => ({
                 role: m.role === "assistant" ? "assistant" : "user",
@@ -1981,7 +2063,7 @@
           }
         } catch {
           aiText = localNarration(clean, campaign);
-          toast("OpenAI failed. Fallback response generated.");
+          toast("קריאת OpenAI נכשלה, הופעלה תגובת גיבוי.");
         }
 
         campaign.messages.push({ id: uid(), role: "assistant", text: aiText, ts: Date.now() });
@@ -2008,7 +2090,7 @@
           body: JSON.stringify(payload),
         });
         if (!response.ok) {
-          throw new Error("OpenAI request failed");
+          throw new Error("קריאת OpenAI נכשלה");
         }
         const json = await response.json();
         const text = json?.choices?.[0]?.message?.content || "";
@@ -2024,7 +2106,69 @@
         const splash = document.getElementById("splash");
         window.setTimeout(() => {
           splash.classList.add("hide");
-        }, 1500);
+        }, 1800);
+      }
+
+      function initLogoDrag() {
+        const ring = document.getElementById("splashLogoRing");
+        if (!ring) return;
+
+        let activePointer = null;
+        let targetX = 0;
+        let targetY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        let rafId = 0;
+
+        const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+        const animate = () => {
+          currentX += (targetX - currentX) * 0.2;
+          currentY += (targetY - currentY) * 0.2;
+          ring.style.setProperty("--drag-x", `${currentX.toFixed(2)}px`);
+          ring.style.setProperty("--drag-y", `${currentY.toFixed(2)}px`);
+
+          const stillMoving = Math.abs(targetX - currentX) > 0.15 || Math.abs(targetY - currentY) > 0.15;
+          if (stillMoving) {
+            rafId = requestAnimationFrame(animate);
+          } else {
+            rafId = 0;
+          }
+        };
+
+        const startAnimation = () => {
+          if (!rafId) rafId = requestAnimationFrame(animate);
+        };
+
+        const releaseDrag = () => {
+          activePointer = null;
+          targetX = 0;
+          targetY = 0;
+          ring.classList.remove("dragging");
+          startAnimation();
+        };
+
+        ring.addEventListener("pointerdown", (event) => {
+          activePointer = event.pointerId;
+          ring.classList.add("dragging");
+          ring.setPointerCapture(event.pointerId);
+        });
+
+        ring.addEventListener("pointermove", (event) => {
+          if (activePointer !== event.pointerId) return;
+          const rect = ring.getBoundingClientRect();
+          const dx = event.clientX - (rect.left + rect.width / 2);
+          const dy = event.clientY - (rect.top + rect.height / 2);
+          targetX = clamp(dx * 0.35, -26, 26);
+          targetY = clamp(dy * 0.35, -20, 20);
+          startAnimation();
+        });
+
+        ring.addEventListener("pointerup", releaseDrag);
+        ring.addEventListener("pointercancel", releaseDrag);
+        ring.addEventListener("pointerleave", () => {
+          if (activePointer !== null) releaseDrag();
+        });
       }
 
       function escapeHTML(text) {
@@ -2116,7 +2260,7 @@
           const c = state.campaigns.find((x) => x.id === id);
           if (!c) return;
           if (!isUnlocked()) {
-            toast("Open Settings to add key or enable temporary Demo Mode.");
+            toast("פתח הגדרות כדי להוסיף מפתח או להפעיל מצב דמו זמני.");
             state.tab = "settings";
             renderScreens();
             return;
@@ -2155,7 +2299,7 @@
 
         if (action === "open-add-codex") {
           if (!isUnlocked()) {
-            toast("Open Settings first.");
+            toast("יש לפתוח קודם את מסך ההגדרות.");
             state.tab = "settings";
             renderScreens();
             return;
@@ -2174,7 +2318,7 @@
         if (action === "save-add-codex") {
           const d = state.addCodex;
           if (!d.title.trim() || !d.lore.trim()) {
-            toast("Title and lore are required.");
+            toast("יש להזין כותרת ורקע.");
             return;
           }
           state.codex.unshift({
@@ -2184,10 +2328,10 @@
             lore: d.lore.trim(),
             imagePrompt: `${d.kind} ${d.title} dark fantasy concept art`,
           });
-          state.addCodex = { title: "", kind: "NPC", lore: "" };
+          state.addCodex = { title: "", kind: "דמות", lore: "" };
           state.codexAddOpen = false;
           renderScreens();
-          toast("Story card added.");
+          toast("כרטיס הסיפור נוסף.");
           return;
         }
 
@@ -2197,7 +2341,7 @@
           renderSettings();
           renderLockOverlay();
           persist();
-          toast(state.settings.apiKey ? "API key saved locally." : "API key cannot be empty.");
+          toast(state.settings.apiKey ? "המפתח נשמר מקומית." : "שדה המפתח לא יכול להיות ריק.");
           return;
         }
 
@@ -2206,7 +2350,7 @@
           renderSettings();
           renderLockOverlay();
           persist();
-          toast("API key cleared.");
+          toast("המפתח נמחק.");
           return;
         }
 
@@ -2215,7 +2359,7 @@
           renderSettings();
           renderLockOverlay();
           persist();
-          toast(state.settings.demoMode ? "Temporary Demo Mode enabled." : "Demo Mode disabled.");
+          toast(state.settings.demoMode ? "מצב דמו זמני הופעל." : "מצב דמו כובה.");
           return;
         }
 
@@ -2224,14 +2368,14 @@
           renderSettings();
           renderLockOverlay();
           persist();
-          toast("Demo Mode enabled for quick testing.");
+          toast("מצב דמו הופעל לבדיקה מהירה.");
           return;
         }
 
         if (action === "toggle-free-images") {
           state.settings.freeImageMode = !state.settings.freeImageMode;
           renderScreens();
-          toast(state.settings.freeImageMode ? "Free Image API enabled." : "Free Image API disabled.");
+          toast(state.settings.freeImageMode ? "מצב תמונות חינמי הופעל." : "מצב תמונות חינמי כובה.");
           return;
         }
 
@@ -2243,7 +2387,7 @@
             c.imagePrompt = `${c.imagePrompt} ${Math.floor(Math.random() * 9999)}`;
           });
           renderScreens();
-          toast("Image seeds refreshed.");
+          toast("זרעי התמונות רועננו.");
           return;
         }
 
@@ -2276,7 +2420,7 @@
         }
 
         if (action === "apply-engine") {
-          toast("AI engine settings applied.");
+          toast("הגדרות המנוע הוחלו.");
           return;
         }
 
@@ -2284,7 +2428,7 @@
           resetEngine();
           renderGameplay();
           persist();
-          toast("Engine settings reset.");
+          toast("הגדרות המנוע אופסו.");
           return;
         }
       });
@@ -2340,6 +2484,8 @@
       });
 
       function init() {
+        preloadIconBank();
+        initLogoDrag();
         renderScreens();
         setSplash();
       }

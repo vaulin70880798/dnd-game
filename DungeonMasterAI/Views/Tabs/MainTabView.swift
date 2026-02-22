@@ -12,7 +12,7 @@ struct MainTabView: View {
             }
             .tag(RootTab.home)
             .tabItem {
-                Label("Home", systemImage: appState.selectedTab == .home ? "house.fill" : "house")
+                Label("בית", systemImage: appState.selectedTab == .home ? "house.fill" : "house")
             }
 
             NavigationStack {
@@ -20,7 +20,7 @@ struct MainTabView: View {
             }
             .tag(RootTab.campaigns)
             .tabItem {
-                Label("Campaigns", systemImage: appState.selectedTab == .campaigns ? "shield.fill" : "shield")
+                Label("קמפיינים", systemImage: appState.selectedTab == .campaigns ? "shield.fill" : "shield")
             }
 
             NavigationStack {
@@ -28,7 +28,7 @@ struct MainTabView: View {
             }
             .tag(RootTab.codex)
             .tabItem {
-                Label("Codex", systemImage: appState.selectedTab == .codex ? "book.fill" : "book.closed")
+                Label("קודקס", systemImage: appState.selectedTab == .codex ? "book.fill" : "book.closed")
             }
 
             NavigationStack {
@@ -36,7 +36,7 @@ struct MainTabView: View {
             }
             .tag(RootTab.settings)
             .tabItem {
-                Label("Settings", systemImage: appState.selectedTab == .settings ? "gearshape.fill" : "gearshape")
+                Label("הגדרות", systemImage: appState.selectedTab == .settings ? "gearshape.fill" : "gearshape")
             }
         }
         .tint(theme.colors.accent)
@@ -50,15 +50,15 @@ struct MainTabView: View {
                         Image(systemName: "lock.shield")
                             .font(.system(size: 40))
                             .foregroundStyle(theme.colors.accent)
-                        Text("OpenAI key required")
+                        Text("נדרש מפתח OpenAI")
                             .font(.dmUI(24, weight: .bold))
                             .foregroundStyle(theme.colors.textPrimary)
-                        Text("Set your API key in Settings. For temporary testing, you can enable Demo Mode there.")
+                        Text("יש להגדיר מפתח בהגדרות. לבדיקה זמנית אפשר להפעיל מצב דמו.")
                             .font(.dmUI(14))
                             .foregroundStyle(theme.colors.textSecondary)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: 320)
-                        Button("Open Settings") {
+                        Button("מעבר להגדרות") {
                             appState.selectedTab = .settings
                         }
                         .buttonStyle(EmberPrimaryButtonStyle())

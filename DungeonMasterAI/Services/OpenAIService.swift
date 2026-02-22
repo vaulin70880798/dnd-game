@@ -7,9 +7,9 @@ enum OpenAIServiceError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .badResponse:
-            return "Unexpected response from OpenAI."
+            return "התקבלה תשובה לא תקינה מ‑OpenAI."
         case .missingContent:
-            return "No text returned by OpenAI."
+            return "לא התקבל תוכן טקסטואלי מהמודל."
         }
     }
 }
@@ -47,20 +47,20 @@ struct OpenAIService {
 
     func generateCharacterDraft(apiKey: String) async throws -> CharacterDraft {
         let instruction = """
-        Generate a dark fantasy RPG character draft.
-        Respond with JSON only in this exact shape:
+        צור טיוטת דמות למשחק תפקידים בפנטזיה אפלה.
+        החזר JSON בלבד במבנה הבא:
         {
-          "name": "string",
-          "classBackground": "string",
-          "style": "Gritty|Heroic|Chaotic",
-          "campaignTitle": "string"
+          "name": "string בעברית",
+          "classBackground": "string בעברית",
+          "style": "קשוח|הרואי|כאוטי",
+          "campaignTitle": "string בעברית"
         }
         """
 
         let payload = ChatCompletionRequest(
             model: "gpt-4o-mini",
             messages: [
-                OpenAIChatMessage(role: "system", content: "You create concise RPG setup data."),
+                OpenAIChatMessage(role: "system", content: "אתה מייצר נתוני פתיחה תמציתיים ל‑RPG בעברית בלבד."),
                 OpenAIChatMessage(role: "user", content: instruction)
             ],
             temperature: 0.9,

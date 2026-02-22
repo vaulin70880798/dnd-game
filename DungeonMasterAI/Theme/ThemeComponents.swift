@@ -39,9 +39,9 @@ struct EmberPrimaryButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.dmUI(18, weight: .semibold))
+            .font(.dmUI(16, weight: .semibold))
             .foregroundStyle(Color.black.opacity(0.85))
-            .padding(.vertical, 12)
+            .padding(.vertical, 10)
             .frame(maxWidth: .infinity)
             .background(
                 LinearGradient(
@@ -68,10 +68,10 @@ struct EmberSecondaryButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.dmUI(16, weight: .medium))
+            .font(.dmUI(14, weight: .medium))
             .foregroundStyle(colors.textPrimary.opacity(configuration.isPressed ? 0.7 : 0.92))
-            .padding(.vertical, 10)
-            .padding(.horizontal, 14)
+            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
             .background(colors.surface.opacity(0.95))
             .clipShape(RoundedRectangle(cornerRadius: metrics.capsuleCornerRadius))
             .overlay(

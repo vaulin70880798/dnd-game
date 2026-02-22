@@ -27,7 +27,7 @@ struct SplashView: View {
                         value: pulsing
                     )
 
-                Text("DUNGEON MASTER AI")
+                Text("שליט המבוך AI")
                     .font(.dmUI(38, weight: .bold))
                     .kerning(0.6)
                     .foregroundStyle(theme.colors.textPrimary)

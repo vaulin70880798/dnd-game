@@ -10,23 +10,23 @@ enum SeedData {
             if codexCount == 0 {
                 let cards: [CodexCard] = [
                     CodexCard(
-                        title: "The Valorous Knights",
-                        lore: "An ancient brotherhood sworn to guard ember shrines against shadowborn raids.",
+                        title: "אבירי הגבורה",
+                        lore: "אחווה עתיקה שנשבעה להגן על מקדשי הגחלת מפני פשיטות ילידי-צל.",
                         kind: .faction
                     ),
                     CodexCard(
-                        title: "Mysterious Character",
-                        lore: "A hooded figure who appears whenever the moon eclipses the north watchtower.",
+                        title: "דמות מסתורית",
+                        lore: "דמות עטוית ברדס שמופיעה בכל פעם שהירח מכסה את מגדל המשמר הצפוני.",
                         kind: .npc
                     ),
                     CodexCard(
-                        title: "Ancient Dragon",
-                        lore: "A dormant wyrm beneath the basalt ridges, waiting for the final omen.",
+                        title: "דרקון קדום",
+                        lore: "תנין-אש רדום מתחת לרכסי הבזלת, הממתין לאות האחרון.",
                         kind: .npc
                     ),
                     CodexCard(
-                        title: "Glowing Artifact",
-                        lore: "A fractured relic that hums when danger approaches.",
+                        title: "שריד זוהר",
+                        lore: "שריד שבור המהמהם כאשר סכנה מתקרבת.",
                         kind: .item
                     )
                 ]
@@ -35,19 +35,19 @@ enum SeedData {
 
             if campaignsCount == 0 {
                 let campaign = Campaign(
-                    title: "The Obsidian Keep - Chapter 3",
-                    genre: "Gothic Horror",
-                    heroName: "Elara Vance",
-                    classBackground: "Ranger, Exiled Noble",
-                    narrativeStyle: "Gritty",
+                    title: "מצודת האובסידיאן - פרק 3",
+                    genre: "אימה גותית",
+                    heroName: "אלארה ואנס",
+                    classBackground: "סיירת, אצילה גולה",
+                    narrativeStyle: "קשוח",
                     chapter: 3,
                     totalPlayedMinutes: 270,
-                    summary: "Elara reached the ruined keep and heard the chains beneath its chapel."
+                    summary: "אלארה הגיעה למצודה החרבה ושמעה את השרשראות מתחת לקפלה."
                 )
 
                 let welcome = CampaignMessage(
                     role: .assistant,
-                    text: "A cold wind sweeps the ruined gate as ember-light flickers across cracked stone.",
+                    text: "רוח קרה שוטפת את השער ההרוס, ואור גחלים מרצד על אבן סדוקה.",
                     campaign: campaign
                 )
                 campaign.messages.append(welcome)

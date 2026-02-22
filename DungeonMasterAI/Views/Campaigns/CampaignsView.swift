@@ -15,13 +15,13 @@ struct CampaignsView: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
-                    Text("My Campaigns")
+                    Text("הקמפיינים שלי")
                         .font(.dmUI(36, weight: .bold))
                         .foregroundStyle(theme.colors.textPrimary)
                         .padding(.bottom, 6)
 
                     if campaigns.isEmpty {
-                        Text("No saved campaigns yet. Start one from Home.")
+                        Text("אין קמפיינים שמורים עדיין. אפשר להתחיל קמפיין חדש ממסך הבית.")
                             .font(.dmUI(15))
                             .foregroundStyle(theme.colors.textSecondary)
                             .padding(.top, 12)
@@ -66,9 +66,9 @@ private struct CampaignListCard: View {
         let hours = campaign.totalPlayedMinutes / 60
         let minutes = campaign.totalPlayedMinutes % 60
         if hours > 0 {
-            return "\(hours)h \(minutes)m Played"
+            return "\(hours)ש׳ \(minutes)ד׳ משחק"
         }
-        return "\(minutes)m Played"
+        return "\(minutes)ד׳ משחק"
     }
 
     var body: some View {
@@ -105,17 +105,17 @@ private struct CampaignListCard: View {
             }
 
             HStack {
-                Text(campaign.isFinished ? "Finished" : "Last played: \(relativeDate(campaign.lastPlayedAt))")
+                Text(campaign.isFinished ? "הסתיים" : "שוחק לאחרונה: \(relativeDate(campaign.lastPlayedAt))")
                     .font(.dmUI(13))
                     .foregroundStyle(theme.colors.textSecondary)
                 Spacer()
 
                 if campaign.isFinished {
-                    Button("View Summary", action: onSummary)
+                    Button("צפה בתקציר", action: onSummary)
                         .buttonStyle(EmberPrimaryButtonStyle())
                         .frame(width: 146)
                 } else {
-                    Button("Resume", action: onResume)
+                    Button("המשך", action: onResume)
                         .buttonStyle(EmberPrimaryButtonStyle())
                         .frame(width: 108)
                 }
@@ -126,6 +126,7 @@ private struct CampaignListCard: View {
 
     private func relativeDate(_ date: Date) -> String {
         let formatter = RelativeDateTimeFormatter()
+        formatter.locale = Locale(identifier: "he_IL")
         formatter.unitsStyle = .full
         return formatter.localizedString(for: date, relativeTo: .now)
     }
@@ -144,13 +145,13 @@ private struct SummarySheet: View {
                         .font(.dmUI(30, weight: .bold))
                         .foregroundStyle(theme.colors.textPrimary)
 
-                    Text("Story So Far")
+                    Text("הסיפור עד כה")
                         .font(.dmUI(18, weight: .semibold))
                         .foregroundStyle(theme.colors.accent)
 
                     Text(
                         campaign.summary.isEmpty
-                            ? "No summary available yet. Continue the campaign to generate one."
+                            ? "עדיין אין תקציר זמין. המשך לשחק כדי לייצר אחד."
                             : campaign.summary
                     )
                     .font(.dmStory(19))
@@ -162,7 +163,7 @@ private struct SummarySheet: View {
             .background(theme.colors.background.ignoresSafeArea())
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { dismiss() }
+                    Button("סיום") { dismiss() }
                         .tint(theme.colors.accent)
                 }
             }

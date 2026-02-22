@@ -50,7 +50,7 @@ private struct MessageRow: View {
             if message.typedRole == .user {
                 Spacer(minLength: 32)
                 Text(message.text)
-                    .font(.dmUI(24, weight: .bold))
+                    .font(.dmUI(18, weight: .bold))
                     .foregroundStyle(theme.colors.textPrimary)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 12)
@@ -62,7 +62,7 @@ private struct MessageRow: View {
                     )
             } else {
                 Text(message.text)
-                    .font(.dmStory(22))
+                    .font(.dmStory(17))
                     .foregroundStyle(theme.colors.textPrimary.opacity(0.95))
                     .lineSpacing(5)
                     .padding(.horizontal, 14)

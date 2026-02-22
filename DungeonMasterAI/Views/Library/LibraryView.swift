@@ -9,10 +9,10 @@ struct LibraryView: View {
     @Query(sort: \Campaign.updatedAt, order: .reverse) private var campaigns: [Campaign]
 
     private let realms: [(title: String, subtitle: String, symbol: String)] = [
-        ("Gothic Horror", "Haunted keeps and cursed bloodlines", "moon.stars.fill"),
-        ("High Fantasy", "Ancient kingdoms and forgotten relics", "sparkles"),
-        ("Cyberpunk", "Neon ruins and synthetic prophecies", "cpu.fill"),
-        ("Mythic Seas", "Storm temples and leviathan cults", "drop.fill")
+        ("אימה גותית", "מצודות רדופות ושושלות מקוללות", "moon.stars.fill"),
+        ("פנטזיה גבוהה", "ממלכות עתיקות ושרידים נשכחים", "sparkles"),
+        ("סייבר-פאנק מאגי", "חורבות ניאון ונבואות סינתטיות", "cpu.fill"),
+        ("ימים מיתיים", "מקדשי סערה וכתות לווייתנים", "drop.fill")
     ]
 
     var body: some View {
@@ -21,7 +21,7 @@ struct LibraryView: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    Text("Your Chronicles")
+                    Text("הכרוניקות שלך")
                         .font(.dmUI(36, weight: .bold))
                         .foregroundStyle(theme.colors.textPrimary)
 
@@ -43,7 +43,7 @@ struct LibraryView: View {
                         .padding(.vertical, 4)
                     }
 
-                    Text("Explore New Realms")
+                    Text("חקירת ממלכות חדשות")
                         .font(.dmUI(28, weight: .semibold))
                         .foregroundStyle(theme.colors.textPrimary)
 
@@ -126,12 +126,12 @@ private struct ChronicleCard: View {
                 .foregroundStyle(theme.colors.textPrimary)
                 .lineLimit(2)
 
-            Text(campaign.summary.isEmpty ? "A dark oath awaits beyond the shattered gate." : campaign.summary)
+            Text(campaign.summary.isEmpty ? "שבועה אפלה ממתינה מעבר לשער השבור." : campaign.summary)
                 .font(.dmUI(14, weight: .regular))
                 .foregroundStyle(theme.colors.textSecondary)
                 .lineLimit(2)
 
-            Button("Resume", action: onResume)
+            Button("המשך", action: onResume)
                 .buttonStyle(EmberSecondaryButtonStyle())
                 .frame(maxWidth: 126)
         }
@@ -184,10 +184,10 @@ private struct EmptyChronicleCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("No campaigns yet")
+            Text("עדיין אין קמפיינים")
                 .font(.dmUI(22, weight: .bold))
                 .foregroundStyle(theme.colors.textPrimary)
-            Text("Tap any New Realm card to create your first adventure.")
+            Text("לחץ על כרטיס ממלכה חדשה כדי ליצור את ההרפתקה הראשונה שלך.")
                 .font(.dmUI(15))
                 .foregroundStyle(theme.colors.textSecondary)
                 .lineLimit(2)

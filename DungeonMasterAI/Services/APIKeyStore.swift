@@ -29,7 +29,7 @@ final class APIKeyStore: ObservableObject {
     func save(_ key: String) {
         let trimmed = key.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else {
-            errorMessage = "API key cannot be empty."
+            errorMessage = "מפתח API לא יכול להיות ריק."
             return
         }
 
@@ -40,7 +40,7 @@ final class APIKeyStore: ObservableObject {
             maskedPreview = Self.masked(trimmed)
             errorMessage = nil
         } catch {
-            errorMessage = "Failed to save key to Keychain."
+            errorMessage = "שמירת המפתח ב‑Keychain נכשלה."
         }
     }
 
@@ -52,7 +52,7 @@ final class APIKeyStore: ObservableObject {
             maskedPreview = ""
             errorMessage = nil
         } catch {
-            errorMessage = "Failed to clear key from Keychain."
+            errorMessage = "מחיקת המפתח מ‑Keychain נכשלה."
         }
     }
 
