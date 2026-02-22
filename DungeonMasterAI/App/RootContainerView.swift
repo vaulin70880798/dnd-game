@@ -12,7 +12,7 @@ struct RootContainerView: View {
 
     var body: some View {
         ZStack {
-            theme.colors.background.ignoresSafeArea()
+            FantasyBackground()
 
             if showSplash {
                 SplashView()

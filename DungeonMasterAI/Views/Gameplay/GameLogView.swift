@@ -43,6 +43,7 @@ struct GameLogView: View {
 private struct MessageRow: View {
     @EnvironmentObject private var theme: ThemeManager
     let message: CampaignMessage
+    @State private var visible = false
 
     var body: some View {
         HStack {
@@ -76,6 +77,12 @@ private struct MessageRow: View {
             }
         }
         .padding(.horizontal, 12)
-        .animation(.easeIn(duration: 0.25), value: message.id)
+        .opacity(visible ? 1 : 0)
+        .offset(y: visible ? 0 : 8)
+        .onAppear {
+            withAnimation(.easeOut(duration: 0.24)) {
+                visible = true
+            }
+        }
     }
 }

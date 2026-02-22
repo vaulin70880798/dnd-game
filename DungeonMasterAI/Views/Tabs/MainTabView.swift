@@ -12,7 +12,7 @@ struct MainTabView: View {
             }
             .tag(RootTab.home)
             .tabItem {
-                Label("Home", systemImage: "house")
+                Label("Home", systemImage: appState.selectedTab == .home ? "house.fill" : "house")
             }
 
             NavigationStack {
@@ -20,7 +20,7 @@ struct MainTabView: View {
             }
             .tag(RootTab.campaigns)
             .tabItem {
-                Label("Campaigns", systemImage: "shield")
+                Label("Campaigns", systemImage: appState.selectedTab == .campaigns ? "shield.fill" : "shield")
             }
 
             NavigationStack {
@@ -28,7 +28,7 @@ struct MainTabView: View {
             }
             .tag(RootTab.codex)
             .tabItem {
-                Label("Codex", systemImage: "book.closed")
+                Label("Codex", systemImage: appState.selectedTab == .codex ? "book.fill" : "book.closed")
             }
 
             NavigationStack {
@@ -36,7 +36,7 @@ struct MainTabView: View {
             }
             .tag(RootTab.settings)
             .tabItem {
-                Label("Settings", systemImage: "gearshape")
+                Label("Settings", systemImage: appState.selectedTab == .settings ? "gearshape.fill" : "gearshape")
             }
         }
         .tint(theme.colors.accent)

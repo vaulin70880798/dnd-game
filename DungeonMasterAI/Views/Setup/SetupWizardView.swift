@@ -50,6 +50,7 @@ struct SetupWizardView: View {
                             styleStep
                         }
                     }
+                    .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .move(edge: .leading).combined(with: .opacity)))
                     .padding(14)
                     .emberCardStyle()
 
@@ -235,12 +236,20 @@ struct SetupWizardView: View {
         VStack(spacing: 12) {
             HStack(spacing: 10) {
                 if step > 0 {
-                    Button("Back") { step -= 1 }
+                    Button("Back") {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            step -= 1
+                        }
+                    }
                         .buttonStyle(EmberSecondaryButtonStyle())
                 }
 
                 if step < 2 {
-                    Button("Continue") { step += 1 }
+                    Button("Continue") {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            step += 1
+                        }
+                    }
                         .buttonStyle(EmberSecondaryButtonStyle())
                 } else {
                     Button("Begin Adventure") {
