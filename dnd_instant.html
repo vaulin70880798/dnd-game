@@ -10,15 +10,14 @@
       :root {
         --bg: #0a0a0a;
         --surface: #1c1c1e;
-        --surface-2: #161618;
-        --glass: rgba(255, 255, 255, 0.05);
-        --text: #f8f8f8;
-        --muted: rgba(255, 255, 255, 0.7);
+        --surface-deep: #121214;
         --accent: #ff9f0a;
         --accent-soft: #ffd877;
+        --text: #f7f7f7;
+        --muted: rgba(255, 255, 255, 0.72);
         --line: rgba(255, 159, 10, 0.5);
         --line-soft: rgba(255, 159, 10, 0.3);
-        --shadow: 0 0 18px rgba(255, 159, 10, 0.2);
+        --shadow-accent: 0 0 18px rgba(255, 159, 10, 0.22);
       }
 
       * {
@@ -34,9 +33,9 @@
         font-family: "Assistant", "Segoe UI", Arial, sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at 12% 8%, rgba(255, 159, 10, 0.13), transparent 36%),
-          radial-gradient(circle at 84% 13%, rgba(74, 96, 123, 0.2), transparent 38%),
-          radial-gradient(circle at 70% 85%, rgba(42, 55, 73, 0.2), transparent 36%),
+          radial-gradient(circle at 13% 9%, rgba(255, 159, 10, 0.13), transparent 35%),
+          radial-gradient(circle at 83% 14%, rgba(71, 93, 119, 0.2), transparent 39%),
+          radial-gradient(circle at 68% 84%, rgba(44, 56, 74, 0.18), transparent 36%),
           var(--bg);
       }
 
@@ -66,7 +65,7 @@
         min-height: 100dvh;
         display: grid;
         place-items: center;
-        padding: 16px;
+        padding: 14px;
       }
 
       .phone {
@@ -75,7 +74,7 @@
         border-radius: 34px;
         border: 1px solid rgba(255, 255, 255, 0.18);
         background: rgba(0, 0, 0, 0.62);
-        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.62);
+        box-shadow: 0 24px 74px rgba(0, 0, 0, 0.62);
         overflow: hidden;
         position: relative;
         backdrop-filter: blur(12px);
@@ -92,8 +91,8 @@
         opacity: 0;
         pointer-events: none;
         overflow-y: auto;
-        padding: 18px 14px 98px;
-        transform: translateY(10px);
+        padding: 18px 14px 96px;
+        transform: translateY(8px);
         transition:
           opacity 220ms ease,
           transform 220ms ease;
@@ -106,10 +105,9 @@
       }
 
       .title-xl {
-        margin: 0 0 12px;
+        margin: 0 0 10px;
         font-size: clamp(27px, 6vw, 36px);
         line-height: 1.05;
-        letter-spacing: -0.01em;
       }
 
       .title-lg {
@@ -122,15 +120,15 @@
       }
 
       .card {
-        background: linear-gradient(156deg, rgba(28, 28, 30, 0.96), rgba(14, 14, 15, 0.95));
+        background: linear-gradient(154deg, rgba(28, 28, 30, 0.96), rgba(13, 13, 15, 0.96));
         border: 0.5px solid var(--line);
         border-radius: 16px;
-        box-shadow: var(--shadow);
+        box-shadow: var(--shadow-accent);
         position: relative;
         overflow: hidden;
       }
 
-      .card::before {
+      .card::after {
         content: "";
         position: absolute;
         inset: 8px;
@@ -142,11 +140,11 @@
       .btn {
         border: 0;
         border-radius: 12px;
-        cursor: pointer;
         font: inherit;
+        cursor: pointer;
         transition:
-          transform 160ms ease,
-          opacity 160ms ease;
+          transform 150ms ease,
+          opacity 150ms ease;
       }
 
       .btn:active {
@@ -156,16 +154,16 @@
       .btn-primary {
         background: linear-gradient(130deg, var(--accent-soft), var(--accent));
         color: #1d1408;
-        font-weight: 700;
         font-size: 14px;
+        font-weight: 700;
         padding: 9px 12px;
-        box-shadow: 0 0 14px rgba(255, 159, 10, 0.36);
+        box-shadow: 0 0 14px rgba(255, 159, 10, 0.35);
       }
 
       .btn-soft {
         background: rgba(255, 255, 255, 0.04);
-        color: var(--text);
         border: 0.5px solid var(--line-soft);
+        color: var(--text);
         font-size: 13px;
         padding: 7px 10px;
       }
@@ -180,28 +178,97 @@
         padding: 8px;
       }
 
-      .campaign-cover {
+      .media {
         width: 100%;
-        aspect-ratio: 3 / 4;
-        object-fit: cover;
         border-radius: 12px;
+        overflow: hidden;
         border: 0.5px solid var(--line-soft);
-        display: block;
         background:
-          linear-gradient(160deg, rgba(46, 58, 74, 0.82), rgba(13, 15, 19, 0.95)),
-          linear-gradient(40deg, rgba(255, 159, 10, 0.15), transparent 60%);
+          linear-gradient(162deg, rgba(52, 64, 81, 0.84), rgba(13, 15, 19, 0.96)),
+          linear-gradient(34deg, rgba(255, 159, 10, 0.14), transparent 60%);
+        position: relative;
+      }
+
+      .media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .media-cover {
+        aspect-ratio: 3 / 4;
+      }
+
+      .media-wide {
+        aspect-ratio: 16 / 9;
+      }
+
+      .media-square {
+        aspect-ratio: 1 / 1;
       }
 
       .campaign-card h3 {
         margin: 8px 0 3px;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 1.25;
       }
 
       .campaign-card p {
         margin: 0 0 8px;
-        font-size: 12px;
         color: var(--muted);
+        font-size: 12px;
+      }
+
+      .tab-bar {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        background: rgba(14, 14, 16, 0.96);
+        border: 0.5px solid rgba(255, 255, 255, 0.14);
+        border-radius: 16px;
+        padding: 6px 5px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+        z-index: 30;
+      }
+
+      .tab-btn {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        display: grid;
+        justify-items: center;
+        gap: 3px;
+        border-radius: 10px;
+        padding: 5px 0;
+        font-size: 11px;
+        cursor: pointer;
+      }
+
+      .tab-btn.active {
+        color: var(--accent);
+        background: rgba(255, 159, 10, 0.08);
+        text-shadow: 0 0 10px rgba(255, 159, 10, 0.74);
+      }
+
+      .icon-sprite {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url("./master-icon-bank-hebrew-ui.png");
+        background-size: 1024px 576px;
+        background-repeat: no-repeat;
+      }
+
+      .icon-sprite.fallback svg {
+        width: 100%;
+        height: 100%;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.9;
       }
 
       .list {
@@ -211,22 +278,21 @@
 
       .list-row {
         display: grid;
-        grid-template-columns: 70px 1fr auto;
-        gap: 10px;
+        grid-template-columns: 72px 1fr auto;
+        gap: 9px;
         align-items: center;
         padding: 8px;
       }
 
-      .thumb-16-9 {
-        width: 70px;
-        height: 52px;
-        border-radius: 10px;
-        object-fit: cover;
-        display: block;
-        border: 0.5px solid var(--line-soft);
-        background:
-          linear-gradient(156deg, rgba(45, 57, 73, 0.8), rgba(14, 17, 21, 0.95)),
-          linear-gradient(30deg, rgba(255, 159, 10, 0.14), transparent 60%);
+      .list-row h3 {
+        margin: 0 0 3px;
+        font-size: 15px;
+      }
+
+      .list-row p {
+        margin: 0;
+        font-size: 12px;
+        color: var(--muted);
       }
 
       .field {
@@ -236,9 +302,9 @@
         border: 0.5px solid var(--line-soft);
         border-radius: 11px;
         font: inherit;
+        padding: 10px 12px;
         direction: rtl;
         text-align: right;
-        padding: 10px 12px;
       }
 
       .field:focus {
@@ -303,55 +369,39 @@
         transform: translateX(-18px);
       }
 
-      .tab-bar {
+      .lock-overlay {
         position: absolute;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        background: rgba(14, 14, 16, 0.96);
-        border: 0.5px solid rgba(255, 255, 255, 0.15);
-        border-radius: 16px;
-        padding: 6px 5px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 4px;
-        z-index: 30;
-      }
-
-      .tab-btn {
-        border: 0;
-        background: transparent;
-        color: var(--muted);
-        display: grid;
-        justify-items: center;
-        gap: 3px;
-        border-radius: 10px;
-        padding: 5px 0;
-        font-size: 11px;
-        cursor: pointer;
-      }
-
-      .tab-btn.active {
-        color: var(--accent);
-        background: rgba(255, 159, 10, 0.08);
-        text-shadow: 0 0 10px rgba(255, 159, 10, 0.7);
-      }
-
-      .icon-sprite {
-        display: inline-flex;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.66);
+        display: none;
         align-items: center;
         justify-content: center;
-        background-image: url("./master-icon-bank-hebrew-ui.png");
-        background-size: 1024px 576px;
-        background-repeat: no-repeat;
+        z-index: 40;
+        padding: 12px;
       }
 
-      .icon-sprite.fallback svg {
+      .lock-overlay.active {
+        display: flex;
+      }
+
+      .lock-card {
         width: 100%;
-        height: 100%;
-        stroke: currentColor;
-        fill: none;
-        stroke-width: 1.9;
+        max-width: 338px;
+        padding: 14px;
+      }
+
+      .lock-card h3 {
+        margin: 0 0 8px;
+        font-size: 21px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .lock-card p {
+        margin: 0 0 10px;
+        font-size: 13px;
+        color: var(--muted);
       }
 
       .overlay-page {
@@ -366,15 +416,21 @@
         display: grid;
       }
 
-      /* Campaign Landing Page */
       .landing {
         display: grid;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto 1fr auto;
       }
 
-      .landing-top {
-        position: relative;
+      .landing-header {
         height: 255px;
+        position: relative;
+      }
+
+      .landing-header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.83) 84%, var(--bg));
       }
 
       .landing-cover {
@@ -384,22 +440,15 @@
         display: block;
       }
 
-      .landing-top::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.17), rgba(0, 0, 0, 0.82) 86%, var(--bg));
-      }
-
       .landing-toolbar {
         position: absolute;
-        top: 12px;
+        top: 11px;
         right: 10px;
         left: 10px;
         z-index: 3;
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
       }
 
       .icon-btn {
@@ -409,67 +458,49 @@
         border: 0.5px solid var(--line-soft);
         background: rgba(255, 255, 255, 0.05);
         color: var(--text);
-        cursor: pointer;
         display: grid;
         place-items: center;
+        cursor: pointer;
       }
 
-      .landing-meta {
+      .landing-title {
         position: absolute;
-        bottom: 14px;
+        z-index: 3;
         right: 14px;
         left: 14px;
-        z-index: 3;
+        bottom: 14px;
       }
 
-      .landing-meta h2 {
+      .landing-title h2 {
         margin: 0;
-        font-size: 30px;
+        font-size: 29px;
       }
 
-      .landing-meta p {
-        margin: 6px 0 0;
+      .landing-title p {
+        margin: 5px 0 0;
         color: var(--muted);
         font-size: 13px;
       }
 
       .landing-body {
         overflow-y: auto;
-        padding: 12px 12px 20px;
+        padding: 12px;
       }
 
       .section {
-        margin-bottom: 11px;
+        margin-bottom: 10px;
       }
 
       .section h3 {
         margin: 0 0 7px;
-        font-size: 19px;
+        font-size: 18px;
       }
 
       .section p {
-        margin: 0 0 8px;
+        margin: 0;
         font-size: 14px;
-        line-height: 1.48;
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      .acts {
-        display: grid;
-        gap: 6px;
-      }
-
-      .act {
-        border: 0.5px solid var(--line-soft);
-        border-radius: 12px;
-        padding: 8px 10px;
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .act h4 {
-        margin: 0 0 5px;
-        color: var(--accent-soft);
-        font-size: 13px;
+        line-height: 1.46;
+        color: rgba(255, 255, 255, 0.92);
       }
 
       .hero-grid {
@@ -480,24 +511,15 @@
 
       .hero-card {
         border: 0.5px solid var(--line-soft);
-        border-radius: 13px;
-        padding: 7px;
+        border-radius: 12px;
         background: rgba(255, 255, 255, 0.03);
+        padding: 7px;
         cursor: pointer;
       }
 
       .hero-card.active {
         border-color: var(--accent);
-        box-shadow: 0 0 14px rgba(255, 159, 10, 0.28);
-      }
-
-      .hero-portrait {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        border-radius: 10px;
-        border: 0.5px solid rgba(255, 159, 10, 0.25);
-        object-fit: cover;
-        display: block;
+        box-shadow: 0 0 13px rgba(255, 159, 10, 0.28);
       }
 
       .hero-card h4 {
@@ -511,32 +533,37 @@
         color: var(--muted);
       }
 
-      .start-scene {
-        margin-top: 9px;
+      .hero-note {
+        margin-top: 8px;
         border: 0.5px solid var(--line);
-        border-radius: 12px;
+        border-radius: 11px;
         background: rgba(255, 255, 255, 0.04);
-        padding: 9px 10px;
+        padding: 8px 10px;
       }
 
-      .start-scene h4 {
-        margin: 0 0 6px;
+      .hero-note h4 {
+        margin: 0 0 5px;
         font-size: 13px;
         color: var(--accent-soft);
       }
 
-      .start-scene p {
+      .hero-note p {
         margin: 0;
         font-size: 13px;
         line-height: 1.45;
       }
 
-      .start-scene .secret {
+      .hero-note .secret {
         margin-top: 7px;
-        color: #f5c98f;
+        color: #f3cb92;
       }
 
-      /* Gameplay */
+      .landing-footer {
+        padding: 10px 12px calc(12px + env(safe-area-inset-bottom, 0px));
+        border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+        background: rgba(10, 10, 12, 0.96);
+      }
+
       .gameplay {
         display: grid;
         grid-template-rows: auto 1fr auto;
@@ -582,7 +609,7 @@
 
       .segment button.active {
         background: linear-gradient(130deg, var(--accent-soft), var(--accent));
-        color: #1c1408;
+        color: #1d1408;
         font-weight: 700;
       }
 
@@ -601,14 +628,14 @@
         height: 100%;
         object-fit: cover;
         transform: translateY(0);
-        transition: transform 45ms linear;
+        transition: transform 44ms linear;
       }
 
       .parallax::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.82) 85%, var(--bg));
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.83) 84%, var(--bg));
       }
 
       .chat-log {
@@ -621,13 +648,13 @@
       .msg {
         max-width: 90%;
         border: 0.5px solid rgba(255, 159, 10, 0.42);
-        background: rgba(18, 18, 20, 0.68);
         border-radius: 12px;
+        background: rgba(18, 18, 20, 0.68);
         padding: 8px 10px;
         white-space: pre-wrap;
-        animation: msgIn 190ms ease;
         direction: rtl;
         text-align: right;
+        animation: msgIn 190ms ease;
       }
 
       .msg.assistant {
@@ -665,15 +692,14 @@
       }
 
       .slider-row {
-        margin-bottom: 10px;
+        margin-bottom: 9px;
       }
 
       .slider-row label {
         display: flex;
         justify-content: space-between;
-        align-items: center;
         font-size: 13px;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
       }
 
       .slider-row input[type="range"] {
@@ -682,9 +708,15 @@
       }
 
       .gp-compose {
-        border-top: 0.5px solid rgba(255, 255, 255, 0.11);
+        border-top: 0.5px solid rgba(255, 255, 255, 0.1);
         background: rgba(10, 10, 12, 0.96);
         padding: 8px 10px calc(10px + env(safe-area-inset-bottom, 0px));
+      }
+
+      .note {
+        margin: 0 0 6px;
+        font-size: 12px;
+        color: #f7cb88;
       }
 
       .compose-row {
@@ -693,18 +725,18 @@
         gap: 8px;
       }
 
-      .compose-input-wrap {
+      .compose-wrap {
         position: relative;
       }
 
       .compose-input {
         width: 100%;
-        border-radius: 12px;
-        border: 0.5px solid var(--line);
-        background: rgba(20, 20, 22, 0.95);
         color: var(--text);
-        padding: 10px 78px 10px 12px;
+        background: rgba(20, 20, 22, 0.96);
+        border: 0.5px solid var(--line);
+        border-radius: 12px;
         font-size: 14px;
+        padding: 10px 78px 10px 12px;
         direction: rtl;
         text-align: right;
       }
@@ -715,7 +747,7 @@
         box-shadow: 0 0 0 2px rgba(255, 159, 10, 0.14);
       }
 
-      .compose-inline-btn {
+      .inline-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -729,11 +761,11 @@
         cursor: pointer;
       }
 
-      .compose-wand {
+      .inline-wand {
         right: 6px;
       }
 
-      .compose-send {
+      .inline-send {
         right: 38px;
       }
 
@@ -747,47 +779,6 @@
         box-shadow: 0 0 10px rgba(255, 159, 10, 0.33);
       }
 
-      .note {
-        margin: 0 0 7px;
-        font-size: 12px;
-        color: #f7cb88;
-      }
-
-      .lock-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.66);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 40;
-        padding: 12px;
-      }
-
-      .lock-overlay.active {
-        display: flex;
-      }
-
-      .lock-card {
-        width: 100%;
-        max-width: 340px;
-        padding: 14px;
-      }
-
-      .lock-card h3 {
-        margin: 0 0 8px;
-        font-size: 22px;
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
-
-      .lock-card p {
-        margin: 0 0 10px;
-        color: var(--muted);
-        font-size: 13px;
-      }
-
       .toast {
         position: fixed;
         top: 12px;
@@ -796,13 +787,13 @@
         opacity: 0;
         padding: 9px 12px;
         border-radius: 999px;
-        background: rgba(20, 20, 23, 0.95);
         border: 0.5px solid var(--line);
-        box-shadow: 0 0 13px rgba(255, 159, 10, 0.25);
+        background: rgba(20, 20, 23, 0.95);
+        box-shadow: 0 0 12px rgba(255, 159, 10, 0.24);
         pointer-events: none;
         transition:
-          opacity 180ms ease,
-          transform 180ms ease;
+          opacity 170ms ease,
+          transform 170ms ease;
         z-index: 120;
       }
 
@@ -818,9 +809,9 @@
         display: grid;
         place-items: center;
         background:
-          radial-gradient(circle at center, rgba(255, 159, 10, 0.14), transparent 34%),
-          linear-gradient(160deg, #0b0d12, #060606 60%, #090a0f);
-        transition: opacity 460ms ease;
+          radial-gradient(circle at center, rgba(255, 159, 10, 0.15), transparent 34%),
+          #000;
+        transition: opacity 450ms ease;
       }
 
       .splash.hide {
@@ -832,16 +823,16 @@
         text-align: center;
       }
 
-      .logo-emblem {
+      .logo {
         width: 176px;
         height: 176px;
-        border-radius: 50%;
         margin: 0 auto 14px;
+        border-radius: 50%;
         display: grid;
         place-items: center;
-        background: radial-gradient(circle, rgba(255, 214, 115, 0.22), rgba(255, 159, 10, 0.03));
-        box-shadow: 0 0 28px rgba(255, 159, 10, 0.25);
-        animation: splashPulse 1.25s ease-in-out infinite;
+        background: radial-gradient(circle, rgba(255, 214, 115, 0.24), rgba(255, 159, 10, 0.02));
+        box-shadow: 0 0 30px rgba(255, 159, 10, 0.26);
+        animation: pulse 1.24s ease-in-out infinite;
         cursor: grab;
         user-select: none;
         touch-action: none;
@@ -849,29 +840,25 @@
         transform: translate3d(var(--drag-x, 0px), var(--drag-y, 0px), 0);
       }
 
-      .logo-emblem.dragging {
+      .logo.dragging {
         cursor: grabbing;
         animation-play-state: paused;
       }
 
-      .logo-emblem .icon-sprite {
-        width: 130px;
-        height: 130px;
+      .logo .icon-sprite {
+        width: 132px;
+        height: 132px;
       }
 
-      .logo-fallback {
-        color: var(--accent);
-      }
-
-      .splash-title {
+      .logo-title {
         margin: 0;
-        font-size: clamp(35px, 8vw, 50px);
+        font-size: clamp(34px, 8vw, 50px);
         letter-spacing: 0.03em;
         font-family: "Cinzel", "New York", Georgia, serif;
         text-shadow: 0 0 16px rgba(255, 159, 10, 0.24);
       }
 
-      @keyframes splashPulse {
+      @keyframes pulse {
         0%,
         100% {
           transform: translate3d(var(--drag-x, 0px), var(--drag-y, 0px), 0) scale(0.95);
@@ -893,12 +880,14 @@
           <section id="screen-campaigns" class="screen"></section>
           <section id="screen-settings" class="screen"></section>
         </div>
+
         <nav id="tabBar" class="tab-bar"></nav>
         <div id="lockOverlay" class="lock-overlay"></div>
+
         <div id="splash" class="splash">
           <div class="splash-inner">
-            <div id="logoEmblem" class="logo-emblem"></div>
-            <h1 class="splash-title">שליט המבוך AI</h1>
+            <div id="splashLogo" class="logo"></div>
+            <h1 class="logo-title">שליט המבוך AI</h1>
           </div>
         </div>
       </div>
@@ -909,11 +898,11 @@
     <div id="toast" class="toast"></div>
 
     <script>
-      const STORAGE_KEY = "dmai_masterpiece_v4";
-      const STATE_VERSION = 4;
+      const STORAGE_KEY = "dmai_premium_reset_v1";
+      const VERSION = 1;
 
-      const ICON_SPRITES = {
-        dragon: { on: [-24, -72], off: [-24, -72], size: 130 },
+      const ICON_MAP = {
+        dragon: { off: [-24, -72], on: [-24, -72], size: 132 },
         home: { off: [-572, -78], on: [-572, -136], size: 22 },
         library: { off: [-630, -78], on: [-630, -136], size: 22 },
         campaigns: { off: [-744, -78], on: [-744, -136], size: 22 },
@@ -925,7 +914,7 @@
         lock: { off: [-860, -311], on: [-860, -311], size: 22 },
       };
 
-      const FALLBACK_ICON_SVG = {
+      const ICON_FALLBACK = {
         home: `<svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>`,
         library: `<svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h5a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H6a2 2 0 0 0-2 2z"/><path d="M20 5a2 2 0 0 0-2-2h-5a3 3 0 0 0-3 3v15a3 3 0 0 1 3-3h5a2 2 0 0 1 2 2z"/></svg>`,
         campaigns: `<svg viewBox="0 0 24 24"><path d="M12 3 20 6v6c0 5-3.5 8.7-8 10-4.5-1.3-8-5-8-10V6z"/><path d="M10 11a4 4 0 0 1 6 0"/></svg>`,
@@ -938,246 +927,225 @@
         dragon: `<svg viewBox="0 0 128 128"><path fill="currentColor" stroke="none" d="M94 24c-7-8-18-13-30-13-20 0-36 16-36 36 0 11 5 21 13 28-1-7 1-15 7-21 6-7 15-10 24-10 5 0 10 1 14 4-2 1-4 2-5 5 4-1 8-1 12 1 7 4 11 12 11 20 0 14-11 26-25 27 18 4 36-8 41-26 4-17-4-36-20-45-2-1-4-2-6-3z"/></svg>`,
       };
 
-      const CAMPAIGN_BLUEPRINTS = [
+      const CAMPAIGNS = [
         {
           id: "c1",
           title: "עיר ללא שחר: ניו־יורק 1983",
-          theme: "נואר רצח על-טבעי",
-          hook: [
-            "גשם חומצי מטשטש את מנהטן בזמן שגופות מתגלות עם חותם שעווה על הלשון.",
-            "בלילה שבו כל השעונים נעצרו ב־02:17, ההזמנה לרצח הבא כבר נשלחה.",
-          ],
-          lore: [
-            "ניו־יורק של 1983 היא מנגנון שחיתות מחושב: משטרה, מאפיה ומוסדות דת שומרים על שקט מדומה. בעיר הזאת, האמת אינה נחשפת — היא נרכשת במחיר דם, השפעה או שתיקה.",
-            "מתחת לתיאטראות ברודווי פועל חוג השעווה השחורה, אחווה שמאמינה שאפשר לחרוט אשמה ישירות בגוף. החותם שעל הקורבנות אינו סימן — הוא חוזה מטאפיזי.",
-            "העולם העל-טבעי כאן מבוסס זיכרון: עדויות ניתנות לשכתוב, טראומה ניתנת להעברה, ואנשים חיים עם עברים שלא שלהם. כל חקירה היא קרב על בעלות על הזיכרון.",
-            "המשבר מתחיל ברצח מפיק בכיר, אך מתגלגל לחשיפת תיק שריפה משנת 1974 שבו נעלמו שמות ילדים נעדרים. כל מי שהיה מעורב בהשתקה נמצא שוב על הכוונת.",
-          ],
-          acts: {
-            inciting: "רצח במועדון ג'אז. בזירה: שעון כיס נעול ודף קרוע מיומן וידויים.",
-            escalation: [
-              "עד מרכזי משנה גרסה בכל חקירה, ומתברר שזיכרונו נערך.",
-              "הכנסייה והמאפיה סוגרות יחד קווי חקירה תמורת שקט ברחובות.",
-              "שם אחד הגיבורים מופיע ביומן העבר כאחראי להשתקה המקורית.",
-            ],
-            climax: "תחנת רכבת נטושה הופכת לאולם טקס. בחירה בין אמת שתפרק את העיר לבין עסקה שתציל חיים ותשאיר את הרוע חי.",
-          },
+          genre: "נואר על-טבעי",
+          summary: "גשם חומצי, רציחות חתומות בשעווה, ועיר שמסתירה אמת אחת יותר מדי.",
           coverPrompt: "1980s new york noir murder mystery rainy night cinematic dark fantasy",
           coverSeed: 3101,
           heroes: [
-            {
-              id: "c1h1",
-              name: "נדב גרינברג",
-              className: "בלש רחוב",
-              background: "בלש רצח מושעה שחזר לפעול מחוץ לפרוטוקול.",
-              entryPoint: "מתחיל בתוך זירת הרצח, 7 דקות לפני שמז״פ מגיע.",
-              secret: "ירה בטעות בשותף שלו, והדו״ח זויף כדי להגן עליו.",
-              startingScene: "אורות ניידת רחוקים. אתה כורע ליד גופה טרייה ושעון כיס שמסרב להיפתח. רחוב שלם עומד להשתנות אם תבחר מה לקחת עכשיו.",
-              portraitPrompt: "male noir detective in rainy 1980s new york dark fantasy cinematic portrait",
-              portraitSeed: 4101,
-            },
-            {
-              id: "c1h2",
-              name: "מרים \"מימי\" כהן",
-              className: "מודיענית לילה",
-              background: "זמרת מועדון שמחזיקה חובות לשני ארגונים יריבים.",
-              entryPoint: "מתחילה מאחורי הבמה, כששליח מוסר לה את שם הקורבן הבא.",
-              secret: "הסתירה קלטת קול בלילה הראשון של הרציחות.",
-              startingScene: "הקהל מוחא כפיים, אבל בתוך מעטפה שחורה כתוב שם אדם שעוד חי. מישהו רוצה שתבחרי אם לשיר — או להציל.",
-              portraitPrompt: "female nightclub singer noir 1980s dark fantasy cinematic portrait",
-              portraitSeed: 4102,
-            },
-            {
-              id: "c1h3",
-              name: "האב יונתן לוי",
-              className: "מגרש-שדים אורבני",
-              background: "כומר קהילתי עם הכשרה סודית בטקסי חטא.",
-              entryPoint: "מתחיל בתא וידוי כשהמתוודה יודע פרטי רצח שלא פורסמו.",
-              secret: "הכיר את חוג השעווה בצעירותו ושמר שתיקה תמורת הצלת אחיו.",
-              startingScene: "מאחורי המחיצה נשמע קול סדוק: \"אבא, לא רציתי לחתום.\" בחוץ הפעמון מצלצל פעמיים — השעה 02:17.",
-              portraitPrompt: "male priest exorcist noir city candle light dark fantasy portrait",
-              portraitSeed: 4103,
-            },
-            {
-              id: "c1h4",
-              name: "לורן עזרא",
-              className: "סמל משמר לילה",
-              background: "איש שטח קשוח שמכיר כל מעבר תחזוקה בעיר.",
-              entryPoint: "מתחיל כשומר מחוץ לתא מעצר עם עד שמוכן לדבר רק עכשיו.",
-              secret: "קיבל תשלומים קבועים כדי 'לסגור' תיקים מסוימים.",
-              startingScene: "בתא ממול יושב עד רועד ולוחש: \"יש לי שתי דקות.\" המסדרון ריק מדי, כאילו מישהו פינה אותו במיוחד עבורך.",
-              portraitPrompt: "female police sergeant night shift dark noir cinematic portrait",
-              portraitSeed: 4104,
-            },
+            { id: "c1h1", name: "נדב גרינברג", className: "בלש רחוב", background: "בלש מושעה שחזר ללילה אחד", secret: "דו״ח ירי מזויף שמסתיר טעות קטלנית", entryScene: "אתה בזירת הרצח שבע דקות לפני מז״פ, עם שעון כיס נעול ביד.", portraitPrompt: "male noir detective rain cinematic portrait", portraitSeed: 4101 },
+            { id: "c1h2", name: "מרים \"מימי\" כהן", className: "מודיענית לילה", background: "זמרת מועדון עם חובות כפולים", secret: "קלטת קול מוסתרת מהלילה הראשון", entryScene: "את מאחורי הבמה, מעטפה שחורה מודיעה מי הקורבן הבא.", portraitPrompt: "female nightclub singer noir cinematic portrait", portraitSeed: 4102 },
+            { id: "c1h3", name: "האב יונתן לוי", className: "מגרש-שדים אורבני", background: "כומר קהילה עם עבר נסתר", secret: "היכרות ישנה עם חוג השעווה", entryScene: "בתא הווידוי נשמע קול שמספר פרטי רצח שלא פורסמו.", portraitPrompt: "male priest exorcist dark city portrait", portraitSeed: 4103 },
+            { id: "c1h4", name: "לורן עזרא", className: "סמל משמר לילה", background: "קצין שטח עם גישה לאזורים סגורים", secret: "תשלומים קבועים לטיוח תיקים", entryScene: "אתה שומר על תא מעצר, והעד בפנים דורש לדבר לפני 02:17.", portraitPrompt: "female police sergeant night portrait", portraitSeed: 4104 },
           ],
         },
         {
           id: "c2",
           title: "כתר הגובלין השביעי",
-          theme: "פוליטיקה שבטית אפלה",
-          hook: [
-            "מלך הגובלינים מת ללא יורש מוכרז, ושבעה שבטים דורשים את הכתר ביום אחד.",
-            "שעה לפני הטקס, ראש מועצת האפר נרצח באולם הכתרים והמלחמה מתחילה.",
-          ],
-          lore: [
-            "הממלכה נשלטת בידי שבעה שבטים, כל אחד שולט במשאב קריטי: מתכות, מזון, מודיעין, רונות, גבולות, מרפאים וחוק. השלטון אינו ירושה פשוטה — הוא חוזה הישרדות בין רעבים.",
-            "לפני חמישים שנה נחתם חוק הכתר השביעי: כל מלך נשבע מול אש-אמת, וכל יורש חייב לעבור את משפט הרעב. החוק ייצב את הממלכה, אבל פתח דלת לשחיתות טקסית.",
-            "הדת הגובלינית מבוססת על רוחות רעב: מי שמאכיל את השבט זוכה בכוח, מי שנכשל הופך למזון פוליטי. רחמים נחשבים חולשה — עד לרגע שבו הם מונעים מרד.",
-            "כעת, אחרי רצח פומבי, נחשף כתב-ברית עתיק שיכול לבטל את החוק כולו. מי שיחזיק במסמך יקבע אם תהיה הכתרה, הפיכה או פירוק הממלכה.",
-          ],
-          acts: {
-            inciting: "רצח ראש המועצה ערב הטקס, עם ראיה שמפלילה שלושה שבטים בבת אחת.",
-            escalation: [
-              "מתגלה שמבחן הרעב זויף בשנים קודמות.",
-              "שבט הגבול חותם ברית עם כוח זר ומאיים לפלוש לבירה.",
-              "אחד הגיבורים מגלה שסוד דמו מבטל את חוק הירושה.",
-            ],
-            climax: "במערת האש הגדולה מתקבלת הכרעה: איחוד תחת שליט פגום, פיצול לשבע דוכסויות או הפיכה דתית.",
-          },
-          coverPrompt: "goblin kingdom political struggle underground throne hall embers cinematic dark fantasy",
+          genre: "פוליטיקה שבטית אפלה",
+          summary: "מלך מת ללא יורש, שבעה שבטים רעבים, וטקס הכתרה שעלול להצית מלחמת עולם תת-קרקעית.",
+          coverPrompt: "goblin kingdom political struggle underground throne hall embers cinematic",
           coverSeed: 3102,
           heroes: [
-            {
-              id: "c2h1",
-              name: "זארק מניף-ברזל",
-              className: "מצביא שבטי",
-              background: "יורש לא רשמי של שבט האפר ומפקד נערץ.",
-              entryPoint: "מתחיל בשער הארמון עם משמר חמוש ושליטה על הכניסות.",
-              secret: "הוא חצי-אנושי, דבר האסור לפי חוק הירושה.",
-              startingScene: "המון צורח מחוץ לשער. בידך פקודה חתומה לחסום כל מי שאינו שבטי טהור — כולל אדם אחד שאתה חייב לו חיים.",
-              portraitPrompt: "goblin warlord armor ember throne dark fantasy portrait cinematic",
-              portraitSeed: 4201,
-            },
-            {
-              id: "c2h2",
-              name: "נימה דיפת-דיו",
-              className: "מרגלת חצר",
-              background: "סוכנת צללים שמחליפה זהויות בקלות קטלנית.",
-              entryPoint: "מתחילה בארכיון המלכותי בתחפושת מעתיקה.",
-              secret: "עובדת בסתר עבור המלכה הקודמת שחשבו שמתה.",
-              startingScene: "בין מדפי עור ישן את מוצאת מסמך שמוחק שבט שלם מהירושה. צעדים מתקרבים — ואין זמן לסגור את הדלת.",
-              portraitPrompt: "female goblin spy hooded archive dark fantasy portrait cinematic",
-              portraitSeed: 4202,
-            },
-            {
-              id: "c2h3",
-              name: "גורזאל בן-אפר",
-              className: "שמאן מדינתי",
-              background: "הקול הדתי העליון של המועצה.",
-              entryPoint: "מתחיל בטקס קבורה כשהרוחות משיבות תשובה סותרת בפומבי.",
-              secret: "איבד קשר לרוחות לפני חודשים ומזייף חזיונות.",
-              startingScene: "הקהל כורע ואתה אמור להכריז על סימן שמימי. במקום זאת הלהבות מתפצלות לשני צבעים מנוגדים, וההמון דורש תשובה.",
-              portraitPrompt: "goblin shaman ritual fire dark fantasy portrait cinematic",
-              portraitSeed: 4203,
-            },
-            {
-              id: "c2h4",
-              name: "אילן בן-חורש",
-              className: "מתורגמן-חוק",
-              background: "שבוי פוליטי אנושי שגדל בתוך חצר הגובלינים.",
-              entryPoint: "מתחיל בתא כלא טקסי בדיוק במשמרת חילוף.",
-              secret: "מחזיק כתב-ברית מקורי שמבטל את חוק הכתר.",
-              startingScene: "המנעול נפתח בטעות — או בכוונה. במסדרון שקט מדי, ובידך הקלף האחד שיכול להצית ממלכה.",
-              portraitPrompt: "human prisoner political envoy in goblin court dark fantasy portrait",
-              portraitSeed: 4204,
-            },
+            { id: "c2h1", name: "זארק מניף-ברזל", className: "מצביא שבטי", background: "מפקד שבט האפר", secret: "דם אנושי זורם בעורקיו", entryScene: "אתה בשער הארמון עם פקודה לסגור כניסות — כולל לבני בריתך.", portraitPrompt: "goblin warlord ember throne portrait", portraitSeed: 4201 },
+            { id: "c2h2", name: "נימה דיפת-דיו", className: "מרגלת חצר", background: "סוכנת צללים מחליפת זהויות", secret: "נאמנות כפולה למלכה שנחשבת מתה", entryScene: "את בארכיון המלכותי ומוצאת כתב שמבטל את חוק הכתר.", portraitPrompt: "female goblin spy archive portrait", portraitSeed: 4202 },
+            { id: "c2h3", name: "גורזאל בן-אפר", className: "שמאן מדינתי", background: "הקול הרוחני של המועצה", secret: "איבוד קשר לרוחות והונאת הציבור", entryScene: "בטקס הקבורה האש מתפצלת לשני צבעים, וההמון דורש הכרעה.", portraitPrompt: "goblin shaman ritual fire portrait", portraitSeed: 4203 },
+            { id: "c2h4", name: "אילן בן-חורש", className: "מתורגמן-חוק", background: "שבוי פוליטי שגדל בחצר", secret: "מחזיק כתב-ברית שמבטל את הממלכה", entryScene: "תא הכלא שלך נפתח בזמן החלפת משמר, והקלף בידך.", portraitPrompt: "human envoy in goblin court portrait", portraitSeed: 4204 },
           ],
         },
         {
           id: "c3",
           title: "שעוני האפס של ברקפלד",
-          theme: "סטימפאנק שוד־זמן קוסמי",
-          hook: [
-            "בעיר שבה זמן נקנה בכסף, דקת-היסוד נגנבת מבנק הזמן המרכזי.",
-            "השעונים מתחילים ללכת לאחור, ואנשים נזכרים בעתידים שלא קרו.",
-          ],
-          lore: [
-            "ברקפלד היא עיר סטימפאנק שמודדת מעמד חברתי בדקות. תחבורה, טיפול רפואי ואפילו זכות נאום במועצה נקבעים לפי יתרת זמן אישית.",
-            "אחרי אסון כרונולוגי לפני דור, הוקם בנק הזמן המרכזי ששומר שעת יסוד בתוך כספת מכנית-חיה. הציבור מאמין שזה מנגנון יציבות; האליטות יודעות שזה מנגנון שליטה.",
-            "הפיזיקה כאן שבירה: פרדוקסים קטנים מדליפים זיכרונות, כפילויות רגעיות וצללים הפוכים. כל שיבוש מחמיר אם אינו נסגר בתוך חלון זמן קצר.",
-            "השוד הנוכחי אינו שוד זהב — דקה אחת נעלמה. מתברר שהדקה הזו היא מפתח לפתיחת שער לישות שניזונה מזמנים שבורים.",
-          ],
-          acts: {
-            inciting: "פריצה למוזיאון כרונומטריה וגניבת מפתח כיול שמוביל לבנק הזמן.",
-            escalation: [
-              "כל גיבור פוגש גרסה עתידית של עצמו עם אזהרה סותרת.",
-              "מתגלה שהכספת תוכננה להיפתח מבפנים ולא מבחוץ.",
-              "ישות קוסמית מציעה עסקה אישית לכל אחד מהגיבורים.",
-            ],
-            climax: "בחדר המטוטלת הראשי נבחר מחיר: הקרבת זיכרון, בידוד זמן לעיר, או ריסט כרונולוגי חלקי.",
-          },
-          coverPrompt: "steampunk city time bank clockwork heist cosmic horror cinematic dark fantasy",
+          genre: "סטימפאנק קוסמי",
+          summary: "דקת-היסוד של העיר נגנבה, הזמן נסדק, והמציאות דורשת תשלום חדש.",
+          coverPrompt: "steampunk city time bank clockwork heist cosmic horror cinematic",
           coverSeed: 3103,
           heroes: [
-            {
-              id: "c3h1",
-              name: "תמרה מנוף-קיטור",
-              className: "מהנדסת פריצה",
-              background: "מהנדסת לשעבר בבנק הזמן שפוטרה בביזיון.",
-              entryPoint: "מתחילה בתעלות השירות מתחת לכספת.",
-              secret: "כתבה בעבר פרוטוקול שמאפשר לגנוב דקת יסוד.",
-              startingScene: "הקיטור צורב את הריאות והמפוח הראשי מתקרב לפיצוץ. בידך תרשים ישן שמחסיר מעבר אחד קריטי.",
-              portraitPrompt: "female steampunk engineer in brass machinery cinematic dark portrait",
-              portraitSeed: 4301,
-            },
-            {
-              id: "c3h2",
-              name: "אחיעם \"השען העיוור\"",
-              className: "כרונומנסר",
-              background: "חוקר זמן שאיבד ראייה אך קורא רצפים.",
-              entryPoint: "מתחיל בראש מגדל השעון בזמן כיול חירום.",
-              secret: "ראה חזון שבו הוא עצמו משחרר את הישות.",
-              startingScene: "הפעמון מצלצל לאחור. אתה שומע את קולך העתידי אומר: \"אם תסגור את המעגל — היא תתעורר.\"",
-              portraitPrompt: "blind clock mage steampunk tower dark fantasy portrait cinematic",
-              portraitSeed: 4302,
-            },
-            {
-              id: "c3h3",
-              name: "יאגו רחף",
-              className: "קפטן ספינת אוויר",
-              background: "מבריח מסלולי שמיים עם עבר צבאי מושתק.",
-              entryPoint: "מתחיל בבידוק רציף אווירי עם מטען חשוד.",
-              secret: "קיבל תשלום מוקדם ממארגן השוד האמיתי.",
-              startingScene: "פקח המכס דופק על ארגז הפלדה שלך, וקול מתכתי מבפנים דופק בחזרה — פעמיים.",
-              portraitPrompt: "airship captain steampunk dock fog cinematic portrait",
-              portraitSeed: 4303,
-            },
-            {
-              id: "c3h4",
-              name: "ססיליה דה־אורקל",
-              className: "אוצרת ארכיון אצולה",
-              background: "נצר למשפחת מייסדי חוקי הזמן.",
-              entryPoint: "מתחילה בנשף סגור במוזיאון בזמן הפריצה.",
-              secret: "דמה הוא מפתח ביולוגי להפעלת המנגנון האסור.",
-              startingScene: "כוסות קריסטל מצלצלות, אבל השעון המרכזי מפסיק לפתע. כל המבטים מופנים אלייך — כי רק את מחזיקה את חותם הדם.",
-              portraitPrompt: "noble archivist woman steampunk gala dark fantasy portrait",
-              portraitSeed: 4304,
-            },
+            { id: "c3h1", name: "תמרה מנוף-קיטור", className: "מהנדסת פריצה", background: "מהנדסת לשעבר בבנק הזמן", secret: "תכננה בעצמה את פרוטוקול הגניבה", entryScene: "את בתעלות השירות, עם תרשים חסר ודקה לסגור מעגל.", portraitPrompt: "female steampunk engineer brass machinery portrait", portraitSeed: 4301 },
+            { id: "c3h2", name: "אחיעם \"השען העיוור\"", className: "כרונומנסר", background: "חוקר זמן שאיבד ראייה פיזית", secret: "ראה עתיד שבו הוא משחרר את הישות", entryScene: "במגדל השעון נשמע קולך העתידי מזהיר אותך לא לגעת במטוטלת.", portraitPrompt: "blind clock mage tower portrait", portraitSeed: 4302 },
+            { id: "c3h3", name: "יאגו רחף", className: "קפטן ספינת אוויר", background: "מבריח מסלולי שמיים", secret: "קיבל תשלום מוקדם ממארגן השוד", entryScene: "בבידוק הרציף שומעים נקישות מהארגז הסגור שלך.", portraitPrompt: "airship captain steampunk dock portrait", portraitSeed: 4303 },
+            { id: "c3h4", name: "ססיליה דה־אורקל", className: "אוצרת אצולה", background: "נצר לשושלת חוקי הזמן", secret: "דמה הוא מפתח ביולוגי למנגנון האסור", entryScene: "בנשף המוזיאון השעון נעצר וכל המבטים מופנים אלייך.", portraitPrompt: "noble archivist woman steampunk gala portrait", portraitSeed: 4304 },
+          ],
+        },
+        {
+          id: "c4", title: "הקתדרלה שמתחת לקרח", genre: "אימה קוסמית קפואה", summary: "תחנת מחקר ארקטית מגלה קתדרלה קבורה, והלילה כבר לא נגמר.",
+          coverPrompt: "arctic cathedral under ice cosmic horror cinematic", coverSeed: 3104,
+          heroes: [
+            { id: "c4h1", name: "דריה לב-קור", className: "ארכיאולוגית קרח", background: "מובילת המשלחת", secret: "זייפה ממצאים לקידום אישי", entryScene: "את יורדת למנהרה ראשונה מתחת לקרחון והמצפן מסתובב לבד.", portraitPrompt: "female arctic archaeologist portrait", portraitSeed: 4401 },
+            { id: "c4h2", name: "מיכאל סדן", className: "קצין תחנה", background: "אחראי ביטחון בבסיס", secret: "מחזיק פקודת חיסול לפרויקט", entryScene: "אתה בחדר גנרטורים כשהחשמל כולו עובר לקטע לא מזוהה.", portraitPrompt: "male arctic security officer portrait", portraitSeed: 4402 },
+            { id: "c4h3", name: "אביגיל ריין", className: "מתרגמת שפות מתות", background: "חוקרת פולחנים עתיקים", secret: "זיהתה את כתב האבן כבר בילדותה", entryScene: "את מפענחת כתובת ראשונה שמזכירה את שמך הפרטי.", portraitPrompt: "female ancient language scholar arctic portrait", portraitSeed: 4403 },
+          ],
+        },
+        {
+          id: "c5", title: "מסילת העשן האחרונה", genre: "שוד רכבת סטימפאנקי", summary: "רכבת משוריינת נושאת לב-מנוע אל הבירה, וכל פלג בעיר רוצה אותה לעצמו.",
+          coverPrompt: "steampunk armored train heist night cinematic", coverSeed: 3105,
+          heroes: [
+            { id: "c5h1", name: "רפאל חורש-פלדה", className: "פורץ מסילות", background: "מכונאי בכיר לשעבר", secret: "בגד בצוותו בשוד קודם", entryScene: "אתה מתחיל על גג קרון קיטור בסופה שמפרקת ברגים.", portraitPrompt: "male steampunk train raider portrait", portraitSeed: 4501 },
+            { id: "c5h2", name: "סיוון קייט", className: "צלפית כרכרות", background: "שומרת חוזים של חברת מסילות", secret: "מועסקת בסתר גם אצל המורדים", entryScene: "את בעמדת שמירה קדמית ורואה איתות חבלה מהגשר.", portraitPrompt: "female marksman steampunk train portrait", portraitSeed: 4502 },
+            { id: "c5h3", name: "גלעד כור-שחור", className: "קוסם-עשן", background: "מהגר מארצות מנועים", secret: "הלב בקרון מגיב רק לקסם שלו", entryScene: "אתה בקרון המטען, והקופסה המרכזית מתחילה לפעום.", portraitPrompt: "male smoke mage steampunk portrait", portraitSeed: 4503 },
+          ],
+        },
+        {
+          id: "c6", title: "שער האודם של טול-אור", genre: "פנטזיה גבוהה מצור", summary: "שער קדום נפתח רק בדם מלכותי, ושתי אימפריות מתנגשות על עיר אחת.",
+          coverPrompt: "epic fantasy ruby gate siege cinematic", coverSeed: 3106,
+          heroes: [
+            { id: "c6h1", name: "ליה רוזן", className: "מגינת שער", background: "מפקדת חומת טול-אור", secret: "אביה מנהיג צבא המצור", entryScene: "את בחומת השחר כשהקטפולטות מתחילות לבעור.", portraitPrompt: "female gate commander epic fantasy portrait", portraitSeed: 4601 },
+            { id: "c6h2", name: "יונתן ארד", className: "קוסם חצר", background: "יועץ מאגי לכתר המקומי", secret: "השער ייפתח רק אם יקריב את זיכרונו", entryScene: "אתה במקדש האודם מול טקס שמוחק שמות מהאבן.", portraitPrompt: "male court wizard ruby temple portrait", portraitSeed: 4602 },
+            { id: "c6h3", name: "מירב שלהב", className: "שליחת שלום", background: "דיפלומטית ממדינה ניטרלית", secret: "הגיעה עם פקודה סודית להפיל את העיר", entryScene: "את באוהל המשא ומתן כששליח מביא דרישת כניעה אחרונה.", portraitPrompt: "female diplomat fantasy war camp portrait", portraitSeed: 4603 },
+          ],
+        },
+        {
+          id: "c7", title: "ניאון וקסם: יפו 2091", genre: "סייבר-פנטזיה", summary: "רונות דיגיטליות חוטפות תודעה ברשת, ושוק הלילה של יפו נסגר לנצח.",
+          coverPrompt: "cyberpunk jaffa neon magic market cinematic", coverSeed: 3107,
+          heroes: [
+            { id: "c7h1", name: "אור קוונט", className: "האקר-מאג", background: "שכיר רשת לשעבר", secret: "כתב את הווירוס הרוני המקורי", entryScene: "אתה בתוך חדר שרתים שקוע במים, והקיר מתחיל לכתוב קוד לבד.", portraitPrompt: "male cyber mage hacker portrait", portraitSeed: 4701 },
+            { id: "c7h2", name: "שחר בת-ים", className: "ציידת חוזים", background: "שומרת שוק הלילה", secret: "מוגנת בידי חוזה דם אסור", entryScene: "את עומדת בשער השוק כשכל הסוחרים נופלים בו-זמנית.", portraitPrompt: "female cyber bounty hunter neon portrait", portraitSeed: 4702 },
+            { id: "c7h3", name: "רועי אל-פונקציה", className: "כוהן־אלגוריתם", background: "כומר מסדר הקוד", secret: "המסדר שלו מוכר נשמות בתמורה לכוח מחשוב", entryScene: "אתה במקדש סיבים כשהאווטאר הראשי נעלם מתוך המזבח.", portraitPrompt: "male algorithm priest cyber portrait", portraitSeed: 4703 },
+          ],
+        },
+        {
+          id: "c8", title: "ספר העצמות של קסטל רוין", genre: "גותי קלאסי", summary: "טירה שנשבעת לזכור כל שם מת, וספר אחד שמוחק את מי שקורא בו.",
+          coverPrompt: "gothic castle bone book moonlight cinematic", coverSeed: 3108,
+          heroes: [
+            { id: "c8h1", name: "אלונה גרייב", className: "ספרנית קללות", background: "אחראית הארכיון האסור", secret: "הוסיפה את שמה לספר כדי לא למות", entryScene: "את פותחת את הכרך האחרון והדיו מתחיל לזרום נגד הזמן.", portraitPrompt: "female cursed librarian gothic portrait", portraitSeed: 4801 },
+            { id: "c8h2", name: "נבו קין", className: "צייד לילי", background: "שכיר חרב נגד פולחנים", secret: "האויב הראשי הוא אחיו האבוד", entryScene: "אתה במרפסת הצפונית ורואה אור בחדר שהיה נעול מאה שנה.", portraitPrompt: "male gothic night hunter portrait", portraitSeed: 4802 },
+            { id: "c8h3", name: "תהילה ריינה", className: "יורשת טירה", background: "בעלת הדם האחרון לבית רוין", secret: "מות המשפחה נגרם בפקודה שלה בילדות", entryScene: "את יורדת למרתף המשפחתי עם מפתח שהושאר מתחת לעריסה.", portraitPrompt: "female gothic noble heir portrait", portraitSeed: 4803 },
+          ],
+        },
+        {
+          id: "c9", title: "תיאטרון הדים שחורים", genre: "אימת תודעה", summary: "מחזה חדש גורם לקהל לשכוח מי נכנס ומי יצא מהאולם.",
+          coverPrompt: "dark theater psychological horror stage lights cinematic", coverSeed: 3109,
+          heroes: [
+            { id: "c9h1", name: "גל עמית", className: "שחקן ראשי", background: "כוכב במה בירידה", secret: "רצח יריב והחביא זאת בתסריט", entryScene: "אתה עולה לבמה ורואה בקהל אדם שמת לפני שנה.", portraitPrompt: "male actor haunted theater portrait", portraitSeed: 4901 },
+            { id: "c9h2", name: "נועה דרורי", className: "במאית צל", background: "במאית ניסיונית", secret: "המחזה מבוסס על חלום נבואי אישי", entryScene: "את בחדר שליטה כשהסצנה משתנה בלי פקודה.", portraitPrompt: "female theater director horror portrait", portraitSeed: 4902 },
+            { id: "c9h3", name: "אסף גת", className: "מבקר תרבות", background: "עיתונאי שחוקר התאבדויות בתיאטרון", secret: "איבד זיכרון של ערב פתיחה קודם", entryScene: "אתה במעבר צדדי ומוצא את שמך על כיסא שחקנים.", portraitPrompt: "male critic dark theater portrait", portraitSeed: 4903 },
+          ],
+        },
+        {
+          id: "c10", title: "המדבר הלוחש של נאקרון", genre: "מיסטיקה מדברית", summary: "סערת חול חושפת עיר אבודה אחת לשבעים שנה, ומי שנכנס יוצא עם קול נוסף בראש.",
+          coverPrompt: "mystic desert lost city sandstorm cinematic", coverSeed: 3110,
+          heroes: [
+            { id: "c10h1", name: "יסמין אל-ראיד", className: "נווטת דיונות", background: "מובילת שיירות עתיקות", secret: "מכרה בעבר מפה מזויפת שגרמה למוות", entryScene: "את בראש שיירה כשעמוד חול מתפצל וחושף שער קבור.", portraitPrompt: "female desert navigator fantasy portrait", portraitSeed: 5001 },
+            { id: "c10h2", name: "עומר בן-תמר", className: "כהן בארות", background: "שומר פולחן מים", secret: "מחזיק ברונה שמרעילה בארות", entryScene: "אתה במקדש באר עתיקה כשהמים עולים בלי רוח.", portraitPrompt: "male desert water priest portrait", portraitSeed: 5002 },
+            { id: "c10h3", name: "רונה זהר", className: "ציידת שרידים", background: "מחפשת עיר אבודה מגיל 12", secret: "שמעה את לחישת העיר עוד לפני שנולדה", entryScene: "את מתעוררת בלילה ושומעת את שמך מתוך החול.", portraitPrompt: "female relic hunter desert portrait", portraitSeed: 5003 },
+          ],
+        },
+        {
+          id: "c11", title: "מצעד המלאכים החלודים", genre: "דיזלפאנק קדוש", summary: "מסדר מכני של מלאכים שומר על שלום מזויף בעזרת צבאות ברזל.",
+          coverPrompt: "dieselpunk rusted angel army cathedral war cinematic", coverSeed: 3111,
+          heroes: [
+            { id: "c11h1", name: "עדו רום", className: "קצין שריון", background: "מפקד אוגדת מצעד", secret: "גנב קוד פיקוד עליון", entryScene: "אתה בשורת מצעד, והקסדה שלך משדרת פקודה לא מוכרת.", portraitPrompt: "male dieselpunk officer portrait", portraitSeed: 5101 },
+            { id: "c11h2", name: "הילה דם-זהב", className: "נביאה מכנית", background: "מפעילת אורקל פלדה", secret: "האורקל משקר מאז העדכון האחרון", entryScene: "את במרכז בקרה, והמפה מציגה אויב בתוך המקדש.", portraitPrompt: "female machine prophet portrait", portraitSeed: 5102 },
+            { id: "c11h3", name: "ראובן חורש-עשן", className: "חבלן קודש", background: "מהנדס תחזוקה צבאי", secret: "הטמין מטען במצעד האחרון", entryScene: "אתה מתחת לבמה המרכזית כששעון הפיצוץ מתחיל לאחור.", portraitPrompt: "male demolition engineer dieselpunk portrait", portraitSeed: 5103 },
+          ],
+        },
+        {
+          id: "c12", title: "שושלת הפטריות של תת-כתר", genre: "פוליטיקת מעמקים", summary: "בתי אצולה תת-קרקעיים נלחמים על זן פטרייה שמעניק זיכרון קולקטיבי.",
+          coverPrompt: "underdark mushroom noble houses politics cinematic", coverSeed: 3112,
+          heroes: [
+            { id: "c12h1", name: "ליאם נבג", className: "ביולוג אפל", background: "חוקר זני זיכרון", secret: "שינה זן פטרייה לבקרה חברתית", entryScene: "אתה במעבדה כשקירות האבן מתחילים להפריש נבגים שחורים.", portraitPrompt: "male underdark biologist portrait", portraitSeed: 5201 },
+            { id: "c12h2", name: "תמר גחלת", className: "סייפת חצר", background: "שומרת בית אצולה חלש", secret: "אמה משתייכת לבית היריב", entryScene: "את בזירת דו-קרב טקסית לפני חתימת ברית.", portraitPrompt: "female underdark duelist portrait", portraitSeed: 5202 },
+            { id: "c12h3", name: "מגן אורש", className: "סוחר שקט", background: "מתווך בין בתים", secret: "מוכר מידע לשני הצדדים", entryScene: "אתה בשוק ביולומינסנטי ורואה חוזה עם חתימתך המזויפת.", portraitPrompt: "male underdark trader portrait", portraitSeed: 5203 },
+          ],
+        },
+        {
+          id: "c13", title: "האגם שזוכר שמות", genre: "פולקלור מסתורי", summary: "אגם קדום מחזיר לשפה שמות שנמחקו מהעולם, וגובה מחיר על כל זיכרון.",
+          coverPrompt: "mystic lake remembers names folklore cinematic", coverSeed: 3113,
+          heroes: [
+            { id: "c13h1", name: "סהר ונטורה", className: "שומרת גבול", background: "פקחית יער", secret: "מחקה שם של אחותה מהספר הציבורי", entryScene: "את על מזח בוקר והמים לוחשים שם שאסור שיחזור.", portraitPrompt: "female forest ranger mystic lake portrait", portraitSeed: 5301 },
+            { id: "c13h2", name: "עידן ניר", className: "בלש עממי", background: "חוקר היעלמויות כפר", secret: "מכר זיכרונות תמורת חוב ישן", entryScene: "אתה מגיע לזירת היעלמות ורואה עקבות נכנסים למים ולא יוצאים.", portraitPrompt: "male folk detective lake portrait", portraitSeed: 5302 },
+            { id: "c13h3", name: "נעמה שיר", className: "זמרת-לחשים", background: "בעלת קול שמרגיע רוחות", secret: "קולה שבר בעבר את שבועת האגם", entryScene: "את שרה בטקס כפרי כשהצלילים חוזרים אלייך הפוך.", portraitPrompt: "female ritual singer folklore portrait", portraitSeed: 5303 },
+          ],
+        },
+        {
+          id: "c14", title: "צללי האימפריה הימית של ורידיאן", genre: "תככי ים אימפריאליים", summary: "צי אימפריאלי ענק מאבד אוניות בלי קרב, ומפת הכוכבים הימית נכתבת מחדש כל לילה.",
+          coverPrompt: "imperial navy dark sea intrigue cinematic fantasy", coverSeed: 3114,
+          heroes: [
+            { id: "c14h1", name: "לוטם קראקן", className: "קפטנית פריגטה", background: "מפקדת ספינת סיור", secret: "הבריחה אסיר מלחמה סודי", entryScene: "את על סיפון פריגטה כשמצפן הכוכבים מסתובב ללא רוח.", portraitPrompt: "female naval captain fantasy portrait", portraitSeed: 5401 },
+            { id: "c14h2", name: "דרור מפה-עמוקה", className: "קרטוגרף רוחות", background: "נווט בכיר של האימפריה", secret: "זייף מפות כדי להגן על אי נסתר", entryScene: "אתה בחדר ניווט והדיו במפות מתחלף מול עיניך.", portraitPrompt: "male sea cartographer dark portrait", portraitSeed: 5402 },
+            { id: "c14h3", name: "מאיה קשת־מלח", className: "קוסמת גאות", background: "מפקחת מזג-ים", secret: "קשורה בברית עם יצור תהום", entryScene: "את על מזבח גלים כשהמים נסוגים הרחק מהנמל.", portraitPrompt: "female tide mage ocean portrait", portraitSeed: 5403 },
+          ],
+        },
+        {
+          id: "c15", title: "ארמון האפר של המלכה המתכתית", genre: "דרקוני־תעשייתי", summary: "מלכה אלכימאית בונה דרקוני מתכת, והאפר בבירה כבר נופל כגשם יומי.",
+          coverPrompt: "metal queen ash palace dragon forge cinematic", coverSeed: 3115,
+          heroes: [
+            { id: "c15h1", name: "הדר פלדה", className: "נפחת קרב", background: "עובדת בכבשני הארמון", secret: "החליפה חלקי ליבה לדרקון הראשי", entryScene: "את בכבשן מספר תשע כשהליבה מתחילה לפעום מהר מדי.", portraitPrompt: "female battle smith molten forge portrait", portraitSeed: 5501 },
+            { id: "c15h2", name: "אמיר וולק", className: "שומר סף דרקונים", background: "קצין משמעת ארמון", secret: "הוא יורש דם אבוד של המלכה", entryScene: "אתה בשער הזכוכית כשהדרקון הצעיר בוהה רק בך.", portraitPrompt: "male dragon gate guard portrait", portraitSeed: 5502 },
+            { id: "c15h3", name: "קרן אלכימיה", className: "מרגלת מעבדה", background: "חוקרת מורדים בתחפושת", secret: "החדירה לניסוי רעל מתעכב", entryScene: "את בחדר מבחנות כשהריח באוויר הופך מתוק מדי.", portraitPrompt: "female alchemist spy dark portrait", portraitSeed: 5503 },
+          ],
+        },
+        {
+          id: "c16", title: "שברי ירח מעל אלדור", genre: "פנטזיה אפית ירחית", summary: "הירח נשבר לשבעה רסיסים, וכל ממלכה מחזיקה חלק שמעניק כוח שונה.",
+          coverPrompt: "moon shards epic fantasy kingdoms cinematic", coverSeed: 3116,
+          heroes: [
+            { id: "c16h1", name: "טל רסיס", className: "שומרת ירח", background: "אבירת מסדר הלבנה", secret: "איבדה רסיס אחד בקרב אסור", entryScene: "את על מגדל תצפית כשהשמיים נפתחים בקו כחול חד.", portraitPrompt: "female moon knight fantasy portrait", portraitSeed: 5601 },
+            { id: "c16h2", name: "אבנר לום", className: "כוהן כוכבים", background: "מפרש נבואות שמיים", secret: "נבואה אחת זויפה בכתב ידו", entryScene: "אתה במקדש כשהריסוק השביעי פוגע בדיוק בפעמון.", portraitPrompt: "male star priest fantasy portrait", portraitSeed: 5602 },
+            { id: "c16h3", name: "רוני ארבל", className: "ציידת רסיסים", background: "שכירת חרב בין ממלכות", secret: "עובדת בסתר עבור כוח שלישי", entryScene: "את יוצאת לשדה אסטרלי ומוצאת עקבות שאינן אנושיות.", portraitPrompt: "female shard hunter fantasy portrait", portraitSeed: 5603 },
+          ],
+        },
+        {
+          id: "c17", title: "קרקס הלחישות הנודד", genre: "אימה קרנבלית", summary: "קרקס מופיע בכל עיר לילה אחד בלבד, ובבוקר כולם שוכחים מי איבד שם משהו.",
+          coverPrompt: "dark carnival whispering circus night cinematic", coverSeed: 3117,
+          heroes: [
+            { id: "c17h1", name: "דניאל מסכה", className: "אקרובט סכינים", background: "כוכב המופע הראשי", secret: "נשבע לשד הבמה על נשמה זרה", entryScene: "אתה על חבל בגובה עשר קומות כשהקהל קורא בשם שלא שלך.", portraitPrompt: "male circus acrobat dark portrait", portraitSeed: 5701 },
+            { id: "c17h2", name: "ניצן עשן", className: "קוסמת במה", background: "מפעילת אשליות", secret: "הטריק האחרון שלה אמיתי מדי", entryScene: "את בחדר מראות וכל ההשתקפויות מצביעות לכיוון שונה.", portraitPrompt: "female circus illusionist portrait", portraitSeed: 5702 },
+            { id: "c17h3", name: "שקד לץ", className: "ליצן-מרגל", background: "אוסף סודות קהל", secret: "מחזיק רשימת שמות של נעדרים", entryScene: "אתה מאחורי אוהל הכניסה ומוצא כרטיס עם שמך מהשנה הבאה.", portraitPrompt: "male sinister clown spy portrait", portraitSeed: 5703 },
+          ],
+        },
+        {
+          id: "c18", title: "עיר-הכלא ארקרון 9", genre: "פנטזיה כלאית", summary: "כלא מאגי עירוני שבו החומות נעות כל לילה ומוחקות נתיבי בריחה ישנים.",
+          coverPrompt: "arcane prison city dark fantasy cinematic", coverSeed: 3118,
+          heroes: [
+            { id: "c18h1", name: "איתי כבל", className: "פורץ חומות", background: "אסיר לשעבר שחזר מרצון", secret: "השאיר מאחוריו מישהו שלא התכוון", entryScene: "אתה בתא מספר 13 ושומע את חומת האבן מחליפה מקום.", portraitPrompt: "male prison breaker fantasy portrait", portraitSeed: 5801 },
+            { id: "c18h2", name: "רוני בריח", className: "סוהרת מאגית", background: "קצינת משמר פנימית", secret: "מסתירה רשימת חנינות מזויפת", entryScene: "את בסבב בוקר כשדלת חתומה נפתחת מבפנים.", portraitPrompt: "female arcane warden portrait", portraitSeed: 5802 },
+            { id: "c18h3", name: "מירון סיגיל", className: "כותב רונות", background: "אסיר-מלומד", secret: "חתם בעבר על גזר הדין של עצמו", entryScene: "אתה בסקריפטוריום ואות אחת בכתב משתנה לשמך.", portraitPrompt: "male rune scribe prison portrait", portraitSeed: 5803 },
+          ],
+        },
+        {
+          id: "c19", title: "שבעת הפעמונים של סנט-מור", genre: "קונספירציה כנסייתית", summary: "פעמוני העיר מצלצלים לפי סדר בלתי חוקי, וכל צלצול מוחק שבועה עתיקה אחת.",
+          coverPrompt: "dark cathedral bells conspiracy cinematic gothic", coverSeed: 3119,
+          heroes: [
+            { id: "c19h1", name: "אפרת ליטאני", className: "חוקרת כנסייה", background: "אינקוויזיטורית צעירה", secret: "זייפה מכתב אפיפיורי כדי לשרוד", entryScene: "את בארכיון מגדל הפעמונים כשצלצול שביעי נשמע בלילה ראשון.", portraitPrompt: "female church investigator gothic portrait", portraitSeed: 5901 },
+            { id: "c19h2", name: "יורם פעמון", className: "שומר מגדל", background: "מפעיל המנגנון הוותיק", secret: "איבד פעם ילד בזמן משמרת ושתק", entryScene: "אתה ליד גלגל ההילוכים כשהחבל נמשך לבד.", portraitPrompt: "male bell tower keeper portrait", portraitSeed: 5902 },
+            { id: "c19h3", name: "נעמה סלומון", className: "עורכת כתבי קודש", background: "משחזרת טקסטים אסורים", secret: "מחזיקה גרסה שמוחקת את סמכות הכנסייה", entryScene: "את במרתף הדיו הקדוש והעמוד האחרון נקרע מעצמו.", portraitPrompt: "female holy manuscript editor portrait", portraitSeed: 5903 },
+          ],
+        },
+        {
+          id: "c20", title: "ממלכת התהום הזכוכיתית", genre: "אימה קוסמית ימית", summary: "מתחת לים נחשפת ממלכה מזכוכית חיה, וכל סדק בה משקף עתיד אחר.",
+          coverPrompt: "glass abyss kingdom underwater cosmic horror cinematic", coverSeed: 3120,
+          heroes: [
+            { id: "c20h1", name: "ליאור נחשול", className: "צולל תהום", background: "לוחם משלחות עומק", secret: "חזר ממשלחת שנעלמה — לבדו", entryScene: "אתה בתא לחץ כשהחלון מראה עיר מוארת מתחתיך.", portraitPrompt: "male abyss diver fantasy portrait", portraitSeed: 6001 },
+            { id: "c20h2", name: "חן בדולח", className: "מלחשת זכוכית", background: "מתקשרת עם מבנים חיים", secret: "הקול שלה מעיר את המלך הישן", entryScene: "את נוגעת בקיר שקוף והוא עונה בשמך.", portraitPrompt: "female glass whisperer underwater portrait", portraitSeed: 6002 },
+            { id: "c20h3", name: "עדי מצפן", className: "נווטת זרמים", background: "קפטנית צוללת מחקר", secret: "חתמה על חוזה עם ישות תהום", entryScene: "את בחדר ניווט כשכל המצפנים פונים אל נקודה שאין במפה.", portraitPrompt: "female underwater navigator cinematic portrait", portraitSeed: 6003 },
           ],
         },
       ];
 
-      const state = loadState();
       let iconBankReady = false;
+      const state = loadState();
 
       function loadState() {
         try {
           const raw = localStorage.getItem(STORAGE_KEY);
-          if (!raw) return defaultState();
+          if (!raw) return makeDefaultState();
           const parsed = JSON.parse(raw);
-          if (parsed?.version !== STATE_VERSION) return defaultState();
+          if (parsed.version !== VERSION) return makeDefaultState();
           return parsed;
         } catch {
-          return defaultState();
+          return makeDefaultState();
         }
       }
 
-      function defaultState() {
+      function makeDefaultState() {
         return {
-          version: STATE_VERSION,
+          version: VERSION,
           tab: "home",
           detailCampaignId: null,
-          detailSelectedHeroId: null,
+          detailHeroId: null,
           activeCampaignId: null,
           activeHeroId: null,
           gameplaySegment: "adventure",
@@ -1194,40 +1162,29 @@
             topP: 0.9,
             topK: 40,
           },
-          campaigns: hydrateCampaigns(),
+          campaigns: CAMPAIGNS.map((c) => ({
+            ...c,
+            coverUrl: toImageURL(c.coverPrompt, c.coverSeed, 1280, 720),
+            heroes: c.heroes.map((h) => ({
+              ...h,
+              portraitUrl: toImageURL(h.portraitPrompt, h.portraitSeed, 640, 640),
+            })),
+            messages: [],
+          })),
           codex: [
-            { id: "x1", title: "אבירי הגחלת", type: "סיעה", lore: "מסדר עתיק שנשבע לשמור על גבול הצל." },
-            { id: "x2", title: "החותם השחור", type: "חפץ", lore: "טבעת שעווה שמכריחה וידוי אמת תחת ירח." },
-            { id: "x3", title: "בנק הזמן", type: "מיקום", lore: "לב מכני של ברקפלד, מוגן בידי פרוטוקולים אסורים." },
+            { id: "x1", title: "אבירי הגחלת", lore: "מסדר עתיק ששומר על שערים שבורים." },
+            { id: "x2", title: "חותם השעווה השחורה", lore: "טבעת שמכריחה אמת במחיר זיכרון." },
+            { id: "x3", title: "מגדל השעות", lore: "מנגנון עירוני שמתקן פרדוקסים באמצע הלילה." },
           ],
         };
       }
 
-      function hydrateCampaigns() {
-        return CAMPAIGN_BLUEPRINTS.map((campaign) => ({
-          ...campaign,
-          coverUrl: imageUrl(campaign.coverPrompt, campaign.coverSeed, 1280, 720),
-          messages: [],
-          summary: campaign.hook[0],
-          heroes: campaign.heroes.map((hero) => ({
-            ...hero,
-            portraitUrl: imageUrl(hero.portraitPrompt, hero.portraitSeed, 640, 640),
-          })),
-        }));
+      function toImageURL(prompt, seed, w, h) {
+        return `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?model=flux&width=${w}&height=${h}&nologo=true&seed=${seed}`;
       }
 
       function persist() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      }
-
-      function imageUrl(prompt, seed, width, height) {
-        const encoded = encodeURIComponent(prompt);
-        return `https://image.pollinations.ai/prompt/${encoded}?model=flux&width=${width}&height=${height}&nologo=true&seed=${seed}`;
-      }
-
-      function activeImage(url, fallbackPrompt, seed, width, height) {
-        if (state.settings.freeImageMode) return url || imageUrl(fallbackPrompt, seed, width, height);
-        return "";
       }
 
       function isUnlocked() {
@@ -1238,34 +1195,47 @@
         return Boolean(state.settings.apiKey) && !state.settings.demoMode;
       }
 
-      function toast(message) {
+      function toast(msg) {
         const node = document.getElementById("toast");
-        node.textContent = message;
+        node.textContent = msg;
         node.classList.add("show");
         clearTimeout(toast.timer);
-        toast.timer = setTimeout(() => node.classList.remove("show"), 2400);
+        toast.timer = setTimeout(() => node.classList.remove("show"), 2300);
       }
 
-      function escapeHTML(text) {
+      function mask(value) {
+        if (!value || value.length < 8) return "";
+        return `${value.slice(0, 4)}••••••${value.slice(-4)}`;
+      }
+
+      function esc(text) {
         return String(text || "")
           .replaceAll("&", "&amp;")
           .replaceAll("<", "&lt;")
           .replaceAll(">", "&gt;");
       }
 
-      function escapeAttr(text) {
-        return escapeHTML(text).replaceAll('"', "&quot;");
+      function attr(text) {
+        return esc(text).replaceAll('"', "&quot;");
       }
 
-      function iconMarkup(name, active = false, customSize = null) {
-        const meta = ICON_SPRITES[name];
-        const size = customSize || meta?.size || 22;
-        if (iconBankReady && meta) {
-          const pos = active ? meta.on : meta.off || meta.on;
-          return `<span class="icon-sprite" style="width:${size}px;height:${size}px;background-position:${pos[0]}px ${pos[1]}px;${active ? "filter:drop-shadow(0 0 8px rgba(255,159,10,.68));" : ""}"></span>`;
+      function sprite(name, active = false, customSize = null) {
+        const info = ICON_MAP[name];
+        const size = customSize || info?.size || 22;
+        if (iconBankReady && info) {
+          const [x, y] = active ? info.on : info.off || info.on;
+          return `<span class="icon-sprite" style="width:${size}px;height:${size}px;background-position:${x}px ${y}px;${active ? "filter:drop-shadow(0 0 8px rgba(255,159,10,.72));" : ""}"></span>`;
         }
-        const svg = FALLBACK_ICON_SVG[name] || "";
-        return `<span class="icon-sprite fallback ${name === "dragon" ? "logo-fallback" : ""}" style="width:${size}px;height:${size}px">${svg}</span>`;
+        return `<span class="icon-sprite fallback" style="width:${size}px;height:${size}px">${ICON_FALLBACK[name] || ""}</span>`;
+      }
+
+      function media(url, klass, altText, fallbackPrompt, seed, w, h) {
+        const finalURL = state.settings.freeImageMode ? (url || toImageURL(fallbackPrompt, seed, w, h)) : "";
+        return `
+          <div class="media ${klass}">
+            ${finalURL ? `<img src="${attr(finalURL)}" alt="${attr(altText)}" loading="lazy" onerror="this.style.display='none'" />` : ""}
+          </div>
+        `;
       }
 
       function preloadIconBank() {
@@ -1289,10 +1259,10 @@
         ];
         document.getElementById("tabBar").innerHTML = tabs
           .map(
-            (tab) => `
-              <button class="tab-btn ${state.tab === tab.key ? "active" : ""}" data-action="set-tab" data-tab="${tab.key}">
-                ${iconMarkup(tab.icon, state.tab === tab.key)}
-                <span>${tab.label}</span>
+            (t) => `
+              <button class="tab-btn ${state.tab === t.key ? "active" : ""}" data-action="tab" data-tab="${t.key}">
+                ${sprite(t.icon, state.tab === t.key)}
+                <span>${t.label}</span>
               </button>
             `
           )
@@ -1301,21 +1271,20 @@
 
       function renderHome() {
         document.getElementById("screen-home").innerHTML = `
-          <h2 class="title-xl">ממלכות מוכנות למשחק</h2>
-          <p class="muted" style="margin:0 0 12px;font-size:13px">בחר קמפיין, בחר גיבור מוכן מראש, והתחל מנקודת פתיחה ייחודית.</p>
+          <h2 class="title-xl">עולמות מוכנים למשחק</h2>
+          <p class="muted" style="margin:0 0 12px;font-size:13px">20 קמפיינים עם גיבורים מוכנים מראש ונקודות פתיחה ייחודיות.</p>
           <section class="campaign-grid">
             ${state.campaigns
-              .map((campaign) => {
-                const cover = activeImage(campaign.coverUrl, campaign.coverPrompt, campaign.coverSeed, 640, 800);
-                return `
+              .map(
+                (c) => `
                   <article class="card campaign-card">
-                    <img class="campaign-cover" src="${escapeAttr(cover)}" alt="${escapeAttr(campaign.title)}" />
-                    <h3>${escapeHTML(campaign.title)}</h3>
-                    <p>${escapeHTML(campaign.theme)}</p>
-                    <button class="btn btn-primary" data-action="open-campaign" data-id="${campaign.id}">כניסה לעולם</button>
+                    ${media(c.coverUrl, "media-cover", c.title, c.coverPrompt, c.coverSeed, 640, 840)}
+                    <h3>${esc(c.title)}</h3>
+                    <p>${esc(c.genre)}</p>
+                    <button class="btn btn-primary" data-action="open-campaign" data-id="${c.id}">כניסה לקמפיין</button>
                   </article>
-                `;
-              })
+                `
+              )
               .join("")}
           </section>
         `;
@@ -1327,14 +1296,12 @@
           <section class="list">
             ${state.codex
               .map(
-                (item) => `
+                (x, i) => `
                   <article class="card list-row">
-                    <img class="thumb-16-9" src="${escapeAttr(
-                      imageUrl(`${item.type} ${item.title} dark fantasy artifact`, 5200 + Number(item.id.slice(-1)), 420, 300)
-                    )}" alt="${escapeAttr(item.title)}" />
+                    ${media(toImageURL(`dark fantasy artifact ${x.title}`, 7000 + i, 520, 360), "media-wide", x.title, x.title, 7000 + i, 520, 360)}
                     <div>
-                      <h3 style="margin:0 0 3px;font-size:16px">${escapeHTML(item.title)}</h3>
-                      <p class="muted" style="margin:0;font-size:12px">${escapeHTML(item.type)} • ${escapeHTML(item.lore)}</p>
+                      <h3>${esc(x.title)}</h3>
+                      <p>${esc(x.lore)}</p>
                     </div>
                     <button class="btn btn-soft">עיון</button>
                   </article>
@@ -1350,19 +1317,18 @@
           <h2 class="title-xl">קמפיינים</h2>
           <section class="list">
             ${state.campaigns
-              .map((campaign) => {
-                const cover = activeImage(campaign.coverUrl, campaign.coverPrompt, campaign.coverSeed, 520, 320);
-                return `
+              .map(
+                (c) => `
                   <article class="card list-row">
-                    <img class="thumb-16-9" src="${escapeAttr(cover)}" alt="${escapeAttr(campaign.title)}" />
+                    ${media(c.coverUrl, "media-wide", c.title, c.coverPrompt, c.coverSeed, 520, 360)}
                     <div>
-                      <h3 style="margin:0 0 3px;font-size:15px">${escapeHTML(campaign.title)}</h3>
-                      <p class="muted" style="margin:0;font-size:12px">${escapeHTML(campaign.hook[0])}</p>
+                      <h3>${esc(c.title)}</h3>
+                      <p>${esc(c.summary)}</p>
                     </div>
-                    <button class="btn btn-primary" data-action="open-campaign" data-id="${campaign.id}">פרטים</button>
+                    <button class="btn btn-primary" data-action="open-campaign" data-id="${c.id}">פרטים</button>
                   </article>
-                `;
-              })
+                `
+              )
               .join("")}
           </section>
         `;
@@ -1374,8 +1340,8 @@
           <h2 class="title-xl">הגדרות</h2>
           <section class="card settings-card">
             <label style="display:block;font-size:13px;color:var(--muted);margin-bottom:6px">מפתח OpenAI</label>
-            <input id="apiInput" class="field" type="password" placeholder="sk-..." value="${escapeAttr(state.settings.apiKey)}" />
-            <p class="muted" style="margin:7px 0 0;font-size:12px">${hasKey ? "מפתח שמור: " + mask(state.settings.apiKey) : "למשחק מלא נדרש מפתח, או מצב דמו זמני."}</p>
+            <input id="apiKeyInput" class="field" type="password" placeholder="sk-..." value="${attr(state.settings.apiKey)}" />
+            <p class="muted" style="margin:7px 0 0;font-size:12px">${hasKey ? "מפתח שמור: " + mask(state.settings.apiKey) : "למשחק מלא נדרש מפתח או מצב דמו זמני."}</p>
             <div style="display:flex;gap:8px;margin-top:9px">
               <button class="btn btn-primary" data-action="save-api">שמור</button>
               <button class="btn btn-soft" data-action="clear-api">נקה</button>
@@ -1386,7 +1352,7 @@
             <div class="toggle">
               <div>
                 <h4>מצב דמו זמני</h4>
-                <p>לבדיקות זרימה ללא מפתח אמיתי.</p>
+                <p>לבדיקות UI/Flow ללא מפתח אמיתי.</p>
               </div>
               <button class="switch ${state.settings.demoMode ? "active" : ""}" data-action="toggle-demo"></button>
             </div>
@@ -1396,7 +1362,7 @@
             <div class="toggle">
               <div>
                 <h4>תמונות AI חינמיות</h4>
-                <p>Pollinations.ai — ללא עלות לשלב זה.</p>
+                <p>Pollinations.ai • ללא עלות לשלב זה.</p>
               </div>
               <button class="switch ${state.settings.freeImageMode ? "active" : ""}" data-action="toggle-images"></button>
             </div>
@@ -1404,15 +1370,15 @@
         `;
       }
 
-      function renderLockOverlay() {
+      function renderLock() {
         const show = !isUnlocked() && state.tab !== "settings";
         const node = document.getElementById("lockOverlay");
         node.className = `lock-overlay ${show ? "active" : ""}`;
         node.innerHTML = show
           ? `
             <article class="card lock-card">
-              <h3>${iconMarkup("lock", true)} נדרש מפתח OpenAI</h3>
-              <p>כדי לפתוח משחק וקמפיינים, הגדר מפתח בהגדרות. לבדיקה זמנית אפשר להפעיל מצב דמו.</p>
+              <h3>${sprite("lock", true)} נדרש מפתח OpenAI</h3>
+              <p>כדי להפעיל קמפיינים, יש להגדיר מפתח בהגדרות או להפעיל מצב דמו זמני.</p>
               <button class="btn btn-primary" data-action="go-settings">מעבר להגדרות</button>
             </article>
           `
@@ -1420,118 +1386,96 @@
       }
 
       function renderCampaignDetail() {
-        const node = document.getElementById("campaignDetail");
+        const page = document.getElementById("campaignDetail");
         const campaign = state.campaigns.find((c) => c.id === state.detailCampaignId);
         if (!campaign) {
-          node.className = "overlay-page";
-          node.innerHTML = "";
+          page.className = "overlay-page";
+          page.innerHTML = "";
           return;
         }
-        const selectedHero = campaign.heroes.find((h) => h.id === state.detailSelectedHeroId) || null;
-        const cover = activeImage(campaign.coverUrl, campaign.coverPrompt, campaign.coverSeed, 1280, 720);
+        const hero = campaign.heroes.find((h) => h.id === state.detailHeroId) || null;
 
-        node.className = "overlay-page active";
-        node.innerHTML = `
+        page.className = "overlay-page active";
+        page.innerHTML = `
           <div class="landing">
-            <header class="landing-top">
-              <img class="landing-cover" src="${escapeAttr(cover)}" alt="${escapeAttr(campaign.title)}" />
+            <header class="landing-header">
+              ${media(campaign.coverUrl, "media-wide", campaign.title, campaign.coverPrompt, campaign.coverSeed, 1280, 720).replace('class="media media-wide"', 'class="media media-wide" style="height:100%;border-radius:0;border:0"').replace('class="media-wide"', 'class="landing-cover"')}
               <div class="landing-toolbar">
-                <button class="icon-btn" data-action="close-detail">${iconMarkup("back", true)}</button>
-                <button class="btn btn-soft" data-action="open-gameplay-direct" ${selectedHero ? "" : "disabled"}>כניסה מהירה</button>
+                <button class="icon-btn" data-action="close-detail">${sprite("back", true)}</button>
+                <span class="muted" style="font-size:12px">${esc(campaign.genre)}</span>
               </div>
-              <div class="landing-meta">
-                <h2>${escapeHTML(campaign.title)}</h2>
-                <p>${escapeHTML(campaign.theme)}</p>
+              <div class="landing-title">
+                <h2>${esc(campaign.title)}</h2>
+                <p>${esc(campaign.summary)}</p>
               </div>
             </header>
 
             <main class="landing-body">
               <section class="section">
-                <h3>Hook קולנועי</h3>
-                <p>${escapeHTML(campaign.hook[0])}</p>
-                <p>${escapeHTML(campaign.hook[1])}</p>
+                <h3>עלילת הקמפיין</h3>
+                <p>${esc(campaign.summary)} ${esc(campaign.genre)} זה דורש החלטות מוסריות, שיתוף פעולה תחת לחץ, וחשיבה יצירתית כדי לשרוד.</p>
               </section>
 
               <section class="section">
-                <h3>לור העולם</h3>
-                ${campaign.lore.map((p) => `<p>${escapeHTML(p)}</p>`).join("")}
-              </section>
-
-              <section class="section">
-                <h3>מבנה 3 מערכות</h3>
-                <div class="acts">
-                  <article class="act">
-                    <h4>אירוע מניע</h4>
-                    <p>${escapeHTML(campaign.acts.inciting)}</p>
-                  </article>
-                  <article class="act">
-                    <h4>הסלמה וטוויסטים</h4>
-                    ${campaign.acts.escalation.map((e) => `<p style="margin:0 0 5px">${escapeHTML(e)}</p>`).join("")}
-                  </article>
-                  <article class="act">
-                    <h4>שיא גדול</h4>
-                    <p>${escapeHTML(campaign.acts.climax)}</p>
-                  </article>
-                </div>
-              </section>
-
-              <section class="section">
-                <h3>בחירת גיבור (3-4 מוכנים מראש)</h3>
+                <h3>בחירת גיבור</h3>
                 <div class="hero-grid">
                   ${campaign.heroes
-                    .map((hero) => `
-                      <article class="hero-card ${hero.id === state.detailSelectedHeroId ? "active" : ""}" data-action="select-hero" data-hero-id="${hero.id}">
-                        <img class="hero-portrait" src="${escapeAttr(activeImage(hero.portraitUrl, hero.portraitPrompt, hero.portraitSeed, 640, 640))}" alt="${escapeAttr(hero.name)}" />
-                        <h4>${escapeHTML(hero.name)}</h4>
-                        <p>${escapeHTML(hero.className)}</p>
-                      </article>
-                    `)
+                    .map(
+                      (h) => `
+                        <article class="hero-card ${h.id === state.detailHeroId ? "active" : ""}" data-action="pick-hero" data-hero="${h.id}">
+                          ${media(h.portraitUrl, "media-square", h.name, h.portraitPrompt, h.portraitSeed, 640, 640)}
+                          <h4>${esc(h.name)}</h4>
+                          <p>${esc(h.className)}</p>
+                        </article>
+                      `
+                    )
                     .join("")}
                 </div>
                 ${
-                  selectedHero
+                  hero
                     ? `
-                      <article class="start-scene">
-                        <h4>סצנת פתיחה ייחודית</h4>
-                        <p>${escapeHTML(selectedHero.startingScene)}</p>
-                        <p class="secret"><strong>סוד אפל:</strong> ${escapeHTML(selectedHero.secret)}</p>
-                        <button class="btn btn-primary" style="margin-top:9px" data-action="start-adventure">התחל כעת עם ${escapeHTML(selectedHero.name)}</button>
+                      <article class="hero-note">
+                        <h4>${esc(hero.name)} • ${esc(hero.className)}</h4>
+                        <p><strong>רקע:</strong> ${esc(hero.background)}</p>
+                        <p style="margin-top:6px"><strong>סצנת פתיחה:</strong> ${esc(hero.entryScene)}</p>
+                        <p class="secret"><strong>סוד אפל:</strong> ${esc(hero.secret)}</p>
                       </article>
                     `
-                    : `<p class="muted" style="font-size:13px;margin-top:8px">בחר גיבור כדי לחשוף את נקודת הפתיחה האישית שלו.</p>`
+                    : `<p class="muted" style="font-size:13px;margin-top:8px">בחר גיבור כדי לחשוף את נקודת הכניסה הייחודית שלו.</p>`
                 }
               </section>
             </main>
+
+            <footer class="landing-footer">
+              <button class="btn btn-primary" style="width:100%" data-action="begin-adventure" ${hero ? "" : "disabled"}>התחלת הרפתקה</button>
+            </footer>
           </div>
         `;
       }
 
       function renderGameplay() {
-        const node = document.getElementById("gameplay");
+        const page = document.getElementById("gameplay");
         const campaign = state.campaigns.find((c) => c.id === state.activeCampaignId);
         const hero = campaign?.heroes.find((h) => h.id === state.activeHeroId);
         if (!campaign || !hero) {
-          node.className = "overlay-page";
-          node.innerHTML = "";
+          page.className = "overlay-page";
+          page.innerHTML = "";
           return;
         }
 
         const showAdventure = state.gameplaySegment === "adventure";
-        const cover = activeImage(campaign.coverUrl, campaign.coverPrompt, campaign.coverSeed, 1280, 720);
-        const messages = campaign.messages || [];
-
-        node.className = "overlay-page active";
-        node.innerHTML = `
+        page.className = "overlay-page active";
+        page.innerHTML = `
           <div class="gameplay">
             <header class="gp-top">
               <div class="gp-header">
-                <button class="icon-btn" data-action="close-gameplay">${iconMarkup("back", true)}</button>
-                <h3>${escapeHTML(hero.name)} • ${escapeHTML(campaign.title)}</h3>
-                <span style="font-size:11px;color:var(--muted)">${escapeHTML(hero.className)}</span>
+                <button class="icon-btn" data-action="close-game">${sprite("back", true)}</button>
+                <h3>${esc(hero.name)} • ${esc(campaign.title)}</h3>
+                <span class="muted" style="font-size:11px">${esc(hero.className)}</span>
               </div>
               <div class="segment">
-                <button class="${showAdventure ? "active" : ""}" data-action="set-segment" data-segment="adventure">הרפתקה</button>
-                <button class="${!showAdventure ? "active" : ""}" data-action="set-segment" data-segment="gameplay">משחקיות</button>
+                <button class="${showAdventure ? "active" : ""}" data-action="segment" data-segment="adventure">הרפתקה</button>
+                <button class="${!showAdventure ? "active" : ""}" data-action="segment" data-segment="gameplay">משחקיות</button>
               </div>
             </header>
 
@@ -1539,20 +1483,20 @@
               ${
                 showAdventure
                   ? `
-                    <section class="parallax"><img src="${escapeAttr(cover)}" alt="${escapeAttr(campaign.title)}" /></section>
+                    <section class="parallax">${media(campaign.coverUrl, "media-wide", campaign.title, campaign.coverPrompt, campaign.coverSeed, 1280, 720).replace('class="media media-wide"', 'class="media media-wide" style="height:100%;border-radius:0;border:0"')}</section>
                     <section id="chatLog" class="chat-log">
-                      ${messages.map((m) => `<article class="msg ${m.role}">${escapeHTML(m.text)}</article>`).join("")}
-                      ${state.loadingAI ? `<article class="msg system">שליט המבוך רוקם את המהלך הבא...</article>` : ""}
+                      ${(campaign.messages || []).map((m) => `<article class="msg ${m.role}">${esc(m.text)}</article>`).join("")}
+                      ${state.loadingAI ? `<article class="msg system">שליט המבוך רוקם את הסצנה הבאה...</article>` : ""}
                     </section>
                   `
                   : `
                     <section class="gp-settings">
                       <h2 class="title-lg" style="margin:0 0 10px">כיוונון מנוע</h2>
                       <article class="card" style="padding:10px">
-                        ${sliderRow("טמפרטורה", "temperature", state.engine.temperature, 0, 1.4, 0.1, state.engine.temperature.toFixed(1))}
-                        ${sliderRow("אורך תגובה", "maxChars", state.engine.maxChars, 80, 650, 10, `${Math.round(state.engine.maxChars)} תווים`)}
-                        ${sliderRow("דגימת גרעין", "topP", state.engine.topP, 0.1, 1, 0.05, state.engine.topP.toFixed(2))}
-                        ${sliderRow("מגבלת דגימה", "topK", state.engine.topK, 1, 80, 1, Math.round(state.engine.topK))}
+                        ${slider("טמפרטורה", "temperature", state.engine.temperature, 0, 1.4, 0.1, state.engine.temperature.toFixed(1))}
+                        ${slider("אורך תגובה", "maxChars", state.engine.maxChars, 80, 650, 10, `${Math.round(state.engine.maxChars)} תווים`)}
+                        ${slider("דגימת גרעין", "topP", state.engine.topP, 0.1, 1, 0.05, state.engine.topP.toFixed(2))}
+                        ${slider("מגבלת דגימה", "topK", state.engine.topK, 1, 80, 1, Math.round(state.engine.topK))}
                         <button class="btn btn-primary" style="width:100%;margin-top:8px" data-action="apply-engine">החל</button>
                         <button class="btn btn-soft" style="width:100%;margin-top:8px" data-action="reset-engine">איפוס</button>
                       </article>
@@ -1564,12 +1508,12 @@
             <footer class="gp-compose">
               ${!isUnlocked() ? `<p class="note">נדרש מפתח OpenAI או מצב דמו זמני.</p>` : ""}
               <div class="compose-row">
-                <div class="compose-input-wrap">
-                  <input id="composeInput" class="compose-input" value="${escapeAttr(state.gameplayInput)}" placeholder="כתוב פעולה..." ${state.loadingAI || !isUnlocked() ? "disabled" : ""} />
-                  <button class="compose-inline-btn compose-wand" data-action="suggest-action" ${state.loadingAI || !isUnlocked() ? "disabled" : ""}>${iconMarkup("wand", true)}</button>
-                  <button class="compose-inline-btn compose-send" data-action="send-action" ${state.loadingAI || !isUnlocked() ? "disabled" : ""}>${iconMarkup("send", true)}</button>
+                <div class="compose-wrap">
+                  <input id="composeInput" class="compose-input" value="${attr(state.gameplayInput)}" placeholder="כתוב פעולה..." ${state.loadingAI || !isUnlocked() ? "disabled" : ""} />
+                  <button class="inline-btn inline-wand" data-action="suggest">${sprite("wand", true)}</button>
+                  <button class="inline-btn inline-send" data-action="send">${sprite("send", true)}</button>
                 </div>
-                <button class="dice-btn" data-action="roll-d20" ${state.loadingAI || !isUnlocked() ? "disabled" : ""}>${iconMarkup("dice", true)}</button>
+                <button class="dice-btn" data-action="roll">${sprite("dice", true)}</button>
               </div>
             </footer>
           </div>
@@ -1579,63 +1523,34 @@
           const log = document.getElementById("chatLog");
           if (log) log.scrollTop = log.scrollHeight;
           const body = document.getElementById("gpBody");
-          const img = node.querySelector(".parallax img");
+          const img = page.querySelector(".parallax img");
           if (body && img) {
             body.onscroll = () => {
-              const y = Math.min(36, body.scrollTop * 0.2);
+              const y = Math.min(35, body.scrollTop * 0.2);
               img.style.transform = `translateY(${y}px) scale(1.06)`;
             };
           }
         });
       }
 
-      function sliderRow(title, key, value, min, max, step, view) {
+      function slider(name, key, value, min, max, step, display) {
         return `
           <div class="slider-row">
-            <label><span>${title}</span><strong>${view}</strong></label>
+            <label><span>${name}</span><strong>${display}</strong></label>
             <input type="range" min="${min}" max="${max}" step="${step}" value="${value}" data-engine="${key}" />
           </div>
         `;
       }
 
-      function renderSplashLogo() {
-        const node = document.getElementById("logoEmblem");
-        node.innerHTML = iconMarkup("dragon", true, 130);
-      }
-
-      function renderAll() {
-        ["home", "library", "campaigns", "settings"].forEach((key) => {
-          document.getElementById(`screen-${key}`).classList.toggle("active", state.tab === key);
-        });
-        renderHome();
-        renderLibrary();
-        renderCampaigns();
-        renderSettings();
-        renderTabBar();
-        renderLockOverlay();
-        renderCampaignDetail();
-        renderGameplay();
-        renderSplashLogo();
-        persist();
-      }
-
       function openCampaign(id) {
-        const campaign = state.campaigns.find((c) => c.id === id);
-        if (!campaign) return;
         state.detailCampaignId = id;
-        state.detailSelectedHeroId = null;
+        state.detailHeroId = null;
         renderCampaignDetail();
       }
 
-      function closeCampaignDetail() {
-        state.detailCampaignId = null;
-        state.detailSelectedHeroId = null;
-        renderCampaignDetail();
-      }
-
-      function startAdventure() {
+      function beginAdventure() {
         const campaign = state.campaigns.find((c) => c.id === state.detailCampaignId);
-        const hero = campaign?.heroes.find((h) => h.id === state.detailSelectedHeroId);
+        const hero = campaign?.heroes.find((h) => h.id === state.detailHeroId);
         if (!campaign || !hero) {
           toast("בחר גיבור לפני התחלת ההרפתקה.");
           return;
@@ -1647,11 +1562,10 @@
           return;
         }
 
-        if (!campaign.messages?.length) {
-          campaign.messages = [
-            { id: uid(), role: "assistant", text: hero.startingScene, ts: Date.now() },
-            { id: uid(), role: "system", text: `סוד נסתר ל‑DM: ${hero.secret}`, ts: Date.now() },
-          ];
+        if (!campaign.messages || !campaign.messages.length) {
+          campaign.messages = [{ id: uid(), role: "assistant", text: hero.entryScene, ts: Date.now() }];
+        } else {
+          campaign.messages.push({ id: uid(), role: "assistant", text: hero.entryScene, ts: Date.now() });
         }
 
         state.activeCampaignId = campaign.id;
@@ -1659,19 +1573,19 @@
         state.gameplaySegment = "adventure";
         state.gameplayInput = "";
         state.detailCampaignId = null;
-        state.detailSelectedHeroId = null;
+        state.detailHeroId = null;
         renderAll();
       }
 
-      function localNarration(campaign, hero, input) {
-        const lines = [
-          "האוויר ננעל סביבך, ומעבר צר נפתח במקום שבו הקיר היה אטום לפני רגע.",
-          "צליל מתכתי חד מודיע שמישהו כבר עקב אחריך הרבה לפני הבחירה הזו.",
-          "העולם מגיב לשמך כאילו הוא זוכר אותך מחיים קודמים.",
-          "מעליך, אורות דוהים בקצב לא טבעי — כאילו הזמן עצמו ממתין לפקודה שלך.",
+      function localReply(campaign, hero, input) {
+        const pool = [
+          "המסדרון נסגר מאחוריך, וקול מתכתי לוחש את שמך מתוך החשכה.",
+          "להבות דקות רצות לאורך הקיר, כאילו הממלכה עצמה מקשיבה לבחירתך.",
+          "מעבר צדדי נפתח היכן שלא אמור להיות מעבר, בדיוק בכיוון שהגיבור שלך מכיר.",
+          "רגע של דממה, ואז הצעד הבא של העולם מתיישר עם הסוד שאתה נושא.",
         ];
-        const picked = lines[Math.floor(Math.random() * lines.length)];
-        return `${picked}\n\n(${campaign.theme} | פרספקטיבה: ${hero.name})`;
+        const picked = pool[Math.floor(Math.random() * pool.length)];
+        return `${picked}\n\n(${campaign.genre} • פרספקטיבה: ${hero.name})`;
       }
 
       async function callOpenAI(messages, maxTokens) {
@@ -1690,9 +1604,9 @@
           },
           body: JSON.stringify(payload),
         });
-        if (!response.ok) throw new Error("openai failed");
-        const json = await response.json();
-        const text = json?.choices?.[0]?.message?.content || "";
+        if (!response.ok) throw new Error("openai");
+        const data = await response.json();
+        const text = data?.choices?.[0]?.message?.content || "";
         if (!text.trim()) throw new Error("empty");
         return text.trim();
       }
@@ -1709,32 +1623,28 @@
         }
 
         campaign.messages.push({ id: uid(), role: "user", text: clean, ts: Date.now() });
-        state.gameplayInput = "";
         state.loadingAI = true;
+        state.gameplayInput = "";
         renderGameplay();
 
-        let responseText = "";
+        let answer = "";
         try {
           if (canCallOpenAI()) {
-            const history = campaign.messages.slice(-14).map((m) => ({
+            const context = campaign.messages.slice(-14).map((m) => ({
               role: m.role === "assistant" ? "assistant" : "user",
               content: m.text,
             }));
-            const system = `אתה שליט המבוך AI. כתוב בעברית בלבד בטון ${campaign.theme}. הגיבור הנבחר: ${hero.name}, ${hero.className}. סוד גיבור: ${hero.secret}. אל תחשוף את הסוד במפורש אלא אם השחקן מפעיל טריגר מתאים.`;
-            responseText = await callOpenAI(
-              [{ role: "system", content: system }, ...history],
-              Math.round(state.engine.maxChars / 4)
-            );
+            const system = `אתה שליט המבוך AI. כתוב בעברית בלבד בטון ${campaign.genre}. הגיבור: ${hero.name} (${hero.className}). רקע: ${hero.background}. סוד נסתר של הגיבור: ${hero.secret}. שמור על הטון האפל והקולנועי.`;
+            answer = await callOpenAI([{ role: "system", content: system }, ...context], Math.round(state.engine.maxChars / 4));
           } else {
-            responseText = localNarration(campaign, hero, clean);
+            answer = localReply(campaign, hero, clean);
           }
         } catch {
-          responseText = localNarration(campaign, hero, clean);
+          answer = localReply(campaign, hero, clean);
           toast("קריאת OpenAI נכשלה, הופעלה תגובת גיבוי.");
         }
 
-        campaign.messages.push({ id: uid(), role: "assistant", text: responseText, ts: Date.now() });
-        campaign.summary = responseText.slice(0, 180);
+        campaign.messages.push({ id: uid(), role: "assistant", text: answer, ts: Date.now() });
         state.loadingAI = false;
         renderGameplay();
       }
@@ -1747,27 +1657,28 @@
           toast("נדרש מפתח OpenAI או מצב דמו.");
           return;
         }
+
         try {
           if (canCallOpenAI()) {
-            const suggestion = await callOpenAI(
+            const text = await callOpenAI(
               [
-                { role: "system", content: "הצע פעולה אחת קצרה ומדויקת לשחקן, בעברית בלבד." },
+                { role: "system", content: "הצע פעולה אחת קצרה ומדויקת לשחקן בעברית בלבד." },
                 { role: "user", content: `עולם: ${campaign.title}. גיבור: ${hero.name}.` },
               ],
-              40
+              36
             );
-            state.gameplayInput = suggestion.replace(/\n+/g, " ").trim();
+            state.gameplayInput = text.replace(/\n+/g, " ").trim();
           } else {
-            const local = [
-              "אני בודק את הרצפה לאיתור סימני דם טריים.",
-              "אני פותח משא ומתן במקום לשלוף נשק.",
-              "אני מטיל לחש גילוי על מנגנון הדלת.",
-              "אני עוקב אחרי מקור הצליל בלי להיחשף.",
+            const suggestions = [
+              "אני מתקדם בשקט ובודק נתיב חלופי.",
+              "אני יוזם שיחה במקום שליפה מיידית של נשק.",
+              "אני מחפש רמז שמחובר לסוד של הדמות שלי.",
+              "אני משתמש בידע המקצועי כדי לפתוח יתרון טקטי.",
             ];
-            state.gameplayInput = local[Math.floor(Math.random() * local.length)];
+            state.gameplayInput = suggestions[Math.floor(Math.random() * suggestions.length)];
           }
         } catch {
-          state.gameplayInput = "אני סורק את האזור בשקט ומחפש יתרון.";
+          state.gameplayInput = "אני בוחן את הסביבה ומחפש סימן שמכוון אותי קדימה.";
         }
         renderGameplay();
       }
@@ -1776,14 +1687,13 @@
         return Math.random().toString(36).slice(2) + Date.now().toString(36);
       }
 
-      function mask(value) {
-        if (!value || value.length < 8) return "";
-        return `${value.slice(0, 4)}••••••${value.slice(-4)}`;
+      function renderSplashLogo() {
+        document.getElementById("splashLogo").innerHTML = sprite("dragon", true, 132);
       }
 
-      function initLogoDrag() {
-        const ring = document.getElementById("logoEmblem");
-        let pointer = null;
+      function setupSplashDrag() {
+        const logo = document.getElementById("splashLogo");
+        let pointerId = null;
         let targetX = 0;
         let targetY = 0;
         let currentX = 0;
@@ -1794,67 +1704,81 @@
         const animate = () => {
           currentX += (targetX - currentX) * 0.2;
           currentY += (targetY - currentY) * 0.2;
-          ring.style.setProperty("--drag-x", `${currentX.toFixed(2)}px`);
-          ring.style.setProperty("--drag-y", `${currentY.toFixed(2)}px`);
+          logo.style.setProperty("--drag-x", `${currentX.toFixed(2)}px`);
+          logo.style.setProperty("--drag-y", `${currentY.toFixed(2)}px`);
           if (Math.abs(targetX - currentX) > 0.15 || Math.abs(targetY - currentY) > 0.15) {
             raf = requestAnimationFrame(animate);
           } else {
             raf = 0;
           }
         };
-        const go = () => {
+        const kick = () => {
           if (!raf) raf = requestAnimationFrame(animate);
         };
 
         const release = () => {
-          pointer = null;
+          pointerId = null;
           targetX = 0;
           targetY = 0;
-          ring.classList.remove("dragging");
-          go();
+          logo.classList.remove("dragging");
+          kick();
         };
 
-        ring.addEventListener("pointerdown", (event) => {
-          pointer = event.pointerId;
-          ring.classList.add("dragging");
-          ring.setPointerCapture(event.pointerId);
+        logo.addEventListener("pointerdown", (e) => {
+          pointerId = e.pointerId;
+          logo.classList.add("dragging");
+          logo.setPointerCapture(e.pointerId);
         });
 
-        ring.addEventListener("pointermove", (event) => {
-          if (pointer !== event.pointerId) return;
-          const rect = ring.getBoundingClientRect();
-          const dx = event.clientX - (rect.left + rect.width / 2);
-          const dy = event.clientY - (rect.top + rect.height / 2);
+        logo.addEventListener("pointermove", (e) => {
+          if (pointerId !== e.pointerId) return;
+          const rect = logo.getBoundingClientRect();
+          const dx = e.clientX - (rect.left + rect.width / 2);
+          const dy = e.clientY - (rect.top + rect.height / 2);
           targetX = clamp(dx * 0.35, -24, 24);
           targetY = clamp(dy * 0.35, -18, 18);
-          go();
+          kick();
         });
 
-        ring.addEventListener("pointerup", release);
-        ring.addEventListener("pointercancel", release);
-        ring.addEventListener("pointerleave", () => {
-          if (pointer !== null) release();
+        logo.addEventListener("pointerup", release);
+        logo.addEventListener("pointercancel", release);
+        logo.addEventListener("pointerleave", () => {
+          if (pointerId !== null) release();
         });
       }
 
-      function handleURLPreviewModes() {
-        const params = new URLSearchParams(location.search);
-        const view = params.get("view");
-        if (view === "landing") {
+      function previewMode() {
+        const q = new URLSearchParams(location.search);
+        const mode = q.get("preview");
+        if (mode === "detail") {
           state.detailCampaignId = state.campaigns[0]?.id || null;
-          state.detailSelectedHeroId = state.campaigns[0]?.heroes?.[0]?.id || null;
+          state.detailHeroId = state.campaigns[0]?.heroes?.[0]?.id || null;
         }
-        if (view === "splash") {
-          const splash = document.getElementById("splash");
-          splash.classList.remove("hide");
-          splash.dataset.persist = "true";
+        if (mode === "splash") {
+          document.getElementById("splash").dataset.persist = "true";
         }
       }
 
-      function setupSplashTimer() {
+      function splashTimer() {
         const splash = document.getElementById("splash");
         if (splash.dataset.persist === "true") return;
         setTimeout(() => splash.classList.add("hide"), 1700);
+      }
+
+      function renderAll() {
+        ["home", "library", "campaigns", "settings"].forEach((key) => {
+          document.getElementById(`screen-${key}`).classList.toggle("active", state.tab === key);
+        });
+        renderHome();
+        renderLibrary();
+        renderCampaigns();
+        renderSettings();
+        renderTabBar();
+        renderLock();
+        renderCampaignDetail();
+        renderGameplay();
+        renderSplashLogo();
+        persist();
       }
 
       document.addEventListener("click", async (event) => {
@@ -1862,34 +1786,31 @@
         if (!target) return;
         const action = target.dataset.action;
 
-        if (action === "set-tab") {
+        if (action === "tab") {
           state.tab = target.dataset.tab;
           renderAll();
           return;
         }
-
         if (action === "open-campaign") {
           openCampaign(target.dataset.id);
           return;
         }
-
         if (action === "close-detail") {
-          closeCampaignDetail();
-          return;
-        }
-
-        if (action === "select-hero") {
-          state.detailSelectedHeroId = target.dataset.heroId;
+          state.detailCampaignId = null;
+          state.detailHeroId = null;
           renderCampaignDetail();
           return;
         }
-
-        if (action === "start-adventure" || action === "open-gameplay-direct") {
-          startAdventure();
+        if (action === "pick-hero") {
+          state.detailHeroId = target.dataset.hero;
+          renderCampaignDetail();
           return;
         }
-
-        if (action === "close-gameplay") {
+        if (action === "begin-adventure") {
+          beginAdventure();
+          return;
+        }
+        if (action === "close-game") {
           state.activeCampaignId = null;
           state.activeHeroId = null;
           state.loadingAI = false;
@@ -1897,82 +1818,71 @@
           persist();
           return;
         }
-
-        if (action === "set-segment") {
+        if (action === "segment") {
           state.gameplaySegment = target.dataset.segment;
           renderGameplay();
           persist();
           return;
         }
-
-        if (action === "send-action") {
+        if (action === "send") {
           const input = document.getElementById("composeInput");
           await sendAction(input?.value || "");
           return;
         }
-
-        if (action === "suggest-action") {
-          await suggestAction();
-          return;
-        }
-
-        if (action === "roll-d20") {
+        if (action === "roll") {
           const roll = Math.floor(Math.random() * 20) + 1;
           await sendAction(`תוצאת גלגול (D20): ${roll}`);
           return;
         }
-
+        if (action === "suggest") {
+          await suggestAction();
+          return;
+        }
         if (action === "go-settings") {
           state.tab = "settings";
           renderAll();
           return;
         }
-
         if (action === "save-api") {
-          const input = document.getElementById("apiInput");
+          const input = document.getElementById("apiKeyInput");
           state.settings.apiKey = (input?.value || "").trim();
           renderSettings();
-          renderLockOverlay();
+          renderLock();
           persist();
           toast(state.settings.apiKey ? "המפתח נשמר." : "לא הוזן מפתח.");
           return;
         }
-
         if (action === "clear-api") {
           state.settings.apiKey = "";
           renderSettings();
-          renderLockOverlay();
+          renderLock();
           persist();
-          toast("המפתח הוסר.");
+          toast("המפתח נמחק.");
           return;
         }
-
         if (action === "toggle-demo") {
           state.settings.demoMode = !state.settings.demoMode;
           renderSettings();
-          renderLockOverlay();
+          renderLock();
           persist();
           toast(state.settings.demoMode ? "מצב דמו הופעל." : "מצב דמו כובה.");
           return;
         }
-
         if (action === "toggle-images") {
           state.settings.freeImageMode = !state.settings.freeImageMode;
           renderAll();
-          toast(state.settings.freeImageMode ? "תמונות AI חינמיות הופעלו." : "תמונות AI חינמיות כובו.");
+          toast(state.settings.freeImageMode ? "תמונות AI הופעלו." : "תמונות AI כובו.");
           return;
         }
-
         if (action === "apply-engine") {
           toast("הגדרות מנוע הוחלו.");
           return;
         }
-
         if (action === "reset-engine") {
           state.engine = { temperature: 0.7, maxChars: 260, topP: 0.9, topK: 40 };
           renderGameplay();
           persist();
-          toast("הגדרות מנוע אופסו.");
+          toast("הגדרות אופסו.");
           return;
         }
       });
@@ -1980,7 +1890,6 @@
       document.addEventListener("input", (event) => {
         if (event.target.id === "composeInput") {
           state.gameplayInput = event.target.value;
-          return;
         }
       });
 
@@ -2002,11 +1911,11 @@
             return;
           }
           if (state.detailCampaignId) {
-            closeCampaignDetail();
-            return;
+            state.detailCampaignId = null;
+            state.detailHeroId = null;
+            renderCampaignDetail();
           }
         }
-
         if (event.key === "Enter" && !event.shiftKey && event.target?.id === "composeInput") {
           event.preventDefault();
           await sendAction(event.target.value || "");
@@ -2015,10 +1924,10 @@
 
       function init() {
         preloadIconBank();
-        handleURLPreviewModes();
+        previewMode();
         renderAll();
-        initLogoDrag();
-        setupSplashTimer();
+        setupSplashDrag();
+        splashTimer();
       }
 
       init();
