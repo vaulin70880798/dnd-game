@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Dragon mark">
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f4cf93" />
+      <stop offset="100%" stop-color="#b97b33" />
+    </linearGradient>
+    <linearGradient id="steel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#505b6d" />
+      <stop offset="100%" stop-color="#161b24" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#0a0d13" />
+  <path
+    d="M24 86c20-30 24-33 41-47c8-6 11-12 11-20c6 7 11 15 11 25c0 15-8 27-24 38c9 2 17 1 25-2c-8 13-22 21-39 21c-9 0-18-2-25-5Z"
+    fill="url(#steel)"
+  />
+  <path
+    d="M36 83c12-20 21-30 34-41c10-8 12-14 12-22c6 5 9 11 9 19c0 12-8 23-21 34c10-1 18-4 25-10c-3 10-10 20-23 28c-10 7-22 10-36 8Z"
+    fill="#05070b"
+  />
+  <path
+    d="M44 66c14-17 26-25 36-31c-4 7-7 13-15 19c10 2 18-1 24-7c-3 8-9 15-17 21c-7 6-18 9-28 9Z"
+    fill="url(#steel)"
+  />
+  <path
+    d="M62 49c6-7 13-12 21-16c-3 5-5 9-9 13c7 1 12-1 16-4c-2 5-6 9-12 13c-6 4-12 6-16 6Z"
+    fill="url(#gold)"
+  />
+  <path d="M88 43l11 5l-12 3Z" fill="url(#gold)" />
+  <circle cx="86" cy="44" r="2.5" fill="#fbe7bf" />
+</svg>
