@@ -84,6 +84,33 @@ struct SettingsView: View {
                     .emberCardStyle()
 
                     VStack(alignment: .leading, spacing: 10) {
+                        Text("Temporary Demo Mode")
+                            .font(.dmUI(18, weight: .semibold))
+                            .foregroundStyle(theme.colors.textPrimary)
+
+                        Text("For temporary UI testing only: allows gameplay flows without a real OpenAI key.")
+                            .font(.dmUI(14))
+                            .foregroundStyle(theme.colors.textSecondary)
+
+                        Toggle(isOn: Binding(
+                            get: { keyStore.demoModeEnabled },
+                            set: { keyStore.setDemoMode($0) }
+                        )) {
+                            Text("Enable temporary Demo Mode")
+                                .font(.dmUI(15, weight: .medium))
+                                .foregroundStyle(theme.colors.textPrimary)
+                        }
+                        .tint(theme.colors.accent)
+
+                        Button("Enable Demo Quickly") {
+                            keyStore.enableDemoModeQuickly()
+                            localMessage = "Temporary Demo Mode enabled."
+                        }
+                        .buttonStyle(EmberSecondaryButtonStyle())
+                    }
+                    .emberCardStyle()
+
+                    VStack(alignment: .leading, spacing: 10) {
                         Text("Design Notes")
                             .font(.dmUI(18, weight: .semibold))
                             .foregroundStyle(theme.colors.textPrimary)
@@ -112,6 +139,9 @@ struct SettingsView: View {
         }
         .onAppear {
             keyStore.load()
+            if apiKeyInput.isEmpty {
+                apiKeyInput = keyStore.rawKey ?? ""
+            }
         }
     }
 }

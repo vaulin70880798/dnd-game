@@ -39,7 +39,7 @@ final class GameplayViewModel: ObservableObject {
     }
 
     var isInteractionEnabled: Bool {
-        keyStore.hasAPIKey && !isSending
+        keyStore.isUnlocked && !isSending
     }
 
     func sendComposerText() {
@@ -66,14 +66,29 @@ final class GameplayViewModel: ObservableObject {
     }
 
     private func submitUserAction(_ text: String) async {
-        guard let key = keyStore.rawKey, !key.isEmpty else {
-            statusMessage = "OpenAI API key missing. Add it in Settings."
-            return
-        }
-
         appendMessage(role: .user, text: text)
         isSending = true
         statusMessage = nil
+
+        // Temporary demo path for flow testing without a real key.
+        if keyStore.demoModeEnabled, (keyStore.rawKey?.isEmpty ?? true) {
+            let demo = demoNarration(for: text)
+            appendMessage(role: .assistant, text: demo)
+            HapticsManager.aiArrival()
+            campaign.lastPlayedAt = .now
+            campaign.updatedAt = .now
+            campaign.totalPlayedMinutes += 1
+            campaign.summary = makeSummaryFallback()
+            try? modelContext.save()
+            isSending = false
+            return
+        }
+
+        guard let key = keyStore.rawKey, !key.isEmpty else {
+            statusMessage = "OpenAI API key missing. Add it in Settings or use temporary Demo Mode."
+            isSending = false
+            return
+        }
 
         do {
             let reply = try await openAIService.narrate(
@@ -89,7 +104,17 @@ final class GameplayViewModel: ObservableObject {
             campaign.summary = makeSummaryFallback()
             try modelContext.save()
         } catch {
-            statusMessage = "The narration failed to load. Check your API key/network."
+            if keyStore.demoModeEnabled {
+                appendMessage(role: .assistant, text: demoNarration(for: text))
+                HapticsManager.aiArrival()
+                campaign.lastPlayedAt = .now
+                campaign.updatedAt = .now
+                campaign.totalPlayedMinutes += 1
+                campaign.summary = makeSummaryFallback()
+                try? modelContext.save()
+            } else {
+                statusMessage = "The narration failed to load. Check your API key/network."
+            }
         }
 
         isSending = false
@@ -136,5 +161,17 @@ final class GameplayViewModel: ObservableObject {
             .joined(separator: " ")
 
         return narrativeLines.isEmpty ? campaign.summary : narrativeLines
+    }
+
+    private func demoNarration(for input: String) -> String {
+        let options = [
+            "A distant horn answers your move, and torchlight reveals a hidden stairway beneath the chapel.",
+            "Your choice echoes through wet stone halls. Dust falls as an ancient sigil wakes in ember light.",
+            "Steel sings in the dark and the shadows recoil. A sealed archway grinds open with a low prayer.",
+            "From the fog, a cloaked watcher speaks your name and offers a bargain under the blood moon."
+        ]
+
+        let selected = options.randomElement() ?? options[0]
+        return "\(selected)\n\n(Temporary Demo Mode response for: \"\(input)\")"
     }
 }

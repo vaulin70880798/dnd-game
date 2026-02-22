@@ -43,7 +43,7 @@ struct MainTabView: View {
         .toolbarBackground(theme.colors.background, for: .tabBar)
         .toolbarColorScheme(.dark, for: .tabBar)
         .overlay {
-            if !keyStore.hasAPIKey && appState.selectedTab != .settings {
+            if !keyStore.isUnlocked && appState.selectedTab != .settings {
                 ZStack {
                     Color.black.opacity(0.58).ignoresSafeArea()
                     VStack(spacing: 12) {
@@ -53,7 +53,7 @@ struct MainTabView: View {
                         Text("OpenAI key required")
                             .font(.dmUI(24, weight: .bold))
                             .foregroundStyle(theme.colors.textPrimary)
-                        Text("Set your API key in Settings to unlock gameplay, campaigns, and codex sync.")
+                        Text("Set your API key in Settings. For temporary testing, you can enable Demo Mode there.")
                             .font(.dmUI(14))
                             .foregroundStyle(theme.colors.textSecondary)
                             .multilineTextAlignment(.center)

@@ -2,14 +2,22 @@ import Foundation
 
 @MainActor
 final class APIKeyStore: ObservableObject {
+    private static let demoModeDefaultsKey = "dmai_demo_mode_enabled"
+
     @Published private(set) var hasAPIKey: Bool = false
+    @Published private(set) var demoModeEnabled: Bool = false
     @Published private(set) var maskedPreview: String = ""
     @Published var errorMessage: String?
 
     private(set) var rawKey: String?
 
     init() {
+        demoModeEnabled = UserDefaults.standard.bool(forKey: Self.demoModeDefaultsKey)
         load()
+    }
+
+    var isUnlocked: Bool {
+        hasAPIKey || demoModeEnabled
     }
 
     func load() {
@@ -46,6 +54,15 @@ final class APIKeyStore: ObservableObject {
         } catch {
             errorMessage = "Failed to clear key from Keychain."
         }
+    }
+
+    func setDemoMode(_ enabled: Bool) {
+        demoModeEnabled = enabled
+        UserDefaults.standard.set(enabled, forKey: Self.demoModeDefaultsKey)
+    }
+
+    func enableDemoModeQuickly() {
+        setDemoMode(true)
     }
 
     static func masked(_ key: String?) -> String {

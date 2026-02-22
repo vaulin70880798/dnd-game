@@ -83,8 +83,8 @@ struct GameplayView: View {
 
     private var composerBar: some View {
         VStack(spacing: 8) {
-            if !keyStore.hasAPIKey {
-                Text("OpenAI API key is required. Configure it in Settings.")
+            if !keyStore.isUnlocked {
+                Text("OpenAI API key is required. Configure it in Settings or enable temporary Demo Mode.")
                     .font(.dmUI(13))
                     .foregroundStyle(theme.colors.textSecondary)
                     .frame(maxWidth: .infinity, alignment: .leading)

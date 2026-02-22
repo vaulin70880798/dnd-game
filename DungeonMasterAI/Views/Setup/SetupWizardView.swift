@@ -118,9 +118,7 @@ struct SetupWizardView: View {
                         )
 
                     Button {
-                        appState.requireAPIKey(using: keyStore) {
-                            Task { await autofillWithAI() }
-                        }
+                        Task { await autofillWithAI() }
                     } label: {
                         Group {
                             if isGenerating {
@@ -260,8 +258,8 @@ struct SetupWizardView: View {
                 }
             }
 
-            if !keyStore.hasAPIKey {
-                Text("OpenAI key is required before starting. Add it in Settings.")
+            if !keyStore.isUnlocked {
+                Text("OpenAI key is required before starting, unless temporary Demo Mode is enabled in Settings.")
                     .font(.dmUI(13))
                     .foregroundStyle(theme.colors.textSecondary)
             }
@@ -269,7 +267,7 @@ struct SetupWizardView: View {
     }
 
     private var canBeginAdventure: Bool {
-        keyStore.hasAPIKey && !heroName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        keyStore.isUnlocked && !heroName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
     @ViewBuilder
@@ -337,13 +335,23 @@ struct SetupWizardView: View {
     }
 
     private func autofillWithAI() async {
+        isGenerating = true
+        defer { isGenerating = false }
+
+        if keyStore.demoModeEnabled, (keyStore.rawKey?.isEmpty ?? true) {
+            let names = ["Elara Vance", "Kael Draven", "Nyra Hollow", "Thorn Vale", "Seren Ash"]
+            heroName = names.randomElement() ?? "Elara Vance"
+            classBackground = classOptions.randomElement() ?? classBackground
+            style = styleOptions.randomElement() ?? style
+            title = "\(genre) - Session 1"
+            localMessage = "Character draft generated from temporary Demo Mode."
+            return
+        }
+
         guard let key = keyStore.rawKey else {
             localMessage = "OpenAI API key is missing."
             return
         }
-
-        isGenerating = true
-        defer { isGenerating = false }
 
         do {
             let draft = try await openAIService.generateCharacterDraft(apiKey: key)
