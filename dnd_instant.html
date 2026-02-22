@@ -434,6 +434,35 @@
         gap: 8px;
       }
 
+      .combat-actions {
+        border-top: 1px solid rgba(228, 190, 118, 0.2);
+        padding: 10px 12px 0;
+        display: grid;
+        gap: 8px;
+      }
+
+      .combat-actions-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .combat-actions-hint {
+        font-size: 0.82rem;
+        color: var(--text-soft);
+      }
+
+      .combat-target-select {
+        min-width: 170px;
+        width: auto;
+        max-width: 100%;
+      }
+
+      .combat-action-btn {
+        padding: 8px 10px;
+      }
+
       .mic-btn {
         min-width: 44px;
         display: inline-flex;
@@ -1082,6 +1111,54 @@
 
         <section class="card chat-wrap">
           <div id="chatLog" class="chat-log"></div>
+          <div id="combatActionsWrap" class="combat-actions hidden">
+            <div class="combat-actions-row">
+              <span id="combatActionsHint" class="combat-actions-hint">פעולות קרב מהירות זמינות בתור שלך.</span>
+              <select id="combatTargetSelect" class="select combat-target-select"></select>
+            </div>
+            <div class="combat-actions-row">
+              <button
+                id="quickAttackBtn"
+                class="btn btn-ghost combat-action-btn"
+                type="button"
+                data-combat-action="attack"
+              >
+                התקפה
+              </button>
+              <button
+                id="quickSpellBtn"
+                class="btn btn-ghost combat-action-btn"
+                type="button"
+                data-combat-action="spell"
+              >
+                לחש
+              </button>
+              <button
+                id="quickDefendBtn"
+                class="btn btn-ghost combat-action-btn"
+                type="button"
+                data-combat-action="defend"
+              >
+                התגוננות
+              </button>
+              <button
+                id="quickRetreatBtn"
+                class="btn btn-ghost combat-action-btn"
+                type="button"
+                data-combat-action="retreat"
+              >
+                נסיגה
+              </button>
+              <button
+                id="quickEndTurnBtn"
+                class="btn btn-ghost combat-action-btn"
+                type="button"
+                data-combat-action="end_turn"
+              >
+                סיום תור
+              </button>
+            </div>
+          </div>
           <form id="chatForm" class="composer">
             <input
               id="chatInput"
@@ -1518,6 +1595,15 @@
         backToApiBtn: document.getElementById("backToApiBtn"),
         setupError: document.getElementById("setupError"),
         chatLog: document.getElementById("chatLog"),
+        combatActionsWrap: document.getElementById("combatActionsWrap"),
+        combatActionsHint: document.getElementById("combatActionsHint"),
+        combatTargetSelect: document.getElementById("combatTargetSelect"),
+        quickAttackBtn: document.getElementById("quickAttackBtn"),
+        quickSpellBtn: document.getElementById("quickSpellBtn"),
+        quickDefendBtn: document.getElementById("quickDefendBtn"),
+        quickRetreatBtn: document.getElementById("quickRetreatBtn"),
+        quickEndTurnBtn: document.getElementById("quickEndTurnBtn"),
+        quickCombatActionBtns: Array.from(document.querySelectorAll("[data-combat-action]")),
         chatForm: document.getElementById("chatForm"),
         chatInput: document.getElementById("chatInput"),
         micBtn: document.getElementById("micBtn"),
@@ -1666,6 +1752,10 @@
         elements.importGameBtn.addEventListener("click", onImportGameClicked);
         elements.importGameFile.addEventListener("change", onImportGameFileChange);
         elements.endCombatBtn.addEventListener("click", onEndCombatClicked);
+        elements.combatTargetSelect.addEventListener("change", renderCombatActions);
+        for (const btn of elements.quickCombatActionBtns) {
+          btn.addEventListener("click", onQuickCombatActionClicked);
+        }
 
         window.addEventListener("beforeunload", () => {
           state.apiKey = "";
@@ -2318,6 +2408,124 @@
         updateMainStatus();
         addMessage("system", "מעקב הקרב נסגר ידנית.");
         autoSaveGameSilently();
+      }
+
+      function onQuickCombatActionClicked(event) {
+        const actionKey = event?.currentTarget?.dataset?.combatAction || "";
+        if (!actionKey) return;
+        if (!state.combat.active) {
+          addMessage("system", "אין קרב פעיל כרגע.");
+          return;
+        }
+        if (state.pendingRoll) {
+          addMessage("system", "יש גלגול ממתין. סיים אותו לפני פעולת קרב נוספת.");
+          return;
+        }
+        if (state.busy) {
+          addMessage("system", "המנחה עדיין מעבד את הפעולה הקודמת.");
+          return;
+        }
+
+        const actor = getCurrentCombatActor();
+        const playerTurn = !actor || Boolean(actor.isPlayer || actor.id === "player");
+        if (!playerTurn) {
+          addMessage("system", `כרגע זה לא התור שלך. בתור עומד/ת: ${actor?.name || "יריב"}.`);
+          renderCombatActions();
+          return;
+        }
+
+        const targetName = getSelectedCombatTargetName();
+        const actionText = buildQuickCombatActionText(actionKey, targetName);
+        if (!actionText) return;
+
+        elements.chatInput.value = actionText;
+        if (typeof elements.chatForm.requestSubmit === "function") {
+          elements.chatForm.requestSubmit();
+        } else {
+          elements.chatForm.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+        }
+      }
+
+      function buildQuickCombatActionText(actionKey, targetName) {
+        const target = targetName || "האויב הקרוב";
+        if (actionKey === "attack") {
+          return `אני תוקף את ${target} עם הנשק הראשי שלי ומנסה לפגוע בצורה מדויקת.`;
+        }
+        if (actionKey === "spell") {
+          return `אני מטיל לחש התקפי על ${target} ומנסה להשיג יתרון טקטי.`;
+        }
+        if (actionKey === "defend") {
+          return "אני נוקט בפעולת התגוננות מלאה ומתרכז בהתחמקות וחסימה.";
+        }
+        if (actionKey === "retreat") {
+          return "אני מנסה לסגת לעמדה בטוחה יותר בלי לחשוף את עצמי להתקפות חופשיות.";
+        }
+        if (actionKey === "end_turn") {
+          return "אני מסיים את התור שלי ומעביר תור.";
+        }
+        return "";
+      }
+
+      function getAvailableCombatTargets() {
+        if (!state.combat.active || !Array.isArray(state.combat.participants)) return [];
+        return state.combat.participants.filter(
+          (p) => p.side === "enemy" && (!Number.isFinite(p.hpCurrent) || p.hpCurrent > 0)
+        );
+      }
+
+      function getSelectedCombatTargetName() {
+        const id = elements.combatTargetSelect?.value || "";
+        if (!id) return "";
+        const participant = (state.combat.participants || []).find((p) => p.id === id);
+        return participant?.name || "";
+      }
+
+      function renderCombatActions() {
+        if (!elements.combatActionsWrap || !elements.combatTargetSelect || !elements.combatActionsHint) return;
+        if (!state.combat.active) {
+          elements.combatActionsWrap.classList.add("hidden");
+          return;
+        }
+
+        elements.combatActionsWrap.classList.remove("hidden");
+        const targets = getAvailableCombatTargets();
+        const previousTarget = elements.combatTargetSelect.value || "";
+        elements.combatTargetSelect.innerHTML = "";
+        if (!targets.length) {
+          const emptyOption = document.createElement("option");
+          emptyOption.value = "";
+          emptyOption.textContent = "אין יעד זמין";
+          elements.combatTargetSelect.appendChild(emptyOption);
+        } else {
+          for (const target of targets) {
+            const option = document.createElement("option");
+            option.value = target.id;
+            option.textContent = target.name;
+            elements.combatTargetSelect.appendChild(option);
+          }
+          const hasPrevious = targets.some((target) => target.id === previousTarget);
+          elements.combatTargetSelect.value = hasPrevious ? previousTarget : targets[0].id;
+        }
+
+        const actor = getCurrentCombatActor();
+        const playerTurn = !actor || Boolean(actor.isPlayer || actor.id === "player");
+        const blocked = Boolean(state.pendingRoll || state.busy || !playerTurn || elements.chatInput.disabled);
+        for (const btn of elements.quickCombatActionBtns) {
+          btn.disabled = blocked;
+        }
+        elements.combatTargetSelect.disabled = blocked || !targets.length;
+
+        if (state.pendingRoll) {
+          elements.combatActionsHint.textContent = "יש גלגול ממתין. לאחר אישורו תוכל לבחור פעולה נוספת.";
+        } else if (state.busy) {
+          elements.combatActionsHint.textContent = "המנחה מעדכן את הקרב... המתן לרגע.";
+        } else if (!playerTurn) {
+          elements.combatActionsHint.textContent = `כרגע תור של ${actor?.name || "יריב"}.`;
+        } else if (!targets.length) {
+          elements.combatActionsHint.textContent = "אין יעד אויב מובהק. בחר פעולה תיאורית או סיים תור.";
+        } else {
+          elements.combatActionsHint.textContent = `תור שלך. היעד הנבחר: ${getSelectedCombatTargetName() || "אויב"}.`;
+        }
       }
 
       function applyCombatPatch(rawPatch, options = {}) {
@@ -4049,6 +4257,7 @@
           elements.endCombatBtn.disabled = true;
           elements.combatSummary.textContent = "אין קרב פעיל כרגע.";
           elements.combatOrderList.innerHTML = "";
+          renderCombatActions();
           return;
         }
 
@@ -4092,6 +4301,7 @@
             `<div class="meta">מצב: ${escapeHtml(statusText)}</div>`;
           elements.combatOrderList.appendChild(li);
         }
+        renderCombatActions();
       }
 
       function combatSideLabel(participant) {
@@ -4288,6 +4498,7 @@
         } else {
           elements.chatInput.placeholder = "מה הדמות שלך עושה עכשיו?";
         }
+        renderCombatActions();
       }
 
       function clearComposerAfterSend() {
