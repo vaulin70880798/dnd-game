@@ -28,7 +28,7 @@ struct SplashView: View {
                     )
 
                 Text("שליט המבוך AI")
-                    .font(.dmUI(38, weight: .bold))
+                    .font(.dmBrand(38, weight: .bold))
                     .kerning(0.6)
                     .foregroundStyle(theme.colors.textPrimary)
             }

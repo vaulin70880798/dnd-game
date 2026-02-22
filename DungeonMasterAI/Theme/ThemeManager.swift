@@ -55,6 +55,10 @@ extension Font {
         .custom("NewYork", size: size).weight(weight)
     }
 
+    static func dmBrand(_ size: CGFloat, weight: Weight = .bold) -> Font {
+        .custom("Copperplate-Bold", size: size).weight(weight)
+    }
+
     static func dmUI(_ size: CGFloat, weight: Weight = .regular) -> Font {
         .system(size: size, weight: weight, design: .default)
     }
