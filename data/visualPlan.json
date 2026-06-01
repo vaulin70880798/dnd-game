@@ -1,0 +1,6293 @@
+[
+  {
+    "paragraphId": 1,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p001-scene.png",
+    "imageAltHe": "איור לפסקה 1",
+    "captionHe": "חאר היא עיר הנשלטת על ידי כאוס והשער לבאקלנד.",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards",
+      "npc_bandit"
+    ],
+    "itemIds": [
+      "big_gate_key"
+    ]
+  },
+  {
+    "paragraphId": 2,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p002-scene.png",
+    "imageAltHe": "איור לפסקה 2",
+    "captionHe": "עכשיו אתה חייב לנשק אותו שוב. אבל איפה? אל המצח",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 3,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p003-scene.png",
+    "imageAltHe": "איור לפסקה 3",
+    "captionHe": "יצירותיהם של שני אומנים עניינו אותך במיוחד:",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_artist"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 4,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p004-scene.png",
+    "imageAltHe": "איור לפסקה 4",
+    "captionHe": "רגל ברונזה גדולה יורדת עליך. האם אתה מנסה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 5,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p005-scene.png",
+    "imageAltHe": "איור לפסקה 5",
+    "captionHe": "ארנק נופל מהארון על הקרקע לרגליך. אַתָה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 6,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 6",
+    "captionHe": "הסוס מתרומם כשמושכים את המושכות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 7,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p007-scene.png",
+    "imageAltHe": "איור לפסקה 7",
+    "captionHe": "איזה פריט אתה רוצה לאסוף? מסכה שחורה, קשת ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "black_mask",
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 8,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p008-scene.png",
+    "imageAltHe": "איור לפסקה 8",
+    "captionHe": "אתה ניגש לפסל במחשבה שהוא חייב להיות יצירה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_artist"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 9,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p009-scene.png",
+    "imageAltHe": "איור לפסקה 9",
+    "captionHe": "מול סדנת השרשרת נמצאת",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 10,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p010-scene.png",
+    "imageAltHe": "איור לפסקה 10",
+    "captionHe": "אתה במבוי סתום. אני אצטרך לחזור ולבחור אחד אחר",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 11,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p011-scene.png",
+    "imageAltHe": "איור לפסקה 11",
+    "captionHe": "הנֶשֶר מפצל את האל־מת לשישה חלקים",
+    "enemyIds": [
+      "enemy_001",
+      "enemy_002",
+      "enemy_003",
+      "enemy_004",
+      "enemy_005",
+      "enemy_006"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 12,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p012-scene.png",
+    "imageAltHe": "איור לפסקה 12",
+    "captionHe": "הוצא את המפתח מהתרמיל שלך והכנס אותו בזהירות",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder"
+    ],
+    "itemIds": [
+      "big_gate_key",
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 13,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p013-scene.png",
+    "imageAltHe": "איור לפסקה 13",
+    "captionHe": "החץ משתחרר לפני שהגעת אליו",
+    "enemyIds": [
+      "enemy_007",
+      "enemy_004"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 14,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p014-scene.png",
+    "imageAltHe": "איור לפסקה 14",
+    "captionHe": "כאשר אתה מביס את החיה, בעליה טורק את הדלת.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 15,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p015-scene.png",
+    "imageAltHe": "איור לפסקה 15",
+    "captionHe": "להב הגיליוטינה עולה ואתה מוקל",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 16,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p016-scene.png",
+    "imageAltHe": "איור לפסקה 16",
+    "captionHe": "כשאתה יוצא מהקריפטה, אתה מסתובב בזהירות במעגל המנצנץ",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 17,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p017-scene.png",
+    "imageAltHe": "איור לפסקה 17",
+    "captionHe": "אתה מנסה כמיטב יכולתך לעקוב אחר הברכיים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "provisions",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 18,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p018-scene.png",
+    "imageAltHe": "איור לפסקה 18",
+    "captionHe": "דיוקנאות האמן מתארים שונים",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_artist"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 19,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p019-scene.png",
+    "imageAltHe": "איור לפסקה 19",
+    "captionHe": "הפעם, בנגיעה בשרשרת, יצרת אמיתי",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 20,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p020-scene.png",
+    "imageAltHe": "איור לפסקה 20",
+    "captionHe": "הקמע הזה הוא ממצא אמיתי. בזמן שאתה לובש את זה, אז,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 21,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p021-scene.png",
+    "imageAltHe": "איור לפסקה 21",
+    "captionHe": "שינה מחזירה 2 נקודות סיבולת עם עלות השחר",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards",
+      "npc_elder",
+      "npc_arena_champion"
+    ],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 22,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 22",
+    "captionHe": "באיזה כישוף תשתמש?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 23,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p023-scene.png",
+    "imageAltHe": "איור לפסקה 23",
+    "captionHe": "אתה עוקב אחרי בני נוער לאורך הכביש. בתים ובקתות",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 24,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p024-scene.png",
+    "imageAltHe": "איור לפסקה 24",
+    "captionHe": "הם הולכים לקראתך ואתה עושה פנייה חדה שמאלה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 25,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p025-scene.png",
+    "imageAltHe": "איור לפסקה 25",
+    "captionHe": "כל משחק של גלגל המזל יעלה לך זהב אחד.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 26,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p026-scene.png",
+    "imageAltHe": "איור לפסקה 26",
+    "captionHe": "באיזה כישוף תשתמש?",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 27,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p027-scene.png",
+    "imageAltHe": "איור לפסקה 27",
+    "captionHe": "בתוך הצריף יש עצמות על הרצפה. זה שחי",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 28,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 28",
+    "captionHe": "אתה מגיע למזלג שבו אתה יכול ללכת ישר או",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 29,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p029-scene.png",
+    "imageAltHe": "איור לפסקה 29",
+    "captionHe": "אתה תופס את הקופסה ורץ החוצה מהבית. נראה מוזר",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 30,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p030-scene.png",
+    "imageAltHe": "איור לפסקה 30",
+    "captionHe": "אתה מתפלל לאלת הפטרונית שלך. האם אתה שומע",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 31,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p031-scene.png",
+    "imageAltHe": "איור לפסקה 31",
+    "captionHe": "אתה רוכן אל שפתיו של האליל ושומע את התשובה:",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 32,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 32",
+    "captionHe": "אתה עוקב אחר הכביש חולף על פני הבקתות עד להתפצלות חדשה שבה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 33,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p033-scene.png",
+    "imageAltHe": "איור לפסקה 33",
+    "captionHe": "מאחורי חבלי הטבעת, נובח מציג את המתמודד.",
+    "enemyIds": [
+      "enemy_019"
+    ],
+    "npcIds": [
+      "npc_barbarian",
+      "npc_arena_champion"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 34,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p034-scene.png",
+    "imageAltHe": "איור לפסקה 34",
+    "captionHe": "הוא חוזר עם שני ספלי בירה ומניח אחד לפניו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 35,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 35",
+    "captionHe": "לא, זו לא נקודת התורפה של הפסל. יצור ענק",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 36,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p036-scene.png",
+    "imageAltHe": "איור לפסקה 36",
+    "captionHe": "אתה מסתכל על השומר, אבל הוא רק לועג",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 37,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p037-scene.png",
+    "imageAltHe": "איור לפסקה 37",
+    "captionHe": "כשאתה עוזב את הבקתה, אתה מסתכל שוב על הפסל. למרות שאתה לא",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 38,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p038-scene.png",
+    "imageAltHe": "איור לפסקה 38",
+    "captionHe": "אתה מנחש שאפשר להשמיד את רוח הרפאים הזו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 39,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p039-scene.png",
+    "imageAltHe": "איור לפסקה 39",
+    "captionHe": "בדרכך החוצה מאולמות ההימורים אתה עובר ליד דלת עם",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 40,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p040-scene.png",
+    "imageAltHe": "איור לפסקה 40",
+    "captionHe": "הצופים בקהל סביבך כועסים על הסירוב שלך.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 41,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 41",
+    "captionHe": "אתה עוצר ליד בקתה. צעדים מאחוריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 42,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p042-scene.png",
+    "imageAltHe": "איור לפסקה 42",
+    "captionHe": "אתה במבוי סתום. נצטרך לחזור. עַל יְדֵי",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 43,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p043-scene.png",
+    "imageAltHe": "איור לפסקה 43",
+    "captionHe": "אתה מסתכל סביב החדר. על השולחנות במרכז החדר ו",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_common_man"
+    ],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 44,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p044-scene.png",
+    "imageAltHe": "איור לפסקה 44",
+    "captionHe": "הקרב מול המברשת הקסומה",
+    "enemyIds": [
+      "enemy_008"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 45,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p045-scene.png",
+    "imageAltHe": "איור לפסקה 45",
+    "captionHe": "התיק מכיל 6 שיני גובלין כהות. אתה שופך אותם עם",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 46,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p046-scene.png",
+    "imageAltHe": "איור לפסקה 46",
+    "captionHe": "ממשיכים ללכת ברחוב, מגיעים למקום אחר",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 47,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p047-scene.png",
+    "imageAltHe": "איור לפסקה 47",
+    "captionHe": "נכנסים לבית הקברות והולכים בשביל מגודל",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 48,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p048-scene.png",
+    "imageAltHe": "איור לפסקה 48",
+    "captionHe": "הכומר לא יכול להסתיר את אכזבתו. כַּנִראֶה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_priest"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 49,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 49",
+    "captionHe": "אתה פותח את המושכות וקופץ על גבו של הסוס. הוּא",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 50,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p050-scene.png",
+    "imageAltHe": "איור לפסקה 50",
+    "captionHe": "אתה הולך לאורך קצה הכיכר, לא מסיר את העיניים מהאנדרטה.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 51,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p051-scene.png",
+    "imageAltHe": "איור לפסקה 51",
+    "captionHe": "\"בוא נראה,\" הוא מהרהר בתשובה,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 52,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p052-scene.png",
+    "imageAltHe": "איור לפסקה 52",
+    "captionHe": "עכשיו אתה חייב לנשק אותו שוב. אבל איפה? IN",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 53,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p053-scene.png",
+    "imageAltHe": "איור לפסקה 53",
+    "captionHe": "הוא נרגע ומודה ששמיעתו החמירה עם הגיל.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 54,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p054-scene.png",
+    "imageAltHe": "איור לפסקה 54",
+    "captionHe": "לאחר שהבסת את היצור הנורא, אתה זורק את שרידיו לתוך הארון ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 55,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p055-scene.png",
+    "imageAltHe": "איור לפסקה 55",
+    "captionHe": "איש־הגמל־שלמה מתעורר",
+    "enemyIds": [
+      "enemy_009"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 56,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 56",
+    "captionHe": "אתה נכנס לאולמות. למרות השעה המוקדמת ביום, שלהם",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 57,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p057-scene.png",
+    "imageAltHe": "איור לפסקה 57",
+    "captionHe": "הדרך מובילה הלאה. אתה מתקרב למרכז העיר,",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_common_man"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 58,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p058-scene.png",
+    "imageAltHe": "איור לפסקה 58",
+    "captionHe": "קרב שיכורים מול שלושה אלפים שחורים",
+    "enemyIds": [
+      "enemy_010",
+      "enemy_011",
+      "enemy_012"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 59,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p059-scene.png",
+    "imageAltHe": "איור לפסקה 59",
+    "captionHe": "הוא מחייך בערמומיות, מביט מעבר לכתפו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 60,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p060-scene.png",
+    "imageAltHe": "איור לפסקה 60",
+    "captionHe": "הרחוב הזה מסתיים בצומת עם עוד אחד, אתה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 61,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p061-scene.png",
+    "imageAltHe": "איור לפסקה 61",
+    "captionHe": "בקרוב אתה מגיע לבית גדול עשוי",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 62,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 62",
+    "captionHe": "בקרוב אתה מגיע לצומת דרכים. הדרך שמאלה מובילה אל",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 63,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p063-scene.png",
+    "imageAltHe": "איור לפסקה 63",
+    "captionHe": "בשמחה ובהקלה אתה מגלה שאתה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_arena_champion"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 64,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p064-scene.png",
+    "imageAltHe": "איור לפסקה 64",
+    "captionHe": "אתה מתגלגל הצידה בזמן כשמישהו תוקף אותך",
+    "enemyIds": [
+      "enemy_004"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 65,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p065-scene.png",
+    "imageAltHe": "איור לפסקה 65",
+    "captionHe": "המשטח המבריק נראה כמו שלולית של מנצנץ",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 66,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p066-scene.png",
+    "imageAltHe": "איור לפסקה 66",
+    "captionHe": "אתה מתקרב לדלת, השלט שעליה כתוב:",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 67,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p067-scene.png",
+    "imageAltHe": "איור לפסקה 67",
+    "captionHe": "כשהציור יושלם, להפתעתכם",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_artist",
+      "npc_sorcerer"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 68,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p068-scene.png",
+    "imageAltHe": "איור לפסקה 68",
+    "captionHe": "אתה עוזב את הטברנה ומסתובב ברחוב,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 69,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p069-scene.png",
+    "imageAltHe": "איור לפסקה 69",
+    "captionHe": "אתה מגיע למבוי סתום, אבל יש אור למעלה. אתה צופה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 70,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p070-scene.png",
+    "imageAltHe": "איור לפסקה 70",
+    "captionHe": "אתה מתפלל בשקט למאזניים לעזרה. אתה לא מרגיש את זה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_arena_champion"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 71,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p071-scene.png",
+    "imageAltHe": "איור לפסקה 71",
+    "captionHe": "צמיד קטן נופל מהארון. אתה לוקח את זה ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 72,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p072-scene.png",
+    "imageAltHe": "איור לפסקה 72",
+    "captionHe": "הוא רוכן כדי להסתכל על הבחירה שלך. \"אַתָה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 73,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p073-scene.png",
+    "imageAltHe": "איור לפסקה 73",
+    "captionHe": "אתה דוחף את הדלת והיא נפתחת, הצירים שלה חורקים.",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_common_man"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 74,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p074-scene.png",
+    "imageAltHe": "איור לפסקה 74",
+    "captionHe": "האם הקבצן עדיין חי? אם כן - 207. אם לא, אתה מעביר",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_beggar"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 75,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p075-scene.png",
+    "imageAltHe": "איור לפסקה 75",
+    "captionHe": "אתה פותח את הדלת וממהר פנימה, אוחז בנשק שלך.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 76,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p076-scene.png",
+    "imageAltHe": "איור לפסקה 76",
+    "captionHe": "איש־הגמל־שלמה מתעורר",
+    "enemyIds": [
+      "enemy_009"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 77,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p077-scene.png",
+    "imageAltHe": "איור לפסקה 77",
+    "captionHe": "זולל הרפש בתעלת הביוב",
+    "enemyIds": [
+      "enemy_013"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 78,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p078-scene.png",
+    "imageAltHe": "איור לפסקה 78",
+    "captionHe": "עכשיו אתה חייב לנשק אותו שוב. אבל איפה? אל המצח",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 79,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p079-scene.png",
+    "imageAltHe": "איור לפסקה 79",
+    "captionHe": "פלנקר, הרוצח שפגשת ליד",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 80,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p080-scene.png",
+    "imageAltHe": "איור לפסקה 80",
+    "captionHe": "הם צוחקים מההצעה הדלה שלך. \"לָנוּ",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 81,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p081-scene.png",
+    "imageAltHe": "איור לפסקה 81",
+    "captionHe": "אתה מתקרב לצומת. לפניך שלושה נתיבים. אַתָה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 82,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p082-scene.png",
+    "imageAltHe": "איור לפסקה 82",
+    "captionHe": "האתגר שלך התקבל. הקהל מוחא לך כפיים כשאתה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 83,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p083-scene.png",
+    "imageAltHe": "איור לפסקה 83",
+    "captionHe": "ככל שאתה הולך בהמשך הרחוב, אתה חולף על פני קטן",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 84,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 84",
+    "captionHe": "עוד מעט תגיעו למזלג אחר. אתה יכול",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 85,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p085-scene.png",
+    "imageAltHe": "איור לפסקה 85",
+    "captionHe": "אם אתה רוצה לקבל מטבע מבריכה, בדוק את שלך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 86,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p086-scene.png",
+    "imageAltHe": "איור לפסקה 86",
+    "captionHe": "אם אתה יכול לשלם לבעל הפונדק 4 זהב, אתה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 87,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p087-scene.png",
+    "imageAltHe": "איור לפסקה 87",
+    "captionHe": "היצור ממשיך בהתקפות שלו, ויש מעט שאתה יכול לעשות בקשר לזה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 88,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p088-scene.png",
+    "imageAltHe": "איור לפסקה 88",
+    "captionHe": "עכשיו אתה חייב לנשק אותו שוב. אבל איפה? אל המצח",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 89,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p089-scene.png",
+    "imageAltHe": "איור לפסקה 89",
+    "captionHe": "בהמשך הדרך מגיעים להתפצלות שבה אפשר",
+    "enemyIds": [
+      "enemy_023"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 90,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p090-scene.png",
+    "imageAltHe": "איור לפסקה 90",
+    "captionHe": "אתה קורא לדיירי הבית ומבקש רשות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 91,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p091-scene.png",
+    "imageAltHe": "איור לפסקה 91",
+    "captionHe": "אתה זורק להם מטבע והם מתחילים להילחם על זה.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 92,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p092-scene.png",
+    "imageAltHe": "איור לפסקה 92",
+    "captionHe": "תיק קטן נופל לרגליך, בתוכך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 93,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 93",
+    "captionHe": "באיזה מהמקומות האלה תנסה לפגוע בה: מתחת לחגורה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 94,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p094-scene.png",
+    "imageAltHe": "איור לפסקה 94",
+    "captionHe": "אתה מתכרבל בפינה ועומד להירדם.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 95,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p095-scene.png",
+    "imageAltHe": "איור לפסקה 95",
+    "captionHe": "החיה הקוצנית מזנקת",
+    "enemyIds": [
+      "enemy_014"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 96,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p096-scene.png",
+    "imageAltHe": "איור לפסקה 96",
+    "captionHe": "אתה מתקרב ומברך את כיפת האש. הוּא",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_artist"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 97,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 97",
+    "captionHe": "השתמש בקסם (310) או הילחם בבעלי הכנף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 98,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p098-scene.png",
+    "imageAltHe": "איור לפסקה 98",
+    "captionHe": "מבעד לקהל הקטן אפשר לראות שניים",
+    "enemyIds": [
+      "enemy_024",
+      "enemy_025"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 99,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p099-scene.png",
+    "imageAltHe": "איור לפסקה 99",
+    "captionHe": "האם תשתמש בחרב - 151, גרזן - 125 או בקשת ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 100,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p100-scene.png",
+    "imageAltHe": "איור לפסקה 100",
+    "captionHe": "אוכל - סוג של בשר חשוד עם תוספת של",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 101,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p101-scene.png",
+    "imageAltHe": "איור לפסקה 101",
+    "captionHe": "האליל עונה על השאלה שלך. \"אל הגאווה הוא שלי",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 102,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p102-scene.png",
+    "imageAltHe": "איור לפסקה 102",
+    "captionHe": "אתה מחכה כל הלילה, אבל השומרים לא מופיעים, והזקן",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards",
+      "npc_elder"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 103,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p103-scene.png",
+    "imageAltHe": "איור לפסקה 103",
+    "captionHe": "אתה יכול לתקוף אותם עם הנשק שלך (192), או",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 104,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 104",
+    "captionHe": "ממשיכים במורד הכביש עד למראה מוזר",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 105,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p105-scene.png",
+    "imageAltHe": "איור לפסקה 105",
+    "captionHe": "אתה מחפש בכיסים של המת ומוצא 8 זהב. IN",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 106,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 106",
+    "captionHe": "הסוס מתרומם כאשר אתה מושך במושכות. אתה לא",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 107,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 107",
+    "captionHe": "אתה יכול להשתמש בחפץ זה כדי למצוא מחרוזות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 108,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p108-scene.png",
+    "imageAltHe": "איור לפסקה 108",
+    "captionHe": "אתה נכנס לבקתה. במרכז החדר, פתח",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 109,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p109-scene.png",
+    "imageAltHe": "איור לפסקה 109",
+    "captionHe": "לאחר שעברת את המקדש, אתה מתקרב לגבול העיר.",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 110,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p110-scene.png",
+    "imageAltHe": "איור לפסקה 110",
+    "captionHe": "הטברנה למנוחת המטיילים היא מקום רועש, צפוף, ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 111,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p111-scene.png",
+    "imageAltHe": "איור לפסקה 111",
+    "captionHe": "אַתָה.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 112,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p112-scene.png",
+    "imageAltHe": "איור לפסקה 112",
+    "captionHe": "אתה פותח בזהירות את הדלת. בפנים אתה רואה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 113,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p113-scene.png",
+    "imageAltHe": "איור לפסקה 113",
+    "captionHe": "העיניים שלהם מאירות כשמוציאים אותם מהארנק",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 114,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p114-scene.png",
+    "imageAltHe": "איור לפסקה 114",
+    "captionHe": "הזולל תופס אותך עם המחושים שלו. אתה מיילל מ",
+    "enemyIds": [
+      "enemy_021"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 115,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p115-scene.png",
+    "imageAltHe": "איור לפסקה 115",
+    "captionHe": "\"הממ, תן לי לראות,\" הוא אומר. - לא, אני לא",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 116,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p116-scene.png",
+    "imageAltHe": "איור לפסקה 116",
+    "captionHe": "\"נולדת אתמול, אידיוט?\" - מגיב לשלך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 117,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p117-scene.png",
+    "imageAltHe": "איור לפסקה 117",
+    "captionHe": "אתה קורע את מדליון הזהב מצווארו של היצור. זה עולה 8",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin",
+      "gem_medallion"
+    ]
+  },
+  {
+    "paragraphId": 118,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p118-scene.png",
+    "imageAltHe": "איור לפסקה 118",
+    "captionHe": "קרב מול שתי הארפיות",
+    "enemyIds": [
+      "enemy_015",
+      "enemy_016"
+    ],
+    "npcIds": [
+      "npc_beggar"
+    ],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 119,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p119-scene.png",
+    "imageAltHe": "איור לפסקה 119",
+    "captionHe": "קרב מול הסווינן עם שרשרת",
+    "enemyIds": [
+      "enemy_017"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 120,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p120-scene.png",
+    "imageAltHe": "איור לפסקה 120",
+    "captionHe": "לאחר שהלכת עד קצה הרחוב, אתה מגיע למזלג. אתה יכול",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 121,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 121",
+    "captionHe": "הם צופים בך מקרוב כשאתה חולף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 122,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p122-scene.png",
+    "imageAltHe": "איור לפסקה 122",
+    "captionHe": "אתה מתקרב לאליל. זה בגודל של מבוגר",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 123,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 123",
+    "captionHe": "אתה כורע ברך ושומע צחקוקים מאחוריך.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 124,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p124-scene.png",
+    "imageAltHe": "איור לפסקה 124",
+    "captionHe": "אתה מטיל את הכישוף ומחכה. הם רצים לך על הגב",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 125,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 125",
+    "captionHe": "היצור מתקרב לאט בזמן שאתה מתכונן לקרב -",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 126,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p126-scene.png",
+    "imageAltHe": "איור לפסקה 126",
+    "captionHe": "אתה מספר בחופזה לשומרים האחרים על 2",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 127,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p127-scene.png",
+    "imageAltHe": "איור לפסקה 127",
+    "captionHe": "בעקבות הרחוב, עד מהרה מגיעים לבאר. מהשער",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 128,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 128",
+    "captionHe": "החיה מביטה בך בצורה מוזרה. אתה מבטא",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 129,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p129-scene.png",
+    "imageAltHe": "איור לפסקה 129",
+    "captionHe": "אתה נופל על הרצפה ומאבד את ההכרה, בכל הכוח",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 130,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p130-scene.png",
+    "imageAltHe": "איור לפסקה 130",
+    "captionHe": "אתה נכנס בזהירות לתוך האש. למרות שהלהבות לא שורפות אותך,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 131,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p131-scene.png",
+    "imageAltHe": "איור לפסקה 131",
+    "captionHe": "הרחוב מסתיים בצומת עם אחר. חֲרִיטָה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 132,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p132-scene.png",
+    "imageAltHe": "איור לפסקה 132",
+    "captionHe": "אתה הולך ברחוב מתפתל צר על פני חנויות ו",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_common_man"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 133,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p133-scene.png",
+    "imageAltHe": "איור לפסקה 133",
+    "captionHe": "קצת בהמשך הדרך מגיעים לאזור שבו קדרים,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 134,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p134-scene.png",
+    "imageAltHe": "איור לפסקה 134",
+    "captionHe": "בארון בפינת החדר מוצאים שני כלי זכוכית.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 135,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p135-scene.png",
+    "imageAltHe": "איור לפסקה 135",
+    "captionHe": "השביל קדימה מוביל לאורך הרחוב שלאורכו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 136,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p136-scene.png",
+    "imageAltHe": "איור לפסקה 136",
+    "captionHe": "עכשיו ראיתם איך מתרחשים כאן קרבות אליפות.",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_arena_champion"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 137,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 137",
+    "captionHe": "ממשיכים בכביש עד שמגיעים ל-Y-",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 138,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p138-scene.png",
+    "imageAltHe": "איור לפסקה 138",
+    "captionHe": "ממשיכים עם הכביש לכיוון האשכול",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_beggar"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 139,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p139-scene.png",
+    "imageAltHe": "איור לפסקה 139",
+    "captionHe": "בעקבות הרחוב הזה מגיעים לקפלה קטנה.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 140,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p140-scene.png",
+    "imageAltHe": "איור לפסקה 140",
+    "captionHe": "אתה עומד מול דלת עץ אלון מלא, מעוטר",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_common_man"
+    ],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 141,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p141-scene.png",
+    "imageAltHe": "איור לפסקה 141",
+    "captionHe": "אתה מנשק את האליל על השפתיים והוא פוקח את עיניו. השפתיים שלו לא",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 142,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p142-scene.png",
+    "imageAltHe": "איור לפסקה 142",
+    "captionHe": "אתה מטיל את הכישוף ומחכה. הם רצים לך על הגב",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 143,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p143-scene.png",
+    "imageAltHe": "איור לפסקה 143",
+    "captionHe": "הם לוקחים לך את התרמיל ואת הנשק ונועלים אותך מתחת",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "sword",
+      "big_gate_key"
+    ]
+  },
+  {
+    "paragraphId": 144,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 144",
+    "captionHe": "כשמגיעים למזלג אפשר ללכת ישר (165) או",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 145,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p145-scene.png",
+    "imageAltHe": "איור לפסקה 145",
+    "captionHe": "היצור רוכן מעל השולחן וזורק את הכף ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 146,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p146-scene.png",
+    "imageAltHe": "איור לפסקה 146",
+    "captionHe": "פסל ברונזה שעונים שאתה זורק עליהם את הזהב שלך",
+    "enemyIds": [
+      "enemy_023"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 147,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p147-scene.png",
+    "imageAltHe": "איור לפסקה 147",
+    "captionHe": "קשת מול רוח־מוות",
+    "enemyIds": [
+      "enemy_018"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 148,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p148-scene.png",
+    "imageAltHe": "איור לפסקה 148",
+    "captionHe": "אתה הולך לאורך הכביש המוביל לשער הצפוני. עכשיו אתה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 149,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p149-scene.png",
+    "imageAltHe": "איור לפסקה 149",
+    "captionHe": "חנות כללית מציעה פריטים שונים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 150,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p150-scene.png",
+    "imageAltHe": "איור לפסקה 150",
+    "captionHe": "אתה מתיישב לידם על קצה המזרון. הם מגחכים",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_common_man"
+    ],
+    "itemIds": [
+      "sword",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 151,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p151-scene.png",
+    "imageAltHe": "איור לפסקה 151",
+    "captionHe": "המפגש עם רוח־המוות",
+    "enemyIds": [
+      "enemy_018"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 152,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p152-scene.png",
+    "imageAltHe": "איור לפסקה 152",
+    "captionHe": "תזרוק עוד מטבע, מותק.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 153,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p153-scene.png",
+    "imageAltHe": "איור לפסקה 153",
+    "captionHe": "עוזבים את יישוב הגמדים וממשיכים ללכת",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 154,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p154-scene.png",
+    "imageAltHe": "איור לפסקה 154",
+    "captionHe": "בסופו של דבר, איש זקן יוצא מהחדר האחורי, עם",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 155,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p155-scene.png",
+    "imageAltHe": "איור לפסקה 155",
+    "captionHe": "פגעת מתחת לחגורה, אבל גם שם אין נקודת תורפה.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 156,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p156-scene.png",
+    "imageAltHe": "איור לפסקה 156",
+    "captionHe": "אתה מרים את היד כדי לציין שאתה מקבל את האתגר. \"ו",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_priest"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 157,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p157-scene.png",
+    "imageAltHe": "איור לפסקה 157",
+    "captionHe": "כמה תציעו?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 158,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p158-scene.png",
+    "imageAltHe": "איור לפסקה 158",
+    "captionHe": "אתה יוצא בזהירות מהצריף, אבל אין איש ברחוב.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 159,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 159",
+    "captionHe": "אתה חייב לאבד 2 נקודות סיבולת בשביל לא",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 160,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p160-scene.png",
+    "imageAltHe": "איור לפסקה 160",
+    "captionHe": "אתה מתקרב למרכז חאר. ההתפתחות הולכת ונעשית",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 161,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 161",
+    "captionHe": "הוא לא יודע כלום על הכישוף והוא מאוד כועס עליך בגלל זה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 162,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p162-scene.png",
+    "imageAltHe": "איור לפסקה 162",
+    "captionHe": "חצים וקשת, צור ותרופה נפוצים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 163,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p163-scene.png",
+    "imageAltHe": "איור לפסקה 163",
+    "captionHe": "עכשיו אתה חייב לנשק אותו שוב. אבל איפה? אל המצח",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 164,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p164-scene.png",
+    "imageAltHe": "איור לפסקה 164",
+    "captionHe": "אתה הולך בזהירות במדרגות. הקירות כאן",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 165,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p165-scene.png",
+    "imageAltHe": "איור לפסקה 165",
+    "captionHe": "הלילה מתקרב ואין לך חשק לבלות",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_common_woman"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 166,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p166-scene.png",
+    "imageAltHe": "איור לפסקה 166",
+    "captionHe": "תיק גב זה גדול משלך ותוכל להחליף בו את שלך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 167,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p167-scene.png",
+    "imageAltHe": "איור לפסקה 167",
+    "captionHe": "קיבלת קסם מזל טוב. כל עוד יש לך את הפריט הזה,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 168,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p168-scene.png",
+    "imageAltHe": "איור לפסקה 168",
+    "captionHe": "אתה בודק כל נישה עבור אפשרי",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 169,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p169-scene.png",
+    "imageAltHe": "איור לפסקה 169",
+    "captionHe": "אתה דוחף את הדלת, היא נעולה, אבל המפתח בולט החוצה.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "big_gate_key"
+    ]
+  },
+  {
+    "paragraphId": 170,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p170-scene.png",
+    "imageAltHe": "איור לפסקה 170",
+    "captionHe": "צא מהאזור על ידי המשך הכביש ישר קדימה (153)",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 171,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p171-scene.png",
+    "imageAltHe": "איור לפסקה 171",
+    "captionHe": "אתה דוחף את הדלת, היא לא נעולה. אתה דופק ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 172,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p172-scene.png",
+    "imageAltHe": "איור לפסקה 172",
+    "captionHe": "אתה מתגנב לחלק האחורי של הבית. כאשר אתה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_common_man"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 173,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p173-scene.png",
+    "imageAltHe": "איור לפסקה 173",
+    "captionHe": "האדם הופך לפתע תוקפני.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 174,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p174-scene.png",
+    "imageAltHe": "איור לפסקה 174",
+    "captionHe": "אתה נתקע, תצטרך לחזור ולבחור אחד אחר.",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 175,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p175-scene.png",
+    "imageAltHe": "איור לפסקה 175",
+    "captionHe": "סעיף 175 (נדרש החזרה)",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 176,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p176-scene.png",
+    "imageAltHe": "איור לפסקה 176",
+    "captionHe": "נכנסים לבקתה שקירותיה כמעט",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_artist",
+      "npc_common_woman"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 177,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p177-scene.png",
+    "imageAltHe": "איור לפסקה 177",
+    "captionHe": "הלב שלך מחסיר פעימה כשאתה מרגיש את הארנק שלך.",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_arena_champion"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 178,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p178-scene.png",
+    "imageAltHe": "איור לפסקה 178",
+    "captionHe": "איש גדול כתפיים רחב בשריון מופיע בפנים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 179,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p179-scene.png",
+    "imageAltHe": "איור לפסקה 179",
+    "captionHe": "הצוהר בחלק העליון נפתח ועוד כמה מחוסרי הכרה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 180,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p180-scene.png",
+    "imageAltHe": "איור לפסקה 180",
+    "captionHe": "הם אומרים שהם פשוט עזבו את השיעורים שהוא נותן להם",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 181,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p181-scene.png",
+    "imageAltHe": "איור לפסקה 181",
+    "captionHe": "בקופסה קטנה על השולחן ליד אחד הקירות אתה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 182,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p182-scene.png",
+    "imageAltHe": "איור לפסקה 182",
+    "captionHe": "אתה רואה טלאי על הרגל במקום הזה! מהר, אתה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 183,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 183",
+    "captionHe": "הסוס נוחר בעצבנות כשאתה מתקרב אליו ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 184,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p184-scene.png",
+    "imageAltHe": "איור לפסקה 184",
+    "captionHe": "כשאתה מסתובב בפינה, אתה מבין בלב שוקע,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 185,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 185",
+    "captionHe": "אולי הקרב הסתיים בזמן שהיית בו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 186,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p186-scene.png",
+    "imageAltHe": "איור לפסקה 186",
+    "captionHe": "שניכם יושבים והוא שואל עליכם ועל העולם שמאחוריו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 187,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p187-scene.png",
+    "imageAltHe": "איור לפסקה 187",
+    "captionHe": "בכניסה לקפלה נתקלים באישה ו",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_child",
+      "npc_common_woman",
+      "npc_common_man"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 188,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p188-scene.png",
+    "imageAltHe": "איור לפסקה 188",
+    "captionHe": "אתה הולך לאחד משולחנות הקוביות כדי",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 189,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p189-scene.png",
+    "imageAltHe": "איור לפסקה 189",
+    "captionHe": "נשק רגיל לא פוגע ברוח־המוות",
+    "enemyIds": [
+      "enemy_018"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 190,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p190-scene.png",
+    "imageAltHe": "איור לפסקה 190",
+    "captionHe": "אתה ניגש למנהל ההימורים ושואל מה הוא מהמר",
+    "enemyIds": [
+      "enemy_019"
+    ],
+    "npcIds": [
+      "npc_barbarian"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 191,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 191",
+    "captionHe": "מגיעים למזלג שבו מתלכדים כמה דרכים.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 192,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p192-scene.png",
+    "imageAltHe": "איור לפסקה 192",
+    "captionHe": "הם צוחקים כשאתה מושך את הנשק שלך. אחד מהם",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 193,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p193-scene.png",
+    "imageAltHe": "איור לפסקה 193",
+    "captionHe": "אלוהים מדבר אליך דרך שפתיו של אליל:",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 194,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p194-scene.png",
+    "imageAltHe": "איור לפסקה 194",
+    "captionHe": "האיש לא מאמין לסיפור שלך. אתה רואה שהוא",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 195,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p195-scene.png",
+    "imageAltHe": "איור לפסקה 195",
+    "captionHe": "לאחר חיפוש בכיסי החזיר, אתה מוצא 10 זהב -",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 196,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p196-scene.png",
+    "imageAltHe": "איור לפסקה 196",
+    "captionHe": "כדאי שתסתלק מכאן ומהר, כי האוכלים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 197,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p197-scene.png",
+    "imageAltHe": "איור לפסקה 197",
+    "captionHe": "שוק הרחוב רועש בחוץ. אתה יכול ללכת יחד",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 198,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p198-scene.png",
+    "imageAltHe": "איור לפסקה 198",
+    "captionHe": "שמש הבוקר מאירה את הרחובות המתעוררים של ח'ארה.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 199,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p199-scene.png",
+    "imageAltHe": "איור לפסקה 199",
+    "captionHe": "אם קנית מצרכים, אתה יכול לשים אותם בתרמיל שלך,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 200,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p200-scene.png",
+    "imageAltHe": "איור לפסקה 200",
+    "captionHe": "זוהי אספקה ​​הגונה של שעווה. אם אתה משתמש בו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 201,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p201-scene.png",
+    "imageAltHe": "איור לפסקה 201",
+    "captionHe": "אתה עוזב את הרקדנים ועכשיו אתה יכול לצפות",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_arena_champion"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 202,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p202-scene.png",
+    "imageAltHe": "איור לפסקה 202",
+    "captionHe": "בעקבות הרחוב הזה, מגיעים להתפצלות. אתה יכול",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 203,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p203-scene.png",
+    "imageAltHe": "איור לפסקה 203",
+    "captionHe": "זהו ממצא אמיתי - נעילה עצמית קסומה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 204,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p204-scene.png",
+    "imageAltHe": "איור לפסקה 204",
+    "captionHe": "אתה מטפס על המדרגות המקיפות את האנדרטה ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 205,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p205-scene.png",
+    "imageAltHe": "איור לפסקה 205",
+    "captionHe": "מאיפה להתחיל? המקדש מעוטר בכל כך הרבה דברים יקרי ערך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 206,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p206-scene.png",
+    "imageAltHe": "איור לפסקה 206",
+    "captionHe": "אחרי שחיכית שהשומר יעזוב לנוח, אתה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 207,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p207-scene.png",
+    "imageAltHe": "איור לפסקה 207",
+    "captionHe": "\"זר, אני לא יודע איך להודות לך\", אומר",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_beggar",
+      "npc_elder"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 208,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p208-scene.png",
+    "imageAltHe": "איור לפסקה 208",
+    "captionHe": "אתה מתגנב בבית ובודק את החלונות. מאחורי אחד מ",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_sorcerer"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 209,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p209-scene.png",
+    "imageAltHe": "איור לפסקה 209",
+    "captionHe": "כשאתה מסיים לנוח אחרי קרב, אתה שומע",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder"
+    ],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 210,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p210-scene.png",
+    "imageAltHe": "איור לפסקה 210",
+    "captionHe": "הסוחר הציע לך בחירה בין דואר שרשרת או",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_merchant"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 211,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p211-scene.png",
+    "imageAltHe": "איור לפסקה 211",
+    "captionHe": "הלהב נופל וחותך את הראש שלך. ההרפתקה שלך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 212,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p212-scene.png",
+    "imageAltHe": "איור לפסקה 212",
+    "captionHe": "לא, זו לא נקודת תורפה. אבל בזמן שחיפשתם אותו, היצור",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 213,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p213-scene.png",
+    "imageAltHe": "איור לפסקה 213",
+    "captionHe": "אתה עוזב את הצריף, השומרים כבר לא נראים, ואתה יכול",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 214,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p214-scene.png",
+    "imageAltHe": "איור לפסקה 214",
+    "captionHe": "אתה מטיל את הכישוף ומחכה. הם רצים לך על הגב",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 215,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p215-scene.png",
+    "imageAltHe": "איור לפסקה 215",
+    "captionHe": "אם תסתכל סביב החדר, אתה בהכרח תיגע",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 216,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p216-scene.png",
+    "imageAltHe": "איור לפסקה 216",
+    "captionHe": "\"אם אתה רוצה למצוא חדר ללילה,\" הוא אומר, \"אז",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 217,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p217-scene.png",
+    "imageAltHe": "איור לפסקה 217",
+    "captionHe": "אתה זורק מטבע לבאר ורק אחרי כמה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_common_woman"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 218,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p218-scene.png",
+    "imageAltHe": "איור לפסקה 218",
+    "captionHe": "מציץ מעבר לפינת הבניין, אתה מחשיב את שלך",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 219,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p219-scene.png",
+    "imageAltHe": "איור לפסקה 219",
+    "captionHe": "תפוח אדום נופל מהארון שלרגליך. זה מאוד",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 220,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p220-scene.png",
+    "imageAltHe": "איור לפסקה 220",
+    "captionHe": "בדוק את מזלך. אם יש לך מזל - 106, חסר מזל - 6.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 221,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p221-scene.png",
+    "imageAltHe": "איור לפסקה 221",
+    "captionHe": "בסיר יש 18 מטבעות זהב. אתה מוציא אותם ולוקח אותם לעצמך.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 222,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p222-scene.png",
+    "imageAltHe": "איור לפסקה 222",
+    "captionHe": "קול מוכר נשמע מהקצה השני של החדר: \"שלום,",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_king"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 223,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p223-scene.png",
+    "imageAltHe": "איור לפסקה 223",
+    "captionHe": "אתה עושה צעד לכיוון היציאה. בתגובה, הוא תולש קשת מהקיר,",
+    "enemyIds": [
+      "enemy_007"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 224,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 224",
+    "captionHe": "אתה מחפש כל סימן למלכודות. מתקרבים לשלבים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 225,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p225-scene.png",
+    "imageAltHe": "איור לפסקה 225",
+    "captionHe": "הוא מופיע כעבור כמה דקות ופותח את השער פנימה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 226,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p226-scene.png",
+    "imageAltHe": "איור לפסקה 226",
+    "captionHe": "אוכל, נשק וכל מיני חפצי נוי - זה מה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "provisions",
+      "gold_coin",
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 227,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p227-scene.png",
+    "imageAltHe": "איור לפסקה 227",
+    "captionHe": "אתה חולם חלום מוזר, כאילו תפס אותך תליין עם",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_innkeeper"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 228,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p228-scene.png",
+    "imageAltHe": "איור לפסקה 228",
+    "captionHe": "בכפפות דואר אתה מרגיש מוזר",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 229,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p229-scene.png",
+    "imageAltHe": "איור לפסקה 229",
+    "captionHe": "אתה נותן לו את הנשק ונראה שהמעשה הזה הוא כן",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 230,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p230-scene.png",
+    "imageAltHe": "איור לפסקה 230",
+    "captionHe": "אתה עושה את דרכך בין הקהל הרחק מהריקוד, ומהצופים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 231,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p231-scene.png",
+    "imageAltHe": "איור לפסקה 231",
+    "captionHe": "אתה מנשק את שפתי האליל כשאתה שומע נקישה רכה.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 232,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 232",
+    "captionHe": "עשית פנייה לא נכונה והגעת למבוי סתום. שלבים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 233,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p233-scene.png",
+    "imageAltHe": "איור לפסקה 233",
+    "captionHe": "כשממשיכים בכביש הזה מבחינים שהבקתות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 234,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p234-scene.png",
+    "imageAltHe": "איור לפסקה 234",
+    "captionHe": "זירת קרב: ברברי נגד אוגר",
+    "enemyIds": [
+      "enemy_019",
+      "enemy_020"
+    ],
+    "npcIds": [
+      "npc_barbarian"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 235,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p235-scene.png",
+    "imageAltHe": "איור לפסקה 235",
+    "captionHe": "יש לך מזל מדהים, הבעלים של הסדנה עדיין לא",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 236,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p236-scene.png",
+    "imageAltHe": "איור לפסקה 236",
+    "captionHe": "אתה לוקח לגימה מהספל שלך ומלקק את הקצף מהשפתיים שלך. \"איך אני",
+    "enemyIds": [
+      "enemy_007"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 237,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 237",
+    "captionHe": "האם תפנה שמאלה (300) או תמשיך ישר (233)?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 238,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p238-scene.png",
+    "imageAltHe": "איור לפסקה 238",
+    "captionHe": "רכשת כפפות נשק שמצוידות בהן",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 239,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 239",
+    "captionHe": "ברגע שאתה עובר את האזור הקטן הזה, אתה מגיע",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 240,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p240-scene.png",
+    "imageAltHe": "איור לפסקה 240",
+    "captionHe": "אתה נכנס לאוהל ואדם מזוקן לא מטופח מקבל את פניך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 241,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p241-scene.png",
+    "imageAltHe": "איור לפסקה 241",
+    "captionHe": "אתה מטיל את הכישוף ומחכה. הם רצים לך על הגב",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 242,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p242-scene.png",
+    "imageAltHe": "איור לפסקה 242",
+    "captionHe": "אתה מנסה נואשות להתחיל שיחה, אבל מעשנים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 243,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p243-scene.png",
+    "imageAltHe": "איור לפסקה 243",
+    "captionHe": "הזולל מסתער עליך",
+    "enemyIds": [
+      "enemy_021"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 244,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p244-scene.png",
+    "imageAltHe": "איור לפסקה 244",
+    "captionHe": "אתה ממשיך הלאה, ומשאיר את המזלג מאחור, אחרי כמה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_arena_champion"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 245,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p245-scene.png",
+    "imageAltHe": "איור לפסקה 245",
+    "captionHe": "הנוודים האלה הם חבטה של",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 246,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p246-scene.png",
+    "imageAltHe": "איור לפסקה 246",
+    "captionHe": "הם מביטים זה בזה ומנידים בראשם. הם אף פעם",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 247,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p247-scene.png",
+    "imageAltHe": "איור לפסקה 247",
+    "captionHe": "האבק בתוך הבקבוק אינו אבק, אלא גרגרי חול. אַתָה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 248,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p248-scene.png",
+    "imageAltHe": "איור לפסקה 248",
+    "captionHe": "\"אחים ואחיות! - צועק הכומר. - יש לנו אחד חדש",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_priest"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 249,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p249-scene.png",
+    "imageAltHe": "איור לפסקה 249",
+    "captionHe": "הדלת נפתחת ואתה ממהר פנימה.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 250,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p250-scene.png",
+    "imageAltHe": "איור לפסקה 250",
+    "captionHe": "אתה נושם עמוק וצולל לתוך מגעיל",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 251,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p251-scene.png",
+    "imageAltHe": "איור לפסקה 251",
+    "captionHe": "אתה מוצא 5 חתיכות זהב בכיסי המתים. רעש בחוץ",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 252,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p252-scene.png",
+    "imageAltHe": "איור לפסקה 252",
+    "captionHe": "כפי שהכתובת מציעה, עליך לנשק את האליל",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 253,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p253-scene.png",
+    "imageAltHe": "איור לפסקה 253",
+    "captionHe": "הוא קונה לך עוד ספל בירה, ואתה שותה אותם.",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 254,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p254-scene.png",
+    "imageAltHe": "איור לפסקה 254",
+    "captionHe": "אתה נמצא בבית שער אבן קטן עם סורגים",
+    "enemyIds": [
+      "enemy_004"
+    ],
+    "npcIds": [
+      "npc_guards",
+      "npc_elder",
+      "npc_sorcerer",
+      "npc_bandit"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 255,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p255-scene.png",
+    "imageAltHe": "איור לפסקה 255",
+    "captionHe": "\"זה? - הוא מחייך.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 256,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p256-scene.png",
+    "imageAltHe": "איור לפסקה 256",
+    "captionHe": "הגוויה קמה לתחייה",
+    "enemyIds": [
+      "enemy_022"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 257,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 257",
+    "captionHe": "אתה יכול להשתמש בלחשים הבאים:",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 258,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p258-scene.png",
+    "imageAltHe": "איור לפסקה 258",
+    "captionHe": "בדוק את מזלך. אם התמזל מזלך, קפצת",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 259,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p259-scene.png",
+    "imageAltHe": "איור לפסקה 259",
+    "captionHe": "קניתם שיקוי מסתורי? אם כן, אתה יכול",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 260,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p260-scene.png",
+    "imageAltHe": "איור לפסקה 260",
+    "captionHe": "היום עובר, אבל עדיין אין שומרים. בא הלילה ואתה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 261,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 261",
+    "captionHe": "אתה מצטרף לקהל וצופה ברקדנים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 262,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p262-scene.png",
+    "imageAltHe": "איור לפסקה 262",
+    "captionHe": "גלגל את הקוביה כדי לגלות מה הם גנבו ממך:",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 263,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p263-scene.png",
+    "imageAltHe": "איור לפסקה 263",
+    "captionHe": "אתה עוזב את הפסטיבל, אבל בזמן שאתה חולף על פניו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "provisions",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 264,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p264-scene.png",
+    "imageAltHe": "איור לפסקה 264",
+    "captionHe": "סעיף 264 (נדרשת החזרה)",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 265,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 265",
+    "captionHe": "לא, זו לא נקודת התורפה של הפסל. יצור ענק",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 266,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p266-scene.png",
+    "imageAltHe": "איור לפסקה 266",
+    "captionHe": "אתה שם את אוזנך לפיו של האליל לשמוע את תשובת האל.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 267,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 267",
+    "captionHe": "אכלת לפחות פעם אחת אתמול? אם לא, אז בגלל רעב אתה מפסיד",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 268,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 268",
+    "captionHe": "הסוס דוהר לאורך הכביש, ואתה נואש",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 269,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p269-scene.png",
+    "imageAltHe": "איור לפסקה 269",
+    "captionHe": "המון התאסף סביב הגמד והדוב שלו. ביד אחת",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 270,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p270-scene.png",
+    "imageAltHe": "איור לפסקה 270",
+    "captionHe": "אתה מרחף באיטיות באוויר, מתהפך שוב ושוב.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 271,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p271-scene.png",
+    "imageAltHe": "איור לפסקה 271",
+    "captionHe": "אתה מתקרב לשער הצפוני החשוך של ח'ארה. IN",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 272,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p272-scene.png",
+    "imageAltHe": "איור לפסקה 272",
+    "captionHe": "קניתם בקבוק אבק? אם כן - 247. אם לא -259.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 273,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 273",
+    "captionHe": "בדוק את המיומנות שלך. אם מצליח - 313, לא מצליח",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 274,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p274-scene.png",
+    "imageAltHe": "איור לפסקה 274",
+    "captionHe": "\"תן לי לראות,\" הוא אומר. - למה אתה חושב",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 275,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 275",
+    "captionHe": "מתרחקים מהאנדרטה ומסתובבים בה בזהירות.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 276,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p276-scene.png",
+    "imageAltHe": "איור לפסקה 276",
+    "captionHe": "אתה נסוג לאחור, והרסיסים הקצוצים של המתים",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_child",
+      "npc_priest"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 277,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p277-scene.png",
+    "imageAltHe": "איור לפסקה 277",
+    "captionHe": "הם לועגים לך ולא מפחדים ממך בכלל. אַתָה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 278,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 278",
+    "captionHe": "לא, זו לא נקודת התורפה של הפסל. יצור ענק",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 279,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p279-scene.png",
+    "imageAltHe": "איור לפסקה 279",
+    "captionHe": "חתיכת גבינת עיזים עובשת נוחתת לרגליך.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 280,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p280-scene.png",
+    "imageAltHe": "איור לפסקה 280",
+    "captionHe": "אתה מחכה ולבסוף שומע דשדוש מרחוק.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 281,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p281-scene.png",
+    "imageAltHe": "איור לפסקה 281",
+    "captionHe": "אתה בולע את השיקוי ומחכה לראות מה יקרה. אתה מרגיש סחרחורת",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 282,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p282-scene.png",
+    "imageAltHe": "איור לפסקה 282",
+    "captionHe": "לאחר ששילם, אתה עולה במדרגות אל המיועד שלך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 283,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p283-scene.png",
+    "imageAltHe": "איור לפסקה 283",
+    "captionHe": "עיניו מצטמצמות כשהוא בוהה בהערכה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "provisions",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 284,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p284-scene.png",
+    "imageAltHe": "איור לפסקה 284",
+    "captionHe": "עכשיו אתה חייב לנשק אותו שוב. אבל איפה? אל המצח",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 285,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p285-scene.png",
+    "imageAltHe": "איור לפסקה 285",
+    "captionHe": "אתה זורק לו חתיכת זהב והוא מודה לך על האדיבות שלך.",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_beggar"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 286,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p286-scene.png",
+    "imageAltHe": "איור לפסקה 286",
+    "captionHe": "הם צוחקים על האדיבות שלך. אחד מהם",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 287,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p287-scene.png",
+    "imageAltHe": "איור לפסקה 287",
+    "captionHe": "הם מביטים זה בזה, מנסים בבירור להחליט אם הם יכולים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 288,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 288",
+    "captionHe": "הרגליים שלך לא נוגעות במשטח המעגל, אתה נופל",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 289,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p289-scene.png",
+    "imageAltHe": "איור לפסקה 289",
+    "captionHe": "הם אומרים לך שאתה הולך בכיוון הלא נכון. כדאי לך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 290,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 290",
+    "captionHe": "אתה מצליח לברוח מידיהם. הם פונים אליך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 291,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p291-scene.png",
+    "imageAltHe": "איור לפסקה 291",
+    "captionHe": "הם גוררים אותך לבית השער ודוחפים אותך פנימה, ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 292,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p292-scene.png",
+    "imageAltHe": "איור לפסקה 292",
+    "captionHe": "מתקרבים לקבוצה של כמה בקתות לאורך הכביש.",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 293,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p293-scene.png",
+    "imageAltHe": "איור לפסקה 293",
+    "captionHe": "ספרייט מאוד אסיר תודה לך ושואל איך הוא יכול",
+    "enemyIds": [
+      "enemy_024"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 294,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p294-scene.png",
+    "imageAltHe": "איור לפסקה 294",
+    "captionHe": "אתה הולך בכביש ואתה שומע",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 295,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p295-scene.png",
+    "imageAltHe": "איור לפסקה 295",
+    "captionHe": "אם אתה יכול להביא לי עוד מטבע,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 296,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p296-scene.png",
+    "imageAltHe": "איור לפסקה 296",
+    "captionHe": "עכשיו אתה חייב לנשק אותו שוב. אבל איפה? אל המצח",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 297,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p297-scene.png",
+    "imageAltHe": "איור לפסקה 297",
+    "captionHe": "נכנסים למרכז העיר, כאן מורגשים בתים ומבנים",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 298,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p298-scene.png",
+    "imageAltHe": "איור לפסקה 298",
+    "captionHe": "אתה במבוי סתום. אַתָה:",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 299,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p299-scene.png",
+    "imageAltHe": "איור לפסקה 299",
+    "captionHe": "הפסל מברונזה כמעט בלתי חדיר",
+    "enemyIds": [
+      "enemy_023"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 300,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p300-scene.png",
+    "imageAltHe": "איור לפסקה 300",
+    "captionHe": "אתה צועד בכביש שמצטמצם בהדרגה. קבוצת צעירים",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 301,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p301-scene.png",
+    "imageAltHe": "איור לפסקה 301",
+    "captionHe": "\"והשאלה היא...\", עושה הכומר הפסקה מרהיבה. מֶתַח",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder",
+      "npc_priest"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 302,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 302",
+    "captionHe": "האם אתה רוצה להטיל כישוף כדי לעצור את הקרב?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 303,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p303-scene.png",
+    "imageAltHe": "איור לפסקה 303",
+    "captionHe": "האיומים שלך לא מטרידים את היצור; זה לוקח צעד לקראתך.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 304,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 304",
+    "captionHe": "לחליל יש צליל נעים למדי, אבל אחרת",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 305,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p305-scene.png",
+    "imageAltHe": "איור לפסקה 305",
+    "captionHe": "מתחת למזרן בפינת החדר מוצאים מסכה שחורה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "black_mask"
+    ]
+  },
+  {
+    "paragraphId": 306,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p306-scene.png",
+    "imageAltHe": "איור לפסקה 306",
+    "captionHe": "הוא מקבל את ההצעה שלך, אתה הולך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 307,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p307-scene.png",
+    "imageAltHe": "איור לפסקה 307",
+    "captionHe": "אתה מתקרב ליצורים עם מראה מוזר מסביב למדורה.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 308,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p308-scene.png",
+    "imageAltHe": "איור לפסקה 308",
+    "captionHe": "אוכל מחזיר לך 2 נקודות סיבולת. עם זאת, אם",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder"
+    ],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 309,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p309-scene.png",
+    "imageAltHe": "איור לפסקה 309",
+    "captionHe": "כאשר אתה שואב את הנשק שלך, אחד מהם פוקח את עיניו. עֲבוּר",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 310,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p310-scene.png",
+    "imageAltHe": "איור לפסקה 310",
+    "captionHe": "אתה יכול להשתמש בלחשים הבאים:",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 311,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p311-scene.png",
+    "imageAltHe": "איור לפסקה 311",
+    "captionHe": "ספרייט ופיקסי פונים נגדך",
+    "enemyIds": [
+      "enemy_024",
+      "enemy_025"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 312,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p312-scene.png",
+    "imageAltHe": "איור לפסקה 312",
+    "captionHe": "אתה פותח את העיניים ומרגיש את הראש",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 313,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p313-scene.png",
+    "imageAltHe": "איור לפסקה 313",
+    "captionHe": "הטון שלך מפחיד את היצור, הוא נסוג לפינה, מאפשר",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 314,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p314-scene.png",
+    "imageAltHe": "איור לפסקה 314",
+    "captionHe": "עכשיו אתה חייב לנשק אותו שוב. אבל איפה? IN",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 315,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p315-scene.png",
+    "imageAltHe": "איור לפסקה 315",
+    "captionHe": "אני מבקש ממך את המטבע האחרון,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 316,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p316-scene.png",
+    "imageAltHe": "איור לפסקה 316",
+    "captionHe": "אתה מרחיק את היורים וממשיך בדרכך. בְּקָרוּב",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 317,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p317-scene.png",
+    "imageAltHe": "איור לפסקה 317",
+    "captionHe": "כעת אתה יכול לנסות להיכנס לקריפטה. פתח את זה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 318,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p318-scene.png",
+    "imageAltHe": "איור לפסקה 318",
+    "captionHe": "האיש המזוקן לוקח את הכסף שלך ולוחץ על הכפתור הקטן",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 319,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p319-scene.png",
+    "imageAltHe": "איור לפסקה 319",
+    "captionHe": "אתה עוזב את האזורים המרכזיים של העיר. רְחוֹב",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_beggar"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 320,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p320-scene.png",
+    "imageAltHe": "איור לפסקה 320",
+    "captionHe": "אתה רוכן קרוב יותר לבריכה ומצמיד את האוזן",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 321,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p321-scene.png",
+    "imageAltHe": "איור לפסקה 321",
+    "captionHe": "נלחם שניים נגד אחד",
+    "enemyIds": [
+      "enemy_024",
+      "enemy_025"
+    ],
+    "npcIds": [
+      "npc_fighter"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 322,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 322",
+    "captionHe": "הולכים על הכביש עד להתפצלות הבאה. משמאל אתה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 323,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p323-scene.png",
+    "imageAltHe": "איור לפסקה 323",
+    "captionHe": "הקרב מול מנצח הזירה",
+    "enemyIds": [
+      "enemy_019",
+      "enemy_020"
+    ],
+    "npcIds": [
+      "npc_barbarian",
+      "npc_herald",
+      "npc_arena_champion"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 324,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p324-scene.png",
+    "imageAltHe": "איור לפסקה 324",
+    "captionHe": "אתה נכנס לבקתה ועיניך מתרחבות",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_merchant"
+    ],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 325,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p325-scene.png",
+    "imageAltHe": "איור לפסקה 325",
+    "captionHe": "אתה משאיר את הטברנה מאחור. באור הבוקר אתה יכול לראות את זה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 326,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p326-scene.png",
+    "imageAltHe": "איור לפסקה 326",
+    "captionHe": "אתה לא יכול להזיק לאחד הענק הזה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 327,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p327-scene.png",
+    "imageAltHe": "איור לפסקה 327",
+    "captionHe": "אתה עוצר את הנשימה כאשר נוזל מלוכלך זורם",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 328,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p328-scene.png",
+    "imageAltHe": "איור לפסקה 328",
+    "captionHe": "סעיף 328 (נדרש החזרה)",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 329,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 329",
+    "captionHe": "כשהבריונים הצעירים האלה מתקרבים אליך, אתה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 330,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 330",
+    "captionHe": "אתה נלחם בכל הכוח, אבל הם מחזיקים אותך חזק ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 331,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p331-scene.png",
+    "imageAltHe": "איור לפסקה 331",
+    "captionHe": "אתה משלם לבעל הפונדק עבור ארוחת ערב והוא נעלם מאחור",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_bandit"
+    ],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 332,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p332-scene.png",
+    "imageAltHe": "איור לפסקה 332",
+    "captionHe": "הוא מביט בך בהערכה, מנסה להחליט כמה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 333,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p333-scene.png",
+    "imageAltHe": "איור לפסקה 333",
+    "captionHe": "אתה מרגיש ישנוני. אבל האם אתה יכול לסמוך על הזקן?",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards",
+      "npc_elder"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 334,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p334-scene.png",
+    "imageAltHe": "איור לפסקה 334",
+    "captionHe": "עכשיו אתה חייב לנשק אותו שוב. אבל איפה? אל המצח",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 335,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p335-scene.png",
+    "imageAltHe": "איור לפסקה 335",
+    "captionHe": "בקול צרוד, הפיקסי מודה לך על עזרתך. הוּא",
+    "enemyIds": [
+      "enemy_025"
+    ],
+    "npcIds": [
+      "npc_merchant",
+      "npc_priest"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 336,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p336-scene.png",
+    "imageAltHe": "איור לפסקה 336",
+    "captionHe": "אתה הולך אחריו לחדר העבודה שלו, חדר אלגנטי, פנימה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_child"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 337,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 337",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 338,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p338-scene.png",
+    "imageAltHe": "איור לפסקה 338",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה כופה את שלך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 339,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p339-scene.png",
+    "imageAltHe": "איור לפסקה 339",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך שעוות דבורים?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 340,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 340",
+    "captionHe": "אם אתה מתכוון להשתמש בקסם, אתה מפסיד 5 נקודות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 341,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p341-scene.png",
+    "imageAltHe": "איור לפסקה 341",
+    "captionHe": "הגובלין מתקרב לבקתה ונעלם בפנים. בעוד דקה",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 342,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p342-scene.png",
+    "imageAltHe": "איור לפסקה 342",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 343,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p343-scene.png",
+    "imageAltHe": "איור לפסקה 343",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 344,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 344",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 345,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p345-scene.png",
+    "imageAltHe": "איור לפסקה 345",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 346,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 346",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 347,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 347",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 348,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p348-scene.png",
+    "imageAltHe": "איור לפסקה 348",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 349,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p349-scene.png",
+    "imageAltHe": "איור לפסקה 349",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך מראה בזהב",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 350,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p350-scene.png",
+    "imageAltHe": "איור לפסקה 350",
+    "captionHe": "\"אתה מציע לי גובלין? - שואל בחוסר אמון",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 351,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p351-scene.png",
+    "imageAltHe": "איור לפסקה 351",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 352,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p352-scene.png",
+    "imageAltHe": "איור לפסקה 352",
+    "captionHe": "אתה יוצא מהזירה וויק עושה את דרכו דרך הקהל לעברך. אַתָה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_arena_champion"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 353,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 353",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה מטיל כישוף ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 354,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p354-scene.png",
+    "imageAltHe": "איור לפסקה 354",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך שן ענקית? אִם",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 355,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 355",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 356,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p356-scene.png",
+    "imageAltHe": "איור לפסקה 356",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 357,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 357",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 358,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p358-scene.png",
+    "imageAltHe": "איור לפסקה 358",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך חול? אִם לֹא,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 359,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p359-scene.png",
+    "imageAltHe": "איור לפסקה 359",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך שיני גובלין?",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 360,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 360",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מיישם את שלך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 361,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 361",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 362,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 362",
+    "captionHe": "אם אתה מתכוון להשתמש בקסם, אתה מפסיד 5 נקודות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 363,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p363-scene.png",
+    "imageAltHe": "איור לפסקה 363",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 364,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p364-scene.png",
+    "imageAltHe": "איור לפסקה 364",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 365,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p365-scene.png",
+    "imageAltHe": "איור לפסקה 365",
+    "captionHe": "זימון גובלינים משיניים",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [
+      "npc_beggar"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 366,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p366-scene.png",
+    "imageAltHe": "איור לפסקה 366",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה כופה את שלך",
+    "enemyIds": [
+      "enemy_007"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 367,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p367-scene.png",
+    "imageAltHe": "איור לפסקה 367",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "black_mask"
+    ]
+  },
+  {
+    "paragraphId": 368,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p368-scene.png",
+    "imageAltHe": "איור לפסקה 368",
+    "captionHe": "אתה מטיל כישוף על השיניים שלך, וכל אחד מהם",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 369,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p369-scene.png",
+    "imageAltHe": "איור לפסקה 369",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך במבוק",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_fighter"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 370,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p370-scene.png",
+    "imageAltHe": "איור לפסקה 370",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 371,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p371-scene.png",
+    "imageAltHe": "איור לפסקה 371",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה מפנה אצבע",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 372,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p372-scene.png",
+    "imageAltHe": "איור לפסקה 372",
+    "captionHe": "הוא ממליץ לך ללכת ישר לנמל. אַתָה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 373,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p373-scene.png",
+    "imageAltHe": "איור לפסקה 373",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה כופה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 374,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p374-scene.png",
+    "imageAltHe": "איור לפסקה 374",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 375,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p375-scene.png",
+    "imageAltHe": "איור לפסקה 375",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה מנסה לכפות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 376,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p376-scene.png",
+    "imageAltHe": "איור לפסקה 376",
+    "captionHe": "איבד נקודה אחת של סיבולת. האם יש לך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 377,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p377-scene.png",
+    "imageAltHe": "איור לפסקה 377",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 378,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p378-scene.png",
+    "imageAltHe": "איור לפסקה 378",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך בקבוק דבק?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 379,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 379",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 380,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p380-scene.png",
+    "imageAltHe": "איור לפסקה 380",
+    "captionHe": "ויק אומר לך איך להגיע לשומר של אחד מה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 381,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p381-scene.png",
+    "imageAltHe": "איור לפסקה 381",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder"
+    ],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 382,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p382-scene.png",
+    "imageAltHe": "איור לפסקה 382",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך מראה בזהב",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 383,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p383-scene.png",
+    "imageAltHe": "איור לפסקה 383",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה כופה את שלך",
+    "enemyIds": [
+      "enemy_007"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 384,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p384-scene.png",
+    "imageAltHe": "איור לפסקה 384",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה כופה את שלך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 385,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p385-scene.png",
+    "imageAltHe": "איור לפסקה 385",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 386,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p386-scene.png",
+    "imageAltHe": "איור לפסקה 386",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך שן גובלין?",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 387,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 387",
+    "captionHe": "איבד נקודה אחת של סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 388,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p388-scene.png",
+    "imageAltHe": "איור לפסקה 388",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך שן ענקית? אִם",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 389,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p389-scene.png",
+    "imageAltHe": "איור לפסקה 389",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 390,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p390-scene.png",
+    "imageAltHe": "איור לפסקה 390",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה כופה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 391,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p391-scene.png",
+    "imageAltHe": "איור לפסקה 391",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך אטמי אף?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 392,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p392-scene.png",
+    "imageAltHe": "איור לפסקה 392",
+    "captionHe": "אתה זוכר את דבריו של גלנדרגור: \"אם יש לך בחרה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 393,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p393-scene.png",
+    "imageAltHe": "איור לפסקה 393",
+    "captionHe": "האטת זולל הרפש",
+    "enemyIds": [
+      "enemy_013"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 394,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 394",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 395,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p395-scene.png",
+    "imageAltHe": "איור לפסקה 395",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה כופה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 396,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 396",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 397,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p397-scene.png",
+    "imageAltHe": "איור לפסקה 397",
+    "captionHe": "אתה ממלמל קללות כשהן באות אליך.",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 398,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 398",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 399,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p399-scene.png",
+    "imageAltHe": "איור לפסקה 399",
+    "captionHe": "אתה זוכר את דבריו של האיש הטוב גלנדרגור בבירריטנטי. אִם",
+    "enemyIds": [
+      "enemy_007",
+      "enemy_023"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin",
+      "black_mask"
+    ]
+  },
+  {
+    "paragraphId": 400,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p400-scene.png",
+    "imageAltHe": "איור לפסקה 400",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 401,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p401-scene.png",
+    "imageAltHe": "איור לפסקה 401",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך כובע בד?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 402,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 402",
+    "captionHe": "אם אתה מתכוון להשתמש בקסם, אתה מפסיד 5 נקודות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 403,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p403-scene.png",
+    "imageAltHe": "איור לפסקה 403",
+    "captionHe": "הגובלין נוהם לעבר הגמד וצועד קדימה. \"הא! - בלעג",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [
+      "npc_merchant",
+      "npc_child"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 404,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 404",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 405,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p405-scene.png",
+    "imageAltHe": "איור לפסקה 405",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 406,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p406-scene.png",
+    "imageAltHe": "איור לפסקה 406",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [
+      "enemy_007"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 407,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p407-scene.png",
+    "imageAltHe": "איור לפסקה 407",
+    "captionHe": "איבד נקודה אחת של סיבולת. כשאתה אומר",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 408,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 408",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 409,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 409",
+    "captionHe": "ויק מייעץ שאחרי שתעזוב את הפסטיבל, לך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 410,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 410",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 411,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p411-scene.png",
+    "imageAltHe": "איור לפסקה 411",
+    "captionHe": "זימון ענק נגד פסל הברונזה",
+    "enemyIds": [
+      "enemy_023"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 412,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p412-scene.png",
+    "imageAltHe": "איור לפסקה 412",
+    "captionHe": "בנשימה עצורה אתה מחכה לראות אם זה נכון",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_common_man"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 413,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 413",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 414,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p414-scene.png",
+    "imageAltHe": "איור לפסקה 414",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 415,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 415",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 416,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p416-scene.png",
+    "imageAltHe": "איור לפסקה 416",
+    "captionHe": "איבד נקודה אחת של סיבולת. האם יש לך שמש",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_fighter"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 417,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p417-scene.png",
+    "imageAltHe": "איור לפסקה 417",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 418,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p418-scene.png",
+    "imageAltHe": "איור לפסקה 418",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך כובע בד?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 419,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p419-scene.png",
+    "imageAltHe": "איור לפסקה 419",
+    "captionHe": "איבד נקודה אחת של סיבולת. האם יש לך תרופה כלשהי?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 420,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p420-scene.png",
+    "imageAltHe": "איור לפסקה 420",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך כובע בד?",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_fighter"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 421,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p421-scene.png",
+    "imageAltHe": "איור לפסקה 421",
+    "captionHe": "אתה מטיל את הכישוף ומחכה. הם רצים לך על הגב",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 422,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p422-scene.png",
+    "imageAltHe": "איור לפסקה 422",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך חול? אִם לֹא,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 423,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p423-scene.png",
+    "imageAltHe": "איור לפסקה 423",
+    "captionHe": "הגובלין שלך מתקרב לפסל. נביחות רמות מאחור",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 424,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 424",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 425,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p425-scene.png",
+    "imageAltHe": "איור לפסקה 425",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 426,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p426-scene.png",
+    "imageAltHe": "איור לפסקה 426",
+    "captionHe": "יש לך שיני גובלין? אם לא, הכישוף לא",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 427,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p427-scene.png",
+    "imageAltHe": "איור לפסקה 427",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך במבוק",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 428,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 428",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 429,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p429-scene.png",
+    "imageAltHe": "איור לפסקה 429",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה מטיל כישוף ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 430,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p430-scene.png",
+    "imageAltHe": "איור לפסקה 430",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 431,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p431-scene.png",
+    "imageAltHe": "איור לפסקה 431",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. הטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 432,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p432-scene.png",
+    "imageAltHe": "איור לפסקה 432",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 433,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 433",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 434,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p434-scene.png",
+    "imageAltHe": "איור לפסקה 434",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 435,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p435-scene.png",
+    "imageAltHe": "איור לפסקה 435",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה כופה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 436,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p436-scene.png",
+    "imageAltHe": "איור לפסקה 436",
+    "captionHe": "בפינה שלך אתה שומע קול מהקהל. \"ויק! ויק,",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 437,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 437",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 438,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 438",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 439,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 439",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 440,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p440-scene.png",
+    "imageAltHe": "איור לפסקה 440",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 441,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p441-scene.png",
+    "imageAltHe": "איור לפסקה 441",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך אבנים קטנות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 442,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p442-scene.png",
+    "imageAltHe": "איור לפסקה 442",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך מיץ פירות יער?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 443,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 443",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה כופה על החיה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 444,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 444",
+    "captionHe": "אתה שם כיפה ומטיל כישוף. אַתָה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 445,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p445-scene.png",
+    "imageAltHe": "איור לפסקה 445",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה כופה את שלך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 446,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p446-scene.png",
+    "imageAltHe": "איור לפסקה 446",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 447,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 447",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 448,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p448-scene.png",
+    "imageAltHe": "איור לפסקה 448",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 449,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p449-scene.png",
+    "imageAltHe": "איור לפסקה 449",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך שקית חול?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 450,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p450-scene.png",
+    "imageAltHe": "איור לפסקה 450",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 451,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p451-scene.png",
+    "imageAltHe": "איור לפסקה 451",
+    "captionHe": "הענק שלך כאלוף בזירה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_herald",
+      "npc_arena_champion",
+      "npc_fighter"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 452,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p452-scene.png",
+    "imageAltHe": "איור לפסקה 452",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 453,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p453-scene.png",
+    "imageAltHe": "איור לפסקה 453",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 454,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p454-scene.png",
+    "imageAltHe": "איור לפסקה 454",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 455,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p455-scene.png",
+    "imageAltHe": "איור לפסקה 455",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך בקבוק דבק?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 456,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p456-scene.png",
+    "imageAltHe": "איור לפסקה 456",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. הטלת כישוף ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 457,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p457-scene.png",
+    "imageAltHe": "איור לפסקה 457",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 458,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p458-scene.png",
+    "imageAltHe": "איור לפסקה 458",
+    "captionHe": "איבד נקודה אחת של סיבולת. אתה לא יכול להשתמש",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 459,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p459-scene.png",
+    "imageAltHe": "איור לפסקה 459",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "pearl_ring"
+    ]
+  },
+  {
+    "paragraphId": 460,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 460",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 461,
+    "tier": "high",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p461-scene.png",
+    "imageAltHe": "איור לפסקה 461",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה שם את זה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 462,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 462",
+    "captionHe": "אם אתה מתכוון להשתמש בקסם, אתה מפסיד 5 נקודות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 463,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p463-scene.png",
+    "imageAltHe": "איור לפסקה 463",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך מסכה שחורה?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword",
+      "gold_coin",
+      "black_mask"
+    ]
+  },
+  {
+    "paragraphId": 464,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 464",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 465,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 465",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 466,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 466",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 467,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 467",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 468,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p468-scene.png",
+    "imageAltHe": "איור לפסקה 468",
+    "captionHe": "עכשיו אתה:",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 469,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p469-scene.png",
+    "imageAltHe": "איור לפסקה 469",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך צמיד עצמות?",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_fighter"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 470,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 470",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 471,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p471-scene.png",
+    "imageAltHe": "איור לפסקה 471",
+    "captionHe": "יש לך שיני גובלין? אם לא, אתה לא יכול",
+    "enemyIds": [
+      "enemy_026"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 472,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p472-scene.png",
+    "imageAltHe": "איור לפסקה 472",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 473,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p473-scene.png",
+    "imageAltHe": "איור לפסקה 473",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מנסה לכפות",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 474,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p474-scene.png",
+    "imageAltHe": "איור לפסקה 474",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה מרים ידיים ו",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards",
+      "npc_elder"
+    ],
+    "itemIds": [
+      "bow_and_arrows"
+    ]
+  },
+  {
+    "paragraphId": 475,
+    "tier": "mandatory",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p475-scene.png",
+    "imageAltHe": "איור לפסקה 475",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מבטיח לשומרים",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": [
+      "gold_coin"
+    ]
+  },
+  {
+    "paragraphId": 476,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p476-scene.png",
+    "imageAltHe": "איור לפסקה 476",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה כופה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 477,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p477-scene.png",
+    "imageAltHe": "איור לפסקה 477",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך כובע בד?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 478,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 478",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 479,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p479-scene.png",
+    "imageAltHe": "איור לפסקה 479",
+    "captionHe": "שיחה עם זולל רפש באמצעות פאה",
+    "enemyIds": [
+      "enemy_013"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 480,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p480-scene.png",
+    "imageAltHe": "איור לפסקה 480",
+    "captionHe": "איבד נקודה אחת של סיבולת. אתה לא יכול להשתמש",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 481,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p481-scene.png",
+    "imageAltHe": "איור לפסקה 481",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 482,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 482",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 483,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p483-scene.png",
+    "imageAltHe": "איור לפסקה 483",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 484,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 484",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה כופה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 485,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 485",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך מיץ פירות יער?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 486,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 486",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 487,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p487-scene.png",
+    "imageAltHe": "איור לפסקה 487",
+    "captionHe": "אתם יורדים מהאונייה לגדה הקרובה ביותר של נהר ה-Djabaji",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 488,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p488-scene.png",
+    "imageAltHe": "איור לפסקה 488",
+    "captionHe": "טלפתיה שלא עובדת על זולל רפש",
+    "enemyIds": [
+      "enemy_013"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 489,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p489-scene.png",
+    "imageAltHe": "איור לפסקה 489",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך במבוק",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 490,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p490-scene.png",
+    "imageAltHe": "איור לפסקה 490",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. חופר בתרמיל שלך, אתה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "provisions"
+    ]
+  },
+  {
+    "paragraphId": 491,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p491-scene.png",
+    "imageAltHe": "איור לפסקה 491",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 492,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p492-scene.png",
+    "imageAltHe": "איור לפסקה 492",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 493,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p493-scene.png",
+    "imageAltHe": "איור לפסקה 493",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 494,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 494",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 495,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p495-scene.png",
+    "imageAltHe": "איור לפסקה 495",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך כובע בד?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 496,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p496-scene.png",
+    "imageAltHe": "איור לפסקה 496",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. הטלת כישוף ו",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 497,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p497-scene.png",
+    "imageAltHe": "איור לפסקה 497",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. יש לך מסכה שחורה?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "black_mask"
+    ]
+  },
+  {
+    "paragraphId": 498,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p498-scene.png",
+    "imageAltHe": "איור לפסקה 498",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך כובע בד?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 499,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p499-scene.png",
+    "imageAltHe": "איור לפסקה 499",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך מיץ פירות יער?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 500,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p500-scene.png",
+    "imageAltHe": "איור לפסקה 500",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך מסכה שחורה?",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "black_mask"
+    ]
+  },
+  {
+    "paragraphId": 501,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p501-scene.png",
+    "imageAltHe": "איור לפסקה 501",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 502,
+    "tier": "high",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p502-scene.png",
+    "imageAltHe": "איור לפסקה 502",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 503,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 503",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה מטיל כישוף",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 504,
+    "tier": "mandatory",
+    "sceneType": "item",
+    "imageSrc": "/assets/generated/paragraphs/p504-scene.png",
+    "imageAltHe": "איור לפסקה 504",
+    "captionHe": "איבד נקודה אחת של סיבולת. בשביל הכישוף הזה אתה צריך",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_elder"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 505,
+    "tier": "mandatory",
+    "sceneType": "combat",
+    "imageSrc": "/assets/generated/paragraphs/p505-scene.png",
+    "imageAltHe": "איור לפסקה 505",
+    "captionHe": "הגובלינים לא מצליחים להגיע לזולל הרפש",
+    "enemyIds": [
+      "enemy_013",
+      "enemy_026"
+    ],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 506,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p506-scene.png",
+    "imageAltHe": "איור לפסקה 506",
+    "captionHe": "אתה מאבד 2 נקודות סיבולת. אתה כופה",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 507,
+    "tier": "mandatory",
+    "sceneType": "dialogue",
+    "imageSrc": "/assets/generated/paragraphs/p507-scene.png",
+    "imageAltHe": "איור לפסקה 507",
+    "captionHe": "אתה מאבד 4 נקודות סיבולת. אתה שם את זה",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_fighter"
+    ],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 508,
+    "tier": "high",
+    "sceneType": "location",
+    "imageSrc": "/assets/generated/paragraphs/p508-scene.png",
+    "imageAltHe": "איור לפסקה 508",
+    "captionHe": "איבד נקודה אחת של סיבולת. יש לך מדליון עם",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 509,
+    "tier": "optional",
+    "sceneType": "narrative",
+    "imageAltHe": "איור לפסקה 509",
+    "captionHe": "אתה מאבד 5 נקודות סיבולת. כישוף כזה הוא פשוט",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": []
+  },
+  {
+    "paragraphId": 510,
+    "tier": "mandatory",
+    "sceneType": "narrative",
+    "imageSrc": "/assets/generated/paragraphs/p510-scene.png",
+    "imageAltHe": "איור לפסקה 510",
+    "captionHe": "איבד נקודה אחת של סיבולת. אתה מטיל כישוף, אבל",
+    "enemyIds": [],
+    "npcIds": [],
+    "itemIds": [
+      "sword"
+    ]
+  },
+  {
+    "paragraphId": 511,
+    "tier": "mandatory",
+    "sceneType": "ending",
+    "imageSrc": "/assets/generated/paragraphs/p511-scene.png",
+    "imageAltHe": "איור לפסקה 511",
+    "captionHe": "השער נפתח לאט מולך. התגברת",
+    "enemyIds": [],
+    "npcIds": [
+      "npc_guards",
+      "npc_common_man"
+    ],
+    "itemIds": []
+  }
+]

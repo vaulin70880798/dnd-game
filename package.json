@@ -6,7 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:data": "node --import tsx scripts/validateBookData.ts",
+    "ingest:data": "node --import tsx scripts/ingestBookFromTxt.ts",
+    "extract:enemies": "node --import tsx scripts/extractEnemiesFromParagraphs.ts",
+    "structure:combats": "node --import tsx scripts/structureCombats.ts",
+    "translate:he": "python3 scripts/translateRuToHe.py",
+    "generate:paragraph-illustrations": "./scripts/generateParagraphIllustrations.sh",
+    "images:plan": "node --import tsx scripts/buildVisualGenerationPlan.ts",
+    "images:apply-plan": "node --import tsx scripts/applyVisualPlanToData.ts",
+    "images:generate-all-medium": "./scripts/generateAllPlannedImages.sh"
   },
   "dependencies": {
     "next": "16.2.6",
@@ -21,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
+    "tsx": "^4.22.4",
     "typescript": "^5"
   }
 }

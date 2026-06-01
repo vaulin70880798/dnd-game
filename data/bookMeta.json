@@ -1,0 +1,23 @@
+{
+  "bookId": "sorcery-2-khare-ru-private",
+  "titleHe": "חאר – עיר המלכודות",
+  "titleOriginal": "Khare: Cityport of Traps",
+  "series": "Fighting Fantasy Sorcery!",
+  "part": 2,
+  "author": "Steve Jackson",
+  "edition": "מקור OCR ברוסית",
+  "language": "he",
+  "rtl": true,
+  "startParagraphId": 1,
+  "contentStatus": "הוטמע ותורגם לעברית, נדרשת הגהה ידנית",
+  "assets": {
+    "characterSheet": "/assets/generated/hero-character-sheet.png",
+    "combatSheet": "/assets/generated/combat-sheet.png",
+    "worldMap": "/assets/generated/world-map-ancient.png"
+  },
+  "copyright": {
+    "licenseType": "private-use-only",
+    "allowPublicDistribution": false,
+    "notesHe": "הטקסט והאיורים נטענו לשימוש פרטי בלבד. לפרסום פומבי נדרש אישור מפורש מבעלי הזכויות."
+  }
+}

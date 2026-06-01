@@ -1,0 +1,416 @@
+[
+  {
+    "id": "enemy_001",
+    "nameHe": "ראש",
+    "skill": 3,
+    "stamina": 1,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      11
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_001.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_002",
+    "nameHe": "גו",
+    "skill": 2,
+    "stamina": 1,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      11
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_002.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_003",
+    "nameHe": "יד שמאל",
+    "skill": 3,
+    "stamina": 1,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      11
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_003.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_004",
+    "nameHe": "יד ימין",
+    "skill": 3,
+    "stamina": 1,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      11
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_004.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_005",
+    "nameHe": "רגל שמאל",
+    "skill": 2,
+    "stamina": 1,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      11
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_005.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_006",
+    "nameHe": "רגל ימין",
+    "skill": 2,
+    "stamina": 1,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      11
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_006.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_007",
+    "nameHe": "וונגורן",
+    "skill": 7,
+    "stamina": 8,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      13
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_007.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_008",
+    "nameHe": "מברשת קסומה",
+    "skill": 8,
+    "stamina": 5,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "המברשת מתחמקת בלבד ואינה גורמת נזק ישיר.",
+      "אם לא מושמדת בתוך 5 סיבובים הדיוקן מושלם."
+    ],
+    "sourceParagraphIds": [
+      44
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_008.png",
+    "summaryHe": "המברשת מתחמקת בלבד ואינה גורמת נזק ישיר."
+  },
+  {
+    "id": "enemy_009",
+    "nameHe": "איש־גמל־שלמה",
+    "skill": 6,
+    "stamina": 5,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "בתחילת כל סיבוב: אם 2ק6 קטן מהמיומנות שלו, הדמות נתפסת ומתה."
+    ],
+    "sourceParagraphIds": [
+      55,
+      76
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_009.png",
+    "summaryHe": "בתחילת כל סיבוב: אם 2ק6 קטן מהמיומנות שלו, הדמות נתפסת ומתה."
+  },
+  {
+    "id": "enemy_010",
+    "nameHe": "אלף שחור ראשון",
+    "skill": 6,
+    "stamina": 5,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "עשן דאטורה: אחרי כל פגיעה מצליחה מגלגלים קובייה; פגיעה תקפה רק בתוצאה זוגית."
+    ],
+    "sourceParagraphIds": [
+      58
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_010.png",
+    "summaryHe": "עשן דאטורה: אחרי כל פגיעה מצליחה מגלגלים קובייה; פגיעה תקפה רק בתוצאה זוגית."
+  },
+  {
+    "id": "enemy_011",
+    "nameHe": "אלף שחור שני",
+    "skill": 7,
+    "stamina": 4,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "עשן דאטורה: אחרי כל פגיעה מצליחה מגלגלים קובייה; פגיעה תקפה רק בתוצאה זוגית."
+    ],
+    "sourceParagraphIds": [
+      58
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_011.png",
+    "summaryHe": "עשן דאטורה: אחרי כל פגיעה מצליחה מגלגלים קובייה; פגיעה תקפה רק בתוצאה זוגית."
+  },
+  {
+    "id": "enemy_012",
+    "nameHe": "אלף שחור שלישי",
+    "skill": 5,
+    "stamina": 5,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "עשן דאטורה: אחרי כל פגיעה מצליחה מגלגלים קובייה; פגיעה תקפה רק בתוצאה זוגית."
+    ],
+    "sourceParagraphIds": [
+      58
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_012.png",
+    "summaryHe": "עשן דאטורה: אחרי כל פגיעה מצליחה מגלגלים קובייה; פגיעה תקפה רק בתוצאה זוגית."
+  },
+  {
+    "id": "enemy_013",
+    "nameHe": "זולל רפש",
+    "skill": 7,
+    "stamina": 11,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "בחלק מהפסקאות מיומנותו יורדת ל־4 בארבעת הסיבובים הראשונים."
+    ],
+    "sourceParagraphIds": [
+      77,
+      393,
+      479,
+      488,
+      505
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_013.png",
+    "summaryHe": "בחלק מהפסקאות מיומנותו יורדת ל־4 בארבעת הסיבובים הראשונים."
+  },
+  {
+    "id": "enemy_014",
+    "nameHe": "חיה קוצנית",
+    "skill": 5,
+    "stamina": 7,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      95
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_014.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_015",
+    "nameHe": "ארפיה ראשונה",
+    "skill": 7,
+    "stamina": 6,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      118
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_015.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_016",
+    "nameHe": "ארפיה שנייה",
+    "skill": 6,
+    "stamina": 6,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      118
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_016.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_017",
+    "nameHe": "סווינן",
+    "skill": 8,
+    "stamina": 7,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "כאשר סיבולת הדמות 5 או פחות, הסווינן מנצח גם בשוויון עוצמת התקפה."
+    ],
+    "sourceParagraphIds": [
+      119
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_017.png",
+    "summaryHe": "כאשר סיבולת הדמות 5 או פחות, הסווינן מנצח גם בשוויון עוצמת התקפה."
+  },
+  {
+    "id": "enemy_018",
+    "nameHe": "רוח־מוות",
+    "skill": 9,
+    "stamina": 8,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "בדרך כלל חסין לנשק רגיל; פגיעה דורשת תנאים מיוחדים בהתאם לפסקה."
+    ],
+    "sourceParagraphIds": [
+      147,
+      151,
+      189
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_018.png",
+    "summaryHe": "בדרך כלל חסין לנשק רגיל; פגיעה דורשת תנאים מיוחדים בהתאם לפסקה."
+  },
+  {
+    "id": "enemy_019",
+    "nameHe": "ברברי",
+    "skill": 8,
+    "stamina": 8,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      234,
+      323
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_019.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_020",
+    "nameHe": "אוגר",
+    "skill": 9,
+    "stamina": 12,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      234,
+      323
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_020.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_021",
+    "nameHe": "הזולל",
+    "skill": 6,
+    "stamina": 7,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      243
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_021.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_022",
+    "nameHe": "גוויה שקמה לתחייה",
+    "skill": 6,
+    "stamina": 6,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      256
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_022.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_023",
+    "nameHe": "פסל ברונזה",
+    "skill": 10,
+    "stamina": 15,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "בחלק מהפסקאות המעבר הוא אחרי הפגיעה המוצלחת הראשונה, לא אחרי הכרעה מלאה."
+    ],
+    "sourceParagraphIds": [
+      299,
+      411
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_023.png",
+    "summaryHe": "בחלק מהפסקאות המעבר הוא אחרי הפגיעה המוצלחת הראשונה, לא אחרי הכרעה מלאה."
+  },
+  {
+    "id": "enemy_024",
+    "nameHe": "ספרייט",
+    "skill": 5,
+    "stamina": 6,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "בקרבות רחוב מסוימים נמלט/נכנע כשסיבולת יורדת ל־2."
+    ],
+    "sourceParagraphIds": [
+      311,
+      321
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_024.png",
+    "summaryHe": "בקרבות רחוב מסוימים נמלט/נכנע כשסיבולת יורדת ל־2."
+  },
+  {
+    "id": "enemy_025",
+    "nameHe": "פיקסי",
+    "skill": 5,
+    "stamina": 5,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [
+      "בקרבות רחוב מסוימים נמלט/נכנע כשסיבולת יורדת ל־2."
+    ],
+    "sourceParagraphIds": [
+      311,
+      321
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_025.png",
+    "summaryHe": "בקרבות רחוב מסוימים נמלט/נכנע כשסיבולת יורדת ל־2."
+  },
+  {
+    "id": "enemy_026",
+    "nameHe": "גובלין",
+    "skill": 5,
+    "stamina": 5,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      365
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_026.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  },
+  {
+    "id": "enemy_027",
+    "nameHe": "ענק",
+    "skill": 8,
+    "stamina": 9,
+    "armor": 0,
+    "damageOnHit": 2,
+    "specialRules": [],
+    "sourceParagraphIds": [
+      411,
+      451
+    ],
+    "imageSrc": "/assets/generated/characters/enemy_027.png",
+    "summaryHe": "אויב מסוכן בעיר המלכודות."
+  }
+]

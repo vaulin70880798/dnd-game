@@ -1,0 +1,98 @@
+{
+  "titleHe": "חוקי המשחק: חאר – עיר המלכודות",
+  "sourceEdition": "Sorcery! ספר 2 (יבוא OCR מרוסית)",
+  "statsLabels": {
+    "skill": "מיומנות",
+    "stamina": "סיבולת",
+    "luck": "מזל",
+    "gold": "זהב",
+    "food": "אספקה"
+  },
+  "dice": {
+    "combat": {
+      "count": 2,
+      "sides": 6
+    },
+    "luckTest": {
+      "count": 2,
+      "sides": 6
+    },
+    "skillTest": {
+      "count": 2,
+      "sides": 6
+    }
+  },
+  "combat": {
+    "attackFormula": "skillPlus2d6",
+    "baseDamageToLoser": 2,
+    "luckMode": "book-defined",
+    "multiEnemyModes": [
+      "single-opponent-at-a-time",
+      "simultaneous-opponents",
+      "paragraph-specific-rules"
+    ]
+  },
+  "luck": {
+    "consumeOnUse": 1,
+    "successComparator": "lte",
+    "combatModifiers": {
+      "onPlayerHitLuckSuccess": "+2 enemy stamina damage",
+      "onPlayerHitLuckFail": "enemy loses 1 instead of 2",
+      "onEnemyHitLuckSuccess": "player loses 1 instead of 2",
+      "onEnemyHitLuckFail": "player loses 3 instead of 2"
+    }
+  },
+  "staminaFloor": 0,
+  "supportsProvisions": true,
+  "characterCreation": {
+    "modes": [
+      "warrior_simple",
+      "wizard_advanced"
+    ],
+    "warrior": {
+      "skill": "1d6+6",
+      "stamina": "2d6+12",
+      "luck": "1d6+6"
+    },
+    "wizard": {
+      "skill": "1d6+4",
+      "stamina": "2d6+12",
+      "luck": "1d6+6"
+    },
+    "maxStatsBoundedByInitial": true
+  },
+  "equipment": {
+    "start": {
+      "weapon": "חרב",
+      "bag": "תרמיל",
+      "gold": 20,
+      "provisions": 2,
+      "spellbookCarryAllowed": false
+    }
+  },
+  "libra": {
+    "availablePerBookPart": 1,
+    "abilities": [
+      "restore_all_stats_to_initial",
+      "escape_or_rescue_when_prompted",
+      "remove_curses_and_diseases"
+    ]
+  },
+  "magic": {
+    "enabledInAdvancedMode": true,
+    "requiresMemorizedSpellCodes": true,
+    "costsStamina": true,
+    "spellbookReadableAfterStart": false,
+    "notes": [
+      "כללי הקסם המלאים מופיעים בספר לחשים נפרד.",
+      "ביבוא הנוכחי קודי הלחשים נשמרו בתוך טקסט הפסקאות ודורשים מיפוי מובנה נוסף."
+    ]
+  },
+  "notes": [
+    "השחקן מת כאשר הסיבולת יורדת ל־0.",
+    "הערכים הנוכחיים אינם אמורים לעבור את ערכי הבסיס אלא אם פסקה מורה מפורשות אחרת.",
+    "בדיקת מיומנות אינה מפחיתה מיומנות.",
+    "בדיקת מזל תמיד מפחיתה נקודת מזל אחת."
+  ],
+  "requiresSourceVerification": true
+}

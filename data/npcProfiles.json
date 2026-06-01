@@ -1,0 +1,104 @@
+[
+  {
+    "id": "npc_guards",
+    "labelHe": "שומרים",
+    "summaryHe": "שומרי העיר הממושטרים בשערים וברחובות, חשדניים אך ניתנים לשכנוע או שוחד.",
+    "imageSrc": "/assets/generated/characters/npc_guards.png"
+  },
+  {
+    "id": "npc_bandit",
+    "labelHe": "שודד",
+    "summaryHe": "עבריין רחוב ערמומי שפועל מהצללים ומחפש הזדמנות מהירה לרווח.",
+    "imageSrc": "/assets/generated/characters/npc_bandit.png"
+  },
+  {
+    "id": "npc_artist",
+    "labelHe": "אמן",
+    "summaryHe": "אמן מקומי עם כשרון יוצא דופן, לעיתים משלב קסם מסוכן בתוך יצירותיו.",
+    "imageSrc": "/assets/generated/characters/npc_artist.png"
+  },
+  {
+    "id": "npc_elder",
+    "labelHe": "זקן",
+    "summaryHe": "זקן מקומי שמחזיק שמועות, עצות או מלכודות מוסריות בהתאם לדרך הפעולה שלך.",
+    "imageSrc": "/assets/generated/characters/npc_elder.png"
+  },
+  {
+    "id": "npc_arena_champion",
+    "labelHe": "אלוף זירה",
+    "summaryHe": "לוחם מנוסה שמייצג כוח, כבוד והימורים בזירת הקרבות של חאר.",
+    "imageSrc": "/assets/generated/characters/npc_arena_champion.png"
+  },
+  {
+    "id": "npc_barbarian",
+    "labelHe": "ברברי",
+    "summaryHe": "לוחם פראי וחזק שתוקף ישירות בלי תחכום, אך עם עוצמה גבוהה.",
+    "imageSrc": "/assets/generated/characters/npc_barbarian.png"
+  },
+  {
+    "id": "npc_common_man",
+    "labelHe": "גבר",
+    "summaryHe": "דמות אזרחית גברית מהעיר, לעיתים מועילה ולעיתים מסתירה כוונה אחרת.",
+    "imageSrc": "/assets/generated/characters/npc_common_man.png"
+  },
+  {
+    "id": "npc_priest",
+    "labelHe": "כוהן",
+    "summaryHe": "איש דת או פולחן שמציע ברכה, מידע או דרישה תמורת אמון ומשאבים.",
+    "imageSrc": "/assets/generated/characters/npc_priest.png"
+  },
+  {
+    "id": "npc_sorcerer",
+    "labelHe": "מכשף",
+    "summaryHe": "מטיל לחשים עם ידע מסוכן, עשוי לספק כוח או להכניס אותך לסיכון קסום.",
+    "imageSrc": "/assets/generated/characters/npc_sorcerer.png"
+  },
+  {
+    "id": "npc_beggar",
+    "labelHe": "קבצן",
+    "summaryHe": "עני רחוב חד־עין שיודע יותר ממה שנראה, ולעיתים מחזיק רמז קריטי.",
+    "imageSrc": "/assets/generated/characters/npc_beggar.png"
+  },
+  {
+    "id": "npc_common_woman",
+    "labelHe": "אישה",
+    "summaryHe": "דמות אזרחית נשית בחאר, יכולה להיות מקור עזרה, פיתוי או הונאה.",
+    "imageSrc": "/assets/generated/characters/npc_common_woman.png"
+  },
+  {
+    "id": "npc_child",
+    "labelHe": "ילד",
+    "summaryHe": "ילד רחוב זריז שמבחין בפרטים קטנים ויכול להכווין אותך בדרכים לא צפויות.",
+    "imageSrc": "/assets/generated/characters/npc_child.png"
+  },
+  {
+    "id": "npc_merchant",
+    "labelHe": "סוחר",
+    "summaryHe": "סוחר מקומי שמציע סחורה, עסקאות או מידע תמורת תשלום או שירות.",
+    "imageSrc": "/assets/generated/characters/npc_merchant.png"
+  },
+  {
+    "id": "npc_king",
+    "labelHe": "מלך",
+    "summaryHe": "דמות סמכותית נדירה שמסמלת עוצמה פוליטית או איום אסטרטגי.",
+    "imageSrc": "/assets/generated/characters/npc_king.png"
+  },
+  {
+    "id": "npc_innkeeper",
+    "labelHe": "בעל פונדק",
+    "summaryHe": "מנהל פונדק שמספק מנוחה, רכילות והזדמנויות מסוכנות מאחורי הקלעים.",
+    "imageSrc": "/assets/generated/characters/npc_innkeeper.png"
+  },
+  {
+    "id": "npc_fighter",
+    "labelHe": "לוחם",
+    "summaryHe": "איש קרב מיומן שמבחן הכוח מולו קובע גורל התקדמות או נסיגה.",
+    "imageSrc": "/assets/generated/characters/npc_fighter.png"
+  },
+  {
+    "id": "npc_herald",
+    "labelHe": "כרוז",
+    "summaryHe": "מודיע רשמי בזירה או ברחוב שמכוון קהל, הימורים וסדר אירועים.",
+    "imageSrc": "/assets/generated/characters/npc_herald.png"
+  }
+]
