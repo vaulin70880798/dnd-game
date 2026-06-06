@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>תצוגת קאברים — קמפיינים 1-3</title>
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --surface: #1c1c1e;
+        --gold: #ff9f0a;
+        --text: #f5f5f5;
+        --muted: rgba(255, 255, 255, 0.7);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 15% 10%, rgba(255,159,10,.15), transparent 35%),
+          radial-gradient(circle at 85% 15%, rgba(70,94,120,.22), transparent 38%),
+          var(--bg);
+      }
+      .wrap {
+        width: min(1200px, 95vw);
+        margin: 24px auto 40px;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(28px, 4vw, 42px);
+      }
+      p {
+        margin: 0 0 20px;
+        color: var(--muted);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 14px;
+      }
+      .card {
+        background: linear-gradient(160deg, rgba(28,28,30,.95), rgba(12,12,14,.95));
+        border: .5px solid rgba(255,159,10,.5);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 0 18px rgba(255,159,10,.2);
+      }
+      .cover {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .body {
+        padding: 10px 12px 12px;
+      }
+      .title {
+        margin: 0 0 6px;
+        font-size: 21px;
+      }
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .url {
+        margin-top: 8px;
+        font-size: 11px;
+        color: rgba(255,255,255,.45);
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>תצוגת תמונות AI — קמפיינים 1–3</h1>
+      <p>ספק חינמי: Pollinations.ai (מודל Flux). אם תמונה לא נטענת, מרעננים או משנים seed.</p>
+
+      <section class="grid">
+        <article class="card">
+          <img
+            class="cover"
+            alt="עיר ללא שחר, ניו־יורק 1983"
+            src="https://image.pollinations.ai/prompt/1980s%20new%20york%20noir%20murder%20mystery%20rainy%20night%20cinematic%20dark%20fantasy?model=flux&width=1280&height=720&nologo=true&seed=3101"
+          />
+          <div class="body">
+            <h2 class="title">עיר ללא שחר, ניו־יורק 1983</h2>
+            <p class="subtitle">נואר רצח על-טבעי בעיר מודרנית</p>
+            <div class="url">seed: 3101</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img
+            class="cover"
+            alt="כתר הגובלין השביעי"
+            src="https://image.pollinations.ai/prompt/goblin%20kingdom%20political%20struggle%20underground%20throne%20hall%20embers%20cinematic?model=flux&width=1280&height=720&nologo=true&seed=3102"
+          />
+          <div class="body">
+            <h2 class="title">כתר הגובלין השביעי</h2>
+            <p class="subtitle">פוליטיקה שבטית ומלחמת ירושה אפלה</p>
+            <div class="url">seed: 3102</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img
+            class="cover"
+            alt="שעוני האפס של ברקפלד"
+            src="https://image.pollinations.ai/prompt/steampunk%20city%20time%20bank%20clockwork%20heist%20cosmic%20horror%20cinematic?model=flux&width=1280&height=720&nologo=true&seed=3103"
+          />
+          <div class="body">
+            <h2 class="title">שעוני האפס של ברקפלד</h2>
+            <p class="subtitle">שוד-זמן סטימפאנקי עם אימה קוסמית</p>
+            <div class="url">seed: 3103</div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
