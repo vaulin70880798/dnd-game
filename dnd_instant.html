@@ -6,20 +6,20 @@
     <title>שער הכרוניקות | מבוכים ודרקונים 5e</title>
     <style>
       :root {
-        --bg: #0d141c;
-        --bg-soft: #1b2430;
-        --panel: rgba(16, 23, 34, 0.93);
-        --panel-strong: rgba(10, 16, 24, 0.97);
-        --text: #f1e3c2;
-        --text-soft: #ceb98f;
-        --gold: #c79641;
-        --gold-soft: #e4be76;
-        --line: rgba(228, 190, 118, 0.28);
-        --blue: #8ec6f3;
-        --ok: #6bc18f;
-        --warn: #e5aa52;
-        --danger: #ce6958;
-        --shadow: 0 18px 46px rgba(0, 0, 0, 0.5);
+        --bg: #05070b;
+        --bg-soft: #0e131b;
+        --panel: rgba(17, 23, 32, 0.8);
+        --panel-strong: rgba(12, 16, 24, 0.9);
+        --text: #f2f5fb;
+        --text-soft: #aab5c7;
+        --gold: #d3a96a;
+        --gold-soft: #f3ca8d;
+        --line: rgba(255, 255, 255, 0.12);
+        --blue: #9ec8ff;
+        --ok: #68cf9a;
+        --warn: #f0bd64;
+        --danger: #e0716c;
+        --shadow: 0 24px 56px rgba(0, 0, 0, 0.45);
       }
 
       * {
@@ -37,10 +37,11 @@
         font-family: "Segoe UI", Arial, sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at 14% 8%, rgba(199, 150, 65, 0.18), transparent 36%),
-          radial-gradient(circle at 84% 16%, rgba(89, 129, 164, 0.22), transparent 39%),
-          radial-gradient(circle at 75% 86%, rgba(66, 90, 114, 0.23), transparent 35%),
+          radial-gradient(circle at 12% 8%, rgba(211, 169, 106, 0.16), transparent 42%),
+          radial-gradient(circle at 82% 14%, rgba(89, 130, 182, 0.16), transparent 40%),
+          radial-gradient(circle at 73% 88%, rgba(28, 39, 58, 0.32), transparent 40%),
           var(--bg);
+        letter-spacing: 0.005em;
       }
 
       .fx {
@@ -62,14 +63,15 @@
             transparent 1px,
             transparent 3px
           );
+        opacity: 0.22;
       }
 
       .app {
         position: relative;
         z-index: 1;
         width: min(1220px, 97vw);
-        height: min(97dvh, 940px);
-        margin: 1.5dvh auto;
+        height: min(97dvh, 960px);
+        margin: 1.2dvh auto;
       }
 
       .screen {
@@ -84,32 +86,74 @@
       .card {
         background: var(--panel);
         border: 1px solid var(--line);
-        border-radius: 16px;
+        border-radius: 26px;
         box-shadow: var(--shadow);
         position: relative;
         overflow: hidden;
+        backdrop-filter: blur(12px);
       }
 
       .card::before {
         content: "";
         position: absolute;
-        inset: 10px;
-        border: 1px solid rgba(228, 190, 118, 0.2);
-        border-radius: 10px;
+        inset: 0;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 26px;
         pointer-events: none;
       }
 
       .title {
         margin: 0;
         font-family: "Georgia", serif;
-        color: var(--gold-soft);
-        letter-spacing: 0.03em;
+        color: #ffffff;
+        letter-spacing: 0.02em;
+        text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
       }
 
       .subtitle {
         margin: 10px 0 0;
         color: var(--text-soft);
-        line-height: 1.45;
+        line-height: 1.5;
+      }
+
+      .brand-title-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-logo-wrap {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        border: 1px solid rgba(243, 202, 141, 0.35);
+        background: rgba(0, 0, 0, 0.35);
+        display: grid;
+        place-items: center;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .brand-logo {
+        width: 30px;
+        height: 30px;
+        display: block;
+      }
+
+      .brand-mini {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        padding: 8px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text-soft);
+        font-size: 0.8rem;
+      }
+
+      .brand-mini img {
+        width: 16px;
+        height: 16px;
       }
 
       .label {
@@ -124,11 +168,11 @@
       .textarea {
         width: 100%;
         font: inherit;
-        border-radius: 10px;
-        border: 1px solid rgba(228, 190, 118, 0.28);
-        background: rgba(6, 11, 18, 0.88);
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(8, 11, 17, 0.8);
         color: var(--text);
-        padding: 10px 12px;
+        padding: 11px 13px;
       }
 
       .textarea {
@@ -167,16 +211,24 @@
       .textarea:focus {
         outline: none;
         border-color: var(--gold-soft);
-        box-shadow: 0 0 0 2px rgba(228, 190, 118, 0.16);
+        box-shadow: 0 0 0 2px rgba(243, 202, 141, 0.24);
       }
 
       .btn {
-        border: 0;
-        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
         font: inherit;
         font-weight: 700;
         cursor: pointer;
-        padding: 10px 15px;
+        padding: 10px 16px;
+        transition:
+          transform 120ms ease,
+          border-color 180ms ease,
+          background 180ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
       }
 
       .btn:disabled {
@@ -185,19 +237,20 @@
       }
 
       .btn-primary {
-        background: linear-gradient(135deg, #e0b96f 0%, #b57a2f 100%);
+        background: linear-gradient(135deg, #f0c77f 0%, #c7903f 100%);
+        border-color: rgba(255, 230, 185, 0.5);
         color: #1a120a;
       }
 
       .btn-ghost {
-        border: 1px solid rgba(228, 190, 118, 0.35);
-        background: rgba(228, 190, 118, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.04);
         color: var(--text);
       }
 
       .btn-blue {
         border: 1px solid rgba(142, 198, 243, 0.36);
-        background: rgba(142, 198, 243, 0.12);
+        background: rgba(142, 198, 243, 0.14);
         color: var(--text);
       }
 
@@ -207,7 +260,7 @@
       }
 
       .api-gate {
-        width: min(650px, 100%);
+        width: min(730px, 100%);
         padding: 30px;
       }
 
@@ -222,6 +275,62 @@
         margin: 12px 0 0;
         font-size: 0.85rem;
         color: rgba(241, 227, 194, 0.76);
+      }
+
+      .api-config-grid {
+        margin-top: 12px;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .api-config-grid .full {
+        grid-column: 1 / -1;
+      }
+
+      .toggle-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(228, 190, 118, 0.24);
+        background: rgba(5, 10, 17, 0.72);
+        font-size: 0.9rem;
+      }
+
+      .toggle-row input[type="checkbox"] {
+        width: 17px;
+        height: 17px;
+        accent-color: var(--gold-soft);
+        margin: 0;
+      }
+
+      .campaign-preset-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .campaign-preview {
+        margin-top: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 16px;
+        background: rgba(8, 12, 18, 0.62);
+        padding: 10px;
+      }
+
+      .campaign-preview h3 {
+        margin: 0;
+        color: #fff;
+        font-size: 1rem;
+      }
+
+      .campaign-preview p {
+        margin: 8px 0;
+        color: var(--text-soft);
+        line-height: 1.45;
       }
 
       .setup-screen {
@@ -255,11 +364,23 @@
       }
 
       .hud {
-        padding: 10px 12px;
+        padding: 12px 14px;
         display: grid;
         grid-template-columns: 1fr auto;
         gap: 10px;
         align-items: center;
+        background: linear-gradient(180deg, rgba(23, 30, 40, 0.88), rgba(14, 19, 28, 0.78));
+      }
+
+      .hud-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .hud-actions .btn {
+        white-space: nowrap;
       }
 
       .char-line {
@@ -274,11 +395,11 @@
         align-items: center;
         gap: 5px;
         border-radius: 999px;
-        border: 1px solid rgba(228, 190, 118, 0.22);
-        background: rgba(255, 236, 193, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
         color: var(--text-soft);
         font-size: 0.78rem;
-        padding: 4px 10px;
+        padding: 5px 11px;
       }
 
       .chip strong {
@@ -315,35 +436,36 @@
         display: grid;
         grid-template-rows: 1fr auto;
         overflow: hidden;
+        background: linear-gradient(180deg, rgba(11, 15, 22, 0.88), rgba(8, 11, 17, 0.92));
       }
 
       .chat-log {
         min-height: 0;
         overflow-y: auto;
-        padding: 12px;
+        padding: 14px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
       }
 
       .msg {
         max-width: min(90%, 800px);
-        border-radius: 12px;
-        padding: 10px 12px;
-        line-height: 1.45;
+        border-radius: 18px;
+        padding: 11px 13px;
+        line-height: 1.52;
         white-space: pre-wrap;
       }
 
       .msg.user {
         align-self: flex-end;
-        background: rgba(115, 170, 220, 0.22);
-        border: 1px solid rgba(131, 188, 240, 0.3);
+        background: rgba(66, 115, 170, 0.28);
+        border: 1px solid rgba(145, 189, 243, 0.34);
       }
 
       .msg.dm {
         align-self: flex-start;
-        background: rgba(199, 150, 65, 0.14);
-        border: 1px solid rgba(199, 150, 65, 0.33);
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.13);
       }
 
       .dm-paragraph {
@@ -387,11 +509,41 @@
       }
 
       .composer {
-        border-top: 1px solid rgba(228, 190, 118, 0.2);
-        padding: 10px 12px 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px 12px 14px;
         display: grid;
         grid-template-columns: 1fr auto auto;
         gap: 8px;
+        background: rgba(8, 11, 16, 0.64);
+      }
+
+      .combat-actions {
+        border-top: 1px solid rgba(228, 190, 118, 0.2);
+        padding: 10px 12px 0;
+        display: grid;
+        gap: 8px;
+      }
+
+      .combat-actions-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .combat-actions-hint {
+        font-size: 0.82rem;
+        color: var(--text-soft);
+      }
+
+      .combat-target-select {
+        min-width: 170px;
+        width: auto;
+        max-width: 100%;
+      }
+
+      .combat-action-btn {
+        padding: 8px 10px;
       }
 
       .mic-btn {
@@ -400,6 +552,7 @@
         align-items: center;
         justify-content: center;
         padding: 8px 10px;
+        border-radius: 999px;
       }
 
       .mic-btn svg {
@@ -490,6 +643,53 @@
         border-radius: 9px;
         padding: 7px 9px;
         background: rgba(255, 255, 255, 0.02);
+        color: var(--text-soft);
+      }
+
+      .combat-panel {
+        margin: 0 0 14px;
+        padding: 10px;
+        border: 1px solid rgba(228, 190, 118, 0.2);
+        border-radius: 10px;
+        background: rgba(4, 8, 14, 0.62);
+      }
+
+      .combat-summary {
+        margin: 0 0 8px;
+        color: var(--text-soft);
+        font-size: 0.84rem;
+      }
+
+      .combat-order {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 6px;
+      }
+
+      .combat-row {
+        border: 1px solid rgba(228, 190, 118, 0.2);
+        border-radius: 8px;
+        padding: 6px 8px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .combat-row.active {
+        border-color: rgba(228, 190, 118, 0.62);
+        box-shadow: 0 0 0 1px rgba(228, 190, 118, 0.24) inset;
+      }
+
+      .combat-row .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 0.84rem;
+      }
+
+      .combat-row .meta {
+        margin-top: 3px;
+        font-size: 0.78rem;
         color: var(--text-soft);
       }
 
@@ -680,8 +880,24 @@
           margin: 0.5dvh auto;
         }
 
+        .api-config-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .campaign-preset-row {
+          grid-template-columns: 1fr;
+        }
+
         .setup-grid {
           grid-template-columns: 1fr;
+        }
+
+        .hud {
+          grid-template-columns: 1fr;
+        }
+
+        .hud-actions {
+          justify-content: flex-start;
         }
 
         .composer {
@@ -695,16 +911,54 @@
     <main class="app">
       <section id="apiScreen" class="screen api-screen">
         <div class="card api-gate">
-          <h1 class="title">שער הכרוניקות</h1>
+          <div class="brand-title-row">
+            <span class="brand-logo-wrap"><img class="brand-logo" src="./dragonmark.svg" alt="לוגו הדרקון" /></span>
+            <h1 class="title">שער הכרוניקות</h1>
+          </div>
           <p class="subtitle">
             שלב ראשון: הזנת מפתח גישה של OpenAI. בלי מפתח אי אפשר להיכנס למשחק.
           </p>
           <label class="label" for="apiInput">מפתח גישה של OpenAI</label>
           <input id="apiInput" class="input" type="password" placeholder="sk-..." autocomplete="off" />
+          <div class="api-config-grid">
+            <div>
+              <label class="label" for="modelSelect">מודל DM</label>
+              <select id="modelSelect" class="select">
+                <option value="gpt-4.1-nano" selected>gpt-4.1-nano (אולטרה זול לבדיקה)</option>
+                <option value="gpt-4o-mini">gpt-4o-mini (איזון איכות/מחיר)</option>
+                <option value="gpt-4.1">gpt-4.1 (איכות גבוהה, יקר יותר)</option>
+              </select>
+            </div>
+            <div>
+              <label class="label" for="maxOutputTokensInput">מקסימום טוקנים לתשובת DM</label>
+              <input
+                id="maxOutputTokensInput"
+                class="input"
+                type="number"
+                min="120"
+                max="1200"
+                step="10"
+                value="320"
+              />
+            </div>
+            <label class="toggle-row full" for="cheapModeInput">
+              <input id="cheapModeInput" type="checkbox" checked />
+              מצב בדיקות זול (ברירת מחדל: קונטקסט קצר, תשובות קצרות, בלי תמונות)
+            </label>
+            <label class="toggle-row full" for="allowModelFallbackInput">
+              <input id="allowModelFallbackInput" type="checkbox" />
+              אפשר גיבוי אוטומטי למודל אחר אם הראשי נכשל (עשוי לייקר)
+            </label>
+            <label class="toggle-row full" for="imagesEnabledInput">
+              <input id="imagesEnabledInput" type="checkbox" />
+              הפעל יצירת תמונות סצנה (יקר משמעותית)
+            </label>
+          </div>
           <div class="actions">
             <button id="enterWithApiBtn" class="btn btn-primary" type="button">כניסה למשחק</button>
           </div>
           <p id="apiError" class="hint" style="color: var(--danger)"></p>
+          <p id="budgetHint" class="hint"></p>
           <p class="hint">המפתח לא נשמר קבוע. בסגירת הדף תתבקש להזין שוב.</p>
         </div>
       </section>
@@ -859,6 +1113,21 @@
               </div>
             </div>
             <div class="full">
+              <label class="label" for="campaignPresetSelect">בחירת קמפיין מתוכנן מראש</label>
+              <div class="campaign-preset-row">
+                <select id="campaignPresetSelect" class="select"></select>
+                <button id="applyCampaignPresetBtn" class="btn btn-ghost" type="button">החל תבנית</button>
+              </div>
+              <p id="campaignPresetHint" class="hint">
+                אפשר לבחור קמפיין מתוכנן מראש כדי שהמנחה ישמור על קו עלילה מקצועי ועקבי.
+              </p>
+              <div id="campaignPreview" class="campaign-preview hidden">
+                <h3 id="campaignPreviewTitle">-</h3>
+                <p id="campaignPreviewSummary">-</p>
+                <ul id="campaignPreviewActs" class="list"></ul>
+              </div>
+            </div>
+            <div class="full">
               <label class="label" for="worldInput">תיאור עולם/עיר/התחלה</label>
               <div class="field-with-mic">
                 <textarea
@@ -926,6 +1195,7 @@
               <span id="metaChip" class="chip">גזע/מקצוע: -</span>
               <span id="locChip" class="chip">מיקום: -</span>
               <span id="statusChip" class="chip">ממתין</span>
+              <span id="combatChip" class="chip">קרב: לא פעיל</span>
             </div>
             <div class="char-line" style="margin-top: 8px">
               <span id="hpChip" class="chip">חיים: -</span>
@@ -935,13 +1205,68 @@
             </div>
             <div id="abilityRow" class="ability-row"></div>
           </div>
-          <div>
+          <div class="hud-actions">
+            <span class="brand-mini"><img src="./dragonmark.svg" alt="" /> Dragon Gate</span>
+            <button id="saveGameBtn" class="btn btn-ghost" type="button">שמור</button>
+            <button id="loadGameBtn" class="btn btn-ghost" type="button">טען</button>
+            <button id="exportGameBtn" class="btn btn-ghost" type="button">ייצוא</button>
+            <button id="importGameBtn" class="btn btn-ghost" type="button">ייבוא</button>
+            <button id="endCombatBtn" class="btn btn-ghost" type="button">סיום קרב</button>
             <button id="drawerOpenBtn" class="btn btn-blue" type="button">ציוד ויכולות</button>
+            <input id="importGameFile" class="hidden" type="file" accept="application/json" />
           </div>
         </header>
 
         <section class="card chat-wrap">
           <div id="chatLog" class="chat-log"></div>
+          <div id="combatActionsWrap" class="combat-actions hidden">
+            <div class="combat-actions-row">
+              <span id="combatActionsHint" class="combat-actions-hint">פעולות קרב מהירות זמינות בתור שלך.</span>
+              <select id="combatTargetSelect" class="select combat-target-select"></select>
+            </div>
+            <div class="combat-actions-row">
+              <button
+                id="quickAttackBtn"
+                class="btn btn-ghost combat-action-btn"
+                type="button"
+                data-combat-action="attack"
+              >
+                התקפה
+              </button>
+              <button
+                id="quickSpellBtn"
+                class="btn btn-ghost combat-action-btn"
+                type="button"
+                data-combat-action="spell"
+              >
+                לחש
+              </button>
+              <button
+                id="quickDefendBtn"
+                class="btn btn-ghost combat-action-btn"
+                type="button"
+                data-combat-action="defend"
+              >
+                התגוננות
+              </button>
+              <button
+                id="quickRetreatBtn"
+                class="btn btn-ghost combat-action-btn"
+                type="button"
+                data-combat-action="retreat"
+              >
+                נסיגה
+              </button>
+              <button
+                id="quickEndTurnBtn"
+                class="btn btn-ghost combat-action-btn"
+                type="button"
+                data-combat-action="end_turn"
+              >
+                סיום תור
+              </button>
+            </div>
+          </div>
           <form id="chatForm" class="composer">
             <input
               id="chatInput"
@@ -987,6 +1312,18 @@
 
         <h3>מצבים פעילים</h3>
         <ul id="conditionsList" class="list"></ul>
+
+        <h3>מעקב קרב</h3>
+        <div id="combatPanel" class="combat-panel">
+          <p id="combatSummary" class="combat-summary">אין קרב פעיל כרגע.</p>
+          <ul id="combatOrderList" class="combat-order"></ul>
+        </div>
+
+        <h3>תוכנית קמפיין</h3>
+        <div id="campaignPlanPanel" class="combat-panel">
+          <p id="campaignPlanSummary" class="combat-summary">לא נבחר קמפיין מתוכנן מראש.</p>
+          <ul id="campaignPlanActs" class="combat-order"></ul>
+        </div>
       </div>
     </aside>
     <div id="drawerOverlay" class="overlay hidden"></div>
@@ -1019,7 +1356,7 @@
       const API_URL = "https://api.openai.com/v1/responses";
       const IMAGE_API_URL = "https://api.openai.com/v1/images/generations";
       const THREE_MODULE_URL = "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js";
-      const MODEL_CANDIDATES = ["gpt-4o-mini", "gpt-4.1"];
+      const MODEL_CANDIDATES = ["gpt-4.1-nano", "gpt-4o-mini", "gpt-4.1"];
       const IMAGE_MODEL_CANDIDATES = ["gpt-image-1", "gpt-image-1-mini"];
       const IMAGE_SIZE = "1024x1024";
       const IMAGE_QUALITY = "low";
@@ -1028,6 +1365,28 @@
       const DICE_ENGINE_IMPORT_TIMEOUT_MS = 3500;
       const DICE_ENGINE_INIT_TIMEOUT_MS = 4500;
       const DICE_ENGINE_ROLL_TIMEOUT_MS = 7000;
+      const CHEAP_MODE_HISTORY_WINDOW = 8;
+      const NORMAL_MODE_HISTORY_WINDOW = 18;
+      const CHEAP_MODE_SUMMARY_LINES = 8;
+      const NORMAL_MODE_SUMMARY_LINES = 14;
+      const CHEAP_MODE_MAX_OUTPUT_TOKENS = 260;
+      const NORMAL_MODE_MAX_OUTPUT_TOKENS = 700;
+      const ROLL_DICE_ALLOWED = new Set(["d20", "d12", "d10", "d8", "d6", "d4", "d100"]);
+      const SAVE_SCHEMA_VERSION = 1;
+      const SAVE_STORAGE_KEY = "dnd_instant_save_v1";
+      const COMBAT_SIDE_ALLOWED = new Set(["ally", "enemy", "neutral"]);
+      const COMBAT_START_HINTS = [
+        "קרב",
+        "יוזמה",
+        "אויב",
+        "מפלצת",
+        "תוקף",
+        "התקפה",
+        "מכה",
+        "יורה",
+        "דוקר",
+      ];
+      const COMBAT_END_HINTS = ["הקרב הסתיים", "ניצחת", "האויב הובס", "אין אויבים", "שקט חוזר", "נגמר הקרב"];
       const ABILITIES = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
       const ABILITY_LABELS_HE = {
         STR: "כוח",
@@ -1247,6 +1606,886 @@
         survival: "WIS",
       };
 
+      const CAMPAIGN_LIBRARY_STRUCTURED = [
+        {
+          id: "neon_murder_1986",
+          title: "קלטת דם בניאון (1986)",
+          genre: "חקירת פשע על-טבעי",
+          tone: "נואר, מתח, פרנויה עירונית",
+          worldPrompt:
+            "עיר חוף בשנות ה-80, מועדוני ניאון, תחנות רדיו פיראטיות וגל רציחות עם סימן זהה על הקורבנות.",
+          backstoryHook: "לדמות יש קשר אישי לקורבן הראשון או לחשוד המרכזי.",
+          acts: [
+            "מערכה 1: זירת הפשע הראשונה, איסוף עדויות וקלטת אודיו מסתורית.",
+            "מערכה 2: חדירה לעולם התחתון של מועדוני הלילה והברחת נשק.",
+            "מערכה 3: גילוי כת שמשתמשת בתדרי קול לשליטה תודעתית.",
+            "מערכה 4: מרדף בעיר בזמן הפסקת חשמל כללית.",
+            "מערכה 5: עימות בתחנת שידור נטושה והכרעה מוסרית.",
+          ],
+          npcs: ["מפקדת משטרה קשוחה", "שדרן רדיו כריזמטי", "בעל מועדון כפול-פנים", "עד מדינה מפוחד"],
+          factions: ["משטרת העיר", "ארגון הברחות", "כת התדר השחור"],
+          twists: ["הקורבנות בחרו מראש להיכנס לניסוי", "המנטור של הדמות קשור לכת"],
+          endings: ["חשיפת האמת במחיר אישי", "טיוח ממסדי", "שבירת הכת אך התדר שורד"],
+        },
+        {
+          id: "dwarf_hellgate",
+          title: "פטיש האפר ושער התהום",
+          genre: "פנטזיה אפלה",
+          tone: "הרואי, טראגי, מיתי",
+          worldPrompt: "מצודת גמדים עתיקה מעל תהום שדים. חותם קדום נסדק ורוחות אבות מתעוררות.",
+          backstoryHook: "הדמות יורשת פטיש מקולל או שבועת דם לשושלת מגינים.",
+          acts: [
+            "מערכה 1: מגפות רוחות במכרות והיעלמות כורים.",
+            "מערכה 2: מסע לאולמות נשכחים לחיפוש רונות איטום.",
+            "מערכה 3: ברית שברירית עם רוח מלך גמד בוגד.",
+            "מערכה 4: פלישת שדים דרך סדקי לבה.",
+            "מערכה 5: איטום השער או הקרבה כדי להשמידו לנצח.",
+          ],
+          npcs: ["כהנת רונות", "מפקד משמר זקן", "נסיך גמד מורד", "שד אסטרטג מדבר אמת חלקית"],
+          factions: ["בתי הגילדות", "משמר האפר", "לגיון התהום"],
+          twists: ["הפטיש הוא מפתח לשער", "אחד האבות הקדומים בגד במודע"],
+          endings: ["איטום זמני", "השמדת השער במחיר עיר הבירה", "שליטה בשער והקמת סדר חדש"],
+        },
+        {
+          id: "drowning_glass_city",
+          title: "עיר הזכוכית הטובעת",
+          genre: "פנטזיה מסתורית",
+          tone: "מלנכולי, פוליטי, אקזוטי",
+          worldPrompt: "מטרופולין בנוי מזכוכית ואבן ירח, שוקע מילימטרים כל לילה אל אגם תהומי.",
+          backstoryHook: "הדמות חייבת להציל שכונה או משפחה לפני שהעיר תיעלם.",
+          acts: [
+            "מערכה 1: קריסת רובע מסחר וסימני חבלה במעגנים.",
+            "מערכה 2: דיפלומטיה בין מועצת הסוחרים לגילדת מהנדסי המים.",
+            "מערכה 3: צלילה לעיר תחתית עתיקה מתחת לאגם.",
+            "מערכה 4: מלחמת חבלה בזמן סופה רב-יסודות.",
+            "מערכה 5: בחירה בין הצלת העיר לשחרור ישות אגם כבולה.",
+          ],
+          npcs: ["מהנדסת ראשית צעירה", "סוחר-נסיך ציני", "נביאה עיוורת", "שומר סף ממעמקי האגם"],
+          factions: ["מועצת הזכוכית", "גילדת העוגנים", "כת האגם"],
+          twists: ["העיר שוקעת בכוונה כחלק מטקס הגנה", "הדמות נושאת סמל הפעלה קדום"],
+          endings: ["העיר ניצלת", "העיר הופכת למקדש שקוע", "הישרדות באמצעות פינוי אכזרי"],
+        },
+        {
+          id: "phantom_train_north",
+          title: "רכבת הרפאים של הצפון",
+          genre: "אימה גותית",
+          tone: "סגור, מותח, פראנורמלי",
+          worldPrompt: "מסילת שלג מבודדת. רכבת שמופיעה רק בלילות ירח מלא ומעלה נוסעים שלא חוזרים.",
+          backstoryHook: "קרוב משפחה של הדמות נעלם באחד הקווים.",
+          acts: [
+            "מערכה 1: חקירת תחנה נטושה ועדויות סותרות.",
+            "מערכה 2: עלייה לרכבת וחשיפת קרונות שמשנים צורה.",
+            "מערכה 3: גילוי מנצח מתים שקושר נשמות ללוח הזמנים.",
+            "מערכה 4: חבלה בקטר בזמן סערת שלג קטלנית.",
+            "מערכה 5: שחרור הנשמות או החלפת המנצח.",
+          ],
+          npcs: ["כרטיסן אילם", "ניצולה יחידה", "מהנדס מסילה שיכור", "מנצח מתים נימוסי"],
+          factions: ["רשות המסילות", "אגודת מדיומים", "הנוסעים החוזרים"],
+          twists: ["הרכבת אוספת רק מי שהבטיח הבטחה שלא קוימה", "האשם הוא למעשה מציל מעוות"],
+          endings: ["סגירת הקו", "שיקום הרכבת כמסע גאולה", "כליאת הדמות במקום המנצח"],
+        },
+        {
+          id: "blood_trial_rose_house",
+          title: "משפט הדם של בית ורדאן",
+          genre: "דרמה פוליטית",
+          tone: "תככים, משפט, כבוד",
+          worldPrompt: "ממלכה בה אצילים נשפטים בדו-קרב מקודש. יורש בית ורדאן מואשם בבגידה.",
+          backstoryHook: "הדמות נשכרת כסנגור/עד/אלוף דו-קרב.",
+          acts: [
+            "מערכה 1: איסוף ראיות בארמון מלא מרגלים.",
+            "מערכה 2: הפלת עדויות מזויפות וחשיפת רשת שוחד.",
+            "מערכה 3: משפט פתוח מול הכהונה והאצולה.",
+            "מערכה 4: דו-קרב דם תחת חוקי קודש עתיקים.",
+            "מערכה 5: חשיפת הקושרים והכרעת גורל הבית.",
+          ],
+          npcs: ["היורש הנאשם", "שופט-כהן", "יריב פוליטי כריזמטי", "שומר ראש נאמן מדי"],
+          factions: ["בית ורדאן", "מועצת הכתר", "מסדר השופטים"],
+          twists: ["היורש אשם חלקית אך מסיבה מוצדקת", "מי שמוביל את התביעה מגן על הממלכה בדרכו"],
+          endings: ["זיכוי מהדהד", "הרשעה מכובדת", "מהפכה חוקתית"],
+        },
+        {
+          id: "black_dream_plague",
+          title: "מגפת החלומות השחורים",
+          genre: "אימה קוסמית",
+          tone: "סיוטי, פסיכולוגי, מסתורי",
+          worldPrompt: "תושבי מחוז שלם מפסיקים להתעורר. מי שחי ער רואה יצורים מתוך חלומותיהם.",
+          backstoryHook: "הדמות עצמה מתחילה לחלום את אותו חלום שוב ושוב.",
+          acts: [
+            "מערכה 1: מרפאות קורסות ותופעות חוצות מציאות.",
+            "מערכה 2: מסע לתוך חלום קולקטיבי.",
+            "מערכה 3: מיפוי סמלי פחד של הקהילה כמפת מבוך.",
+            "מערכה 4: שבירת פולחן שמזין את הישות הישנה.",
+            "מערכה 5: סגירת השבר בין חלום ומציאות.",
+          ],
+          npcs: ["מרפאה חסרת שינה", "ילד שמצייר נבואות", "כוהן ספקן", "ישות חלום עתיקה"],
+          factions: ["אחוות המרפאים", "כת החלום", "משמר המחוז"],
+          twists: ["המגפה החלה כניסוי רפואי", "הישות מגינה מפני איום גדול יותר"],
+          endings: ["ריפוי כואב", "שינה נצחית מרצון", "העברת הישות למארח חדש"],
+        },
+        {
+          id: "seven_keys_sunfort",
+          title: "שבעת המפתחות למצודת השמש",
+          genre: "הרפתקה אפית",
+          tone: "גיבורי, קצבי, מיתולוגי",
+          worldPrompt: "מצודה שצפה מעל המדבר ונפתחת רק כשכל שבעת המפתחות נאספים.",
+          backstoryHook: "הדמות מחזיקה מפה חלקית או מפתח שבור.",
+          acts: [
+            "מערכה 1: מירוץ נגד ציידי אוצרות למפתח הראשון.",
+            "מערכה 2: ברית עם שבטי מדבר יריבים.",
+            "מערכה 3: פשיטה על מקדש שמש קורס.",
+            "מערכה 4: עלייה למצודה והתמודדות עם שומרי אור.",
+            "מערכה 5: הכרעה למי יימסר סוד המצודה.",
+          ],
+          npcs: ["נווטת מדבר", "גנב אגדי", "כהן שמש צעיר", "מצביא שכיר"],
+          factions: ["שבטי הדיונות", "קונסורציום אוצרות", "מסדר השמש"],
+          twists: ["המפתחות הם גם מנעול", "המצודה מחזיקה נשק אקלים"],
+          endings: ["הפקדת הסוד", "שימוש בנשק להצלה", "השמדת המצודה"],
+        },
+        {
+          id: "iron_harbor_shadows",
+          title: "מצוד הצללים בנמל הברזל",
+          genre: "פשע אורבני",
+          tone: "מחוספס, מהיר, מוסרי-אפור",
+          worldPrompt: "נמל עצום הנשלט בידי קרטלים ימיים, קוסמי ערפל ושומרי מכס מושחתים.",
+          backstoryHook: "הדמות חייבת להשיג משלוח אבוד שמסכן אזור שלם.",
+          acts: [
+            "מערכה 1: מודיעין ברחובות הרציפים.",
+            "מערכה 2: השתלת סוכן בתוך קרטל.",
+            "מערכה 3: חטיפת ספינת דגל בערפל רעיל.",
+            "מערכה 4: עימות בין שלוש כנופיות בנמל.",
+            "מערכה 5: ניקוי המערכת או תפיסת השלטון.",
+          ],
+          npcs: ["קברניטה אכזרית", "סוכן כפול", "מכסאי ישר", "אמן ערפל אילם"],
+          factions: ["קרטל הגאות", "איגוד הסוורים", "משמר המכס"],
+          twists: ["המשלוח הוא תרופה נדירה", "הבוגד פועל להצלת משפחתו"],
+          endings: ["ניקוי הנמל", "שלטון חדש קשוח", "אוטונומיה לפשע מאורגן"],
+        },
+        {
+          id: "ice_queen_heart",
+          title: "מלכת הקרח והלב האבוד",
+          genre: "פנטזיה דרמטית",
+          tone: "רומנטי-קודר, הישרדותי",
+          worldPrompt: "צפון קפוא שבו מלכה אלמותית מקפיאה כפרים כדי לעצור מחלה עתיקה.",
+          backstoryHook: "הדמות איבדה מישהו לסערת הקרח ורוצה תשובות.",
+          acts: [
+            "מערכה 1: מסע הישרדות למבצר הקרח.",
+            "מערכה 2: פענוח מכתבי המלכה מהעבר.",
+            "מערכה 3: ברית עם שבטי זאב לבן.",
+            "מערכה 4: מרד בארמון הקרח.",
+            "מערכה 5: החזרת לב המלכה או שבירת קללתה.",
+          ],
+          npcs: ["מלכת הקרח", "ציידת צפונית", "מרפא שבטי", "נסיך גולה"],
+          factions: ["כתר הקרח", "שבטי הצפון", "אחוות הלהבה"],
+          twists: ["המלכה אינה הנבל העיקרי", "המחלה מתעוררת אם הקרח יימס מהר מדי"],
+          endings: ["פיוס עונתי", "הפשרה הרסנית", "שלטון משותף חדש"],
+        },
+        {
+          id: "crowns_of_ravens",
+          title: "כתר העורבים",
+          genre: "פוליטיקה אפלה",
+          tone: "מניפולטיבי, אינטליגנטי, קר",
+          worldPrompt: "שלוש ערי-מדינה נאבקות על כתר שמעניק שליטה ברשת מרגלים עתיקה.",
+          backstoryHook: "הדמות גויסה כסוכן חופשי שמחזיק מידע מפליל קריטי.",
+          acts: [
+            "מערכה 1: יצירת כיסוי והשתלבות באצולה.",
+            "מערכה 2: גניבת ספר קודים מאובטח.",
+            "מערכה 3: חשיפת מרגל חפרפרת בתוך הקבוצה.",
+            "מערכה 4: ועידת שלום שמתפרקת לניסיון התנקשות.",
+            "מערכה 5: הכרעה מי יענוד את הכתר.",
+          ],
+          npcs: ["שגרירה מחושבת", "רב-מרגלים נכה", "דוכס צעיר שאפתן", "מתנקש אידיאליסט"],
+          factions: ["מועצת העורבים", "הסנאט המסחרי", "צבא החוזים"],
+          twists: ["הכתר פועל רק עם בעל דם ספציפי", "האויב המרכזי מנסה למנוע מלחמה כוללת"],
+          endings: ["איזון מודיעיני", "דיקטטורת צללים", "שריפת הארכיון וריסטארט מדיני"],
+        },
+        {
+          id: "erased_archive",
+          title: "הארכיון שנמחק מן הזמן",
+          genre: "מדע-פנטזיה",
+          tone: "מסתורי, פילוסופי, מהיר",
+          worldPrompt: "ספרייה אינסופית שבה ספרים נמחקים מהמציאות בכל פעם שדף נקרע.",
+          backstoryHook: "הדמות מגלה שפרק מחייה האישיים נעלם.",
+          acts: [
+            "מערכה 1: חדירה לארכיון תחת מצוד שומרים.",
+            "מערכה 2: איסוף עוגני זיכרון משלוש תקופות זמן.",
+            "מערכה 3: מאבק בספרן-על שמוחק היסטוריות.",
+            "מערכה 4: מרדפים בין מדפים משני-מציאות.",
+            "מערכה 5: בחירה איזו אמת היסטורית תחזור.",
+          ],
+          npcs: ["ספרנית חסינת זמן", "גנב זיכרונות", "שומר כרוניקות", "דמות מהעבר שנמחקה"],
+          factions: ["מסדר הזיכרון", "כת הדף הלבן", "שומרי הארכיון"],
+          twists: ["הדמות עצמה נוצרה מתיקון ארכיוני", "שחזור אמת אחת ימחק אחרת"],
+          endings: ["שחזור מוגבל", "איפוס היסטורי", "נעילת הארכיון לנצח"],
+        },
+        {
+          id: "steam_syndicate_war",
+          title: "מלחמת כנופיות באימפריית קיטור",
+          genre: "סטימפאנק אקשן",
+          tone: "אגרסיבי, קצבי, תעשייתי",
+          worldPrompt: "עיר תעשייה אדירה שמופעלת על ליבת קיטור אלכימית אחת.",
+          backstoryHook: "הדמות חייבת למנוע מהליבה ליפול לידי כנופיה קיצונית.",
+          acts: [
+            "מערכה 1: סכסוך בין בתי מלאכה חמושים.",
+            "מערכה 2: חטיפת מהנדס מפתח וניסיון חילוץ.",
+            "מערכה 3: מירוץ רכבות משוריינות.",
+            "מערכה 4: כיבוש מפעל הליבה.",
+            "מערכה 5: השבתת נשק העיר או הפעלתו.",
+          ],
+          npcs: ["מהנדסת ליבה", "בוס כנופיה כריזמטי", "קצין משטרה מכני", "סוחר נשק"],
+          factions: ["איגוד הפועלים", "כנופיות הגלגל", "משמר האימפריה"],
+          twists: ["הליבה חיה ותבונית", "האויב הקיצוני צודק לגבי סכנה עתידית"],
+          endings: ["הלאמה", "עצמאות עירונית", "קריסה מבוקרת ופינוי"],
+        },
+        {
+          id: "broken_moon_temple",
+          title: "מקדש הירח השבור",
+          genre: "מסתורין קלאסי",
+          tone: "טקסי, עתיק, מסוכן",
+          worldPrompt: "מקדש על צוק שבו שברי ירח נופלים ויוצרים עיוותי כבידה.",
+          backstoryHook: "הדמות נקשרת לסמל ירחי שצורב בלילות מלאים.",
+          acts: [
+            "מערכה 1: עלייה לרכס וקבלת נבואה סותרת.",
+            "מערכה 2: חקר חדרי הכבידה ומלכודות אור.",
+            "מערכה 3: חשיפת כת שברי הירח.",
+            "מערכה 4: קרב סביב מקטע ירח חי.",
+            "מערכה 5: תיקון הירח או ריסוקו.",
+          ],
+          npcs: ["נזירה אסטרונומית", "שומר מקדש עיוור", "ראש כת נואש", "אורקלת ירח צעירה"],
+          factions: ["מסדר הירח", "כת השברים", "סוחרי שרידים"],
+          twists: ["שברי הירח הם ביצים של ישות קדומה", "האורקלת היא המפתח ליציבות"],
+          endings: ["איחוי הירח", "שבירה סופית", "העתקת האיום לשמיים רחוקים"],
+        },
+        {
+          id: "false_prophet_sands",
+          title: "חולות השקר והנביא העיוור",
+          genre: "מסע מדברי",
+          tone: "אפוקליפטי, רוחני, הישרדות",
+          worldPrompt: "אימפריית נווה מדבר קורסת אחרי שנביא עיוור חוזה סופה שתמחק מפות.",
+          backstoryHook: "הדמות מחפשת עיר אבודה הקשורה למשפחתה.",
+          acts: [
+            "מערכה 1: שרידות בשיירה נצורה.",
+            "מערכה 2: פוליטיקה בין חמולות בארות.",
+            "מערכה 3: חשיפת הונאה בנבואות.",
+            "מערכה 4: חציית ים זכוכית לפני הסופה הגדולה.",
+            "מערכה 5: גילוי האמת על העיר האבודה.",
+          ],
+          npcs: ["הנביא העיוור", "סוחרת מים אכזרית", "לוחם שיירות", "ילדה קוראת כוכבים"],
+          factions: ["חמולות הבאר", "מסדר הנביא", "שודדי הדיונות"],
+          twists: ["הסופה היא נשק עתיק שמופעל ידנית", "הנביא עיוור רק פיזית, לא מוסרית"],
+          endings: ["רפורמה במדבר", "מלחמת מים", "יציאה המונית לצפון"],
+        },
+        {
+          id: "mirror_brotherhood",
+          title: "אחוות המראות",
+          genre: "מותחן זהות",
+          tone: "פסיכולוגי, חד, מסתורי",
+          worldPrompt: "עיר שבה מראות משמשות שערים לרשת ריגול בין-ממדית.",
+          backstoryHook: "הדמות מגלה כפיל שפועל בשמה.",
+          acts: [
+            "מערכה 1: איתור כפילים וזיופי זהות.",
+            "מערכה 2: חדירה לחדר המראה המרכזי.",
+            "מערכה 3: בחירה בין אמת אישית ליציבות העיר.",
+            "מערכה 4: ציד כפיל-העל.",
+            "מערכה 5: סגירת הרשת או השתלטות עליה.",
+          ],
+          npcs: ["מנהיג אחווה אלגנטי", "חוקרת מראות", "כפיל נאמן", "שופט זהויות"],
+          factions: ["אחוות המראות", "משמר העיר", "סוחרי זהות"],
+          twists: ["הכפיל מגן עליך מאיום אמיתי", "העיר עצמה היא השתקפות של מקור אחר"],
+          endings: ["פירוק המערכת", "שלטון כפילים", "איזון שקוף חדש"],
+        },
+        {
+          id: "arcane_quake",
+          title: "רעידת הקסם הגדולה",
+          genre: "אסון פנטסטי",
+          tone: "חירום, גבורה, הקרבה",
+          worldPrompt: "רעידות קסם מפצלות יבשות ומעירות יצורי עומק עתיקים.",
+          backstoryHook: "הדמות ממונה כמפקדת חילוץ אזורי.",
+          acts: [
+            "מערכה 1: פינוי עיר מרחפת מתפרקת.",
+            "מערכה 2: איחוד גילדות יריבות להצלת רבבות.",
+            "מערכה 3: בניית מנוע ייצוב מאולתר.",
+            "מערכה 4: קרב בלב שבר מאגי פעיל.",
+            "מערכה 5: ייצוב עולם חדש או קבלת עידן חדש.",
+          ],
+          npcs: ["ארכימאג זקן", "מהנדסת קריסטלים", "מפקד צבאי", "נציג פליטים"],
+          factions: ["מועצת הקוסמים", "איגוד הבנאים", "לגיון החילוץ"],
+          twists: ["רעידות נגרמו מניסיון הצלה שנכשל", "השבר יוצר מקור קסם נקי"],
+          endings: ["ייצוב מלא", "חלוקה לעולמות-משנה", "ויתור על הקסם הישן"],
+        },
+        {
+          id: "bone_carnival",
+          title: "קרנבל העצמות",
+          genre: "פנטזיה אימהית",
+          tone: "מקאברי, סוריאליסטי, מפתה",
+          worldPrompt: "קרנבל נודד מגיע כל עשור וגובה מחיר בזיכרונות במקום מטבעות.",
+          backstoryHook: "הדמות איבדה זיכרון מרכזי בילדותה בקרנבל.",
+          acts: [
+            "מערכה 1: כניסה לקרנבל והיכרות עם חוקיו.",
+            "מערכה 2: משחקי פיתוי שמוחקים זהות.",
+            "מערכה 3: מציאת ארכיון הזיכרונות הגנובים.",
+            "מערכה 4: מרד פנימי של אמני הקרנבל.",
+            "מערכה 5: שחרור הזיכרונות או ניהול הקרנבל מחדש.",
+          ],
+          npcs: ["מנהל הקרנבל", "ליצנית עצובה", "שומר זיכרונות", "ילד שלא מזדקן"],
+          factions: ["אמני הקרנבל", "סוחרי זיכרונות", "ציידי קללות"],
+          twists: ["הקרנבל מחזיק גם זיכרונות של מפלצות עתיקות", "הדמות חתמה על חוזה ישן"],
+          endings: ["השבת זיכרונות", "המשך הקרנבל עם חוקים חדשים", "השמדה שמביאה אמנזיה אזורית"],
+        },
+        {
+          id: "covenant_of_dead",
+          title: "תיבת הברית של המתים",
+          genre: "אימה דתית",
+          tone: "טקסי, אפל, אמוני",
+          worldPrompt: "עיר קודש שבה תיבה עתיקה מבטיחה לדבר עם המתים אך דורשת קורבן חי.",
+          backstoryHook: "הדמות רוצה ליצור קשר עם אדם יקר שנפל בקרב.",
+          acts: [
+            "מערכה 1: עלייה לרגל לעיר הסגורה.",
+            "מערכה 2: חקר פולחן התיבה ועדי ראייה סותרים.",
+            "מערכה 3: חילול קודש במטרה לחשוף אמת.",
+            "מערכה 4: מאבק בין מאמינים קנאים לרפורמיסטים.",
+            "מערכה 5: פתיחת התיבה והכרעה על גורל העיר.",
+          ],
+          npcs: ["כהנת עליונה", "כופר כריזמטי", "שומר קברים", "צל הקול מהתיבה"],
+          factions: ["מועצת הכהונה", "תנועת הרפורמה", "משמר העיר הקדושה"],
+          twists: ["התיבה היא שער ולא כלי", "המתים מדברים באמת אך במחיר תודעתי"],
+          endings: ["סגירת השער", "המשך הפולחן בפיקוח", "קריסת הסדר הדתי"],
+        },
+        {
+          id: "last_king_labyrinth",
+          title: "מבוך המלך האחרון",
+          genre: "Dungeon Epic",
+          tone: "הרפתקני, טקטי, הישרדות",
+          worldPrompt: "מבוך חי שמתעצב מחדש מדי לילה סביב כס המלך האחרון.",
+          backstoryHook: "הדמות נושאת סמל שמאפשר פתיחת שערים נדירים במבוך.",
+          acts: [
+            "מערכה 1: כניסה ושבירת חוקי מרחב ראשונים.",
+            "מערכה 2: יצירת בריתות עם משלחות יריבות.",
+            "מערכה 3: גילוי כי המלך עדיין חי בשכבה עמוקה.",
+            "מערכה 4: מלחמת שליטה בחדרי לב המבוך.",
+            "מערכה 5: החלטה מי יירש את הכתר האבוד.",
+          ],
+          npcs: ["חוקרת מבוכים", "מצביא שכיר", "מלך אחרון חולה", "ישות המבוך"],
+          factions: ["משלחות ציד", "בית המלוכה הישן", "שומרי הסף"],
+          twists: ["המבוך מגן על העולם מפלישה", "הכתר מחליף אישיות ללובש"],
+          endings: ["השבת המלוכה", "פירוק המבוך", "אימוץ סדר שומרי סף חדש"],
+        },
+        {
+          id: "one_night_apocalypse",
+          title: "לילה אחד לפני האפוקליפסה",
+          genre: "מרוץ נגד זמן",
+          tone: "אינטנסיבי, רגשי, קולנועי",
+          worldPrompt: "יש רק לילה אחד למנוע התנגשות שמיימית שתמחק את הממלכות.",
+          backstoryHook: "הדמות קיבלה חזון חד-פעמי עם שלוש נקודות עצירה הכרחיות.",
+          acts: [
+            "מערכה 1: איסוף בני ברית תוך שעות ספורות.",
+            "מערכה 2: גניבת מפתח אסטרלי מביצור בלתי חדיר.",
+            "מערכה 3: מרדף נגד כת שמקדשת את הקץ.",
+            "מערכה 4: הפעלת מנגנון שמיימי עתיק.",
+            "מערכה 5: בחירה מי יישאר לסגור את המעגל.",
+          ],
+          npcs: ["אסטרונומית צעירה", "אביר עייף", "מנהיג כת כריזמטי", "שליח שמיימי"],
+          factions: ["מועצת השמיים", "כת הקץ", "ברית הלילה"],
+          twists: ["ההתנגשות ניתנת להסחה רק במחיר עולם אחר", "חזון הדמות נערך בידי כוח זר"],
+          endings: ["הצלה במחיר אישי", "הצלה חלקית", "עולם חדש אחרי הקריסה"],
+        },
+        {
+          id: "wolf_throne_frontier",
+          title: "כס הזאבים בגבול האפל",
+          genre: "פנטזיה פראית",
+          tone: "שבטי, קשוח, הישרדותי",
+          worldPrompt: "גבול יערות פרא שבו להקות זאב-חכמים נאבקות באצילים כובשים.",
+          backstoryHook: "הדמות נקרעת בין שבועה לכתר לבין ברית עם שבטי היער.",
+          acts: [
+            "מערכה 1: סיור גבול שמתדרדר לטבח.",
+            "מערכה 2: דיפלומטיה עם שבטי זאב-לב.",
+            "מערכה 3: חשיפת מזימה להבעיר את היער לצורכי כרייה.",
+            "מערכה 4: מצור על מצודת הגבול.",
+            "מערכה 5: הכתרת שליט חדש לגבול.",
+          ],
+          npcs: ["מנהיגת שבט זאבים", "מרשל גבול", "דרואיד זקן", "יורשת אצולה"],
+          factions: ["שבטי היער", "לגיון הגבול", "בעלי מכרות הברזל"],
+          twists: ["מי שנחשב פרא הוא המגן האמיתי", "היורשת הוכשרה כסוכנת כפולה"],
+          endings: ["ברית שבטית-מלכותית", "ניצחון צבאי קשוח", "גבול עצמאי חופשי"],
+        },
+        {
+          id: "abyssal_orchestra",
+          title: "התזמורת התהומית",
+          genre: "פנטזיה מוזיקלית אפלה",
+          tone: "אמנותי, מוזר, אלים",
+          worldPrompt: "תזמורת נודדת מנגנת יצירות שמזמנות ישויות ממעמקים.",
+          backstoryHook: "הדמות מחפשת יצירה אבודה שמסוגלת לאטום קרע מיסטי.",
+          acts: [
+            "מערכה 1: הופעה קטלנית בעיר בירה.",
+            "מערכה 2: מרדף אחר תווי-מפתח בין בתי אופרה נטושים.",
+            "מערכה 3: שיתוף פעולה עם מנצחת לשעבר.",
+            "מערכה 4: קונצרט מלחמה מול קהל אחוז טירוף.",
+            "מערכה 5: ביצוע היצירה האסורה או שריפתה.",
+          ],
+          npcs: ["מנצח כריזמטי", "כנרת גאונה", "שומר ארכיון מוזיקה", "שד תהודה"],
+          factions: ["אגודת המלחינים", "כת התהודה", "משמר הארמון"],
+          twists: ["המוזיקה מרפאה וגם משחיתה", "היצירה האבודה דורשת נגן מקריב"],
+          endings: ["אטימה מוזיקלית", "הקרבת היצירה", "עידן חדש של קסם צלילי"],
+        },
+      ];
+      const CAMPAIGN_LIBRARY_ACTIVE = CAMPAIGN_LIBRARY_STRUCTURED.slice(0, 20);
+
+      const CAMPAIGN_LIBRARY = [
+        {
+          id: "custom",
+          title: "קמפיין מותאם אישית",
+          subtitle: "בניית קמפיין חופשי לפי הטקסט שלך",
+          tone: "גמיש",
+          worldSeed: "",
+          openingHook: "",
+          dmPillars: ["היצמדות לרעיונות השחקן", "קצב דרמה עולה", "השלכות אמיתיות"],
+          acts: [],
+          finales: [],
+        },
+        {
+          id: "neon_murder_1986",
+          title: "תיק ניאון: רצח בקיץ 1986",
+          subtitle: "חקירת רצח בעיירה חופית אפלה בשנות ה-80",
+          tone: "נואר, מסתורין, מתח פסיכולוגי",
+          worldSeed:
+            "עיירת חוף בשם מפרץ הכחול, 1986. מועדוני ארקייד, שוטרים מושחתים, תחנת רדיו פיראטית וחבורת נוער שיודעת יותר ממה שהיא אומרת.",
+          openingHook:
+            "בלילה סוער נמצא כוכב רוק מקומי מת ליד המזח עם קלטת אודיו בכיס שעליה נרשם: 'אל תסמוך על השריף'.",
+          dmPillars: ["ראיות לא משקרות", "כל חשוד עם מניע", "האמת עולה במחיר אישי"],
+          acts: [
+            {
+              title: "מערכה א: הלילה שנשבר",
+              goal: "איסוף ראיות ראשונות ובניית רשימת חשודים",
+              beats: ["זירת הרצח במזח", "תשאול DJ בתחנת הרדיו", "קלטת ראשונה עם מסר מקודד"],
+              twist: "הראיה הראשית הושתלה בכוונה.",
+            },
+            {
+              title: "מערכה ב: מי מפעיל את העיר",
+              goal: "חשיפת רשת השחיתות שמגינה על הרוצח",
+              beats: ["חדירה לארכיון המשטרה", "סחיטה במועדון לילה", "היעלמות עד מפתח"],
+              twist: "השריף לא הרוצח, אבל הוא שומר עליו.",
+            },
+            {
+              title: "מערכה ג: הקלטת האחרונה",
+              goal: "פענוח מלא של מסרי האודיו ואיתור המניע האמיתי",
+              beats: ["מעבדת סאונד חשאית", "מרדף רכב לילי", "וידוי חלקי בשידור חי"],
+              twist: "הקורבן תכנן לחשוף קונספירציה מדינית.",
+            },
+            {
+              title: "מערכה ד: משפט ברחוב",
+              goal: "עימות אחרון והכרעת גורל החשודים",
+              beats: ["מצוד במחסן הנמל", "בחירה: צדק חוקי או צדק אישי", "חשיפת האמת בפני העיר"],
+              twist: "האמת תצית מהומות או תציל חיים, תלוי בבחירת השחקן.",
+            },
+          ],
+          finales: ["העבריין נעצר והעיר מתחילה להחלים", "האמת נקברת והשחקן הופך למטרה", "צדק פרטי עם מחיר מוסרי כבד"],
+        },
+        {
+          id: "dwarf_hellgate",
+          title: "פטיש האפר ושער התהום",
+          subtitle: "גמד לוחם מול שדים ורוחות במכרות עתיקים",
+          tone: "פנטזיה אפלה, גבורה טראגית, אימה מטאפיזית",
+          worldSeed:
+            "מצודת גמדים הררית בשם קאז-דור, שמתחתיה נפתח סדק תהומי המשחרר שדים עתיקים ורוחות כורים שנפלו.",
+          openingHook: "פטיש אבות נשבר לשניים בטקס זיכרון, ובאותו רגע הרוחות מתחילות לדבר בקול אחיד: 'הם עולים'.",
+          dmPillars: ["אימה במעמקים", "כבוד גמדי מול פיתוי שדי", "הקרבה משנה את העולם"],
+          acts: [
+            {
+              title: "מערכה א: הדם בסלע",
+              goal: "איחוד חמולות גמדים להגנה ראשונית",
+              beats: ["טיהור מנהרות חיצוניות", "עימות עם זקן מועצה בוגדני", "איסוף שרידי הפטיש"],
+              twist: "אחד ממנהיגי החמולה קשור לברית שדים ישנה.",
+            },
+            {
+              title: "מערכה ב: קולות מן המתים",
+              goal: "שחרור רוחות כורים כדי לקבל מפת תהום",
+              beats: ["מקדש זיכרון הרוס", "טקס פיוס מסוכן", "כיבוש מחשלת צללים"],
+              twist: "הרוחות דורשות קורבן חי בתמורה לעזרה.",
+            },
+            {
+              title: "מערכה ג: שער שחור",
+              goal: "חדירה ללב השסע וסגירת חותם דמוני",
+              beats: ["קרב על גשר לבה", "התמודדות עם דוכס שדי", "חישול מחודש של פטיש האבות"],
+              twist: "הפטיש החדש דורש נשמה קשורה.",
+            },
+            {
+              title: "מערכה ד: שבועת האבן",
+              goal: "הכרעה בין סגירת השער לצמיתות לבין שליטה בכוחו",
+              beats: ["מצור אחרון על שער התהום", "בחירת נושא שבועה", "גורל קאז-דור"],
+              twist: "ניצחון מלא עלול לכבות את קסם ההרים לדורות.",
+            },
+          ],
+          finales: ["השער נחתם במחיר אישי", "הגמדים שולטים בכוח התהום", "ההרים נופלים אך העם שורד בגלות"],
+        },
+        {
+          id: "drowned_glass_city",
+          title: "עיר הזכוכית הטובעת",
+          subtitle: "מרוץ נגד הצפה קסומה בבירת תעלות",
+          tone: "הרפתקה אורבנית, פוליטיקה, מתח סביבתי",
+          worldSeed: "מטרופולין בנויה זכוכית ופלדה עתיקה, תלויה מעל ביצות מלוחות, עם סכרי מאנה מתפרקים.",
+          openingHook: "במהלך פסטיבל האורות, רובע שלם שוקע בן לילה ומאות נעדרים נעלמים לתוך 'מים שרים'.",
+          dmPillars: ["שעון איום מתקדם", "פוליטיקה של הישרדות", "בחירות ציבוריות כואבות"],
+          acts: [
+            {
+              title: "מערכה א: סדק בסכר",
+              goal: "מיפוי מקור הכשל והצלת שורדים",
+              beats: ["חילוץ בשוק השקוע", "חקירת מהנדסי מאנה", "גילוי סימני חבלה"],
+              twist: "החבלה נעשתה כדי לחשוף שחיתות ממשלתית.",
+            },
+            {
+              title: "מערכה ב: מועצת הצללים",
+              goal: "בניית קואליציה בין פלגים יריבים",
+              beats: ["דיון חירום במועצה", "עסקה עם גילדת המבריחים", "מניעת הפיכה צבאית"],
+              twist: "אחת הדמויות הקרובות עובדת לסיעה קיצונית.",
+            },
+            {
+              title: "מערכה ג: לב המאנה",
+              goal: "ייצוב מנועי המים בעיר התחתית",
+              beats: ["צלילה למקדשי זכוכית", "קרב במערכות צינור לחץ", "הפעלה ידנית של ליבה עתיקה"],
+              twist: "הליבה מייצבת את העיר אך מוחקת זיכרונות.",
+            },
+            {
+              title: "מערכה ד: עלות ההצלה",
+              goal: "הכרעת המבנה החברתי החדש של העיר",
+              beats: ["פינוי עשרות אלפים", "בחירה מי יקבל גישה למים", "הצבעה גורלית בשידור ציבורי"],
+              twist: "הפתרון היעיל ביותר הוא גם הכי לא שוויוני.",
+            },
+          ],
+          finales: ["עיר יציבה ושוויונית יותר", "עיר ניצלת במחיר דיכוי", "קריסה מבוקרת והקמת בירה חדשה"],
+        },
+        {
+          id: "ghost_train_north",
+          title: "רכבת הרפאים של הצפון",
+          subtitle: "מסע אימה על מסילה שאין לה סוף",
+          tone: "אימה גותית, הישרדות, מסתורין קוסמי",
+          worldSeed: "רכבת ישנה חוצה טונדרות קפואות. מי שעולה עליה בלילה של ירח חסר חוזר אחר.",
+          openingHook: "מכתב עתיק מזמין את הדמות לנסיעה חד פעמית ברכבת מספר 13 כדי להציל נעדר אהוב.",
+          dmPillars: ["קלסטרופוביה", "זמן מתעוות", "אמת אישית מול אימה"],
+          acts: [
+            {
+              title: "מערכה א: עליה לקרון הלא נכון",
+              goal: "להבין את חוקי הרכבת והנוסעים",
+              beats: ["כרטיסן חסר פנים", "קרון עם חלונות לעבר", "נוסע שמכיר את שמך"],
+              twist: "היעד משתנה לפי פחדי הנוסעים.",
+            },
+            {
+              title: "מערכה ב: תחנות אבודות",
+              goal: "איסוף שלושה חותמות יציאה",
+              beats: ["תחנת בית קברות מושלגת", "כפר ללא צל", "גשר קפוא מעל תהום"],
+              twist: "אחד החותמות הוא אדם חי שיש להקריב.",
+            },
+            {
+              title: "מערכה ג: מנוע הלילה",
+              goal: "חדירה לקטר וסיום קללת המסילה",
+              beats: ["קרב מול קונדוקטור רפאים", "שבירת שעון המנוע", "בחירה בין נוסעים ליקיר"],
+              twist: "הקללה קשורה לחטא משפחתי ישן.",
+            },
+            {
+              title: "מערכה ד: ירידה אחרונה",
+              goal: "לרדת מהרכבת לפני שחר או להישאר לנצח",
+              beats: ["תחנה אחרונה שלא קיימת במפה", "וידוי סופי", "קפיצה מהמסילה"],
+              twist: "מי שיורד לא זוכר הכל, מי שנשאר זוכר לנצח.",
+            },
+          ],
+          finales: ["הצלה חלקית עם אובדן זיכרון", "שבירת הקללה ושחרור הנשמות", "הדמות הופכת לשומרת הרכבת"],
+        },
+        {
+          id: "blood_trial_verdan",
+          title: "משפט הדם של בית ורדאן",
+          subtitle: "מותחן חצר שבו כל עדות היא נשק",
+          tone: "פוליטיקה אריסטוקרטית, דרמה משפטית, מזימות",
+          worldSeed: "ממלכה פיאודלית בה ירושה נקבעת במשפטי דם, דו-קרבות חוקיים ובריתות נישואין.",
+          openingHook: "יורש בית ורדאן מואשם ברצח המלך בליל ההכתרה, וכל משפחתו בסכנת השמדה.",
+          dmPillars: ["אמת משפטית לא תמיד אמת מוסרית", "בריתות מתחלפות", "מילים גורליות כמו חרבות"],
+          acts: [
+            {
+              title: "מערכה א: כתב אישום",
+              goal: "הגנה ראשונית ומניעת הוצאה להורג מיידית",
+              beats: ["איסוף עדים מפוחדים", "דו-קרב פתיחה בבית המשפט", "חשיפת זיוף ראשוני במסמכים"],
+              twist: "השופט העליון מקבל שוחד מהכתר.",
+            },
+            {
+              title: "מערכה ב: ארמון המסכות",
+              goal: "חדירה לנשף המלכותי להשגת ראיה מכריעה",
+              beats: ["ריקוד דיפלומטי עם יריבים", "גניבת יומן חדרי המלך", "סחיטת מרגל פנימי"],
+              twist: "הראיה מוכיחה קשר למשפחת השחקן.",
+            },
+            {
+              title: "מערכה ג: משפט חוזר",
+              goal: "הפיכת הקערה והעמדת המאשימים לדין",
+              beats: ["חקירה נגדית אגרסיבית", "חשיפת מניע כלכלי", "עימות בין בתי אצולה"],
+              twist: "היורש אכן אשם, אך מסיבה מוצדקת פוליטית.",
+            },
+            {
+              title: "מערכה ד: הכתר הריק",
+              goal: "לקבוע מי ימשול לאחר קריסת הסדר החוקי",
+              beats: ["מרד משמר העיר", "הכרזת יורש חדש", "פשרה או מלחמת אזרחים"],
+              twist: "הצדק דורש לוותר על השלטון.",
+            },
+          ],
+          finales: ["זיכוי והכתרה", "האמת מתגלה והיורש מקריב עצמו", "מועצת אצולה חדשה מחליפה מלוכה"],
+        },
+        {
+          id: "black_dream_plague",
+          title: "מגפת החלומות השחורים",
+          subtitle: "אימה מיסטית בעיר שבה שינה היא סכנה",
+          tone: "אימה עירונית, מיסטיקה, תקווה שבירה",
+          worldSeed: "עיר סחר ענקית שסובלת ממגפה: כל מי שנרדם חולם אותו חלום ומתעורר עם סימני כוויה שחורים.",
+          openingHook: "ילדי בית יתומים נופלים לתרדמת בו-זמנית וממלמלים שם של מקום שאינו קיים.",
+          dmPillars: ["השעון מתקתק", "טקסים מול רציונל", "הצלת אנשים לפני נצחון מוחלט"],
+          acts: [
+            {
+              title: "מערכה א: ללא שינה",
+              goal: "ייצוב העיר ומניעת קריסה אזרחית",
+              beats: ["מרפאה חירום", "חיפוש ספרי חלום אסורים", "הגנת שיירות תרופות"],
+              twist: "המרפא הראשי מפיץ מידע שגוי מכוונה טובה.",
+            },
+            {
+              title: "מערכה ב: מפה בתוך חלום",
+              goal: "כניסה מודעת לחלום המשותף",
+              beats: ["טקס חלימה מבוקרת", "מבצר במישור חלום", "מציאת שמו של הישות המזינה"],
+              twist: "החלום צורך זיכרונות אמיתיים של החולם.",
+            },
+            {
+              title: "מערכה ג: שורש המגפה",
+              goal: "ניתוק מקור ההדבקה במקדש תת-קרקעי",
+              beats: ["קרב מול כהני ערפל", "שבירת מזבח תודעה", "שחרור נשמות כלואות"],
+              twist: "הישות עצמה היא שומרת עתיקה שטעתה.",
+            },
+            {
+              title: "מערכה ד: בוקר ראשון",
+              goal: "החלטה על גורל הישות והעיר",
+              beats: ["פשרה מיסטית", "משפט ציבורי לאשמים", "שיקום קהילתי"],
+              twist: "אם הורגים את הישות, חוזר איום קדום חזק יותר.",
+            },
+          ],
+          finales: ["ברית חדשה עם הישות", "חיסול המגפה והופעת איום חדש", "עיר משתנה למסדר חלום-ער"],
+        },
+        {
+          id: "seven_keys_sunkeep",
+          title: "שבעת המפתחות למבצר השמש",
+          subtitle: "מסע אפי לאיסוף מפתחות נגד פלישת חושך",
+          tone: "אפי, הירואי, קלאסי",
+          worldSeed: "יבשת מחולקת לשבע ממלכות. בכל אחת מפתח עתיק שפותח את מבצר השמש, הנשק האחרון נגד מלך הצללים.",
+          openingHook: "ליקוי כפול מצית שערי צל, ונבואה ישנה מציבה את הדמות כנושאת המפתח הראשון.",
+          dmPillars: ["התקדמות ברורה", "בחירות בין ממלכות", "יריבים שחוזרים ומשתנים"],
+          acts: [
+            { title: "מערכה א: המפתח הראשון", goal: "קבלת אמון ממלכת המדבר", beats: ["מרוץ במדבר", "דו-קרב טקסי", "מפתח האריה"], twist: "המלכה מתכננת להשתמש במבצר לצרכיה." },
+            { title: "מערכה ב: שישה כתרים", goal: "איסוף המפתחות הבאים", beats: ["ביצה מורעלת", "עיר מעופפת", "ארמון קרח"], twist: "אחד המפתחות מזויף בכוונה." },
+            { title: "מערכה ג: מבצר השמש", goal: "חדירה למבצר והפעלת מנגנון ההגנה", beats: ["חידות אור", "קרב עם צללים אבירים", "חיבור כל המפתחות"], twist: "הפעלה מלאה דורשת ויתור על כוח אישי." },
+            { title: "מערכה ד: מלחמת ליקוי", goal: "הכרעת מלך הצללים", beats: ["מצור אחרון", "קרב רב-חזיתי", "החלטה על עתיד הממלכות"], twist: "ניצחון דורש איחוד פוליטי שנראה בלתי אפשרי." },
+          ],
+          finales: ["שלום מאוחד", "ניצחון צבאי ללא אחדות", "עידן חדש תחת מועצת מפתחות"],
+        },
+        {
+          id: "iron_harbor_hunt",
+          title: "מצוד הצללים בנמל הברזל",
+          subtitle: "מותחן פשע ופנטזיה עירונית בנמל קודר",
+          tone: "אקשן אורבני, נואר, בגידות",
+          worldSeed: "נמל תעשייתי עם גילדות פשע, מכונות קיטור וקסמי רחוב.",
+          openingHook: "חפץ עתיק נגנב באמצע יום, וכל הגילדות בטוחות שהדמות אחראית.",
+          dmPillars: ["מרדפים חדים", "בריתות זמניות", "מחיר לכוח מהיר"],
+          acts: [
+            { title: "מערכה א: ציד ברחובות", goal: "לנקות שם ולהישאר בחיים", beats: ["מרדף גגות", "שוק שחור", "פגישה עם מודיע"], twist: "המודיע עובד לשני הצדדים." },
+            { title: "מערכה ב: לב הגילדות", goal: "חדירה לארגוני הפשע", beats: ["משא ומתן עם מנהיג רציפים", "קרב במפעל נטוש", "גניבת רישום משלוחים"], twist: "החפץ הוא מפתח למנוע נשמה." },
+            { title: "מערכה ג: ים של אש", goal: "מניעת הפעלה מסוכנת בנמל", beats: ["ספינת קרב מעוגנת", "פיצוץ מבוקר", "עימות מול ראש גילדה"], twist: "ראש הגילדה מציל את העיר מסכנה גדולה יותר." },
+            { title: "מערכה ד: חוק חדש", goal: "עיצוב הסדר החדש בעיר", beats: ["חשיפת האמת", "הכרעת מנהיגות", "שיקום הרציפים"], twist: "אין פתרון נקי ללא פשרה מוסרית." },
+          ],
+          finales: ["נמל חופשי", "משטר קשוח אך יציב", "עליית גילדה חדשה בראשות הדמות"],
+        },
+        {
+          id: "frost_queen_heart",
+          title: "מלכת הקרח והלב האבוד",
+          subtitle: "אגדת חורף על אהבה, כפור והקרבה",
+          tone: "פנטזיה מלנכולית, דרמה רגשית",
+          worldSeed: "ממלכת חורף נצחי, בה מלכה אלמותית איבדה את לבה ונעלה אותו בארמון קרח.",
+          openingHook: "האביב לא מגיע כבר עשור. עץ החיים האחרון מתחיל לדמם קרח.",
+          dmPillars: ["קסם רגשי", "מסע אישי", "בחירה בין אהבה לחובה"],
+          acts: [
+            { title: "מערכה א: שבילי כפור", goal: "איתור דרך לארמון", beats: ["כפר קפוא", "סוחר זכרונות", "שועל רוח כמדריך"], twist: "המדריך משרת גם את המלכה." },
+            { title: "מערכה ב: היכל מראות קרח", goal: "איסוף שברי לב המלכה", beats: ["מבחן חמלה", "מבחן אמת", "מבחן נאמנות"], twist: "שבר אחד שייך לדמות עצמה." },
+            { title: "מערכה ג: כס המלכות", goal: "עימות עם המלכה והעבר שלה", beats: ["דו-שיח תחת סערה", "קרב מול אבירי קרח", "החזרת הלב"], twist: "הלב מחזיר גם כאב נורא." },
+            { title: "מערכה ד: האביב הראשון", goal: "הכרעת גורל הממלכה", beats: ["פירוק הקסם או שליטה בו", "הקרבת כוח אישי", "טקס התחדשות"], twist: "האביב יחזור רק אם מישהו יוותר על זיכרון אהוב." },
+          ],
+          finales: ["האביב שב", "חורף נשלט ומאוזן", "דמות חדשה הופכת לשומרת העונות"],
+        },
+        {
+          id: "crown_of_ravens",
+          title: "כתר העורבים",
+          subtitle: "מלחמת מודיעין ומאגיה בעיר הבירה",
+          tone: "ריגול פנטסטי, מתח פוליטי",
+          worldSeed: "עיר בירה עם ארגוני מודיעין מתחרים ומלכה חולה ללא יורש.",
+          openingHook: "כתר מלכותי נגנב מתוך כספת מקודשת ללא סימני פריצה.",
+          dmPillars: ["מידע הוא מטבע", "אף סוכן לא נקי", "נאמנות נבחנת שוב ושוב"],
+          acts: [
+            { title: "מערכה א: צללים בארמון", goal: "זיהוי סוכן כפול", beats: ["חדירה לארכיון", "פענוח קוד עורבים", "מעקב אחרי שר בכיר"], twist: "הסוכן הכפול הוא בעל ברית ותיק." },
+            { title: "מערכה ב: רשת הלחישות", goal: "השתלטות על ערוצי המודיעין", beats: ["עסקה עם גילדת רצח", "חילוץ מודיע", "מרדף בספריה"], twist: "הכתר מזויף, האמיתי אצל הכנסיה." },
+            { title: "מערכה ג: יום ההכתרה", goal: "חשיפת המזימה בזמן טקס", beats: ["מסכות וחילופי זהויות", "קרב במרפסות גבוהות", "חשיפת קנוניה"], twist: "המלכה בחרה בהיעלמותה מראש." },
+            { title: "מערכה ד: יורש הצללים", goal: "הכרעת מבנה הכוח החדש", beats: ["בחירת יורש", "משבר אמון ציבורי", "טקס כתר חדש"], twist: "היורש הראוי מסרב לשלוט." },
+          ],
+          finales: ["יציבות חדשה", "רפובליקה מודיעינית", "מלוכה בצל ארגון סתר"],
+        },
+        {
+          id: "archive_erased_time",
+          title: "הארכיון שנמחק מן הזמן",
+          subtitle: "מסע בין גרסאות מציאות לאיסוף היסטוריה גנובה",
+          tone: "מדע-פנטזיה, פילוסופיה, מסתורין",
+          worldSeed: "ארכיון קוסמי ששומר את כל ההיסטוריות האפשריות. חלק מהמדפים החלו להימחק.",
+          openingHook: "הדמות מגלה שפרק שלם מחייה נעלם מזיכרון כולם מלבדה.",
+          dmPillars: ["זמן לא ליניארי", "זהות מול זיכרון", "אמת יחסית"],
+          acts: [
+            { title: "מערכה א: מדפים ריקים", goal: "איתור אזור המחיקה הראשון", beats: ["ספרן ללא שם", "מסדרון חוזר", "מפתח כרונולוגי"], twist: "המחיקה נועדה למנוע אסון עתידי." },
+            { title: "מערכה ב: גרסאות שבורות", goal: "איסוף שלושה קטעי זמן", beats: ["עיר שלא נבנתה", "מלחמה שלא קרתה", "ילד שלא נולד"], twist: "אחד הקטעים סותר את קיום הדמות." },
+            { title: "מערכה ג: עורך המציאות", goal: "עימות עם הישות שמוחקת", beats: ["קרב מושגי", "בחירת ציר זמן מועדף", "שחזור חלקי"], twist: "הישות היא גרסה עתידית של הדמות." },
+            { title: "מערכה ד: חתימת ההיסטוריה", goal: "לקבוע איזה זיכרון יישמר", beats: ["אספת עדים מהזמן", "הכרעת מחיר אישי", "איטום הארכיון"], twist: "שימור אמת אחת מוחק אמת אחרת לנצח." },
+          ],
+          finales: ["שחזור מלא במחיר עולם חלופי", "איזון חלקי", "חיים חדשים עם עבר שונה"],
+        },
+        {
+          id: "steam_empire_gangs",
+          title: "מלחמת כנופיות באימפריית קיטור",
+          subtitle: "פשע, מהפכה ומכונות בעיר עשן",
+          tone: "סטימפאנק קשוח, אקשן מהיר",
+          worldSeed: "מגה-עיר תעשייתית עם מגה-תאגידים, כנופיות רחוב, ושוטרים פרטיים.",
+          openingHook: "מהנדסת גאונה נחטפת ערב הצגת מנוע שיכול להאיר את כל העיר בחינם.",
+          dmPillars: ["לחימה אורבנית", "טכנולוגיה מסוכנת", "חירות מול שליטה"],
+          acts: [
+            { title: "מערכה א: רחובות עשן", goal: "איתור החוטפים", beats: ["קטטה בברזלית", "עסקה עם כנופיית בלדרים", "עקבות למפעל"], twist: "החטיפה בוימה למחצה." },
+            { title: "מערכה ב: בריתות חלודות", goal: "איחוד פלגים נגד קרטל יחיד", beats: ["משא ומתן במנהרות קיטור", "חבלה במסילה", "שחרור שכונה"], twist: "הקרטל ממומן על ידי מועצת העיר." },
+            { title: "מערכה ג: מנוע העם", goal: "השבת המנוע והגנה עליו", beats: ["קרב על גשר קיטור", "שחזור תוכניות", "הדלקת מנוע"], twist: "המנוע גם נשק פוטנציאלי." },
+            { title: "מערכה ד: לילה של הכרעה", goal: "בחירת שליט הסדר החדש", beats: ["מרד אזרחי", "נאום ציבורי", "סגירת חשבון עם הקרטל"], twist: "אין שלטון בלי פיקוח כוחני כלשהו." },
+          ],
+          finales: ["עיר חופשית יחסית", "דיקטטורה יעילה", "מועצה מעורבת של כנופיות וקהילה"],
+        },
+        {
+          id: "broken_moon_temple",
+          title: "מקדש הירח השבור",
+          subtitle: "מסע על פולחן ירחי ומפלצות גאות",
+          tone: "מיתולוגי, מסתורי, הרפתקני",
+          worldSeed: "איי ארכיפלג הנשלטים על ידי מחזורי ירח, כאשר הירח נשבר והגאות הופכת קטלנית.",
+          openingHook: "כוהנת ירח צעירה מגיעה עם שבר ירח זוהר שמושך יצורי מעמקים.",
+          dmPillars: ["תעלומות פולחניות", "סביבה משתנה", "בחירה בין אמונה לידע"],
+          acts: [
+            { title: "מערכה א: גאות ראשונה", goal: "הגנה על אי הבית", beats: ["פינוי חופים", "קרב מול יצורי גאות", "פענוח כתובת ירח"], twist: "השבר לא מקולל, הוא אות אזהרה." },
+            { title: "מערכה ב: איי הצל", goal: "איסוף שלושה שרידי ירח", beats: ["מקדש מוצף", "אי ערפל", "מגדל ניווט שבור"], twist: "שריד אחד מוחזק בידי פיראטים קדושים." },
+            { title: "מערכה ג: לב המקדש", goal: "שחזור מנגנון הירח", beats: ["חדרי כובד משתנה", "פאזל אסטרונומי", "עימות עם כהן קיצוני"], twist: "הכהן מנסה לעצור אסון אמיתי." },
+            { title: "מערכה ד: לילה ללא ירח", goal: "הכרעת מחזור חדש", beats: ["טקס על גג המקדש", "סערת גאות עליונה", "בחירת סדר ירח חדש"], twist: "סדר יציב יפגע בחירות האיים." },
+          ],
+          finales: ["איזון טבעי", "שלטון כוהני", "עידן ימי פראי אך חופשי"],
+        },
+        {
+          id: "sands_false_prophet",
+          title: "חולות השקר והנביא העיוור",
+          subtitle: "מסע מדברי אחר נבואה מזויפת",
+          tone: "אפוס מדברי, הישרדות, אמונה",
+          worldSeed: "אימפריית דיונות עם ערי נווה, שבה נביא עיוור מאחד שבטים תחת חזון שקרי.",
+          openingHook: "שיירת מים נטבחת, והנביא מאשים את הדמות בכפירה שמביאה 'עונש שמימי'.",
+          dmPillars: ["משאבי הישרדות", "אמונה כמנוע כוח", "אמת מול תעמולה"],
+          acts: [
+            { title: "מערכה א: מים ודם", goal: "הישרדות ואיסוף עדויות", beats: ["קרב שיירות", "שוק מלח", "ברית עם שבט נודד"], twist: "הנביא מציל כפרים באמת." },
+            { title: "מערכה ב: ספר האופק", goal: "מציאת כתב הנבואה המקורי", beats: ["ספריה קבורה", "מלכודות חול", "פענוח כתב עתיק"], twist: "הכתב מעורפל ופתוח לפרשנות." },
+            { title: "מערכה ג: עיר המראות", goal: "חשיפת מנגנון ההטעיה", beats: ["חדירה לארמון מראות", "קרב מול משמר מאמין", "חשיפת יועץ ציני"], twist: "היועץ משתמש בנביא ככלי, לא להפך." },
+            { title: "מערכה ד: סערת זכוכית", goal: "הכרעת גורל האמונה", beats: ["עימות עם הנביא", "בחירת אמת ציבורית", "ארגון הסדר החדש"], twist: "קריסת האמונה תוביל אנרכיה מסוכנת." },
+          ],
+          finales: ["רפורמה דתית", "משטר אמוני מתון", "קריסת אימפריה והקמת ברית שבטים"],
+        },
+        {
+          id: "mirror_brotherhood",
+          title: "אחוות המראות",
+          subtitle: "קנוניה של כפילים בעיר של השתקפויות",
+          tone: "מותחן זהות, מסתורין, פרנויה",
+          worldSeed: "עיר עתיקה עם מגדלי מראה מאגיים שמאפשרים 'שיקוף תודעה'.",
+          openingHook: "הדמות פוגשת כפיל זהה לחלוטין שטוען שהוא המקור.",
+          dmPillars: ["זהות לא יציבה", "אמת סותרת", "אמון נשבר ונבנה"],
+          acts: [
+            { title: "מערכה א: מראה ראשונה", goal: "להוכיח זהות בסיסית", beats: ["בדיקת זיכרונות", "עימות פומבי", "מעקב אחר אחווה"], twist: "הכפיל מציל חיים ומבלבל מוסרית." },
+            { title: "מערכה ב: מעבדת הדהוד", goal: "חשיפת מנגנון השכפול", beats: ["חדירה למגדל מראה", "שחרור 'ניסויים'", "גניבת ליבה"], twist: "המנגנון מרפא מחלות נדירות." },
+            { title: "מערכה ג: מלחמת גרסאות", goal: "עצירת השתלטות האחווה", beats: ["קרבות בין כפילים", "ברית עם גרסה מרדנית", "ניתוק רשת מראות"], twist: "חלק מהכפילים עצמאים לחלוטין." },
+            { title: "מערכה ד: מי נשאר", goal: "הכרעה על זהות חוקית ומוסרית", beats: ["בית דין זהות", "בחירת זכויות לכפילים", "עתיד העיר"], twist: "אין דרך להוכיח מקור מוחלט." },
+          ],
+          finales: ["קיום משותף", "איסור מוחלט על שכפול", "איחוד תודעות חלקי"],
+        },
+        {
+          id: "arcane_quake",
+          title: "רעידת הקסם הגדולה",
+          subtitle: "כשחוקי הקסם מתפרקים בכל העולם",
+          tone: "אסון פנטזי, מסע גלובלי, אפי",
+          worldSeed: "קרעי קסם רנדומליים משנים מציאות: נהרות עולים לשמיים, חיות מדברות, לחשים משתבשים.",
+          openingHook: "במהלך טקס פשוט, עיר שלמה מחליפה מיקום עם יער פראי.",
+          dmPillars: ["כאוס נשלט", "פתרון אזורי לפני גלובלי", "מחיר יציבות"],
+          acts: [
+            { title: "מערכה א: מוקדי שבר", goal: "מיפוי מוקדי הרעד", beats: ["מגדל קוסמים קורס", "פינוי עיר צפה", "איסוף אבני איזון"], twist: "הרעד נובע ממנגנון הגנה עתיק." },
+            { title: "מערכה ב: מועצת אסונות", goal: "שיתוף פעולה בין אומות", beats: ["כנס חירום", "סיכול מתנקשים", "הסכם משאבים"], twist: "אומה אחת מרוויחה מהכאוס." },
+            { title: "מערכה ג: ליבת העולם", goal: "חדירה למבנה הקסם הראשי", beats: ["מבוך חוקי פיזיקה", "קרב מול שומרי ליבה", "הפעלה מחדש"], twist: "הפעלה מלאה תבטל קסם חופשי." },
+            { title: "מערכה ד: סדר חדש", goal: "בחירת מודל קסם עתידי", beats: ["משאל עמים", "עימות עם קוסמים קיצוניים", "חתימת אמנה עולמית"], twist: "היציבות דורשת פיקוח מתמיד." },
+          ],
+          finales: ["קסם יציב ומפוקח", "חופש קסום כאוטי", "חלוקה אזורית לשיטות קסם"],
+        },
+        {
+          id: "bone_carnival",
+          title: "קרנבל העצמות",
+          subtitle: "לונה-פארק מקולל שבו כל משאלה עולה בחיים",
+          tone: "אימה קרנבלית, גרוטסקה, דרמה אישית",
+          worldSeed: "קרנבל נודד שמופיע אחת לשנה ומבטיח הגשמת משאלות תמורת מחיר לא ידוע.",
+          openingHook: "אדם יקר לדמות נעלם בקרנבל אחרי שביקש 'רק עוד הזדמנות אחת'.",
+          dmPillars: ["פיתוי מתוק", "מחירים נסתרים", "בחירות מוסריות חדות"],
+          acts: [
+            { title: "מערכה א: שער המראות", goal: "כניסה לקרנבל ואיתור הנעדר", beats: ["משחקים קטלניים", "ליצן מנבא", "מפה חיה"], twist: "הנעדר אינו רוצה לעזוב." },
+            { title: "מערכה ב: אוהלי עסקה", goal: "שבירת חוזים מקוללים", beats: ["גניבת ספר חוזים", "עסקה עם בעל הקרנבל", "שחרור נשמות"], twist: "חלק מהחוזים שמרו אנשים מהמוות." },
+            { title: "מערכה ג: מופע חצות", goal: "עצירת מנגנון המשאלות", beats: ["במה רוטטת", "קרב מול אמני הקרנבל", "ניתוק מקור כוח"], twist: "המקור הוא זיכרון קולקטיבי של אבל." },
+            { title: "מערכה ד: הבוקר שאחרי", goal: "הכרעת גורל הקרנבל", beats: ["שריפה או גאולה", "בחירה מי נשאר", "מחיר משאלה אחרונה"], twist: "כדי להציל הכל צריך לוותר על משאלה אישית." },
+          ],
+          finales: ["קרנבל מתפוגג", "קרנבל נגאל", "הדמות הופכת לשומר/ת המשאלות"],
+        },
+        {
+          id: "covenant_dead",
+          title: "תיבת הברית של המתים",
+          subtitle: "מסע כוהנים, שודדי קברים ופוליטיקה של עולם הבא",
+          tone: "הרפתקה מיסטית, אמונה, דיפלומטיה בין עולמות",
+          worldSeed: "ארצות שמקיימות אמנה עתיקה עם עולם המתים באמצעות תיבה קדושה.",
+          openingHook: "התיבה נגנבת, והמתים מתחילים לחצות אל עולם החיים ללא שליטה.",
+          dmPillars: ["איזון חיים-מוות", "דיפלומטיה רוחנית", "הקרבה טקסית"],
+          acts: [
+            { title: "מערכה א: קברי אבות פרוצים", goal: "עצירת חדירת רוחות ראשונית", beats: ["טיהור בית קברות", "מעקב אחרי שודדי קברים", "השגת חותם נשמה"], twist: "השודדים פועלים בשליחות ממלכתית." },
+            { title: "מערכה ב: שער האפר", goal: "מסע לעולם הביניים", beats: ["משא ומתן עם דוכסי קבר", "הצלת נשמה חשובה", "איתור התיבה"], twist: "התיבה נפתחה כדי לשחרר עוול היסטורי." },
+            { title: "מערכה ג: חוזה חדש", goal: "בניית ברית חדשה בין החיים למתים", beats: ["אספה דו-עולמית", "עימות עם קיצונים משני הצדדים", "ניסוח אמנה"], twist: "האמנה דורשת ייצוג קבוע של חי בעולם המתים." },
+            { title: "מערכה ד: טקס האיזון", goal: "חתימת האמנה והחזרת הסדר", beats: ["הגנה על הטקס", "בחירת שליח/ה", "איטום הגבול"], twist: "איטום מלא ינתק תקשורת עם אבות לנצח." },
+          ],
+          finales: ["איזון חדש פתוח", "איטום מוחלט", "שלטון ביניים משותף"],
+        },
+        {
+          id: "maze_last_king",
+          title: "מבוך המלך האחרון",
+          subtitle: "דאנג'ן-קמפיין ארוך עם שכבות פוליטיות",
+          tone: "דאנג'ן קלאסי, הישרדות, תעלומות היסטוריות",
+          worldSeed: "מבוך עצום שנבנה סביב בירת מלך שנעלם. כל קומה היא שריד תקופה אחרת.",
+          openingHook: "מפת מבוך מקורית מופיעה בשוק עם סימן אישי של משפחת הדמות.",
+          dmPillars: ["התקדמות שכבתית", "ניהול משאבים", "סודות היסטוריים"],
+          acts: [
+            { title: "מערכה א: שערי האבן", goal: "חדירה ויצירת בסיס", beats: ["קומת מלכודות", "ברית עם קבוצה יריבה", "מציאת נקודת מנוחה"], twist: "הקומה מסודרת מחדש כל ירח מלא." },
+            { title: "מערכה ב: עיר תחתית", goal: "חציית אזור מאוכלס", beats: ["שוק תת-קרקעי", "עסקה עם פטרון מפלצות", "מרד עבדים"], twist: "תושבי המקום רוצים להישאר במבוך." },
+            { title: "מערכה ג: חדר הכתרים", goal: "גילוי גורל המלך", beats: ["פאזל ירושה", "קרב משמר מלכותי אוטומטי", "חשיפת כרוניקה סודית"], twist: "המלך חי כמנגנון המבוך עצמו." },
+            { title: "מערכה ד: ליבה חיה", goal: "בחירה בעתיד המבוך", beats: ["עצירת קריסה", "שימור/הריסה", "חלוקת אוצרות"], twist: "הריסה תפיל גם ממלכות תלויות." },
+          ],
+          finales: ["מבוך נשמר כמוסד", "מבוך נהרס ומשחרר איום", "מבוך הופך לעיר חדשה"],
+        },
+        {
+          id: "one_night_before_doom",
+          title: "לילה אחד לפני האפוקליפסה",
+          subtitle: "קמפיין זמן-קצר עם החלטות גורליות",
+          tone: "מתח קיצון, דרמה מהירה, הקרבה",
+          worldSeed: "נבואה מאומתת: בעוד 24 שעות שער קוסמי יקרע את העולם.",
+          openingHook: "שעון כוכבים מרכזי מתחיל לספור לאחור בפומבי. כל הממלכות נכנסות לפאניקה.",
+          dmPillars: ["דדליינים ברורים", "החלטות קשות", "שיא רציף"],
+          acts: [
+            { title: "מערכה א: שעה 24-18", goal: "איסוף מידע ושותפים", beats: ["קריסת סדר ציבורי", "פגישה עם נביאים", "הצלת מעבדה"], twist: "שלושה פתרונות סותרים כולם נכונים חלקית." },
+            { title: "מערכה ב: שעה 18-10", goal: "הכנת התוכנית המרכזית", beats: ["משא ומתן בינלאומי", "שוד חפץ קריטי", "הקרבה ראשונה"], twist: "אחד השותפים מתכנן לברוח במקום להציל." },
+            { title: "מערכה ג: שעה 10-2", goal: "הפעלת המנגנון הנבחר", beats: ["מבצע בעיר בוערת", "גלי כאוס", "הגנה על מוקד הטקס"], twist: "הפתרון עובד רק אם מוותרים על אזור שלם." },
+            { title: "מערכה ד: שעה 2-0", goal: "הכרעה אחרונה", beats: ["עימות עם פניקה המונית", "החלטת הקרבה", "השנייה האחרונה"], twist: "אפשר להציל הכל, אבל לא באותו עולם." },
+          ],
+          finales: ["העולם ניצל במחיר כבד", "עולם חלופי נולד", "הישרדות חלקית והתחלה מחדש"],
+        },
+      ];
+
       const SYSTEM_PROMPT = `
 אתה מנחה משחק (Dungeon Master) קשוח ומדויק בעברית בלבד עבור DND 5e (SRD 2014 core).
 כללים מחייבים:
@@ -1264,7 +2503,7 @@
 ...טקסט לשחקן...
 </NARRATIVE>
 <STATE>
-{"pending_roll":null,"sheet_patch":{},"scene_image":{"needed":false,"importance":"none","reason":""}}
+{"pending_roll":null,"sheet_patch":{},"scene_image":{"needed":false,"importance":"none","reason":""},"combat_patch":{},"campaign_patch":{}}
 </STATE>
 11) pending_roll יכול להיות null או אובייקט:
 {
@@ -1310,6 +2549,32 @@
   "reason": "למה הסצנה דורשת המחשה"
 }
 21) הגדרת scene_image: true רק בסצנת פתיחה או ברגע שיא/דרמה/אקשן/טוויסט משמעותי. ברירת מחדל false.
+22) combat_patch (אובייקט חלקי) לניהול קרב:
+{
+  "active": true|false,
+  "encounter_name":"string",
+  "round":1,
+  "turn_index":0,
+  "participants":[
+    {"id":"player","name":"שם","side":"ally|enemy","initiative":15,"hp_current":12,"hp_max":18,"ac":14,"status":["מורעל"],"is_player":true}
+  ],
+  "note":"סיכום קצר של מצב הקרב"
+}
+23) כשקרב פעיל חובה להחזיר combat_patch בכל תגובה ולעדכן לפי מה שקרה (HP, תורות, אויבים שנפלו, סיבוב).
+24) כשהקרב מסתיים החזר combat_patch עם active:false ו-participants ריק.
+25) אם מגיע ROLL_RESULT עם LOCAL_COMBAT_RESOLUTION_HINT, התייחס אליו כבסיס מכאני לגיבוי ועדכן combat_patch בהתאם, אלא אם יש סתירה ברורה לנתונים.
+26) אם קיים campaign_plan בהקשר, אתה מחויב לשמור על קו העלילה שלו ולהתקדם לפי שלבים.
+27) החזר campaign_patch בכל תגובה כשיש campaign_plan פעיל:
+{
+  "current_act_index":0,
+  "advance_act":false,
+  "mark_current_act_done":false,
+  "objective":"יעד קצר לתור הבא",
+  "act_note":"מה השתנה בעלילה",
+  "reveal_twist":"טוויסט שנחשף",
+  "complete_campaign":false
+}
+28) אם אין שינוי עלילתי משמעותי אפשר campaign_patch ריק.
 `;
 
       const elements = {
@@ -1317,6 +2582,12 @@
         setupScreen: document.getElementById("setupScreen"),
         gameScreen: document.getElementById("gameScreen"),
         apiInput: document.getElementById("apiInput"),
+        modelSelect: document.getElementById("modelSelect"),
+        maxOutputTokensInput: document.getElementById("maxOutputTokensInput"),
+        cheapModeInput: document.getElementById("cheapModeInput"),
+        allowModelFallbackInput: document.getElementById("allowModelFallbackInput"),
+        imagesEnabledInput: document.getElementById("imagesEnabledInput"),
+        budgetHint: document.getElementById("budgetHint"),
         apiError: document.getElementById("apiError"),
         enterWithApiBtn: document.getElementById("enterWithApiBtn"),
         playerNameInput: document.getElementById("playerNameInput"),
@@ -1325,12 +2596,28 @@
         classInput: document.getElementById("classInput"),
         levelInput: document.getElementById("levelInput"),
         toneInput: document.getElementById("toneInput"),
+        campaignPresetSelect: document.getElementById("campaignPresetSelect"),
+        applyCampaignPresetBtn: document.getElementById("applyCampaignPresetBtn"),
+        campaignPresetHint: document.getElementById("campaignPresetHint"),
+        campaignPreview: document.getElementById("campaignPreview"),
+        campaignPreviewTitle: document.getElementById("campaignPreviewTitle"),
+        campaignPreviewSummary: document.getElementById("campaignPreviewSummary"),
+        campaignPreviewActs: document.getElementById("campaignPreviewActs"),
         worldInput: document.getElementById("worldInput"),
         backstoryInput: document.getElementById("backstoryInput"),
         startCampaignBtn: document.getElementById("startCampaignBtn"),
         backToApiBtn: document.getElementById("backToApiBtn"),
         setupError: document.getElementById("setupError"),
         chatLog: document.getElementById("chatLog"),
+        combatActionsWrap: document.getElementById("combatActionsWrap"),
+        combatActionsHint: document.getElementById("combatActionsHint"),
+        combatTargetSelect: document.getElementById("combatTargetSelect"),
+        quickAttackBtn: document.getElementById("quickAttackBtn"),
+        quickSpellBtn: document.getElementById("quickSpellBtn"),
+        quickDefendBtn: document.getElementById("quickDefendBtn"),
+        quickRetreatBtn: document.getElementById("quickRetreatBtn"),
+        quickEndTurnBtn: document.getElementById("quickEndTurnBtn"),
+        quickCombatActionBtns: Array.from(document.querySelectorAll("[data-combat-action]")),
         chatForm: document.getElementById("chatForm"),
         chatInput: document.getElementById("chatInput"),
         micBtn: document.getElementById("micBtn"),
@@ -1339,6 +2626,7 @@
         ),
         sendBtn: document.getElementById("sendBtn"),
         statusChip: document.getElementById("statusChip"),
+        combatChip: document.getElementById("combatChip"),
         nameChip: document.getElementById("nameChip"),
         metaChip: document.getElementById("metaChip"),
         locChip: document.getElementById("locChip"),
@@ -1347,6 +2635,12 @@
         pbChip: document.getElementById("pbChip"),
         goldChip: document.getElementById("goldChip"),
         abilityRow: document.getElementById("abilityRow"),
+        saveGameBtn: document.getElementById("saveGameBtn"),
+        loadGameBtn: document.getElementById("loadGameBtn"),
+        exportGameBtn: document.getElementById("exportGameBtn"),
+        importGameBtn: document.getElementById("importGameBtn"),
+        importGameFile: document.getElementById("importGameFile"),
+        endCombatBtn: document.getElementById("endCombatBtn"),
         drawer: document.getElementById("drawer"),
         drawerOverlay: document.getElementById("drawerOverlay"),
         drawerOpenBtn: document.getElementById("drawerOpenBtn"),
@@ -1355,6 +2649,12 @@
         featuresList: document.getElementById("featuresList"),
         skillsList: document.getElementById("skillsList"),
         conditionsList: document.getElementById("conditionsList"),
+        combatPanel: document.getElementById("combatPanel"),
+        combatSummary: document.getElementById("combatSummary"),
+        combatOrderList: document.getElementById("combatOrderList"),
+        campaignPlanPanel: document.getElementById("campaignPlanPanel"),
+        campaignPlanSummary: document.getElementById("campaignPlanSummary"),
+        campaignPlanActs: document.getElementById("campaignPlanActs"),
         rollModal: document.getElementById("rollModal"),
         rollReason: document.getElementById("rollReason"),
         rollFormula: document.getElementById("rollFormula"),
@@ -1377,6 +2677,13 @@
         targetMaxTurns: 40,
         activeModel: MODEL_CANDIDATES[0],
         activeImageModel: IMAGE_MODEL_CANDIDATES[0],
+        ai: {
+          modelPreference: MODEL_CANDIDATES[0],
+          cheapMode: true,
+          allowModelFallback: false,
+          imagesEnabled: false,
+          maxOutputTokens: CHEAP_MODE_MAX_OUTPUT_TOKENS,
+        },
         gameSessionId: 0,
         visualIdentity: "",
         imageQueue: Promise.resolve(),
@@ -1384,6 +2691,17 @@
         lastImageDmIndex: -99,
         pendingRoll: null,
         pendingRollOutcome: null,
+        combat: {
+          active: false,
+          encounterName: "",
+          round: 0,
+          turnIndex: 0,
+          participants: [],
+          note: "",
+        },
+        campaignPlan: null,
+        combatIntent: null,
+        chatTranscript: [],
         busy: false,
         rolling: false,
         dice3d: {
@@ -1420,12 +2738,23 @@
         bindEvents();
         initSpeechRecognition();
         setDiceFallbackMode(true);
+        syncApiControlsFromMode();
+        initCampaignPresetUi();
+        renderCombatTracker();
+        renderCampaignPlan();
         showScreen("api");
         setStatus("ממתין למפתח גישה");
       }
 
       function bindEvents() {
         elements.enterWithApiBtn.addEventListener("click", onApiEnter);
+        elements.modelSelect.addEventListener("change", syncApiControlsFromMode);
+        elements.maxOutputTokensInput.addEventListener("input", syncApiControlsFromMode);
+        elements.cheapModeInput.addEventListener("change", syncApiControlsFromMode);
+        elements.allowModelFallbackInput.addEventListener("change", syncApiControlsFromMode);
+        elements.imagesEnabledInput.addEventListener("change", syncApiControlsFromMode);
+        elements.campaignPresetSelect.addEventListener("change", onCampaignPresetChanged);
+        elements.applyCampaignPresetBtn.addEventListener("click", onApplyCampaignPresetClicked);
         elements.backToApiBtn.addEventListener("click", () => {
           elements.setupError.textContent = "";
           showScreen("api");
@@ -1440,6 +2769,16 @@
         elements.drawerCloseBtn.addEventListener("click", closeDrawer);
         elements.drawerOverlay.addEventListener("click", closeDrawer);
         elements.rollNowBtn.addEventListener("click", onRollNow);
+        elements.saveGameBtn.addEventListener("click", onSaveGameClicked);
+        elements.loadGameBtn.addEventListener("click", onLoadGameClicked);
+        elements.exportGameBtn.addEventListener("click", onExportGameClicked);
+        elements.importGameBtn.addEventListener("click", onImportGameClicked);
+        elements.importGameFile.addEventListener("change", onImportGameFileChange);
+        elements.endCombatBtn.addEventListener("click", onEndCombatClicked);
+        elements.combatTargetSelect.addEventListener("change", renderCombatActions);
+        for (const btn of elements.quickCombatActionBtns) {
+          btn.addEventListener("click", onQuickCombatActionClicked);
+        }
 
         window.addEventListener("beforeunload", () => {
           state.apiKey = "";
@@ -1457,6 +2796,349 @@
         if (name === "game") elements.gameScreen.classList.remove("hidden");
       }
 
+      function onSaveGameClicked() {
+        if (!state.campaign || !state.sheet) {
+          addMessage("system", "אין קמפיין פעיל לשמירה.");
+          return;
+        }
+        try {
+          localStorage.setItem(SAVE_STORAGE_KEY, JSON.stringify(buildSaveSnapshot()));
+          setStatus("נשמר מקומית");
+          addMessage("system", "הקמפיין נשמר באחסון המקומי של הדפדפן.");
+        } catch {
+          addMessage("system", "שמירה מקומית נכשלה. ייתכן שהאחסון מלא.");
+        }
+      }
+
+      async function onLoadGameClicked() {
+        const raw = localStorage.getItem(SAVE_STORAGE_KEY);
+        if (!raw) {
+          addMessage("system", "לא נמצאה שמירה מקומית.");
+          return;
+        }
+        try {
+          const parsed = JSON.parse(raw);
+          await restoreGameSnapshot(parsed, "אחסון מקומי");
+        } catch {
+          addMessage("system", "הטעינה נכשלה. השמירה המקומית פגומה.");
+        }
+      }
+
+      function onExportGameClicked() {
+        if (!state.campaign || !state.sheet) {
+          addMessage("system", "אין קמפיין פעיל לייצוא.");
+          return;
+        }
+        try {
+          const snapshot = buildSaveSnapshot();
+          const payload = JSON.stringify(snapshot, null, 2);
+          const blob = new Blob([payload], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const ts = new Date().toISOString().replace(/[:.]/g, "-");
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = `dnd-save-${ts}.json`;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          URL.revokeObjectURL(url);
+          addMessage("system", "קובץ שמירה יוצא בהצלחה.");
+        } catch {
+          addMessage("system", "ייצוא השמירה נכשל.");
+        }
+      }
+
+      function onImportGameClicked() {
+        elements.importGameFile.value = "";
+        elements.importGameFile.click();
+      }
+
+      async function onImportGameFileChange(event) {
+        const file = event?.target?.files?.[0];
+        if (!file) return;
+        try {
+          const text = await file.text();
+          const parsed = JSON.parse(text);
+          await restoreGameSnapshot(parsed, `קובץ: ${file.name}`);
+        } catch {
+          addMessage("system", "ייבוא קובץ השמירה נכשל. ודא שמדובר ב-JSON תקין.");
+        } finally {
+          elements.importGameFile.value = "";
+        }
+      }
+
+      function buildSaveSnapshot() {
+        return {
+          schema_version: SAVE_SCHEMA_VERSION,
+          saved_at: new Date().toISOString(),
+          game_session_id: state.gameSessionId,
+          campaign: cloneJson(state.campaign),
+          sheet: cloneJson(state.sheet),
+          model_history: normalizeModelHistory(state.modelHistory).slice(-220),
+          chat_transcript: normalizeChatTranscript(state.chatTranscript).slice(-320),
+          story_turn: clampInt(state.storyTurn, 0, 999, 0),
+          target_max_turns: clampInt(state.targetMaxTurns, 20, 200, 40),
+          active_model: MODEL_CANDIDATES.includes(state.activeModel) ? state.activeModel : MODEL_CANDIDATES[0],
+          active_image_model: IMAGE_MODEL_CANDIDATES.includes(state.activeImageModel)
+            ? state.activeImageModel
+            : IMAGE_MODEL_CANDIDATES[0],
+          ai: normalizeAiSettings(state.ai),
+          combat: normalizeCombatStateForSave(state.combat),
+          campaign_plan: normalizeCampaignPlan(state.campaignPlan),
+          combat_intent: normalizeCombatIntent(state.combatIntent),
+          visual_identity: typeof state.visualIdentity === "string" ? state.visualIdentity : "",
+          pending_roll: state.pendingRoll ? cloneJson(state.pendingRoll) : null,
+          pending_roll_outcome: state.pendingRollOutcome ? cloneJson(state.pendingRollOutcome) : null,
+        };
+      }
+
+      async function restoreGameSnapshot(rawSnapshot, sourceLabel) {
+        const snapshot = normalizeSaveSnapshot(rawSnapshot);
+        if (!snapshot) {
+          throw new Error("invalid_snapshot");
+        }
+
+        state.campaign = snapshot.campaign;
+        state.sheet = snapshot.sheet;
+        state.modelHistory = snapshot.modelHistory;
+        state.storyTurn = snapshot.storyTurn;
+        state.targetMaxTurns = snapshot.targetMaxTurns;
+        state.activeModel = snapshot.activeModel;
+        state.activeImageModel = snapshot.activeImageModel;
+        state.ai = snapshot.ai;
+        state.gameSessionId = snapshot.gameSessionId;
+        state.visualIdentity = snapshot.visualIdentity || buildVisualIdentity(snapshot.campaign, snapshot.sheet);
+        state.imageQueue = Promise.resolve();
+        state.pendingRoll = snapshot.pendingRoll;
+        state.pendingRollOutcome = snapshot.pendingRollOutcome;
+        state.combat = snapshot.combat;
+        state.campaignPlan = snapshot.campaignPlan;
+        state.combatIntent = snapshot.combatIntent;
+        state.chatTranscript = snapshot.chatTranscript;
+
+        state.dmMessageCount = 0;
+        state.lastImageDmIndex = -99;
+        elements.chatLog.innerHTML = "";
+        showScreen("game");
+        renderSheet();
+        renderDrawer();
+        renderCombatTracker();
+        renderCampaignPlan();
+        await replayChatTranscript(snapshot.chatTranscript);
+
+        if (state.pendingRoll) {
+          openRollModal();
+        } else {
+          closeRollModal();
+        }
+
+        updateMainStatus();
+        addMessage("system", `הקמפיין נטען בהצלחה (${sourceLabel}).`);
+        autoSaveGameSilently();
+      }
+
+      async function replayChatTranscript(transcript) {
+        const safeTranscript = normalizeChatTranscript(transcript);
+        for (const entry of safeTranscript) {
+          if (entry.type === "dm") {
+            await addDmMessage(entry.text, null, { skipTranscript: true, suppressImage: true });
+          } else {
+            addMessage(entry.type, entry.text, { skipTranscript: true });
+          }
+        }
+      }
+
+      function normalizeSaveSnapshot(rawSnapshot) {
+        if (!rawSnapshot || typeof rawSnapshot !== "object") return null;
+        const campaign =
+          rawSnapshot.campaign && typeof rawSnapshot.campaign === "object" ? cloneJson(rawSnapshot.campaign) : null;
+        const sheet = rawSnapshot.sheet && typeof rawSnapshot.sheet === "object" ? cloneJson(rawSnapshot.sheet) : null;
+        if (!campaign || !sheet) return null;
+
+        const ai = normalizeAiSettings(rawSnapshot.ai);
+        const activeModel = MODEL_CANDIDATES.includes(rawSnapshot.active_model)
+          ? rawSnapshot.active_model
+          : ai.modelPreference;
+        const activeImageModel = IMAGE_MODEL_CANDIDATES.includes(rawSnapshot.active_image_model)
+          ? rawSnapshot.active_image_model
+          : IMAGE_MODEL_CANDIDATES[0];
+        const storyTurn = clampInt(rawSnapshot.story_turn, 0, 999, 0);
+        const targetMaxTurns = clampInt(rawSnapshot.target_max_turns, 20, 200, 40);
+        const combat = normalizeCombatStateFromSave(rawSnapshot.combat);
+        const campaignPlan = normalizeCampaignPlan(rawSnapshot.campaign_plan);
+        const combatIntent = normalizeCombatIntent(rawSnapshot.combat_intent);
+        const pendingRoll =
+          rawSnapshot.pending_roll && typeof rawSnapshot.pending_roll === "object"
+            ? normalizeRollSpec(rawSnapshot.pending_roll)
+            : null;
+
+        const rawOutcome = rawSnapshot.pending_roll_outcome;
+        const pendingRollOutcome =
+          rawOutcome &&
+          typeof rawOutcome === "object" &&
+          typeof rawOutcome.rollReport === "string" &&
+          Number.isFinite(Number.parseInt(rawOutcome.total, 10))
+            ? {
+                rollReport: rawOutcome.rollReport.slice(0, 1200),
+                label: typeof rawOutcome.label === "string" ? rawOutcome.label.slice(0, 120) : "",
+                total: Number.parseInt(rawOutcome.total, 10),
+                successText: typeof rawOutcome.successText === "string" ? rawOutcome.successText.slice(0, 48) : "",
+              }
+            : null;
+
+        return {
+          campaign,
+          sheet,
+          modelHistory: normalizeModelHistory(rawSnapshot.model_history),
+          chatTranscript: normalizeChatTranscript(rawSnapshot.chat_transcript),
+          storyTurn,
+          targetMaxTurns,
+          activeModel,
+          activeImageModel,
+          ai,
+          combat,
+          campaignPlan,
+          combatIntent,
+          gameSessionId: clampInt(rawSnapshot.game_session_id, 0, 9999999, state.gameSessionId || 0),
+          visualIdentity:
+            typeof rawSnapshot.visual_identity === "string" ? rawSnapshot.visual_identity.slice(0, 600) : "",
+          pendingRoll,
+          pendingRollOutcome,
+        };
+      }
+
+      function normalizeChatTranscript(rawTranscript) {
+        if (!Array.isArray(rawTranscript)) return [];
+        const source = rawTranscript.slice(-360);
+        const out = [];
+        for (const entry of source) {
+          if (!entry || typeof entry !== "object") continue;
+          const type = entry.type === "user" || entry.type === "dm" || entry.type === "system" ? entry.type : null;
+          if (!type) continue;
+          const text = typeof entry.text === "string" ? entry.text.replace(/\r/g, "").trim() : "";
+          if (!text) continue;
+          out.push({ type, text: text.slice(0, 2400) });
+        }
+        if (out.length > 320) return out.slice(-320);
+        return out;
+      }
+
+      function normalizeModelHistory(rawHistory) {
+        if (!Array.isArray(rawHistory)) return [];
+        const source = rawHistory.slice(-280);
+        const out = [];
+        for (const entry of source) {
+          if (!entry || typeof entry !== "object") continue;
+          const role = entry.role === "assistant" ? "assistant" : entry.role === "user" ? "user" : null;
+          if (!role) continue;
+          const content = typeof entry.content === "string" ? entry.content.replace(/\r/g, "").trim() : "";
+          if (!content) continue;
+          out.push({ role, content: content.slice(0, 3200) });
+        }
+        if (out.length > 240) return out.slice(-240);
+        return out;
+      }
+
+      function normalizeAiSettings(rawAi) {
+        const base = {
+          modelPreference: MODEL_CANDIDATES[0],
+          cheapMode: true,
+          allowModelFallback: false,
+          imagesEnabled: false,
+          maxOutputTokens: CHEAP_MODE_MAX_OUTPUT_TOKENS,
+        };
+        if (!rawAi || typeof rawAi !== "object") return base;
+
+        if (MODEL_CANDIDATES.includes(rawAi.modelPreference)) {
+          base.modelPreference = rawAi.modelPreference;
+        }
+        base.cheapMode = Boolean(rawAi.cheapMode);
+        base.allowModelFallback = Boolean(rawAi.allowModelFallback);
+        base.imagesEnabled = Boolean(rawAi.imagesEnabled);
+        base.maxOutputTokens = clampInt(rawAi.maxOutputTokens, 120, 1200, base.maxOutputTokens);
+
+        if (base.cheapMode) {
+          base.allowModelFallback = false;
+          base.imagesEnabled = false;
+          base.maxOutputTokens = clampInt(base.maxOutputTokens, 120, 420, CHEAP_MODE_MAX_OUTPUT_TOKENS);
+        }
+        return base;
+      }
+
+      function normalizeCombatStateForSave(rawCombat) {
+        const combat = createDefaultCombatState();
+        if (!rawCombat || typeof rawCombat !== "object") {
+          return combat;
+        }
+
+        combat.active = Boolean(rawCombat.active);
+        combat.encounterName =
+          typeof rawCombat.encounterName === "string"
+            ? rawCombat.encounterName.slice(0, 120)
+            : typeof rawCombat.encounter_name === "string"
+              ? rawCombat.encounter_name.slice(0, 120)
+              : "";
+        combat.round = clampInt(rawCombat.round, 0, 99, 0);
+        combat.turnIndex = clampInt(rawCombat.turnIndex ?? rawCombat.turn_index, 0, 80, 0);
+        combat.note = typeof rawCombat.note === "string" ? rawCombat.note.slice(0, 220) : "";
+        combat.participants = normalizeCombatParticipants(rawCombat.participants);
+
+        if (!combat.active) {
+          combat.round = 0;
+          combat.turnIndex = 0;
+          combat.participants = [];
+        } else {
+          if (combat.round < 1) combat.round = 1;
+          if (combat.turnIndex >= combat.participants.length) {
+            combat.turnIndex = combat.participants.length ? 0 : 0;
+          }
+        }
+        return combat;
+      }
+
+      function normalizeCombatStateFromSave(rawCombat) {
+        return normalizeCombatStateForSave(rawCombat);
+      }
+
+      function normalizeCombatIntent(rawIntent) {
+        if (!rawIntent || typeof rawIntent !== "object") return null;
+        const actionRaw = typeof rawIntent.actionKey === "string" ? rawIntent.actionKey.trim() : "";
+        const actionKey = ["attack", "spell", "defend", "retreat", "end_turn"].includes(actionRaw) ? actionRaw : "";
+        if (!actionKey) return null;
+
+        const targetId =
+          typeof rawIntent.targetId === "string" && rawIntent.targetId.trim()
+            ? rawIntent.targetId.trim().toLowerCase().replace(/\s+/g, "_").slice(0, 80)
+            : "";
+        const targetName =
+          typeof rawIntent.targetName === "string" && rawIntent.targetName.trim()
+            ? rawIntent.targetName.trim().slice(0, 80)
+            : "";
+        const source =
+          typeof rawIntent.source === "string" && rawIntent.source.trim() ? rawIntent.source.trim().slice(0, 32) : "manual";
+        const sourceText =
+          typeof rawIntent.sourceText === "string" && rawIntent.sourceText.trim()
+            ? rawIntent.sourceText.trim().slice(0, 260)
+            : "";
+        const createdAt = Number.isFinite(rawIntent.createdAt) ? rawIntent.createdAt : Date.now();
+
+        return {
+          actionKey,
+          targetId,
+          targetName,
+          source,
+          sourceText,
+          createdAt,
+        };
+      }
+
+      function autoSaveGameSilently() {
+        if (!state.campaign || !state.sheet) return;
+        try {
+          localStorage.setItem(SAVE_STORAGE_KEY, JSON.stringify(buildSaveSnapshot()));
+        } catch {}
+      }
+
       function onApiEnter() {
         elements.apiError.textContent = "";
         const key = elements.apiInput.value.trim();
@@ -1464,12 +3146,13 @@
           elements.apiError.textContent = "נדרש מפתח גישה תקין של OpenAI כדי להיכנס.";
           return;
         }
+        applyAiSettingsFromApiGate();
         state.apiKey = key;
-        state.activeModel = MODEL_CANDIDATES[0];
+        state.activeModel = state.ai.modelPreference;
         state.activeImageModel = IMAGE_MODEL_CANDIDATES[0];
         elements.apiInput.value = "";
         showScreen("setup");
-        setStatus("ממתין לפרטי קמפיין");
+        setStatus(`ממתין לפרטי קמפיין | ${state.ai.cheapMode ? "מצב בדיקות זול" : "מצב רגיל"}`);
       }
 
       async function onStartCampaign() {
@@ -1502,26 +3185,49 @@
         state.storyTurn = 0;
         state.pendingRoll = null;
         state.pendingRollOutcome = null;
+        state.combat = createDefaultCombatState();
+        state.campaignPlan = buildCampaignPlanFromSetup(campaign);
+        state.combatIntent = null;
+        state.chatTranscript = [];
         elements.chatLog.innerHTML = "";
         showScreen("game");
         renderSheet();
         renderDrawer();
+        renderCombatTracker();
+        renderCampaignPlan();
         addMessage("system", "קמפיין חדש נוצר. המנחה פותח את הסצנה הראשונה...");
+        addMessage(
+          "system",
+          `הגדרות מנוע: ${state.activeModel} | ${state.ai.cheapMode ? "מצב בדיקות זול" : "מצב רגיל"} | ${
+            state.ai.imagesEnabled ? "תמונות פעילות" : "ללא תמונות"
+          }`
+        );
+        if (state.campaignPlan?.templateTitle) {
+          addMessage("system", `תבנית קמפיין פעילה: ${state.campaignPlan.templateTitle}`);
+        }
+        autoSaveGameSilently();
 
         const openingUserTurn = buildOpeningTurn(campaign, state.sheet);
         await sendTurnToModel(openingUserTurn, false);
       }
 
       function collectCampaignSetup() {
+        const selectedTemplate = getCampaignTemplateById(elements.campaignPresetSelect.value || "custom");
+        const raceText = elements.raceInput.value.trim() || (selectedTemplate ? "אנושי" : "");
+        const classText = elements.classInput.value.trim() || (selectedTemplate ? "הרפתקן" : "");
+        const toneText = elements.toneInput.value.trim() || (selectedTemplate ? selectedTemplate.tone : "");
+        const worldPrompt = elements.worldInput.value.trim() || (selectedTemplate ? selectedTemplate.worldPrompt : "");
+        const backstory = elements.backstoryInput.value.trim() || (selectedTemplate ? selectedTemplate.backstoryHook : "");
         return {
           playerName: elements.playerNameInput.value.trim(),
           characterName: elements.characterNameInput.value.trim(),
-          raceText: elements.raceInput.value.trim(),
-          classText: elements.classInput.value.trim(),
+          raceText,
+          classText,
           level: clampInt(elements.levelInput.value, 1, 20, 1),
-          toneText: elements.toneInput.value.trim(),
-          worldPrompt: elements.worldInput.value.trim(),
-          backstory: elements.backstoryInput.value.trim(),
+          toneText,
+          campaignPresetId: elements.campaignPresetSelect.value || "custom",
+          worldPrompt,
+          backstory,
         };
       }
 
@@ -1534,7 +3240,326 @@
         return null;
       }
 
+      function initCampaignPresetUi() {
+        if (!elements.campaignPresetSelect) return;
+        elements.campaignPresetSelect.innerHTML = "";
+
+        const customOption = document.createElement("option");
+        customOption.value = "custom";
+        customOption.textContent = "מותאם אישית (ללא תבנית קשיחה)";
+        elements.campaignPresetSelect.appendChild(customOption);
+
+        for (const template of CAMPAIGN_LIBRARY_ACTIVE) {
+          const option = document.createElement("option");
+          option.value = template.id;
+          option.textContent = `${template.title} | ${template.genre}`;
+          elements.campaignPresetSelect.appendChild(option);
+        }
+        elements.campaignPresetSelect.value = "custom";
+        renderCampaignPresetPreview("custom");
+      }
+
+      function onCampaignPresetChanged() {
+        const id = elements.campaignPresetSelect.value || "custom";
+        renderCampaignPresetPreview(id);
+      }
+
+      function onApplyCampaignPresetClicked() {
+        const id = elements.campaignPresetSelect.value || "custom";
+        const template = getCampaignTemplateById(id);
+        if (!template) {
+          if (elements.campaignPresetHint) {
+            elements.campaignPresetHint.textContent = "נבחר מצב מותאם אישית. אפשר לנסח קמפיין חופשי.";
+          }
+          return;
+        }
+        if (!elements.toneInput.value.trim()) {
+          elements.toneInput.value = template.tone;
+        }
+        if (!elements.worldInput.value.trim()) {
+          elements.worldInput.value = template.worldPrompt;
+        }
+        if (!elements.backstoryInput.value.trim()) {
+          elements.backstoryInput.value = template.backstoryHook;
+        }
+        if (elements.campaignPresetHint) {
+          elements.campaignPresetHint.textContent = `הוחלה תבנית: ${template.title}. אפשר לשנות כל שדה ידנית.`;
+        }
+      }
+
+      function renderCampaignPresetPreview(templateId) {
+        const template = getCampaignTemplateById(templateId);
+        if (!template) {
+          elements.campaignPreview.classList.add("hidden");
+          if (elements.campaignPresetHint) {
+            elements.campaignPresetHint.textContent =
+              "מצב מותאם אישית: המנחה יאולתר לפי התיאור שתכתוב. למבנה עלילתי קשיח בחר תבנית.";
+          }
+          return;
+        }
+
+        elements.campaignPreview.classList.remove("hidden");
+        elements.campaignPreviewTitle.textContent = template.title;
+        elements.campaignPreviewSummary.textContent = `${template.genre} | ${template.tone} | ${template.worldPrompt}`;
+        elements.campaignPreviewActs.innerHTML = "";
+        for (const act of template.acts.slice(0, 5)) {
+          const li = document.createElement("li");
+          li.textContent = act;
+          elements.campaignPreviewActs.appendChild(li);
+        }
+        if (elements.campaignPresetHint) {
+          elements.campaignPresetHint.textContent =
+            "התבנית מספקת ל-DM תכנון מלא כולל Acts, טוויסטים וסיומים כדי למנוע פיזור.";
+        }
+      }
+
+      function getCampaignTemplateById(id) {
+        if (!id || id === "custom") return null;
+        return CAMPAIGN_LIBRARY_ACTIVE.find((template) => template.id === id) || null;
+      }
+
+      function buildCampaignPlanFromSetup(campaign) {
+        const template = getCampaignTemplateById(campaign?.campaignPresetId || "custom");
+        if (!template) return null;
+        return {
+          templateId: template.id,
+          templateTitle: template.title,
+          genre: template.genre,
+          tone: template.tone,
+          objective: template.acts[0] || "התקדמות עלילתית",
+          currentActIndex: 0,
+          completed: false,
+          acts: template.acts.map((act, index) => ({
+            title: act,
+            done: false,
+            notes: "",
+            order: index,
+          })),
+          npcs: [...template.npcs],
+          factions: [...template.factions],
+          twists: [...template.twists],
+          endings: [...template.endings],
+          usedTwists: [],
+        };
+      }
+
+      function normalizeCampaignPlan(rawPlan) {
+        if (!rawPlan || typeof rawPlan !== "object") return null;
+        const templateTitle =
+          typeof rawPlan.templateTitle === "string"
+            ? rawPlan.templateTitle
+            : typeof rawPlan.template_title === "string"
+              ? rawPlan.template_title
+              : "";
+        const actsSource = Array.isArray(rawPlan.acts) ? rawPlan.acts : [];
+        if (!templateTitle || !actsSource.length) return null;
+
+        const acts = [];
+        for (let i = 0; i < actsSource.length; i += 1) {
+          const rawAct = actsSource[i];
+          if (typeof rawAct === "string" && rawAct.trim()) {
+            acts.push({ title: rawAct.trim().slice(0, 220), done: false, notes: "", order: i });
+            continue;
+          }
+          if (!rawAct || typeof rawAct !== "object") continue;
+          const title = typeof rawAct.title === "string" ? rawAct.title.trim() : "";
+          if (!title) continue;
+          acts.push({
+            title: title.slice(0, 220),
+            done: Boolean(rawAct.done),
+            notes: typeof rawAct.notes === "string" ? rawAct.notes.slice(0, 260) : "",
+            order: clampInt(rawAct.order, 0, 99, i),
+          });
+        }
+        if (!acts.length) return null;
+
+        const maxAct = acts.length - 1;
+        const currentActIndex = clampInt(rawPlan.currentActIndex ?? rawPlan.current_act_index, 0, maxAct, 0);
+        return {
+          templateId: typeof rawPlan.templateId === "string" ? rawPlan.templateId : "",
+          templateTitle: templateTitle.slice(0, 180),
+          genre: typeof rawPlan.genre === "string" ? rawPlan.genre.slice(0, 120) : "",
+          tone: typeof rawPlan.tone === "string" ? rawPlan.tone.slice(0, 140) : "",
+          objective: typeof rawPlan.objective === "string" ? rawPlan.objective.slice(0, 220) : acts[currentActIndex].title,
+          currentActIndex,
+          completed: Boolean(rawPlan.completed),
+          acts,
+          npcs: normalizeStringList(rawPlan.npcs, 20, 90),
+          factions: normalizeStringList(rawPlan.factions, 20, 90),
+          twists: normalizeStringList(rawPlan.twists, 20, 120),
+          endings: normalizeStringList(rawPlan.endings, 20, 120),
+          usedTwists: normalizeStringList(rawPlan.usedTwists ?? rawPlan.used_twists, 20, 120),
+        };
+      }
+
+      function renderCampaignPlan() {
+        if (!elements.campaignPlanSummary || !elements.campaignPlanActs) return;
+        const plan = normalizeCampaignPlan(state.campaignPlan);
+        if (!plan) {
+          elements.campaignPlanSummary.textContent = "לא נבחר קמפיין מתוכנן מראש.";
+          elements.campaignPlanActs.innerHTML = "";
+          return;
+        }
+        state.campaignPlan = plan;
+
+        const current = plan.acts[plan.currentActIndex];
+        const completedCount = plan.acts.filter((act) => act.done).length;
+        elements.campaignPlanSummary.textContent = `${plan.templateTitle} | שלב ${plan.currentActIndex + 1}/${
+          plan.acts.length
+        } | הושלמו ${completedCount}`;
+        elements.campaignPlanActs.innerHTML = "";
+        for (let i = 0; i < plan.acts.length; i += 1) {
+          const act = plan.acts[i];
+          const li = document.createElement("li");
+          const isCurrent = i === plan.currentActIndex;
+          const status = act.done ? "הושלם" : isCurrent ? "פעיל" : "ממתין";
+          li.className = `combat-row${isCurrent ? " active" : ""}`;
+          li.innerHTML =
+            `<div class="top"><strong>מערכה ${i + 1}</strong><span>${status}</span></div>` +
+            `<div class="meta">${escapeHtml(act.title)}</div>` +
+            `<div class="meta">${escapeHtml(act.notes || "-")}</div>`;
+          elements.campaignPlanActs.appendChild(li);
+        }
+      }
+
+      function buildCampaignDirectiveForModel() {
+        const plan = normalizeCampaignPlan(state.campaignPlan);
+        if (!plan) return null;
+        const currentAct = plan.acts[plan.currentActIndex] || null;
+        const nextActs = plan.acts.slice(plan.currentActIndex + 1, plan.currentActIndex + 3);
+        return {
+          template_id: plan.templateId || "",
+          template_title: plan.templateTitle,
+          genre: plan.genre,
+          tone: plan.tone,
+          completed: plan.completed,
+          objective: plan.objective,
+          current_act_index: plan.currentActIndex,
+          current_act: currentAct ? { title: currentAct.title, done: currentAct.done, notes: currentAct.notes } : null,
+          next_acts: nextActs.map((act) => ({ title: act.title })),
+          key_npcs: plan.npcs.slice(0, 8),
+          key_factions: plan.factions.slice(0, 8),
+          available_twists: plan.twists.filter((twist) => !plan.usedTwists.includes(twist)).slice(0, 5),
+          finale_options: plan.endings.slice(0, 4),
+        };
+      }
+
+      function normalizeCampaignPatch(rawPatch, warnings) {
+        if (!rawPatch || typeof rawPatch !== "object") return null;
+        const patch = {};
+        if (Number.isFinite(clampInt(rawPatch.current_act_index, 0, 99, null))) {
+          patch.currentActIndex = clampInt(rawPatch.current_act_index, 0, 99, 0);
+        }
+        if (Number.isFinite(clampInt(rawPatch.currentActIndex, 0, 99, null))) {
+          patch.currentActIndex = clampInt(rawPatch.currentActIndex, 0, 99, 0);
+        }
+        if (rawPatch.advance_act === true || rawPatch.advanceAct === true) {
+          patch.advanceAct = true;
+        }
+        if (rawPatch.complete_campaign === true || rawPatch.completeCampaign === true) {
+          patch.completeCampaign = true;
+        }
+        if (rawPatch.mark_current_act_done === true || rawPatch.markCurrentActDone === true) {
+          patch.markCurrentActDone = true;
+        }
+        if (typeof rawPatch.objective === "string" && rawPatch.objective.trim()) {
+          patch.objective = rawPatch.objective.trim().slice(0, 220);
+        }
+        if (typeof rawPatch.act_note === "string" && rawPatch.act_note.trim()) {
+          patch.actNote = rawPatch.act_note.trim().slice(0, 220);
+        }
+        if (typeof rawPatch.actNote === "string" && rawPatch.actNote.trim()) {
+          patch.actNote = rawPatch.actNote.trim().slice(0, 220);
+        }
+        if (typeof rawPatch.reveal_twist === "string" && rawPatch.reveal_twist.trim()) {
+          patch.revealTwist = rawPatch.reveal_twist.trim().slice(0, 120);
+        }
+        if (typeof rawPatch.revealTwist === "string" && rawPatch.revealTwist.trim()) {
+          patch.revealTwist = rawPatch.revealTwist.trim().slice(0, 120);
+        }
+        if (!Object.keys(patch).length) {
+          return null;
+        }
+        return patch;
+      }
+
+      function applyCampaignPatch(rawPatch, options = {}) {
+        if (!state.campaignPlan) return false;
+        const warnings = [];
+        let patch = normalizeCampaignPatch(rawPatch, warnings);
+        if (!patch && options.fallback) {
+          patch = normalizeCampaignPatch(options.fallback, warnings);
+        }
+        if (!patch) return false;
+
+        const plan = normalizeCampaignPlan(state.campaignPlan);
+        if (!plan) return false;
+
+        if (Number.isFinite(patch.currentActIndex)) {
+          plan.currentActIndex = clampInt(patch.currentActIndex, 0, plan.acts.length - 1, plan.currentActIndex);
+        }
+        if (patch.markCurrentActDone && plan.acts[plan.currentActIndex]) {
+          plan.acts[plan.currentActIndex].done = true;
+        }
+        if (patch.advanceAct) {
+          if (plan.acts[plan.currentActIndex]) {
+            plan.acts[plan.currentActIndex].done = true;
+          }
+          plan.currentActIndex = clampInt(plan.currentActIndex + 1, 0, plan.acts.length - 1, plan.currentActIndex);
+        }
+        if (patch.objective) {
+          plan.objective = patch.objective;
+        } else {
+          plan.objective = plan.acts[plan.currentActIndex]?.title || plan.objective;
+        }
+        if (patch.actNote && plan.acts[plan.currentActIndex]) {
+          plan.acts[plan.currentActIndex].notes = patch.actNote;
+        }
+        if (patch.revealTwist) {
+          const used = new Set(plan.usedTwists || []);
+          used.add(patch.revealTwist);
+          plan.usedTwists = Array.from(used).slice(0, 20);
+        }
+        if (patch.completeCampaign) {
+          for (const act of plan.acts) {
+            act.done = true;
+          }
+          plan.completed = true;
+        } else {
+          const allDone = plan.acts.every((act) => act.done);
+          plan.completed = allDone;
+        }
+        state.campaignPlan = plan;
+        if (warnings.length) {
+          console.warn("campaign_patch normalized", warnings, options.source || "unknown");
+        }
+        return true;
+      }
+
+      function deriveFallbackCampaignPatch(parsed) {
+        const plan = normalizeCampaignPlan(state.campaignPlan);
+        if (!plan || plan.completed) return null;
+        const targetAct = clampInt(Math.floor(Math.max(0, state.storyTurn - 1) / 8), 0, plan.acts.length - 1, 0);
+        if (targetAct > plan.currentActIndex) {
+          return {
+            current_act_index: targetAct,
+            mark_current_act_done: true,
+            objective: plan.acts[targetAct]?.title || plan.objective,
+            act_note: "מעבר אוטומטי לשלב הבא לפי קצב קמפיין.",
+          };
+        }
+        const narrative = String(parsed?.narrative || "");
+        if (/סיום|הכרעה|סוף/i.test(narrative) && targetAct >= plan.acts.length - 1) {
+          return {
+            complete_campaign: true,
+            act_note: "הקמפיין זוהה כסיום עלילתי.",
+          };
+        }
+        return null;
+      }
+
       function buildOpeningTurn(campaign, sheet) {
+        const campaignDirective = buildCampaignDirectiveForModel();
         return [
           "פתיחת_קמפיין_חדש",
           `שחקן: ${campaign.playerName}`,
@@ -1546,6 +3571,13 @@
           campaign.backstory ? `רקע: ${campaign.backstory}` : "רקע: -",
           `יעד_אורך_קמפיין_בתורות: עד ${state.targetMaxTurns} תורות שחקן`,
           "הנחיית_קצב: סביב תור 30 להתחיל להוביל לשיא ולסיום.",
+          state.ai.cheapMode
+            ? "מצב_בדיקות_זול: כן. שמור תשובה קצרה ותכליתית, לא יותר מפסקה או שתיים."
+            : "מצב_בדיקות_זול: לא.",
+          "מעקב_קרב: כשקרב מתחיל או מתעדכן חובה לשלוח combat_patch מלא או חלקי ב-STATE.",
+          campaignDirective
+            ? "קמפיין_מובנה_פעיל_JSON:\n" + JSON.stringify(campaignDirective)
+            : "קמפיין_מובנה_פעיל_JSON: null",
           "דף_דמות_JSON:",
           JSON.stringify(sheet),
           "הנחיה: פתח סצנת פתיחה עשירה וקצרה, והמשך משם לשיחה חופשית ללא אפשרויות ממוספרות.",
@@ -1580,6 +3612,14 @@
           addMessage("system", "יש גלגול ממתין. קודם גלגל קוביה בחלון שנפתח.");
           return;
         }
+        if (state.combat.active) {
+          const inferredIntent = inferCombatIntentFromText(text);
+          if (inferredIntent) {
+            state.combatIntent = inferredIntent;
+          }
+        } else {
+          state.combatIntent = null;
+        }
         clearComposerAfterSend();
         await sendTurnToModel(text, true);
       }
@@ -1607,13 +3647,26 @@
           const payload = await callOpenAI(state.apiKey, state.modelHistory);
           const rawText = extractAssistantText(payload) || "";
           const parsed = parseDmResponse(rawText);
+          if (parsed.warnings.length) {
+            console.warn("DM response normalized", parsed.warnings);
+          }
 
           state.modelHistory.push({ role: "assistant", content: parsed.narrative });
           await addDmMessage(parsed.narrative || "...", parsed.meta.scene_image);
 
           applySheetPatch(parsed.meta.sheet_patch);
+          applyCombatPatch(parsed.meta.combat_patch, {
+            source: "model",
+            fallback: deriveFallbackCombatPatch(parsed, playerText, showUserBubble),
+          });
+          applyCampaignPatch(parsed.meta.campaign_patch, {
+            source: "model",
+            fallback: deriveFallbackCampaignPatch(parsed),
+          });
           renderSheet();
           renderDrawer();
+          renderCombatTracker();
+          renderCampaignPlan();
 
           if (parsed.meta.pending_roll) {
             state.pendingRoll = normalizeRollSpec(parsed.meta.pending_roll);
@@ -1628,17 +3681,12 @@
               closeRollModal();
             }
           }
-
-          if (state.pendingRoll) {
-            setStatus("גלגול נדרש");
-          } else {
-            const turnsLeft = storyTurnsLeft();
-            if (turnsLeft <= 10) {
-              setStatus(`תורך | לקראת סיום (${turnsLeft} תורות)`);
-            } else {
-              setStatus("תורך");
-            }
+          if (showUserBubble && !state.pendingRoll && state.combat.active) {
+            state.combatIntent = null;
           }
+
+          updateMainStatus();
+          autoSaveGameSilently();
         } catch (error) {
           const message = error instanceof Error ? error.message : "";
           addMessage("system", buildFriendlyModelError(message));
@@ -1651,6 +3699,7 @@
 
       function buildModelUserMessage(playerText) {
         const sheet = state.sheet || {};
+        const budget = getAiBudgetSettings();
         const pacing = {
           player_turn_index: state.storyTurn,
           target_end_turn: state.targetMaxTurns,
@@ -1680,7 +3729,12 @@
           location: sheet.location,
           inventory: sheet.inventory,
           features: sheet.features,
+          combat: buildCombatContextForModel(),
+          combat_intent: buildCombatIntentForModel(),
+          campaign_plan: buildCampaignDirectiveForModel(),
           narrative_pacing: pacing,
+          budget_mode: state.ai.cheapMode ? "cheap_test" : "standard",
+          response_token_target: budget.maxOutputTokens,
         };
 
         return [
@@ -1691,8 +3745,755 @@
         ].join("\n");
       }
 
+      function buildCombatContextForModel() {
+        const combat = state.combat || {};
+        if (!combat.active) {
+          return { active: false };
+        }
+        const participants = Array.isArray(combat.participants) ? combat.participants : [];
+        return {
+          active: true,
+          encounter_name: combat.encounterName || "",
+          round: clampInt(combat.round, 1, 99, 1),
+          turn_index: clampInt(combat.turnIndex, 0, 80, 0),
+          current_actor_id: participants[combat.turnIndex]?.id || "",
+          participants: participants.map((p) => ({
+            id: p.id,
+            name: p.name,
+            side: p.side,
+            initiative: Number.isFinite(p.initiative) ? p.initiative : null,
+            hp_current: Number.isFinite(p.hpCurrent) ? p.hpCurrent : null,
+            hp_max: Number.isFinite(p.hpMax) ? p.hpMax : null,
+            ac: Number.isFinite(p.ac) ? p.ac : null,
+            status: Array.isArray(p.status) ? p.status : [],
+            is_player: Boolean(p.isPlayer),
+          })),
+          note: combat.note || "",
+        };
+      }
+
+      function buildCombatIntentForModel() {
+        const intent = normalizeCombatIntent(state.combatIntent);
+        if (!intent) return null;
+        return {
+          action_key: intent.actionKey,
+          target_id: intent.targetId || "",
+          target_name: intent.targetName || "",
+          source: intent.source || "manual",
+          source_text: intent.sourceText || "",
+        };
+      }
+
+      function updateMainStatus() {
+        if (state.pendingRoll) {
+          setStatus("גלגול נדרש");
+          return;
+        }
+
+        if (state.combat.active) {
+          const actor = getCurrentCombatActor();
+          if (actor) {
+            setStatus(`קרב פעיל | סיבוב ${state.combat.round || 1} | תור: ${actor.name}`);
+          } else {
+            setStatus("קרב פעיל");
+          }
+          return;
+        }
+
+        const turnsLeft = storyTurnsLeft();
+        if (turnsLeft <= 10) {
+          setStatus(`תורך | לקראת סיום (${turnsLeft} תורות)`);
+        } else {
+          setStatus("תורך");
+        }
+      }
+
+      function createDefaultCombatState() {
+        return {
+          active: false,
+          encounterName: "",
+          round: 0,
+          turnIndex: 0,
+          participants: [],
+          note: "",
+        };
+      }
+
+      function getCurrentCombatActor() {
+        if (!state.combat.active || !Array.isArray(state.combat.participants) || !state.combat.participants.length) {
+          return null;
+        }
+        const idx = clampInt(state.combat.turnIndex, 0, state.combat.participants.length - 1, 0);
+        return state.combat.participants[idx] || null;
+      }
+
+      function onEndCombatClicked() {
+        if (!state.combat.active) {
+          addMessage("system", "אין קרב פעיל לסיים.");
+          return;
+        }
+        state.combatIntent = null;
+        applyCombatPatch({ active: false, participants: [], note: "הקרב נסגר ידנית." }, { source: "manual" });
+        renderCombatTracker();
+        updateMainStatus();
+        addMessage("system", "מעקב הקרב נסגר ידנית.");
+        autoSaveGameSilently();
+      }
+
+      function onQuickCombatActionClicked(event) {
+        const actionKey = event?.currentTarget?.dataset?.combatAction || "";
+        if (!actionKey) return;
+        if (!state.combat.active) {
+          addMessage("system", "אין קרב פעיל כרגע.");
+          return;
+        }
+        if (state.pendingRoll) {
+          addMessage("system", "יש גלגול ממתין. סיים אותו לפני פעולת קרב נוספת.");
+          return;
+        }
+        if (state.busy) {
+          addMessage("system", "המנחה עדיין מעבד את הפעולה הקודמת.");
+          return;
+        }
+
+        const actor = getCurrentCombatActor();
+        const playerTurn = !actor || Boolean(actor.isPlayer || actor.id === "player");
+        if (!playerTurn) {
+          addMessage("system", `כרגע זה לא התור שלך. בתור עומד/ת: ${actor?.name || "יריב"}.`);
+          renderCombatActions();
+          return;
+        }
+
+        const targetName = getSelectedCombatTargetName();
+        const actionText = buildQuickCombatActionText(actionKey, targetName);
+        if (!actionText) return;
+        setCombatIntent(actionKey, elements.combatTargetSelect?.value || "", targetName, "quick", actionText);
+
+        elements.chatInput.value = actionText;
+        if (typeof elements.chatForm.requestSubmit === "function") {
+          elements.chatForm.requestSubmit();
+        } else {
+          elements.chatForm.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+        }
+      }
+
+      function buildQuickCombatActionText(actionKey, targetName) {
+        const target = targetName || "האויב הקרוב";
+        if (actionKey === "attack") {
+          return `אני תוקף את ${target} עם הנשק הראשי שלי ומנסה לפגוע בצורה מדויקת.`;
+        }
+        if (actionKey === "spell") {
+          return `אני מטיל לחש התקפי על ${target} ומנסה להשיג יתרון טקטי.`;
+        }
+        if (actionKey === "defend") {
+          return "אני נוקט בפעולת התגוננות מלאה ומתרכז בהתחמקות וחסימה.";
+        }
+        if (actionKey === "retreat") {
+          return "אני מנסה לסגת לעמדה בטוחה יותר בלי לחשוף את עצמי להתקפות חופשיות.";
+        }
+        if (actionKey === "end_turn") {
+          return "אני מסיים את התור שלי ומעביר תור.";
+        }
+        return "";
+      }
+
+      function setCombatIntent(actionKey, targetId, targetName, source, sourceText) {
+        const normalized = normalizeCombatIntent({
+          actionKey,
+          targetId,
+          targetName,
+          source,
+          sourceText,
+          createdAt: Date.now(),
+        });
+        state.combatIntent = normalized;
+      }
+
+      function inferCombatIntentFromText(text) {
+        if (!state.combat.active) return null;
+        const normalized = normalizeQuery(text);
+        if (!normalized) return null;
+
+        let actionKey = "";
+        if (containsAny(normalized, ["תוקף", "התקפה", "מכה", "דוקר", "יורה"])) {
+          actionKey = "attack";
+        } else if (containsAny(normalized, ["לחש", "מטיל", "כישוף", "קסם"])) {
+          actionKey = "spell";
+        } else if (containsAny(normalized, ["מתגונן", "התגוננות", "חוסם", "מגן"])) {
+          actionKey = "defend";
+        } else if (containsAny(normalized, ["נסוג", "בורח", "סגת", "נסיגה"])) {
+          actionKey = "retreat";
+        } else if (containsAny(normalized, ["סיום תור", "מסיים תור", "מעביר תור"])) {
+          actionKey = "end_turn";
+        }
+        if (!actionKey) return null;
+
+        const target = getAvailableCombatTargets().find((candidate) =>
+          normalized.includes(normalizeQuery(candidate.name))
+        );
+        const fallbackTarget = getSelectedCombatTargetName();
+        return normalizeCombatIntent({
+          actionKey,
+          targetId: target?.id || elements.combatTargetSelect?.value || "",
+          targetName: target?.name || fallbackTarget || "",
+          source: "manual",
+          sourceText: String(text || "").slice(0, 260),
+          createdAt: Date.now(),
+        });
+      }
+
+      function getAvailableCombatTargets() {
+        if (!state.combat.active || !Array.isArray(state.combat.participants)) return [];
+        return state.combat.participants.filter(
+          (p) => p.side === "enemy" && (!Number.isFinite(p.hpCurrent) || p.hpCurrent > 0)
+        );
+      }
+
+      function getSelectedCombatTargetName() {
+        const id = elements.combatTargetSelect?.value || "";
+        if (!id) return "";
+        const participant = (state.combat.participants || []).find((p) => p.id === id);
+        return participant?.name || "";
+      }
+
+      function renderCombatActions() {
+        if (!elements.combatActionsWrap || !elements.combatTargetSelect || !elements.combatActionsHint) return;
+        if (!state.combat.active) {
+          elements.combatActionsWrap.classList.add("hidden");
+          return;
+        }
+
+        elements.combatActionsWrap.classList.remove("hidden");
+        const targets = getAvailableCombatTargets();
+        const previousTarget = elements.combatTargetSelect.value || "";
+        elements.combatTargetSelect.innerHTML = "";
+        if (!targets.length) {
+          const emptyOption = document.createElement("option");
+          emptyOption.value = "";
+          emptyOption.textContent = "אין יעד זמין";
+          elements.combatTargetSelect.appendChild(emptyOption);
+        } else {
+          for (const target of targets) {
+            const option = document.createElement("option");
+            option.value = target.id;
+            option.textContent = target.name;
+            elements.combatTargetSelect.appendChild(option);
+          }
+          const hasPrevious = targets.some((target) => target.id === previousTarget);
+          elements.combatTargetSelect.value = hasPrevious ? previousTarget : targets[0].id;
+        }
+
+        const actor = getCurrentCombatActor();
+        const playerTurn = !actor || Boolean(actor.isPlayer || actor.id === "player");
+        const blocked = Boolean(state.pendingRoll || state.busy || !playerTurn || elements.chatInput.disabled);
+        for (const btn of elements.quickCombatActionBtns) {
+          btn.disabled = blocked;
+        }
+        elements.combatTargetSelect.disabled = blocked || !targets.length;
+
+        if (state.pendingRoll) {
+          elements.combatActionsHint.textContent = "יש גלגול ממתין. לאחר אישורו תוכל לבחור פעולה נוספת.";
+        } else if (state.busy) {
+          elements.combatActionsHint.textContent = "המנחה מעדכן את הקרב... המתן לרגע.";
+        } else if (!playerTurn) {
+          elements.combatActionsHint.textContent = `כרגע תור של ${actor?.name || "יריב"}.`;
+        } else if (!targets.length) {
+          elements.combatActionsHint.textContent = "אין יעד אויב מובהק. בחר פעולה תיאורית או סיים תור.";
+        } else {
+          elements.combatActionsHint.textContent = `תור שלך. היעד הנבחר: ${getSelectedCombatTargetName() || "אויב"}.`;
+        }
+      }
+
+      function applyCombatPatch(rawPatch, options = {}) {
+        const warnings = [];
+        let patch = normalizeCombatPatch(rawPatch, warnings);
+        if (!patch && options.fallback) {
+          patch = normalizeCombatPatch(options.fallback, warnings);
+        }
+        if (!patch) return false;
+
+        if (!state.combat || typeof state.combat !== "object") {
+          state.combat = createDefaultCombatState();
+        }
+        if (patch.reset) {
+          state.combat = createDefaultCombatState();
+        }
+
+        const combat = state.combat;
+        if (typeof patch.active === "boolean") combat.active = patch.active;
+        if (typeof patch.encounterName === "string") combat.encounterName = patch.encounterName;
+        if (Number.isFinite(patch.round)) combat.round = patch.round;
+        if (Number.isFinite(patch.roundDelta)) combat.round += patch.roundDelta;
+        if (typeof patch.note === "string") combat.note = patch.note;
+
+        if (Array.isArray(patch.participants)) {
+          combat.participants = patch.participants;
+        }
+        if (Array.isArray(patch.participantsUpsert) && patch.participantsUpsert.length) {
+          const current = Array.isArray(combat.participants) ? [...combat.participants] : [];
+          const byId = new Map(current.map((p) => [p.id, p]));
+          for (const entry of patch.participantsUpsert) {
+            const prev = byId.get(entry.id);
+            byId.set(entry.id, prev ? { ...prev, ...entry } : entry);
+          }
+          combat.participants = Array.from(byId.values());
+        }
+        if (Array.isArray(patch.participantsRemove) && patch.participantsRemove.length) {
+          const removeSet = new Set(patch.participantsRemove);
+          combat.participants = (combat.participants || []).filter((p) => !removeSet.has(p.id));
+        }
+
+        combat.participants = normalizeCombatParticipants(combat.participants);
+        syncCombatPlayerParticipant();
+
+        if (Number.isFinite(patch.turnIndex)) combat.turnIndex = patch.turnIndex;
+        if (typeof patch.nextTurnId === "string" && patch.nextTurnId) {
+          const idx = combat.participants.findIndex((p) => p.id === patch.nextTurnId);
+          if (idx >= 0) combat.turnIndex = idx;
+        }
+        if (Number.isFinite(patch.turnStep) && combat.participants.length) {
+          const size = combat.participants.length;
+          const next = ((combat.turnIndex + patch.turnStep) % size + size) % size;
+          combat.turnIndex = next;
+        }
+
+        if (!combat.active) {
+          combat.round = 0;
+          combat.turnIndex = 0;
+          combat.participants = [];
+          state.combatIntent = null;
+        } else {
+          const enemies = combat.participants.filter((p) => p.side === "enemy");
+          if (
+            enemies.length > 0 &&
+            enemies.every((enemy) => Number.isFinite(enemy.hpCurrent) && enemy.hpCurrent <= 0)
+          ) {
+            combat.active = false;
+            combat.note = combat.note || "כל האויבים הובסו.";
+            combat.round = 0;
+            combat.turnIndex = 0;
+            combat.participants = [];
+            state.combatIntent = null;
+            return true;
+          }
+          if (combat.round < 1) combat.round = 1;
+          if (!combat.participants.length) {
+            const playerParticipant = buildPlayerCombatParticipant();
+            if (playerParticipant) {
+              combat.participants = [playerParticipant];
+            }
+          }
+          if (combat.turnIndex < 0 || combat.turnIndex >= combat.participants.length) {
+            combat.turnIndex = 0;
+          }
+        }
+
+        if (warnings.length) {
+          console.warn("combat_patch normalized", warnings, options?.source || "unknown");
+        }
+        return true;
+      }
+
+      function normalizeCombatPatch(rawPatch, warnings) {
+        if (!rawPatch || typeof rawPatch !== "object") return null;
+        const patch = {};
+
+        if (typeof rawPatch.active === "boolean") patch.active = rawPatch.active;
+        if (typeof rawPatch.reset === "boolean") patch.reset = rawPatch.reset;
+
+        const encounterRaw =
+          typeof rawPatch.encounter_name === "string"
+            ? rawPatch.encounter_name
+            : typeof rawPatch.encounterName === "string"
+              ? rawPatch.encounterName
+              : "";
+        if (encounterRaw.trim()) patch.encounterName = encounterRaw.trim().slice(0, 120);
+
+        const round = clampInt(rawPatch.round, 1, 99, null);
+        if (round !== null) patch.round = round;
+        const roundDelta = clampInt(rawPatch.round_delta ?? rawPatch.roundDelta, -5, 5, null);
+        if (roundDelta !== null) patch.roundDelta = roundDelta;
+
+        const turnIndex = clampInt(rawPatch.turn_index ?? rawPatch.turnIndex, 0, 80, null);
+        if (turnIndex !== null) patch.turnIndex = turnIndex;
+        const turnStep = clampInt(rawPatch.turn_step ?? rawPatch.turnStep, -10, 10, null);
+        if (turnStep !== null) patch.turnStep = turnStep;
+        const nextTurnIdRaw =
+          typeof rawPatch.next_turn_id === "string"
+            ? rawPatch.next_turn_id
+            : typeof rawPatch.nextTurnId === "string"
+              ? rawPatch.nextTurnId
+              : "";
+        if (nextTurnIdRaw.trim()) {
+          patch.nextTurnId = nextTurnIdRaw.trim().slice(0, 80);
+        }
+
+        if (Array.isArray(rawPatch.participants)) {
+          patch.participants = normalizeCombatParticipants(rawPatch.participants, warnings);
+        }
+        if (Array.isArray(rawPatch.participants_upsert) || Array.isArray(rawPatch.participantsUpsert)) {
+          patch.participantsUpsert = normalizeCombatParticipants(
+            Array.isArray(rawPatch.participants_upsert) ? rawPatch.participants_upsert : rawPatch.participantsUpsert,
+            warnings
+          );
+        }
+        if (Array.isArray(rawPatch.participants_remove) || Array.isArray(rawPatch.participantsRemove)) {
+          const removeSource = Array.isArray(rawPatch.participants_remove)
+            ? rawPatch.participants_remove
+            : rawPatch.participantsRemove;
+          patch.participantsRemove = normalizeStringList(removeSource, 30, 80).map((id) => id.replace(/\s+/g, "_"));
+        }
+
+        if (typeof rawPatch.note === "string" && rawPatch.note.trim()) {
+          patch.note = rawPatch.note.trim().slice(0, 220);
+        }
+
+        if (!Object.keys(patch).length) {
+          return null;
+        }
+        return patch;
+      }
+
+      function normalizeCombatParticipants(rawParticipants, warnings) {
+        if (!Array.isArray(rawParticipants)) return [];
+        const out = [];
+        const seen = new Set();
+        for (let i = 0; i < rawParticipants.length; i += 1) {
+          const p = normalizeCombatParticipant(rawParticipants[i], i);
+          if (!p) {
+            if (warnings) warnings.push("combat_participant_invalid");
+            continue;
+          }
+          if (seen.has(p.id)) continue;
+          seen.add(p.id);
+          out.push(p);
+          if (out.length >= 30) break;
+        }
+        return out;
+      }
+
+      function normalizeCombatParticipant(rawParticipant, index = 0) {
+        if (!rawParticipant || typeof rawParticipant !== "object") return null;
+        const nameRaw = typeof rawParticipant.name === "string" ? rawParticipant.name.trim() : "";
+        const fallbackName = nameRaw || `יצור ${index + 1}`;
+        const idRaw = typeof rawParticipant.id === "string" && rawParticipant.id.trim() ? rawParticipant.id : fallbackName;
+        const id = idRaw
+          .trim()
+          .toLowerCase()
+          .replace(/\s+/g, "_")
+          .slice(0, 80);
+        if (!id) return null;
+
+        const sideRaw =
+          typeof rawParticipant.side === "string"
+            ? rawParticipant.side.toLowerCase().trim()
+            : typeof rawParticipant.team === "string"
+              ? rawParticipant.team.toLowerCase().trim()
+              : "enemy";
+        const side = COMBAT_SIDE_ALLOWED.has(sideRaw) ? sideRaw : "enemy";
+        const initiative = clampInt(rawParticipant.initiative, -5, 40, null);
+        const hpCurrent = clampInt(rawParticipant.hp_current ?? rawParticipant.hpCurrent, 0, 999, null);
+        const hpMax = clampInt(rawParticipant.hp_max ?? rawParticipant.hpMax, 1, 999, null);
+        const ac = clampInt(rawParticipant.ac, 1, 40, null);
+        const status = normalizeStringList(rawParticipant.status, 8, 40);
+        const isPlayer = Boolean(rawParticipant.is_player || rawParticipant.isPlayer) || id === "player";
+
+        return {
+          id,
+          name: fallbackName.slice(0, 80),
+          side: isPlayer ? "ally" : side,
+          initiative,
+          hpCurrent,
+          hpMax: hpMax || (hpCurrent !== null ? Math.max(1, hpCurrent) : null),
+          ac,
+          status,
+          isPlayer,
+        };
+      }
+
+      function syncCombatPlayerParticipant() {
+        if (!state.combat.active || !state.sheet) return;
+        const participants = Array.isArray(state.combat.participants) ? state.combat.participants : [];
+        const idx = participants.findIndex((p) => p.isPlayer || p.id === "player");
+        const playerCombat = buildPlayerCombatParticipant();
+        if (!playerCombat) return;
+        if (idx < 0) {
+          participants.unshift(playerCombat);
+          state.combat.participants = participants;
+          if (state.combat.turnIndex > 0) {
+            state.combat.turnIndex += 1;
+          }
+          return;
+        }
+        const prev = participants[idx];
+        participants[idx] = {
+          ...prev,
+          ...playerCombat,
+          initiative: prev.initiative !== null ? prev.initiative : playerCombat.initiative,
+          status: prev.status && prev.status.length ? prev.status : playerCombat.status,
+        };
+      }
+
+      function buildPlayerCombatParticipant() {
+        if (!state.sheet) return null;
+        return {
+          id: "player",
+          name: state.sheet.name || "הדמות",
+          side: "ally",
+          initiative: null,
+          hpCurrent: clampInt(state.sheet.hp_current, 0, 999, null),
+          hpMax: clampInt(state.sheet.hp_max, 1, 999, null),
+          ac: clampInt(state.sheet.ac, 1, 40, null),
+          status: normalizeStringList(state.sheet.conditions, 8, 40),
+          isPlayer: true,
+        };
+      }
+
+      function deriveFallbackCombatPatch(parsed, playerText, showUserBubble) {
+        const narrative = normalizeQuery(parsed?.narrative || "");
+        const action = normalizeQuery(playerText || "");
+        const hasCombatStartHint =
+          containsAny(`${narrative} ${action}`.trim(), COMBAT_START_HINTS) ||
+          /התקפה|בדיקת התקפה|קרב/.test(parsed?.meta?.pending_roll?.reason || "");
+        const hasCombatEndHint = containsAny(narrative, COMBAT_END_HINTS);
+
+        if (!state.combat.active && hasCombatStartHint && showUserBubble) {
+          const player = buildPlayerCombatParticipant();
+          return {
+            active: true,
+            encounter_name: "עימות פתאומי",
+            round: 1,
+            turn_index: 0,
+            participants: [
+              player || {
+                id: "player",
+                name: "הדמות",
+                side: "ally",
+                initiative: null,
+                hp_current: null,
+                hp_max: null,
+                ac: null,
+                status: [],
+                is_player: true,
+              },
+              {
+                id: `enemy_${Math.max(1, state.storyTurn)}`,
+                name: "אויב לא מזוהה",
+                side: "enemy",
+                initiative: 10,
+                hp_current: 12,
+                hp_max: 12,
+                ac: 12,
+                status: [],
+                is_player: false,
+              },
+            ],
+            note: "זוהה קרב באופן אוטומטי (גיבוי).",
+          };
+        }
+
+        if (state.combat.active && hasCombatEndHint) {
+          return {
+            active: false,
+            participants: [],
+            note: "זוהה סיום קרב באופן אוטומטי.",
+          };
+        }
+
+        if (state.combat.active) {
+          return {
+            active: true,
+            participants_upsert: [buildPlayerCombatParticipant()],
+          };
+        }
+
+        return null;
+      }
+
+      function resolveSemiRigidCombatPatchFromRoll(oldRoll, outcome) {
+        if (!state.combat.active || !state.sheet) return null;
+        const intent = normalizeCombatIntent(state.combatIntent);
+        if (!intent) return null;
+        if (Date.now() - intent.createdAt > 12 * 60 * 1000) return null;
+
+        const currentActor = getCurrentCombatActor();
+        if (currentActor && !(currentActor.isPlayer || currentActor.id === "player")) {
+          return null;
+        }
+
+        const success = outcome?.successText === "הצלחה" || outcome?.successText === "ללא קושי מוגדר";
+        if (intent.actionKey === "attack" || intent.actionKey === "spell") {
+          const target = resolveCombatIntentTarget(intent);
+          if (!target) {
+            return {
+              active: true,
+              note: "לא נמצא יעד ברור לפתרון נזק אוטומטי.",
+            };
+          }
+
+          if (!success) {
+            return {
+              active: true,
+              note: `${state.sheet.name || "הדמות"} החטיא/ה את ${target.name}.`,
+            };
+          }
+
+          const damage = computeSemiRigidDamageValue(intent.actionKey, oldRoll, outcome);
+          const currentHp = Number.isFinite(target.hpCurrent)
+            ? target.hpCurrent
+            : Number.isFinite(target.hpMax)
+              ? target.hpMax
+              : 12;
+          const nextHp = Math.max(0, currentHp - damage);
+          const status = normalizeStringList(
+            [...(Array.isArray(target.status) ? target.status : []), ...(nextHp <= 0 ? ["מנוטרל"] : [])],
+            8,
+            40
+          );
+          return {
+            active: true,
+            participants_upsert: [
+              {
+                id: target.id,
+                name: target.name,
+                side: target.side,
+                initiative: target.initiative,
+                hp_current: nextHp,
+                hp_max: Number.isFinite(target.hpMax) ? target.hpMax : Math.max(1, currentHp),
+                ac: Number.isFinite(target.ac) ? target.ac : null,
+                status,
+                is_player: Boolean(target.isPlayer),
+              },
+            ],
+            note: `${state.sheet.name || "הדמות"} גרם/ה ${damage} נזק ל-${target.name} (גיבוי אוטומטי).`,
+          };
+        }
+
+        if (intent.actionKey === "defend") {
+          if (!success) {
+            return {
+              active: true,
+              note: "ניסיון התגוננות בוצע חלקית בלבד.",
+            };
+          }
+          const player = buildPlayerCombatParticipant();
+          if (!player) return null;
+          const current = (state.combat.participants || []).find((p) => p.id === "player" || p.isPlayer);
+          const status = normalizeStringList([...(current?.status || []), "מתגונן"], 8, 40);
+          return {
+            active: true,
+            participants_upsert: [
+              {
+                id: "player",
+                name: player.name,
+                side: "ally",
+                initiative: current?.initiative ?? player.initiative,
+                hp_current: player.hpCurrent,
+                hp_max: player.hpMax,
+                ac: player.ac,
+                status,
+                is_player: true,
+              },
+            ],
+            note: "הדמות נכנסה למצב הגנתי (גיבוי אוטומטי).",
+          };
+        }
+
+        if (intent.actionKey === "retreat") {
+          return {
+            active: true,
+            turn_step: 1,
+            note: success
+              ? "הדמות נסוגה לעמדה בטוחה יותר (גיבוי אוטומטי)."
+              : "הנסיגה נכשלה והדמות נותרה בעימות.",
+          };
+        }
+
+        if (intent.actionKey === "end_turn") {
+          return {
+            active: true,
+            turn_step: 1,
+            note: "התור הועבר לשחקן הבא (גיבוי אוטומטי).",
+          };
+        }
+
+        return null;
+      }
+
+      function resolveCombatIntentTarget(intent) {
+        const enemies = getAvailableCombatTargets();
+        if (!enemies.length) return null;
+        if (intent?.targetId) {
+          const byId = enemies.find((enemy) => enemy.id === intent.targetId);
+          if (byId) return byId;
+        }
+        if (intent?.targetName) {
+          const normalizedName = normalizeQuery(intent.targetName);
+          const byName = enemies.find((enemy) => normalizeQuery(enemy.name) === normalizedName);
+          if (byName) return byName;
+        }
+        return enemies[0];
+      }
+
+      function computeSemiRigidDamageValue(actionKey, oldRoll, outcome) {
+        const die = actionKey === "spell" ? 10 : 8;
+        const abilityMod = oldRoll?.ability ? state.sheet.ability_mods?.[oldRoll.ability] || 0 : 0;
+        const pb = oldRoll?.proficiency ? state.sheet.proficiency_bonus || 0 : 0;
+        const extra = Number.isFinite(oldRoll?.extra_modifier) ? oldRoll.extra_modifier : 0;
+        let damage = rollDie(die);
+        damage += Math.max(0, abilityMod);
+        damage += Math.max(0, Math.floor((pb + extra) / 2));
+        if (isLikelyCriticalRoll(oldRoll, outcome)) {
+          damage += rollDie(die);
+        }
+        return clampInt(Math.round(damage), 1, 80, 1);
+      }
+
+      function isLikelyCriticalRoll(oldRoll, outcome) {
+        if (!oldRoll || oldRoll.die !== "d20") return false;
+        const label = String(outcome?.label || "");
+        return /=>\s*20\b/.test(label) || /d20\s*=\s*20\b/.test(label);
+      }
+
+      function buildRollReportWithCombatHint(baseRollReport, localCombatPatch) {
+        const lines = [String(baseRollReport || "").trim()];
+        const intent = buildCombatIntentForModel();
+        if (intent) {
+          lines.push("COMBAT_INTENT");
+          lines.push(JSON.stringify(intent));
+        }
+        if (localCombatPatch) {
+          lines.push("LOCAL_COMBAT_RESOLUTION_HINT");
+          lines.push(JSON.stringify(compactCombatPatchForRollHint(localCombatPatch)));
+        }
+        return lines.join("\n");
+      }
+
+      function compactCombatPatchForRollHint(patch) {
+        if (!patch || typeof patch !== "object") return {};
+        const compact = {};
+        if (typeof patch.active === "boolean") compact.active = patch.active;
+        if (typeof patch.turn_step === "number") compact.turn_step = patch.turn_step;
+        if (typeof patch.note === "string" && patch.note.trim()) compact.note = patch.note.trim().slice(0, 180);
+        if (Array.isArray(patch.participants_upsert)) {
+          compact.participants_upsert = patch.participants_upsert.map((p) => ({
+            id: p.id,
+            hp_current: p.hp_current,
+            hp_max: p.hp_max,
+            status: Array.isArray(p.status) ? p.status : [],
+          }));
+        }
+        return compact;
+      }
+
       async function callOpenAI(apiKey, modelHistory) {
-        const tryModels = [state.activeModel, ...MODEL_CANDIDATES.filter((m) => m !== state.activeModel)];
+        const budget = getAiBudgetSettings();
+        const compactInput = buildModelInputWindow(modelHistory, budget);
+        const tryModels = state.ai.allowModelFallback
+          ? [state.activeModel, ...MODEL_CANDIDATES.filter((m) => m !== state.activeModel)]
+          : state.activeModel === "gpt-4.1-nano"
+            ? ["gpt-4.1-nano", "gpt-4o-mini"]
+            : [state.activeModel];
         let lastError = null;
 
         for (let i = 0; i < tryModels.length; i += 1) {
@@ -1706,7 +4507,8 @@
             body: JSON.stringify({
               model: modelName,
               instructions: SYSTEM_PROMPT,
-              input: modelHistory,
+              input: compactInput,
+              max_output_tokens: budget.maxOutputTokens,
             }),
           });
 
@@ -1729,29 +4531,245 @@
         throw new Error(lastError || "כשל בבחירת מודל");
       }
 
+      function getAiBudgetSettings() {
+        const cheapMode = Boolean(state.ai.cheapMode);
+        const defaultTokens = cheapMode ? CHEAP_MODE_MAX_OUTPUT_TOKENS : NORMAL_MODE_MAX_OUTPUT_TOKENS;
+        const maxOutputTokens = clampInt(state.ai.maxOutputTokens, 120, 1200, defaultTokens);
+        return {
+          cheapMode,
+          maxOutputTokens,
+          historyWindow: cheapMode ? CHEAP_MODE_HISTORY_WINDOW : NORMAL_MODE_HISTORY_WINDOW,
+          summaryLineLimit: cheapMode ? CHEAP_MODE_SUMMARY_LINES : NORMAL_MODE_SUMMARY_LINES,
+          entryMaxChars: cheapMode ? 150 : 260,
+        };
+      }
+
+      function buildModelInputWindow(modelHistory, budget) {
+        const history = Array.isArray(modelHistory) ? modelHistory : [];
+        if (!history.length) return [];
+
+        const keepOpening = Math.min(2, history.length);
+        const historyWindow = Math.max(4, Number(budget?.historyWindow) || CHEAP_MODE_HISTORY_WINDOW);
+        if (history.length <= keepOpening + historyWindow) {
+          return history.map((entry, index) =>
+            normalizeHistoryEntry(entry, {
+              stripEmbeddedContext: index !== history.length - 1,
+              maxChars: (budget?.entryMaxChars || 180) * 4,
+            })
+          );
+        }
+
+        const opening = history.slice(0, keepOpening).map((entry) =>
+          normalizeHistoryEntry(entry, {
+            stripEmbeddedContext: true,
+            maxChars: (budget?.entryMaxChars || 180) * 4,
+          })
+        );
+        const recentRaw = history.slice(-historyWindow);
+        const recent = recentRaw.map((entry, index) =>
+          normalizeHistoryEntry(entry, {
+            stripEmbeddedContext: index !== recentRaw.length - 1,
+            maxChars: (budget?.entryMaxChars || 180) * 4,
+          })
+        );
+        const mid = history.slice(keepOpening, -historyWindow);
+        const digest = buildHistoryDigest(mid, budget?.summaryLineLimit || 8, budget?.entryMaxChars || 180);
+
+        const compact = [...opening];
+        if (digest) {
+          compact.push({
+            role: "user",
+            content: `תקציר_אירועים_קודמים:\n${digest}`,
+          });
+        }
+        compact.push(...recent);
+        return compact;
+      }
+
+      function normalizeHistoryEntry(entry, options = {}) {
+        const role = entry && entry.role === "assistant" ? "assistant" : "user";
+        const maxChars = Number.isFinite(options.maxChars) ? options.maxChars : 800;
+        const stripEmbeddedContext = Boolean(options.stripEmbeddedContext);
+        let content = typeof entry?.content === "string" ? entry.content : "";
+        content = content.replace(/\r/g, "").trim();
+        if (stripEmbeddedContext && role === "user") {
+          content = stripEmbeddedSheetContext(content);
+        }
+        if (content.length > maxChars) {
+          content = `${content.slice(0, maxChars)}…`;
+        }
+        return { role, content };
+      }
+
+      function stripEmbeddedSheetContext(text) {
+        const normalized = String(text || "");
+        const markers = ["\nהקשר_דף_דמות_JSON", "\nדף_דמות_JSON:"];
+        let cutAt = -1;
+        for (const marker of markers) {
+          const index = normalized.indexOf(marker);
+          if (index >= 0 && (cutAt < 0 || index < cutAt)) {
+            cutAt = index;
+          }
+        }
+        if (cutAt < 0) return normalized;
+        const compact = normalized.slice(0, cutAt).trim();
+        if (!compact) return normalized;
+        return `${compact}\n[הקשר מכאני מפורט הושמט לחיסכון בעלות.]`;
+      }
+
+      function buildHistoryDigest(entries, lineLimit, entryMaxChars) {
+        if (!Array.isArray(entries) || !entries.length) return "";
+        const limit = Math.max(2, lineLimit || 8);
+        const maxChars = Math.max(80, entryMaxChars || 180);
+        const chosen = entries.slice(-limit);
+        const lines = [];
+        for (const entry of chosen) {
+          const role = entry && entry.role === "assistant" ? "מנחה" : "שחקן";
+          let content = typeof entry?.content === "string" ? entry.content : "";
+          content = stripEmbeddedSheetContext(content).replace(/\s+/g, " ").trim();
+          if (!content) continue;
+          if (content.length > maxChars) {
+            content = `${content.slice(0, maxChars)}…`;
+          }
+          lines.push(`- ${role}: ${content}`);
+        }
+        return lines.join("\n");
+      }
+
       function parseDmResponse(rawText) {
-        const narrativeMatch = rawText.match(/<NARRATIVE>([\s\S]*?)<\/NARRATIVE>/i);
-        const stateMatch = rawText.match(/<STATE>([\s\S]*?)<\/STATE>/i);
+        const raw = String(rawText || "").trim();
+        const warnings = [];
+        const narrativeTagContent = extractTaggedSection(raw, "NARRATIVE");
+        const stateTagContent = extractTaggedSection(raw, "STATE");
 
-        const baseNarrative = narrativeMatch ? narrativeMatch[1].trim() : rawText.trim();
-        const narrative = stripNumberedChoices(baseNarrative);
-        let meta = { pending_roll: null, sheet_patch: {}, scene_image: { needed: false, importance: "none", reason: "" } };
+        let metaSource = null;
+        if (stateTagContent) {
+          metaSource = tryParseJsonCandidate(stateTagContent);
+          if (!metaSource) warnings.push("state_json_invalid");
+        }
 
-        if (stateMatch) {
-          const jsonText = cleanJsonText(stateMatch[1]);
-          try {
-            const parsed = JSON.parse(jsonText);
-            meta = {
-              pending_roll: parsed && typeof parsed === "object" ? parsed.pending_roll || null : null,
-              sheet_patch: parsed && typeof parsed === "object" ? parsed.sheet_patch || {} : {},
-              scene_image: normalizeSceneImageHint(parsed && typeof parsed === "object" ? parsed.scene_image : null),
-            };
-          } catch {
-            meta = { pending_roll: null, sheet_patch: {}, scene_image: { needed: false, importance: "none", reason: "" } };
+        const rootObject = tryParseJsonCandidate(raw);
+        if (!metaSource && rootObject && typeof rootObject === "object") {
+          if (rootObject.state && typeof rootObject.state === "object") {
+            metaSource = rootObject.state;
+          } else if (
+            Object.prototype.hasOwnProperty.call(rootObject, "pending_roll") ||
+            Object.prototype.hasOwnProperty.call(rootObject, "sheet_patch") ||
+            Object.prototype.hasOwnProperty.call(rootObject, "scene_image") ||
+            Object.prototype.hasOwnProperty.call(rootObject, "combat_patch") ||
+            Object.prototype.hasOwnProperty.call(rootObject, "campaign_patch")
+          ) {
+            metaSource = rootObject;
           }
         }
 
-        return { narrative, meta };
+        const narrativeCandidateFromJson =
+          rootObject && typeof rootObject === "object" && typeof rootObject.narrative === "string"
+            ? rootObject.narrative
+            : "";
+
+        let narrativeSource = narrativeTagContent || narrativeCandidateFromJson || stripTaggedSegments(raw);
+        let narrative = stripNumberedChoices(narrativeSource);
+
+        if (looksLikeJsonPayload(narrative)) {
+          narrative = "";
+          warnings.push("narrative_looked_like_json");
+        }
+
+        if (!narrative) {
+          narrative = "האוויר נעצר לרגע סביבך. תאר מה הדמות שלך עושה עכשיו, ואמשיך מיד.";
+          warnings.push("narrative_missing_fallback_used");
+        } else if (narrative.length > 1600) {
+          narrative = `${narrative.slice(0, 1600)}…`;
+          warnings.push("narrative_truncated");
+        }
+
+        const meta = normalizeDmMeta(metaSource, warnings);
+        return { narrative, meta, warnings };
+      }
+
+      function extractTaggedSection(text, tagName) {
+        const safeText = String(text || "");
+        const match = safeText.match(new RegExp(`<${tagName}>([\\s\\S]*?)<\\/${tagName}>`, "i"));
+        return match ? match[1].trim() : "";
+      }
+
+      function stripTaggedSegments(text) {
+        return String(text || "")
+          .replace(/<NARRATIVE>/gi, "")
+          .replace(/<\/NARRATIVE>/gi, "")
+          .replace(/<STATE>[\s\S]*?<\/STATE>/gi, "")
+          .trim();
+      }
+
+      function looksLikeJsonPayload(text) {
+        const compact = String(text || "").trim();
+        if (!compact) return false;
+        if (!compact.startsWith("{") && !compact.startsWith("[")) return false;
+        return /"\s*:\s*/.test(compact) || /pending_roll|sheet_patch|scene_image|combat_patch|campaign_patch|narrative/i.test(compact);
+      }
+
+      function tryParseJsonCandidate(text) {
+        if (typeof text !== "string") return null;
+        const cleaned = cleanJsonText(text);
+        if (!cleaned) return null;
+        try {
+          return JSON.parse(cleaned);
+        } catch {}
+
+        const extracted = extractFirstBalancedJsonObject(cleaned);
+        if (!extracted) return null;
+        try {
+          return JSON.parse(extracted);
+        } catch {
+          return null;
+        }
+      }
+
+      function extractFirstBalancedJsonObject(text) {
+        const raw = String(text || "");
+        for (let start = 0; start < raw.length; start += 1) {
+          if (raw[start] !== "{") continue;
+          let depth = 0;
+          let inString = false;
+          let escaped = false;
+
+          for (let i = start; i < raw.length; i += 1) {
+            const ch = raw[i];
+            if (inString) {
+              if (escaped) {
+                escaped = false;
+                continue;
+              }
+              if (ch === "\\") {
+                escaped = true;
+                continue;
+              }
+              if (ch === '"') {
+                inString = false;
+              }
+              continue;
+            }
+            if (ch === '"') {
+              inString = true;
+              continue;
+            }
+            if (ch === "{") {
+              depth += 1;
+              continue;
+            }
+            if (ch === "}") {
+              depth -= 1;
+              if (depth === 0) {
+                return raw.slice(start, i + 1);
+              }
+              if (depth < 0) {
+                break;
+              }
+            }
+          }
+        }
+        return "";
       }
 
       function stripNumberedChoices(text) {
@@ -1781,37 +4799,163 @@
         return { needed, importance, reason };
       }
 
+      function normalizeDmMeta(rawMeta, warnings) {
+        const defaults = {
+          pending_roll: null,
+          sheet_patch: {},
+          scene_image: { needed: false, importance: "none", reason: "" },
+          combat_patch: null,
+          campaign_patch: null,
+        };
+        if (!rawMeta || typeof rawMeta !== "object") {
+          warnings.push("state_missing_default_used");
+          return defaults;
+        }
+
+        let pendingRoll = null;
+        if (rawMeta.pending_roll === null || rawMeta.pending_roll === undefined) {
+          pendingRoll = null;
+        } else if (typeof rawMeta.pending_roll === "object" && Object.keys(rawMeta.pending_roll).length > 0) {
+          pendingRoll = normalizeRollSpec(rawMeta.pending_roll);
+        } else {
+          warnings.push("pending_roll_invalid");
+        }
+
+        const sheetPatch =
+          rawMeta.sheet_patch === undefined
+            ? {}
+            : normalizeSheetPatch(rawMeta.sheet_patch, warnings);
+        const sceneImage = normalizeSceneImageHint(rawMeta.scene_image);
+        const combatPatch =
+          rawMeta.combat_patch === undefined
+            ? null
+            : normalizeCombatPatch(rawMeta.combat_patch, warnings);
+        const campaignPatch =
+          rawMeta.campaign_patch === undefined
+            ? null
+            : normalizeCampaignPatch(rawMeta.campaign_patch, warnings);
+
+        return {
+          pending_roll: pendingRoll,
+          sheet_patch: sheetPatch,
+          scene_image: sceneImage,
+          combat_patch: combatPatch,
+          campaign_patch: campaignPatch,
+        };
+      }
+
+      function normalizeSheetPatch(rawPatch, warnings) {
+        if (!rawPatch || typeof rawPatch !== "object") {
+          if (rawPatch !== undefined && warnings) warnings.push("sheet_patch_invalid");
+          return {};
+        }
+
+        const patch = {};
+
+        const hpCurrent = clampInt(rawPatch.hp_current, 0, 999, null);
+        if (hpCurrent !== null) patch.hp_current = hpCurrent;
+        const hpDelta = clampInt(rawPatch.hp_delta, -300, 300, null);
+        if (hpDelta !== null) patch.hp_delta = hpDelta;
+
+        const gold = clampInt(rawPatch.gold, -999999, 999999, null);
+        if (gold !== null) patch.gold = gold;
+        const goldDelta = clampInt(rawPatch.gold_delta, -99999, 99999, null);
+        if (goldDelta !== null) patch.gold_delta = goldDelta;
+
+        const xp = clampInt(rawPatch.xp, 0, 9999999, null);
+        if (xp !== null) patch.xp = xp;
+        const xpDelta = clampInt(rawPatch.xp_delta, -20000, 20000, null);
+        if (xpDelta !== null) patch.xp_delta = xpDelta;
+
+        const level = clampInt(rawPatch.level, 1, 20, null);
+        if (level !== null) patch.level = level;
+        const ac = clampInt(rawPatch.ac, 1, 40, null);
+        if (ac !== null) patch.ac = ac;
+
+        if (typeof rawPatch.location === "string" && rawPatch.location.trim()) {
+          patch.location = rawPatch.location.trim().slice(0, 120);
+        }
+
+        if (rawPatch.ability_scores && typeof rawPatch.ability_scores === "object") {
+          const abilityScores = {};
+          for (const ability of ABILITIES) {
+            const value = clampInt(rawPatch.ability_scores[ability], 1, 30, null);
+            if (value !== null) {
+              abilityScores[ability] = value;
+            }
+          }
+          if (Object.keys(abilityScores).length > 0) {
+            patch.ability_scores = abilityScores;
+          }
+        }
+
+        const inventoryAdd = normalizeStringList(rawPatch.inventory_add, 20, 80);
+        if (inventoryAdd.length) patch.inventory_add = inventoryAdd;
+        const inventoryRemove = normalizeStringList(rawPatch.inventory_remove, 20, 80);
+        if (inventoryRemove.length) patch.inventory_remove = inventoryRemove;
+
+        const featuresAdd = normalizeStringList(rawPatch.features_add, 20, 90);
+        if (featuresAdd.length) patch.features_add = featuresAdd;
+        const featuresRemove = normalizeStringList(rawPatch.features_remove, 20, 90);
+        if (featuresRemove.length) patch.features_remove = featuresRemove;
+
+        const conditionsAdd = normalizeStringList(rawPatch.conditions_add, 12, 48);
+        if (conditionsAdd.length) patch.conditions_add = conditionsAdd;
+        const conditionsRemove = normalizeStringList(rawPatch.conditions_remove, 12, 48);
+        if (conditionsRemove.length) patch.conditions_remove = conditionsRemove;
+
+        return patch;
+      }
+
+      function normalizeStringList(list, maxItems, maxItemLength) {
+        if (!Array.isArray(list)) return [];
+        const out = [];
+        for (const item of list) {
+          if (typeof item !== "string") continue;
+          const trimmed = item.replace(/\s+/g, " ").trim();
+          if (!trimmed) continue;
+          const normalizedItem = trimmed.slice(0, maxItemLength);
+          if (!out.includes(normalizedItem)) {
+            out.push(normalizedItem);
+            if (out.length >= maxItems) break;
+          }
+        }
+        return out;
+      }
+
       function applySheetPatch(patch) {
-        if (!patch || typeof patch !== "object" || !state.sheet) return;
+        if (!state.sheet) return;
+        const p = normalizeSheetPatch(patch);
+        if (!p || typeof p !== "object" || Object.keys(p).length === 0) return;
         const s = state.sheet;
 
-        if (Number.isFinite(patch.hp_current)) s.hp_current = clampInt(patch.hp_current, 0, 999, s.hp_current);
-        if (Number.isFinite(patch.hp_delta)) s.hp_current = clampInt(s.hp_current + patch.hp_delta, 0, 999, s.hp_current);
+        if (Number.isFinite(p.hp_current)) s.hp_current = clampInt(p.hp_current, 0, 999, s.hp_current);
+        if (Number.isFinite(p.hp_delta)) s.hp_current = clampInt(s.hp_current + p.hp_delta, 0, 999, s.hp_current);
 
-        if (Number.isFinite(patch.gold)) s.gold = patch.gold;
-        if (Number.isFinite(patch.gold_delta)) s.gold += patch.gold_delta;
+        if (Number.isFinite(p.gold)) s.gold = p.gold;
+        if (Number.isFinite(p.gold_delta)) s.gold += p.gold_delta;
 
-        if (Number.isFinite(patch.xp)) s.xp = patch.xp;
-        if (Number.isFinite(patch.xp_delta)) s.xp += patch.xp_delta;
+        if (Number.isFinite(p.xp)) s.xp = p.xp;
+        if (Number.isFinite(p.xp_delta)) s.xp += p.xp_delta;
 
-        if (Number.isFinite(patch.level)) s.level = clampInt(patch.level, 1, 20, s.level);
+        if (Number.isFinite(p.level)) s.level = clampInt(p.level, 1, 20, s.level);
         s.proficiency_bonus = proficiencyBonusByLevel(s.level);
 
-        if (Number.isFinite(patch.ac)) s.ac = patch.ac;
-        if (typeof patch.location === "string" && patch.location.trim()) s.location = patch.location.trim();
+        if (Number.isFinite(p.ac)) s.ac = p.ac;
+        if (typeof p.location === "string" && p.location.trim()) s.location = p.location.trim();
 
-        if (patch.ability_scores && typeof patch.ability_scores === "object") {
+        if (p.ability_scores && typeof p.ability_scores === "object") {
           for (const ability of ABILITIES) {
-            if (Number.isFinite(patch.ability_scores[ability])) {
-              s.ability_scores[ability] = clampInt(patch.ability_scores[ability], 1, 30, s.ability_scores[ability]);
+            if (Number.isFinite(p.ability_scores[ability])) {
+              s.ability_scores[ability] = clampInt(p.ability_scores[ability], 1, 30, s.ability_scores[ability]);
             }
           }
           s.ability_mods = buildAbilityMods(s.ability_scores);
         }
 
-        s.inventory = patchList(s.inventory, patch.inventory_add, patch.inventory_remove);
-        s.features = patchList(s.features, patch.features_add, patch.features_remove);
-        s.conditions = patchList(s.conditions, patch.conditions_add, patch.conditions_remove);
+        s.inventory = patchList(s.inventory, p.inventory_add, p.inventory_remove);
+        s.features = patchList(s.features, p.features_add, p.features_remove);
+        s.conditions = patchList(s.conditions, p.conditions_add, p.conditions_remove);
 
         s.hp_current = Math.min(s.hp_current, s.hp_max);
       }
@@ -1836,20 +4980,37 @@
       }
 
       function normalizeRollSpec(spec) {
+        if (!spec || typeof spec !== "object") {
+          return {
+            die: "d20",
+            ability: "",
+            skill: "",
+            reason: "בדיקה מכאנית",
+            dc: null,
+            advantage: "normal",
+            proficiency: false,
+            extra_modifier: 0,
+          };
+        }
+
         const dieCandidate = typeof spec.die === "string" ? spec.die.toLowerCase().trim() : "d20";
-        const die = /^d\d+$/.test(dieCandidate) ? dieCandidate : "d20";
+        const die = ROLL_DICE_ALLOWED.has(dieCandidate) ? dieCandidate : "d20";
         let ability = normalizeAbility(spec.ability);
-        const skill = typeof spec.skill === "string" ? spec.skill : "";
+        const skill = normalizeSkillCode(spec.skill);
         if (!ability && skill && SKILL_TO_ABILITY[skill]) {
           ability = SKILL_TO_ABILITY[skill];
         }
-        const reason = typeof spec.reason === "string" && spec.reason.trim() ? spec.reason.trim() : "בדיקה מכאנית";
+        const reason =
+          typeof spec.reason === "string" && spec.reason.trim()
+            ? spec.reason.trim().replace(/\s+/g, " ").slice(0, 180)
+            : "בדיקה מכאנית";
         const dcValue = Number.parseInt(spec.dc, 10);
         const dc = Number.isFinite(dcValue) ? clampInt(dcValue, 1, 40, null) : null;
         const advantage =
           spec.advantage === "advantage" || spec.advantage === "disadvantage" ? spec.advantage : "normal";
         const proficiency = Boolean(spec.proficiency);
-        const extra_modifier = Number.isFinite(Number(spec.extra_modifier)) ? Number(spec.extra_modifier) : 0;
+        const extraRaw = Number.parseInt(spec.extra_modifier, 10);
+        const extra_modifier = Number.isFinite(extraRaw) ? clampInt(extraRaw, -30, 30, 0) : 0;
 
         return { die, ability, skill, reason, dc, advantage, proficiency, extra_modifier };
       }
@@ -1858,6 +5019,29 @@
         if (typeof value !== "string") return "";
         const upper = value.toUpperCase();
         return ABILITIES.includes(upper) ? upper : "";
+      }
+
+      function normalizeSkillCode(value) {
+        if (typeof value !== "string") return "";
+        const raw = value.trim();
+        if (!raw) return "";
+        const direct = raw.toLowerCase().replace(/-/g, "_");
+        if (Object.prototype.hasOwnProperty.call(SKILL_TO_ABILITY, direct)) {
+          return direct;
+        }
+
+        const normalized = normalizeQuery(raw).replace(/-/g, "_").replace(/\s+/g, "_");
+        if (Object.prototype.hasOwnProperty.call(SKILL_TO_ABILITY, normalized)) {
+          return normalized;
+        }
+
+        const skillCodes = Object.keys(SKILL_LABELS_HE);
+        for (const code of skillCodes) {
+          if (normalizeQuery(SKILL_LABELS_HE[code]) === normalizeQuery(raw)) {
+            return code;
+          }
+        }
+        return "";
       }
 
       function deriveFallbackRollFromAction(actionText) {
@@ -2078,15 +5262,22 @@
           );
 
           const oldRoll = state.pendingRoll;
-          const rollReport = outcome.rollReport;
+          const localCombatPatch = resolveSemiRigidCombatPatchFromRoll(oldRoll, outcome);
+          if (localCombatPatch) {
+            applyCombatPatch(localCombatPatch, { source: "local_roll_engine" });
+            renderCombatTracker();
+            addMessage("system", "בוצע עדכון קרב אוטומטי (גיבוי) לפי תוצאת הגלגול.");
+          }
+          const rollReport = buildRollReportWithCombatHint(outcome.rollReport, localCombatPatch);
           state.pendingRoll = null;
           state.pendingRollOutcome = null;
           closeRollModal();
 
           await sendTurnToModel(rollReport, false);
-          if (oldRoll && oldRoll.reason) {
-            setStatus("הסיפור ממשיך");
+          if (!state.pendingRoll) {
+            state.combatIntent = null;
           }
+          updateMainStatus();
         } finally {
           state.rolling = false;
           elements.rollNowBtn.textContent = "גלגל";
@@ -2724,6 +5915,72 @@
         );
         setList(elements.skillsList, prettySkills, "אין מיומנויות מסומנות כרגע.");
         setList(elements.conditionsList, state.sheet.conditions, "אין מצבים פעילים.");
+        renderCampaignPlan();
+      }
+
+      function renderCombatTracker() {
+        if (!elements.combatSummary || !elements.combatOrderList || !elements.combatChip || !elements.endCombatBtn) {
+          return;
+        }
+        const combat = state.combat || createDefaultCombatState();
+        if (!combat.active) {
+          elements.combatChip.textContent = "קרב: לא פעיל";
+          elements.endCombatBtn.disabled = true;
+          elements.combatSummary.textContent = "אין קרב פעיל כרגע.";
+          elements.combatOrderList.innerHTML = "";
+          renderCombatActions();
+          return;
+        }
+
+        syncCombatPlayerParticipant();
+        combat.participants = normalizeCombatParticipants(combat.participants);
+        if (combat.round < 1) combat.round = 1;
+        if (combat.turnIndex < 0 || combat.turnIndex >= combat.participants.length) {
+          combat.turnIndex = 0;
+        }
+
+        const current = getCurrentCombatActor();
+        const encounterName = combat.encounterName || "עימות פעיל";
+        const note = combat.note ? ` | ${combat.note}` : "";
+        elements.combatChip.textContent = current
+          ? `קרב: סיבוב ${combat.round} | ${current.name}`
+          : `קרב: סיבוב ${combat.round}`;
+        elements.endCombatBtn.disabled = false;
+        elements.combatSummary.textContent = current
+          ? `${encounterName} | סיבוב ${combat.round} | בתור: ${current.name}${note}`
+          : `${encounterName} | סיבוב ${combat.round}${note}`;
+
+        elements.combatOrderList.innerHTML = "";
+        for (let i = 0; i < combat.participants.length; i += 1) {
+          const p = combat.participants[i];
+          const li = document.createElement("li");
+          li.className = `combat-row${i === combat.turnIndex ? " active" : ""}`;
+
+          const hpText =
+            Number.isFinite(p.hpCurrent) && Number.isFinite(p.hpMax)
+              ? `${p.hpCurrent}/${p.hpMax}`
+              : Number.isFinite(p.hpCurrent)
+                ? String(p.hpCurrent)
+                : "-";
+          const initText = Number.isFinite(p.initiative) ? formatSigned(p.initiative) : "-";
+          const acText = Number.isFinite(p.ac) ? String(p.ac) : "-";
+          const statusText = Array.isArray(p.status) && p.status.length ? p.status.join(", ") : "ללא";
+
+          li.innerHTML =
+            `<div class="top"><strong>${escapeHtml(p.name)}</strong><span>${escapeHtml(combatSideLabel(p))}</span></div>` +
+            `<div class="meta">יוזמה: ${initText} | חיים: ${hpText} | שריון: ${acText}</div>` +
+            `<div class="meta">מצב: ${escapeHtml(statusText)}</div>`;
+          elements.combatOrderList.appendChild(li);
+        }
+        renderCombatActions();
+      }
+
+      function combatSideLabel(participant) {
+        if (!participant) return "לא ידוע";
+        if (participant.isPlayer) return "שחקן";
+        if (participant.side === "ally") return "בן ברית";
+        if (participant.side === "enemy") return "אויב";
+        return "נייטרלי";
       }
 
       function setList(container, items, fallback) {
@@ -2912,6 +6169,7 @@
         } else {
           elements.chatInput.placeholder = "מה הדמות שלך עושה עכשיו?";
         }
+        renderCombatActions();
       }
 
       function clearComposerAfterSend() {
@@ -2920,10 +6178,14 @@
         state.speech.finalTranscript = "";
       }
 
-      function addMessage(type, text) {
+      function addMessage(type, text, options = {}) {
+        const skipTranscript = Boolean(options.skipTranscript);
         if (type === "dm") {
-          void addDmMessage(text, null);
+          void addDmMessage(text, null, options);
           return;
+        }
+        if (!skipTranscript) {
+          recordChatEntry(type, text);
         }
         const el = document.createElement("article");
         el.className = `msg ${type}`;
@@ -2932,11 +6194,16 @@
         elements.chatLog.scrollTop = elements.chatLog.scrollHeight;
       }
 
-      async function addDmMessage(text, sceneImageHint) {
+      async function addDmMessage(text, sceneImageHint, options = {}) {
+        const skipTranscript = Boolean(options.skipTranscript);
+        const suppressImage = Boolean(options.suppressImage);
         const paragraphs = splitDmParagraphs(text);
+        if (!skipTranscript) {
+          recordChatEntry("dm", text);
+        }
         state.dmMessageCount += 1;
         const messageIndex = state.dmMessageCount;
-        const shouldRenderImage = shouldGenerateSceneImage(text, sceneImageHint, messageIndex);
+        const shouldRenderImage = suppressImage ? false : shouldGenerateSceneImage(text, sceneImageHint, messageIndex);
         let imageSrc = null;
         let imageError = "";
 
@@ -2985,7 +6252,21 @@
         elements.chatLog.scrollTop = elements.chatLog.scrollHeight;
       }
 
+      function recordChatEntry(type, text) {
+        const safeType = type === "user" || type === "dm" || type === "system" ? type : "system";
+        const safeText = String(text || "").replace(/\r/g, "").trim();
+        if (!safeText) return;
+        state.chatTranscript.push({
+          type: safeType,
+          text: safeText.slice(0, 2400),
+        });
+        if (state.chatTranscript.length > 320) {
+          state.chatTranscript.splice(0, state.chatTranscript.length - 320);
+        }
+      }
+
       function shouldGenerateSceneImage(text, sceneImageHint, messageIndex) {
+        if (!state.ai.imagesEnabled) return false;
         if (messageIndex <= 1) return true;
         if (messageIndex - state.lastImageDmIndex < 2) return false;
 
@@ -3158,6 +6439,54 @@
         elements.statusChip.textContent = text;
       }
 
+      function applyAiSettingsFromApiGate() {
+        const selectedModel = MODEL_CANDIDATES.includes(elements.modelSelect.value)
+          ? elements.modelSelect.value
+          : MODEL_CANDIDATES[0];
+        const cheapMode = Boolean(elements.cheapModeInput.checked);
+        const allowModelFallback = cheapMode ? false : Boolean(elements.allowModelFallbackInput.checked);
+        const imagesEnabled = cheapMode ? false : Boolean(elements.imagesEnabledInput.checked);
+        const defaultTokens = cheapMode ? CHEAP_MODE_MAX_OUTPUT_TOKENS : NORMAL_MODE_MAX_OUTPUT_TOKENS;
+        const maxOutputTokens = cheapMode
+          ? clampInt(elements.maxOutputTokensInput.value, 120, 420, defaultTokens)
+          : clampInt(elements.maxOutputTokensInput.value, 120, 1200, defaultTokens);
+
+        state.ai = {
+          modelPreference: selectedModel,
+          cheapMode,
+          allowModelFallback,
+          imagesEnabled,
+          maxOutputTokens,
+        };
+      }
+
+      function syncApiControlsFromMode() {
+        const cheapMode = Boolean(elements.cheapModeInput.checked);
+        if (cheapMode) {
+          elements.allowModelFallbackInput.checked = false;
+          elements.imagesEnabledInput.checked = false;
+        }
+        elements.allowModelFallbackInput.disabled = cheapMode;
+        elements.imagesEnabledInput.disabled = cheapMode;
+
+        const fallbackTokens = cheapMode ? CHEAP_MODE_MAX_OUTPUT_TOKENS : NORMAL_MODE_MAX_OUTPUT_TOKENS;
+        const maxAllowedTokens = cheapMode ? 420 : 1200;
+        const normalizedTokens = clampInt(elements.maxOutputTokensInput.value, 120, maxAllowedTokens, fallbackTokens);
+        elements.maxOutputTokensInput.max = String(maxAllowedTokens);
+        elements.maxOutputTokensInput.value = String(normalizedTokens);
+
+        const modelLabel = MODEL_CANDIDATES.includes(elements.modelSelect.value)
+          ? elements.modelSelect.value
+          : MODEL_CANDIDATES[0];
+        if (elements.budgetHint) {
+          elements.budgetHint.textContent = cheapMode
+            ? `מצב בדיקות זול פעיל: ${modelLabel}, עד ${normalizedTokens} טוקנים לתגובה, קונטקסט מצומצם וללא תמונות.`
+            : `מצב רגיל: ${modelLabel}, עד ${normalizedTokens} טוקנים לתגובה${
+                elements.allowModelFallbackInput.checked ? ", עם גיבוי מודל" : ""
+              }${elements.imagesEnabledInput.checked ? ", עם תמונות" : ", ללא תמונות"}.`;
+        }
+      }
+
       function storyTurnsLeft() {
         return Math.max(0, state.targetMaxTurns - state.storyTurn);
       }
@@ -3247,6 +6576,14 @@
           .replaceAll(">", "&gt;")
           .replaceAll('"', "&quot;")
           .replaceAll("'", "&#039;");
+      }
+
+      function cloneJson(value, fallback = null) {
+        try {
+          return JSON.parse(JSON.stringify(value));
+        } catch {
+          return fallback;
+        }
       }
 
       async function safeJson(response) {
